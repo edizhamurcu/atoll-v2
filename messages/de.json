@@ -124,7 +124,18 @@
     "fact3Title": "Ankunft in Larnaka und Paphos",
     "fact3": "Landen Sie im Süden? Holen Sie das Auto am Flughafen Larnaka oder Paphos ab.",
     "fact4Title": "Klare Preise in Pfund",
-    "fact4": "Der angezeigte Preis enthält Auto, Rabatte und Standortgebühren. Eine kleine Anzahlung sichert die Buchung, der Rest wird bei Abholung bezahlt."
+    "fact4": "Der angezeigte Preis enthält Auto, Rabatte und Standortgebühren. Eine kleine Anzahlung sichert die Buchung, der Rest wird bei Abholung bezahlt.",
+    "stepsTitle": "So funktioniert die Buchung",
+    "step1Title": "Reisedaten suchen",
+    "step1": "Wählen Sie Ort und Zeit. Sie sehen sofort, welche Autos frei sind, und den Gesamtpreis.",
+    "step2Title": "Auto reservieren",
+    "step2": "Wir halten das Auto 15 Minuten für Sie, während Sie Extras wie einen Kindersitz oder den Südzypern-Schutz hinzufügen.",
+    "step3Title": "Bestätigen und losfahren",
+    "step3": "Zahlen Sie eine kleine Anzahlung oder bei Abholung. Vor Ihrer Ankunft melden wir uns per WhatsApp.",
+    "ctaTitle": "Fragen vor der Buchung?",
+    "ctaLead": "Unser Team in Kyrenia antwortet auf WhatsApp, zu Bürozeiten meist innerhalb weniger Minuten.",
+    "ctaWhatsapp": "Schreiben Sie uns auf WhatsApp",
+    "ctaCall": "Anrufen: {phone}"
   },
   "footer": {
     "address": "154 Karaoğlanoğlu Caddesi, Alsancak, Kyrenia, Nordzypern",
@@ -134,6 +145,7 @@
   "errors": {
     "generic": "Etwas ist schiefgelaufen. Bitte versuchen Sie es erneut.",
     "notFound": "Diese Seite existiert nicht.",
-    "home": "Zur Startseite"
+    "home": "Zur Startseite",
+    "retry": "Erneut versuchen"
   }
 }

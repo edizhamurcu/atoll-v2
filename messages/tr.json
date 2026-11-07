@@ -124,7 +124,18 @@
     "fact3Title": "Larnaka ve Baf varışları",
     "fact3": "Güneye mi iniyorsunuz? Aracı Larnaka veya Baf havalimanında teslim alın.",
     "fact4Title": "Sterlin cinsinden net fiyat",
-    "fact4": "Gördüğünüz fiyata araç, indirimler ve lokasyon ücretleri dahildir. Küçük bir depozito rezervasyonu tutar; kalanı teslimde ödenir."
+    "fact4": "Gördüğünüz fiyata araç, indirimler ve lokasyon ücretleri dahildir. Küçük bir depozito rezervasyonu tutar; kalanı teslimde ödenir.",
+    "stepsTitle": "Rezervasyon nasıl işler",
+    "step1Title": "Tarihlerinizi arayın",
+    "step1": "Yeri ve zamanı seçin. Hangi araçların boş olduğunu ve toplam fiyatı hemen görürsünüz.",
+    "step2Title": "Aracı ayırın",
+    "step2": "Bebek koltuğu veya Güney Kıbrıs güvencesi gibi ekstraları eklerken araç 15 dakika size ayrılır.",
+    "step3Title": "Onaylayın ve yola çıkın",
+    "step3": "Küçük bir depozito ödeyin ya da teslimde ödeyin. Gelmeden önce WhatsApp'tan yazarız.",
+    "ctaTitle": "Rezervasyondan önce sorunuz mu var?",
+    "ctaLead": "Girne ekibimiz WhatsApp'tan, mesai saatlerinde genellikle dakikalar içinde yanıt verir.",
+    "ctaWhatsapp": "WhatsApp'tan yazın",
+    "ctaCall": "Arayın: {phone}"
   },
   "footer": {
     "address": "154 Karaoğlanoğlu Caddesi, Alsancak, Girne, KKTC",
@@ -134,6 +145,7 @@
   "errors": {
     "generic": "Bir şeyler ters gitti. Lütfen tekrar deneyin.",
     "notFound": "Bu sayfa mevcut değil.",
-    "home": "Ana sayfaya dön"
+    "home": "Ana sayfaya dön",
+    "retry": "Tekrar dene"
   }
 }

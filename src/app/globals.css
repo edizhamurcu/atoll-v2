@@ -9,8 +9,10 @@
   --color-stone: #eef1ee; /* page */
   --color-stone-deep: #dfe5e1; /* lines, inputs */
   --color-paper: #fbfcfb; /* raised panels */
-  --color-bougain: #b5175e; /* the one accent: primary action, "free" */
-  --color-bougain-deep: #8e0f49;
+  --color-bougain: #c3262f; /* Atoll logo red — the one accent: primary action, "free" */
+  --color-bougain-deep: #9e1c24;
+  --color-logo-ink: #1a1a1a;
+  --color-logo-navy: #0d117c;
   --color-carob: #6b4f3a; /* warm detail for map land */
   --color-alert: #a33a1f;
 

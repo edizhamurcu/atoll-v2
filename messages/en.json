@@ -124,7 +124,18 @@
     "fact3Title": "Larnaca and Paphos arrivals",
     "fact3": "Landing in the south? Collect the car at Larnaca or Paphos airport.",
     "fact4Title": "Clear prices in pounds",
-    "fact4": "The price you see includes the car, discounts and location fees. A small deposit holds the booking; the rest is paid at pick-up."
+    "fact4": "The price you see includes the car, discounts and location fees. A small deposit holds the booking; the rest is paid at pick-up.",
+    "stepsTitle": "How booking works",
+    "step1Title": "Search your dates",
+    "step1": "Choose where and when. You see straight away which cars are free and the full price.",
+    "step2Title": "Reserve the car",
+    "step2": "We hold the car for you for 15 minutes while you add extras like a baby seat or South Cyprus cover.",
+    "step3Title": "Confirm and drive",
+    "step3": "Pay a small deposit or pay at pick-up. We message you on WhatsApp before you arrive.",
+    "ctaTitle": "Questions before you book?",
+    "ctaLead": "Our Kyrenia team answers on WhatsApp, usually within minutes during office hours.",
+    "ctaWhatsapp": "Message us on WhatsApp",
+    "ctaCall": "Call {phone}"
   },
   "footer": {
     "address": "154 Karaoğlanoğlu Caddesi, Alsancak, Kyrenia, North Cyprus",
@@ -134,6 +145,7 @@
   "errors": {
     "generic": "Something went wrong. Please try again.",
     "notFound": "This page doesn't exist.",
-    "home": "Back to home"
+    "home": "Back to home",
+    "retry": "Try again"
   }
 }

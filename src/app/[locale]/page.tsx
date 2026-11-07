@@ -4,6 +4,8 @@ import { CyprusMap, MAP_POINTS } from "@/components/cyprus-map";
 import { SearchSection, SearchSkeleton } from "@/components/search-section";
 import { FleetSection, FleetSkeleton } from "@/components/fleet-section";
 import type { Locale } from "@/server/catalog";
+import { LocalBusinessJsonLd } from "@/components/local-business-jsonld";
+import { WHATSAPP, PHONE } from "@/lib/contact";
 
 const MAP_NAMES: Record<string, Record<string, string>> = {
   en: { "alsancak-office": "Kyrenia office", "ercan-airport": "Ercan", "larnaca-airport": "Larnaca", "paphos-airport": "Paphos" },
@@ -16,8 +18,10 @@ export default async function Home({ params }: PageProps<"/[locale]">) {
   const { locale } = (await params) as { locale: Locale };
   const [t, h] = await Promise.all([getTranslations("hero"), getTranslations("home")]);
   const facts = [1, 2, 3, 4] as const;
+  const steps = [1, 2, 3] as const;
   return (
     <>
+      <LocalBusinessJsonLd site={process.env.PUBLIC_SITE_URL ?? "https://atollrentacar.com"} />
       <section className="mx-auto max-w-6xl px-5 pt-10 md:pt-16">
         <div className="grid items-center gap-8 md:grid-cols-[1.15fr_1fr]">
           <div>
@@ -33,7 +37,20 @@ export default async function Home({ params }: PageProps<"/[locale]">) {
         </div>
       </section>
 
-      <section className="mx-auto mt-20 max-w-6xl px-5" aria-labelledby="fleet">
+      <section className="mx-auto mt-20 max-w-6xl px-5" aria-labelledby="steps">
+        <h2 id="steps" className="text-3xl font-extrabold md:text-4xl">{h("stepsTitle")}</h2>
+        <ol className="mt-8 grid gap-8 md:grid-cols-3">
+          {steps.map((n) => (
+            <li key={n} className="relative pl-14">
+              <span aria-hidden className="absolute left-0 top-0 flex size-10 items-center justify-center rounded-full bg-ink font-display text-lg font-bold text-white">{n}</span>
+              <h3 className="text-xl font-bold">{h(`step${n}Title`)}</h3>
+              <p className="mt-2 text-ink-soft">{h(`step${n}`)}</p>
+            </li>
+          ))}
+        </ol>
+      </section>
+
+      <section className="mx-auto mt-24 max-w-6xl px-5" aria-labelledby="fleet">
         <h2 id="fleet" className="text-3xl font-extrabold md:text-4xl">{h("fleetTitle")}</h2>
         <p className="mt-2 max-w-xl text-ink-soft">{h("fleetLead")}</p>
         <div className="mt-8">
@@ -53,6 +70,18 @@ export default async function Home({ params }: PageProps<"/[locale]">) {
             </div>
           ))}
         </dl>
+      </section>
+      <section className="mx-auto mt-24 max-w-6xl px-5" aria-labelledby="cta">
+        <div className="flex flex-col gap-6 rounded-[var(--radius-panel)] bg-ink px-6 py-10 text-white md:flex-row md:items-center md:justify-between md:px-10">
+          <div className="max-w-xl">
+            <h2 id="cta" className="text-3xl font-extrabold">{h("ctaTitle")}</h2>
+            <p className="mt-3 text-white/75">{h("ctaLead")}</p>
+          </div>
+          <div className="flex flex-wrap gap-3">
+            <a href={`https://wa.me/${WHATSAPP.replace(/\D/g, "")}`} className="btn-primary" rel="noopener">{h("ctaWhatsapp")}</a>
+            <a href={`tel:${PHONE.replace(/\s/g, "")}`} className="inline-flex items-center rounded-full border border-white/30 px-5 py-3 font-medium hover:border-white">{h("ctaCall", { phone: PHONE })}</a>
+          </div>
+        </div>
       </section>
     </>
   );
