@@ -9,6 +9,8 @@ const returnAt = T("2027-07-05T10:00:00+03:00");
 const base = { modelSlug: "test-vitz", pickupAt, returnAt, pickupLocation: "test-office", returnLocation: "test-office", extras: [] as { code: string; quantity: number }[] };
 
 async function reset(vehicles: number) {
+  await db.auditLog.deleteMany();
+  await db.customer.deleteMany({ where: { bookings: { none: {} } } });
   await db.bookingExtra.deleteMany();
   await db.booking.deleteMany();
   await db.vehicleBlock.deleteMany();

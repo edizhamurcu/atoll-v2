@@ -302,7 +302,12 @@ model AdminUser {
   passwordHash String
   role         String   @default("staff") // owner | staff
   active       Boolean  @default(true)
+  failedLogins Int      @default(0)
+  lockedUntil  DateTime? @db.Timestamptz(6)
+  lastLoginAt  DateTime? @db.Timestamptz(6)
   createdAt    DateTime @default(now()) @db.Timestamptz(6)
+
+  sessions AdminSession[]
 }
 
 /// Partner/aggregator API access. Only the SHA-256 hash of the key is stored.
@@ -315,4 +320,33 @@ model ApiKey {
   active     Boolean   @default(true)
   lastUsedAt DateTime? @db.Timestamptz(6)
   createdAt  DateTime  @default(now()) @db.Timestamptz(6)
+}
+
+model AdminSession {
+  id        String   @id @default(cuid())
+  tokenHash String   @unique
+  userId    String
+  expiresAt DateTime @db.Timestamptz(6)
+  ip        String?
+  userAgent String?
+  createdAt DateTime @default(now()) @db.Timestamptz(6)
+
+  user AdminUser @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+}
+
+/// Who changed what in the admin panel.
+model AuditLog {
+  id        String   @id @default(cuid())
+  actorId   String?
+  action    String
+  entity    String
+  entityId  String?
+  data      Json?
+  ip        String?
+  createdAt DateTime @default(now()) @db.Timestamptz(6)
+
+  @@index([entity, entityId])
+  @@index([createdAt])
 }

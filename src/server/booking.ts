@@ -20,6 +20,8 @@ export interface QuoteRequest {
   returnLocation: string; // slug
   deliveryZone?: string | null; // slug
   extras: { code: string; quantity: number }[];
+  /** Staff bookings (walk-ins) skip the online lead time. */
+  allowImmediate?: boolean;
 }
 
 const sha256 = (s: string) => createHash("sha256").update(s).digest("hex");
@@ -29,10 +31,10 @@ function newRef() {
   return "ATL-" + Array.from(b, (x) => REF_ALPHABET[x % REF_ALPHABET.length]).join("");
 }
 
-export function validateWindow(s: BusinessSettings, pickupAt: Date, returnAt: Date, now = new Date()) {
+export function validateWindow(s: BusinessSettings, pickupAt: Date, returnAt: Date, now = new Date(), allowImmediate = false) {
   if (Number.isNaN(pickupAt.getTime()) || Number.isNaN(returnAt.getTime())) throw new BookingError("INVALID_DATE", "Invalid date");
   if (returnAt <= pickupAt) throw new BookingError("INVALID_RANGE", "Return must be after pickup");
-  if (pickupAt.getTime() < now.getTime() + s.leadTimeMinutes * 60_000)
+  if (pickupAt.getTime() < now.getTime() + (allowImmediate ? -30 : s.leadTimeMinutes) * 60_000)
     throw new BookingError("LEAD_TIME", `Pick-up must be at least ${Math.round(s.leadTimeMinutes / 60)} hours from now`);
   if (pickupAt.getTime() > now.getTime() + 548 * 86_400_000) throw new BookingError("TOO_FAR", "Bookings open up to 18 months ahead");
 }
@@ -40,7 +42,7 @@ export function validateWindow(s: BusinessSettings, pickupAt: Date, returnAt: Da
 /** Loads everything the pure pricing engine needs and returns a quote. */
 export async function buildQuote(req: QuoteRequest, s?: BusinessSettings) {
   const settings = s ?? (await getSettings());
-  validateWindow(settings, req.pickupAt, req.returnAt);
+  validateWindow(settings, req.pickupAt, req.returnAt, new Date(), req.allowImmediate);
 
   const [model, pickup, ret, zone, extras, discounts] = await Promise.all([
     db.vehicleModel.findFirst({ where: { slug: req.modelSlug, active: true }, include: { seasonRates: true } }),
