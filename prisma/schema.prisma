@@ -1,0 +1,318 @@
+// Atoll Rent a Car v2 — data model
+// Money: Decimal(10,2), currency GBP. Time: timestamptz (UTC), business TZ in settings/env.
+
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+enum VehicleClass {
+  ECONOMY
+  MIDDLE
+  LUXURY
+  SUV
+  PEOPLE_CARRIER
+  SPORT
+  PREMIUM
+}
+
+enum BodyType {
+  HATCHBACK
+  SEDAN
+  ESTATE
+  SUV
+  VAN
+}
+
+enum Transmission {
+  AUTOMATIC
+  MANUAL
+}
+
+enum FuelType {
+  PETROL
+  DIESEL
+  HYBRID
+  ELECTRIC
+  LPG
+}
+
+enum VehicleStatus {
+  ACTIVE
+  MAINTENANCE
+  RETIRED
+}
+
+enum ExtraPricing {
+  PER_DAY
+  PER_RENTAL
+}
+
+enum BookingStatus {
+  HOLD // seat reserved during checkout, expires
+  PENDING_PAYMENT // waiting for Stripe deposit
+  CONFIRMED
+  CANCELLED
+  EXPIRED
+  COMPLETED
+  NO_SHOW
+}
+
+enum PaymentStatus {
+  NONE
+  REQUIRES_PAYMENT
+  PAID
+  REFUNDED
+  FAILED
+}
+
+model Location {
+  id          String   @id @default(cuid())
+  slug        String   @unique
+  name        Json // { en, tr, de, ru }
+  address     String
+  lat         Decimal? @db.Decimal(9, 6)
+  lng         Decimal? @db.Decimal(9, 6)
+  phone       String?
+  hours       Json? // { mon: ["09:00","21:00"], ... }
+  isAirport   Boolean  @default(false)
+  pickupFee   Decimal  @default(0) @db.Decimal(10, 2)
+  returnFee   Decimal  @default(0) @db.Decimal(10, 2)
+  active      Boolean  @default(true)
+  sortOrder   Int      @default(0)
+  legacyWpId  Int?     @unique
+  createdAt   DateTime @default(now()) @db.Timestamptz(6)
+  updatedAt   DateTime @updatedAt @db.Timestamptz(6)
+
+  vehicles        Vehicle[] @relation("HomeLocation")
+  pickupBookings  Booking[] @relation("PickupLocation")
+  returnBookings  Booking[] @relation("ReturnLocation")
+}
+
+model VehicleModel {
+  id           String       @id @default(cuid())
+  slug         String       @unique
+  make         String
+  model        String
+  class        VehicleClass
+  bodyType     BodyType
+  transmission Transmission
+  fuel         FuelType
+  seats        Int
+  doors        Int?
+  bags         Int?
+  airCon       Boolean      @default(true)
+  engineLitres Decimal?     @db.Decimal(3, 1)
+  description  Json? // { en, tr, de, ru }
+  images       String[]
+  dailyRate    Decimal      @db.Decimal(10, 2)
+  active       Boolean      @default(true)
+  sortOrder    Int          @default(0)
+  createdAt    DateTime     @default(now()) @db.Timestamptz(6)
+  updatedAt    DateTime     @updatedAt @db.Timestamptz(6)
+
+  vehicles     Vehicle[]
+  seasonRates  SeasonRate[]
+  bookings     Booking[]
+
+  @@index([active, class])
+}
+
+model Vehicle {
+  id             String        @id @default(cuid())
+  modelId        String
+  plate          String        @unique
+  color          String?
+  year           Int?
+  status         VehicleStatus @default(ACTIVE)
+  homeLocationId String?
+  notes          String?
+  legacyWpId     Int?          @unique
+  createdAt      DateTime      @default(now()) @db.Timestamptz(6)
+  updatedAt      DateTime      @updatedAt @db.Timestamptz(6)
+
+  model        VehicleModel   @relation(fields: [modelId], references: [id])
+  homeLocation Location?      @relation("HomeLocation", fields: [homeLocationId], references: [id])
+  bookings     Booking[]
+  blocks       VehicleBlock[]
+
+  @@index([modelId, status])
+}
+
+/// Maintenance / service / private use. Treated as occupied.
+model VehicleBlock {
+  id        String   @id @default(cuid())
+  vehicleId String
+  startAt   DateTime @db.Timestamptz(6)
+  endAt     DateTime @db.Timestamptz(6)
+  reason    String
+  createdAt DateTime @default(now()) @db.Timestamptz(6)
+
+  vehicle Vehicle @relation(fields: [vehicleId], references: [id], onDelete: Cascade)
+
+  @@index([vehicleId, startAt, endAt])
+}
+
+/// Overrides the model dailyRate for calendar days in [startDate, endDate] (business TZ, inclusive).
+model SeasonRate {
+  id        String   @id @default(cuid())
+  modelId   String
+  name      String?
+  startDate DateTime @db.Date
+  endDate   DateTime @db.Date
+  dailyRate Decimal  @db.Decimal(10, 2)
+  createdAt DateTime @default(now()) @db.Timestamptz(6)
+
+  model VehicleModel @relation(fields: [modelId], references: [id], onDelete: Cascade)
+
+  @@index([modelId, startDate, endDate])
+}
+
+/// Long-rental discount: highest minDays <= rental days wins.
+model DurationDiscount {
+  id      String  @id @default(cuid())
+  minDays Int     @unique
+  percent Decimal @db.Decimal(5, 2)
+  active  Boolean @default(true)
+}
+
+model Extra {
+  id        String       @id @default(cuid())
+  code      String       @unique
+  name      Json
+  info      Json?
+  pricing   ExtraPricing
+  price     Decimal      @db.Decimal(10, 2)
+  maxQty    Int          @default(1)
+  active    Boolean      @default(true)
+  sortOrder Int          @default(0)
+
+  bookingExtras BookingExtra[]
+}
+
+/// Hotel/villa delivery. tiers: [{ "minDays": 1, "fee": "20.00" }, ...] — highest minDays <= days wins.
+model DeliveryZone {
+  id        String  @id @default(cuid())
+  slug      String  @unique
+  name      String
+  areas     String[]
+  tiers     Json
+  active    Boolean @default(true)
+  sortOrder Int     @default(0)
+
+  bookings Booking[]
+}
+
+model Customer {
+  id            String   @id @default(cuid())
+  email         String   @unique
+  firstName     String
+  lastName      String
+  phone         String
+  country       String?
+  licenseNumber String?
+  createdAt     DateTime @default(now()) @db.Timestamptz(6)
+  updatedAt     DateTime @updatedAt @db.Timestamptz(6)
+
+  bookings Booking[]
+}
+
+model Booking {
+  id               String        @id @default(cuid())
+  ref              String        @unique
+  status           BookingStatus @default(HOLD)
+  modelId          String
+  vehicleId        String
+  customerId       String?
+  pickupLocationId String
+  returnLocationId String
+  deliveryZoneId   String?
+  deliveryAddress  String?
+  pickupAt         DateTime      @db.Timestamptz(6)
+  returnAt         DateTime      @db.Timestamptz(6)
+  /// returnAt + turnaround buffer; the exclusion constraint uses [pickupAt, blockedUntil)
+  blockedUntil     DateTime      @db.Timestamptz(6)
+  days             Int
+  currency         String        @default("GBP")
+  rentalTotal      Decimal       @db.Decimal(10, 2)
+  discountTotal    Decimal       @default(0) @db.Decimal(10, 2)
+  extrasTotal      Decimal       @default(0) @db.Decimal(10, 2)
+  feesTotal        Decimal       @default(0) @db.Decimal(10, 2)
+  grandTotal       Decimal       @db.Decimal(10, 2)
+  depositAmount    Decimal       @default(0) @db.Decimal(10, 2)
+  paymentStatus    PaymentStatus @default(NONE)
+  stripeSessionId  String?       @unique
+  priceBreakdown   Json
+  flightNumber     String?
+  notes            String?
+  locale           String        @default("en")
+  source           String        @default("web")
+  idempotencyKey   String?       @unique
+  /// sha256 of the bearer token given to the customer for this booking
+  accessTokenHash  String
+  paymentMode      String        @default("pay_on_pickup") // deposit | pay_on_pickup
+  confirmedAt      DateTime?     @db.Timestamptz(6)
+  cancelledAt      DateTime?     @db.Timestamptz(6)
+  holdExpiresAt    DateTime?     @db.Timestamptz(6)
+  legacyWpOrderId  Int?          @unique
+  createdAt        DateTime      @default(now()) @db.Timestamptz(6)
+  updatedAt        DateTime      @updatedAt @db.Timestamptz(6)
+
+  model          VehicleModel   @relation(fields: [modelId], references: [id])
+  vehicle        Vehicle        @relation(fields: [vehicleId], references: [id])
+  customer       Customer?      @relation(fields: [customerId], references: [id])
+  pickupLocation Location       @relation("PickupLocation", fields: [pickupLocationId], references: [id])
+  returnLocation Location       @relation("ReturnLocation", fields: [returnLocationId], references: [id])
+  deliveryZone   DeliveryZone?  @relation(fields: [deliveryZoneId], references: [id])
+  extras         BookingExtra[]
+
+  @@index([vehicleId, pickupAt, blockedUntil])
+  @@index([status, holdExpiresAt])
+  @@index([pickupAt])
+}
+
+model BookingExtra {
+  id        String  @id @default(cuid())
+  bookingId String
+  extraId   String
+  quantity  Int
+  unitPrice Decimal @db.Decimal(10, 2)
+  total     Decimal @db.Decimal(10, 2)
+
+  booking Booking @relation(fields: [bookingId], references: [id], onDelete: Cascade)
+  extra   Extra   @relation(fields: [extraId], references: [id])
+
+  @@unique([bookingId, extraId])
+}
+
+/// Key-value business settings (bufferMinutes, minDays, graceMinutes, depositRule, holdMinutes ...)
+model Setting {
+  key   String @id
+  value Json
+}
+
+model AdminUser {
+  id           String   @id @default(cuid())
+  email        String   @unique
+  name         String
+  passwordHash String
+  role         String   @default("staff") // owner | staff
+  active       Boolean  @default(true)
+  createdAt    DateTime @default(now()) @db.Timestamptz(6)
+}
+
+/// Partner/aggregator API access. Only the SHA-256 hash of the key is stored.
+model ApiKey {
+  id         String    @id @default(cuid())
+  name       String
+  keyHash    String    @unique
+  prefix     String
+  scopes     String[]
+  active     Boolean   @default(true)
+  lastUsedAt DateTime? @db.Timestamptz(6)
+  createdAt  DateTime  @default(now()) @db.Timestamptz(6)
+}

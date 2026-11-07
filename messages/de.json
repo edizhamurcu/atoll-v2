@@ -1,0 +1,139 @@
+{
+  "meta": {
+    "title": "Atoll Rent a Car — Mietwagen in Nordzypern",
+    "description": "Mietwagen in Kyrenia, Ercan, Larnaka oder Paphos. Live-Verfügbarkeit, klare Preise in GBP, kostenlose Zustellung rund um Kyrenia."
+  },
+  "nav": {
+    "cars": "Fahrzeuge",
+    "terms": "Mietbedingungen",
+    "about": "Über uns",
+    "contact": "Kontakt",
+    "book": "Auto finden",
+    "language": "Sprache"
+  },
+  "hero": {
+    "title": "Mietwagen auf ganz Zypern, von unserem Büro in Kyrenia bis zu jedem Flughafen",
+    "lead": "Abholung in Ercan, Larnaka oder Paphos oder Zustellung ans Hotel. Sie sehen vor der Buchung, welche Autos an Ihren Tagen frei sind.",
+    "mapLabel": "Unsere Abholorte"
+  },
+  "search": {
+    "pickupLocation": "Abholung",
+    "returnLocation": "Rückgabe",
+    "sameReturn": "Rückgabe am selben Ort",
+    "pickupDate": "Abholdatum",
+    "returnDate": "Rückgabedatum",
+    "time": "Uhrzeit",
+    "delivery": "Zustellung zu Hotel oder Villa",
+    "deliveryZone": "Zustellgebiet",
+    "submit": "Verfügbare Autos anzeigen",
+    "errorRange": "Die Rückgabe muss nach der Abholung liegen.",
+    "errorLead": "Die Abholung muss mindestens 2 Stunden in der Zukunft liegen."
+  },
+  "results": {
+    "title": "Autos für Ihre Reisedaten",
+    "summary": "{days, plural, one {# Tag} other {# Tage}}, {from} bis {to}",
+    "available": "{count, plural, one {# Auto frei} other {# Autos frei}}",
+    "soldOut": "An diesen Tagen ausgebucht",
+    "perDay": "pro Tag",
+    "total": "gesamt",
+    "select": "Dieses Auto wählen",
+    "filterAll": "Alle",
+    "noResults": "Keine Autos passen zu diesen Filtern. Entfernen Sie einen Filter.",
+    "changeSearch": "Suche ändern",
+    "loading": "Live-Verfügbarkeit wird geprüft…",
+    "error": "Verfügbarkeit konnte nicht geladen werden. Prüfen Sie die Verbindung und versuchen Sie es erneut.",
+    "retry": "Erneut versuchen",
+    "discount": "Inklusive {percent} % Langzeitrabatt"
+  },
+  "car": {
+    "seats": "{n} Sitze",
+    "fleet": "{n, plural, one {# Auto in unserer Flotte} other {# Autos in unserer Flotte}}",
+    "from": "ab {price} / Tag",
+    "specs": "Technische Daten",
+    "bookPanel": "Dieses Auto buchen",
+    "checkDates": "Wählen Sie Daten für Preis und Verfügbarkeit",
+    "airCon": "Klimaanlage",
+    "engine": "{l}-L-Motor",
+    "orSimilar": "Ihr Auto ist ein {name}. Das Kennzeichen wird bei Abholung zugewiesen."
+  },
+  "classes": {
+    "ECONOMY": "Kleinwagen",
+    "MIDDLE": "Mittelklasse",
+    "LUXURY": "Luxus",
+    "SUV": "SUV",
+    "PEOPLE_CARRIER": "7+ Sitze",
+    "SPORT": "Sport",
+    "PREMIUM": "Premium"
+  },
+  "transmission": {
+    "AUTOMATIC": "Automatik",
+    "MANUAL": "Schaltgetriebe"
+  },
+  "fuel": {
+    "PETROL": "Benzin",
+    "DIESEL": "Diesel",
+    "HYBRID": "Hybrid",
+    "ELECTRIC": "Elektro",
+    "LPG": "Autogas"
+  },
+  "booking": {
+    "extras": "Extras hinzufügen",
+    "perDay": "/ Tag",
+    "perRental": "einmalig",
+    "summary": "Preisübersicht",
+    "rental": "Mietwagen ({days, plural, one {# Tag} other {# Tage}})",
+    "discount": "Langzeitrabatt",
+    "fees": "Standort & Zustellung",
+    "total": "Gesamt",
+    "deposit": "Jetzt zahlen (Anzahlung)",
+    "onPickup": "Bei Abholung zahlen",
+    "reserve": "Dieses Auto reservieren",
+    "reserving": "Wird reserviert…",
+    "held": "Auto für {minutes} Minuten für Sie reserviert",
+    "soldOut": "Dieses Auto wurde gerade gebucht. Wählen Sie andere Daten oder ein anderes Auto.",
+    "details": "Fahrerdaten",
+    "firstName": "Vorname",
+    "lastName": "Nachname",
+    "email": "E-Mail",
+    "phone": "Telefon (mit Ländervorwahl)",
+    "country": "Land",
+    "license": "Führerscheinnummer",
+    "flight": "Flugnummer (optional)",
+    "address": "Zustelladresse",
+    "notes": "Sollten wir noch etwas wissen?",
+    "terms": "Ich habe die Mietbedingungen gelesen und akzeptiere sie",
+    "payDeposit": "Anzahlung zahlen und bestätigen",
+    "payOnPickup": "Bestätigen, bei Abholung zahlen",
+    "confirming": "Wird bestätigt…",
+    "expired": "Ihre Reservierung ist abgelaufen. Suchen Sie erneut.",
+    "confirmedTitle": "Buchung bestätigt",
+    "confirmedLead": "Ihre Buchungsnummer ist {ref}. Wir haben Ihnen die Details per E-Mail gesendet und melden uns vor der Abholung per WhatsApp.",
+    "pendingTitle": "Zahlung ausstehend",
+    "pendingLead": "Schließen Sie die Anzahlung ab, um Buchung {ref} zu bestätigen.",
+    "notFound": "Diese Buchung wurde auf diesem Gerät nicht gefunden. Nutzen Sie den Link aus Ihrer Bestätigungs-E-Mail.",
+    "whatsapp": "Schreiben Sie uns auf WhatsApp"
+  },
+  "home": {
+    "fleetTitle": "Unsere Flotte",
+    "fleetLead": "Vom Stadtflitzer bis zum 7-Sitzer und Land Rover. Alle Autos haben Klimaanlage.",
+    "factsTitle": "Gut zu wissen vor der Buchung",
+    "fact1Title": "Kostenlose Zustellung rund um Kyrenia",
+    "fact1": "Alsancak, Çatalköy, Ozanköy, Karmi und Kyrenia: Wir bringen das Auto kostenlos zu Ihnen.",
+    "fact2Title": "Fahrten nach Südzypern",
+    "fact2": "Fügen Sie für £50 pro Miete den Südzypern-Schutz hinzu und überqueren Sie jeden Grenzübergang.",
+    "fact3Title": "Ankunft in Larnaka und Paphos",
+    "fact3": "Landen Sie im Süden? Holen Sie das Auto am Flughafen Larnaka oder Paphos ab.",
+    "fact4Title": "Klare Preise in Pfund",
+    "fact4": "Der angezeigte Preis enthält Auto, Rabatte und Standortgebühren. Eine kleine Anzahlung sichert die Buchung, der Rest wird bei Abholung bezahlt."
+  },
+  "footer": {
+    "address": "154 Karaoğlanoğlu Caddesi, Alsancak, Kyrenia, Nordzypern",
+    "hours": "Montag bis Freitag 09:00–21:00, Samstag 09:00–19:00, Sonntag geschlossen",
+    "rights": "Atoll Rent a Car"
+  },
+  "errors": {
+    "generic": "Etwas ist schiefgelaufen. Bitte versuchen Sie es erneut.",
+    "notFound": "Diese Seite existiert nicht.",
+    "home": "Zur Startseite"
+  }
+}

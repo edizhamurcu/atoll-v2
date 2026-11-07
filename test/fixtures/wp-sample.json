@@ -1,0 +1,422 @@
+{
+ "vehicles": [
+  {
+   "wpId": 1000,
+   "title": "TOYOTA VITZ",
+   "slug": "toyota-vitz",
+   "price": "30",
+   "attrs": {
+    "vehicle-class": "Economic",
+    "vehicle-type": "Hatchback",
+    "gear-type": "Automatic",
+    "fuel-type": "Petrol",
+    "seats": "5 Persons",
+    "years": "2018",
+    "engine": "1.3",
+    "color": "White",
+    "plate": "ZRJ813"
+   },
+   "images": [],
+   "offices": "46,47,48,509",
+   "desc": ""
+  },
+  {
+   "wpId": 1001,
+   "title": "NISSAN NOTE",
+   "slug": "nissan-note",
+   "price": "30",
+   "attrs": {
+    "vehicle-class": "Economic",
+    "vehicle-type": "Hatchback",
+    "gear-type": "Automatic",
+    "fuel-type": "Petrol",
+    "seats": "5 Persons",
+    "years": "2017",
+    "engine": "1.2",
+    "color": "Grey",
+    "plate": "SG844"
+   },
+   "images": [],
+   "offices": "46,47,48,509",
+   "desc": ""
+  },
+  {
+   "wpId": 1002,
+   "title": "NISSAN NOTE",
+   "slug": "nissan-note",
+   "price": "30",
+   "attrs": {
+    "vehicle-class": "Economic",
+    "vehicle-type": "Hatchback",
+    "gear-type": "Automatic",
+    "fuel-type": "Petrol",
+    "seats": "5 Persons",
+    "years": "2017",
+    "engine": "1.2",
+    "color": "Silver",
+    "plate": "SH279"
+   },
+   "images": [],
+   "offices": "46,47,48,509",
+   "desc": ""
+  },
+  {
+   "wpId": 1003,
+   "title": "NISSAN NOTE",
+   "slug": "nissan-note",
+   "price": "30",
+   "attrs": {
+    "vehicle-class": "Economic",
+    "vehicle-type": "Hatchback",
+    "gear-type": "Automatic",
+    "fuel-type": "Petrol",
+    "seats": "5 Persons",
+    "years": "2019",
+    "engine": "1.2",
+    "color": "White",
+    "plate": "UT570"
+   },
+   "images": [],
+   "offices": "46,47,48,509",
+   "desc": ""
+  },
+  {
+   "wpId": 1004,
+   "title": "TOYOTA AQUA",
+   "slug": "toyota-aqua",
+   "price": "30",
+   "attrs": {
+    "vehicle-class": "Economic",
+    "vehicle-type": "Hatchback",
+    "gear-type": "Automatic",
+    "fuel-type": "Petrol",
+    "seats": "5 Persons",
+    "years": "2021",
+    "engine": "1.5",
+    "color": "Silver",
+    "plate": "AA895D"
+   },
+   "images": [],
+   "offices": "46,47,48,509",
+   "desc": ""
+  },
+  {
+   "wpId": 1005,
+   "title": "SUZUKI ALTO",
+   "slug": "suzuki-alto",
+   "price": "30",
+   "attrs": {
+    "vehicle-class": "Economic",
+    "vehicle-type": "Hatchback",
+    "gear-type": "Automatic",
+    "fuel-type": "Petrol",
+    "seats": "4 Persons",
+    "years": "2019",
+    "engine": "650",
+    "color": "Silver",
+    "plate": "YC508"
+   },
+   "images": [],
+   "offices": "46,47,48,509",
+   "desc": ""
+  },
+  {
+   "wpId": 1006,
+   "title": "TOYOTA CORROLLA",
+   "slug": "toyota-corrolla",
+   "price": "45",
+   "attrs": {
+    "vehicle-class": "Middle Class",
+    "vehicle-type": "Sedan",
+    "gear-type": "Automatic",
+    "fuel-type": "Petrol",
+    "seats": "5 Persons",
+    "years": "2022",
+    "engine": "1.8",
+    "color": "Grey",
+    "plate": "ZZR495"
+   },
+   "images": [],
+   "offices": "46,47,48,509",
+   "desc": ""
+  },
+  {
+   "wpId": 1007,
+   "title": "TOYOTA CORROLLA",
+   "slug": "toyota-corrolla",
+   "price": "30",
+   "attrs": {
+    "vehicle-class": "Middle Class",
+    "vehicle-type": "Sedan",
+    "gear-type": "Automatic",
+    "fuel-type": "Petrol",
+    "seats": "5 Persons",
+    "years": "2018",
+    "engine": "1.3",
+    "color": "White",
+    "plate": "ZUD822"
+   },
+   "images": [],
+   "offices": "46,47,48,509",
+   "desc": ""
+  },
+  {
+   "wpId": 1008,
+   "title": "NISSAN JUKE",
+   "slug": "nissan-juke",
+   "price": "35",
+   "attrs": {
+    "vehicle-class": "SUV",
+    "vehicle-type": "SUV",
+    "gear-type": "Automatic",
+    "fuel-type": "Petrol",
+    "seats": "5 Persons",
+    "years": "2011",
+    "engine": "1.5",
+    "color": "Black",
+    "plate": "NB479"
+   },
+   "images": [],
+   "offices": "46,47,48,509",
+   "desc": ""
+  },
+  {
+   "wpId": 1009,
+   "title": "VW T CROSS",
+   "slug": "vw-t-cross",
+   "price": "45",
+   "attrs": {
+    "vehicle-class": "SUV",
+    "vehicle-type": "SUV",
+    "gear-type": "Automatic",
+    "fuel-type": "Petrol",
+    "seats": "5 Persons",
+    "years": "2021",
+    "engine": "1",
+    "color": "Red",
+    "plate": "ZY780"
+   },
+   "images": [],
+   "offices": "46,47,48,509",
+   "desc": ""
+  },
+  {
+   "wpId": 1010,
+   "title": "TOYOTA SIENTA",
+   "slug": "toyota-sienta",
+   "price": "55",
+   "attrs": {
+    "vehicle-class": "7+ Persons",
+    "vehicle-type": "Stationwagon",
+    "gear-type": "Automatic",
+    "fuel-type": "Petrol",
+    "seats": "7 Persons",
+    "years": "2013",
+    "engine": "1.5",
+    "color": "Blue",
+    "plate": "PP453"
+   },
+   "images": [],
+   "offices": "46,47,48,509",
+   "desc": ""
+  },
+  {
+   "wpId": 1011,
+   "title": "NISSAN NV200",
+   "slug": "nissan-nv200",
+   "price": "55",
+   "attrs": {
+    "vehicle-class": "7+ Persons",
+    "vehicle-type": "VAN",
+    "gear-type": "Automatic",
+    "fuel-type": "Petrol",
+    "seats": "7 Persons",
+    "years": "2017",
+    "engine": "1.6",
+    "color": "White",
+    "plate": "SY574"
+   },
+   "images": [],
+   "offices": "46,47,48,509",
+   "desc": ""
+  },
+  {
+   "wpId": 1012,
+   "title": "BMW 520D",
+   "slug": "bmw-520d",
+   "price": "90",
+   "attrs": {
+    "vehicle-class": "Luxury",
+    "vehicle-type": "Sedan",
+    "gear-type": "Automatic",
+    "fuel-type": "Petrol",
+    "seats": "6 Persons",
+    "years": "2017",
+    "engine": "2",
+    "color": "",
+    "plate": "SK121"
+   },
+   "images": [],
+   "offices": "46,47,48,509",
+   "desc": ""
+  },
+  {
+   "wpId": 1013,
+   "title": "MERC C200",
+   "slug": "merc-c200",
+   "price": "90",
+   "attrs": {
+    "vehicle-class": "Luxury",
+    "vehicle-type": "Sedan",
+    "gear-type": "Automatic",
+    "fuel-type": "Petrol",
+    "seats": "5 Persons",
+    "years": "2019",
+    "engine": "1.5",
+    "color": "Blue",
+    "plate": "SE028"
+   },
+   "images": [],
+   "offices": "46,47,48,509",
+   "desc": ""
+  },
+  {
+   "wpId": 1014,
+   "title": "LANDROVER DISCOVERY",
+   "slug": "landrover-discovery",
+   "price": "130",
+   "attrs": {
+    "vehicle-class": "Luxury/SUV",
+    "vehicle-type": "SUV",
+    "gear-type": "Automatic",
+    "fuel-type": "Petrol",
+    "seats": "5 Persons",
+    "years": "2017",
+    "engine": "2",
+    "color": "Black",
+    "plate": "PM091"
+   },
+   "images": [],
+   "offices": "46,47,48,509",
+   "desc": ""
+  },
+  {
+   "wpId": 1015,
+   "title": "FORD FOCUS",
+   "slug": "ford-focus",
+   "price": "30",
+   "attrs": {
+    "vehicle-class": "Economic",
+    "vehicle-type": "Hatchback",
+    "gear-type": "Manual",
+    "fuel-type": "Petrol",
+    "seats": "5 Persons",
+    "years": "2008",
+    "engine": "1.6",
+    "color": "Red",
+    "plate": "KH946"
+   },
+   "images": [],
+   "offices": "46,47,48,509",
+   "desc": ""
+  }
+ ],
+ "offices": [
+  {
+   "wpId": 48,
+   "title": "Alsancak (Girne/Kyrenia) Office",
+   "address": "154 Karaoğlanoğlu Caddesi, Alsancak, Girne, TRNC",
+   "lat": "35.343",
+   "lng": "33.188",
+   "phone": "+90 539 103 61 66",
+   "hours": ""
+  },
+  {
+   "wpId": 47,
+   "title": "Ercan Airport",
+   "address": "Ercan International Airport",
+   "lat": "35.158749",
+   "lng": "33.503448",
+   "phone": "+90 539 103 61 66",
+   "hours": ""
+  },
+  {
+   "wpId": 46,
+   "title": "Larnaca Airport (Extra Fee)",
+   "address": "Larnaca International Airport",
+   "lat": "34.873169",
+   "lng": "33.605831",
+   "phone": "+90 539 103 61 66",
+   "hours": ""
+  },
+  {
+   "wpId": 509,
+   "title": "Paphos Airport (Extra Fee)",
+   "address": "Paphos International Airport, Paphos",
+   "lat": "34.7180",
+   "lng": "32.4857",
+   "phone": "+90 539 103 61 66",
+   "hours": ""
+  }
+ ],
+ "options": [
+  {
+   "wpId": 1842,
+   "title": "Paphos",
+   "price": "170"
+  },
+  {
+   "wpId": 1841,
+   "title": "Ercan",
+   "price": "65"
+  },
+  {
+   "wpId": 1088,
+   "title": "Waiver",
+   "price": "10"
+  },
+  {
+   "wpId": 488,
+   "title": "Baby",
+   "price": "3"
+  },
+  {
+   "wpId": 58,
+   "title": "Booster",
+   "price": "2.5"
+  },
+  {
+   "wpId": 57,
+   "title": "South",
+   "price": "50"
+  },
+  {
+   "wpId": 53,
+   "title": "Larnaca",
+   "price": "90"
+  }
+ ],
+ "seasonRates": [],
+ "orders": [
+  {
+   "wpId": 9001,
+   "status": "on-hold",
+   "created": "2026-11-07T11:40:55+00:00",
+   "total": "910",
+   "carWpId": 1014,
+   "days": 7,
+   "options": [],
+   "pickupLoc": 48,
+   "returnLoc": "",
+   "pickup": "12/08/2026 10:00",
+   "return": "12/15/2026 10:00",
+   "email": "test@example.com",
+   "first": "Test",
+   "last": "Guest",
+   "phone": "+440000",
+   "country": "GB",
+   "license": "",
+   "note": ""
+  }
+ ]
+}

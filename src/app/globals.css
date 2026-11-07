@@ -1,26 +1,88 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* Atoll — "Mediterranean premium": harbour ink on cool limestone, one bougainvillea accent. */
+@theme {
+  --color-ink: #0d3440; /* Kyrenia harbour, primary text & surfaces */
+  --color-ink-soft: #3d5a63;
+  --color-aegean: #2a7f8f; /* secondary, links, focus */
+  --color-aegean-wash: #d7e9ec;
+  --color-stone: #eef1ee; /* page */
+  --color-stone-deep: #dfe5e1; /* lines, inputs */
+  --color-paper: #fbfcfb; /* raised panels */
+  --color-bougain: #b5175e; /* the one accent: primary action, "free" */
+  --color-bougain-deep: #8e0f49;
+  --color-carob: #6b4f3a; /* warm detail for map land */
+  --color-alert: #a33a1f;
+
+  --font-display: "Bricolage Grotesque Variable", "Onest Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Onest Variable", ui-sans-serif, system-ui, sans-serif;
+
+  --text-display: clamp(2.25rem, 1.4rem + 3.6vw, 4.25rem);
+  --text-display--line-height: 1.02;
+  --text-display--letter-spacing: -0.03em;
+
+  --radius-panel: 1.25rem;
+  --radius-field: 0.75rem;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  html {
+    color-scheme: light;
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    background: var(--color-stone);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-feature-settings: "ss01", "cv11";
+    line-height: 1.55;
+    text-rendering: optimizeLegibility;
+  }
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display);
+    font-optical-sizing: auto;
+    text-wrap: balance;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+  }
+  p {
+    text-wrap: pretty;
+  }
+  :focus-visible {
+    outline: 3px solid var(--color-aegean);
+    outline-offset: 2px;
+    border-radius: 6px;
+  }
+  ::selection {
+    background: var(--color-aegean-wash);
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer components {
+  .field {
+    @apply w-full rounded-[var(--radius-field)] border border-stone-deep bg-paper px-3.5 py-2.5 text-[0.95rem] text-ink transition-colors placeholder:text-ink-soft/60 hover:border-ink-soft/40 focus:border-aegean focus:outline-none focus:ring-2 focus:ring-aegean/30;
+  }
+  .label {
+    @apply mb-1.5 block text-sm font-medium text-ink-soft;
+  }
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-bougain px-6 py-3 font-semibold text-white transition-colors hover:bg-bougain-deep disabled:cursor-not-allowed disabled:opacity-60;
+  }
+  .btn-ink {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-ink px-6 py-3 font-semibold text-white transition-colors hover:bg-aegean;
+  }
+  .btn-quiet {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-ink/15 px-5 py-2.5 font-medium text-ink transition-colors hover:border-ink/40;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
 }

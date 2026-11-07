@@ -1,0 +1,139 @@
+{
+  "meta": {
+    "title": "Atoll Rent a Car — Kuzey Kıbrıs araç kiralama",
+    "description": "Girne, Ercan, Larnaka veya Baf'ta araç kiralayın. Anlık müsaitlik, GBP net fiyatlar, Girne bölgesinde ücretsiz teslimat."
+  },
+  "nav": {
+    "cars": "Araçlar",
+    "terms": "Kiralama şartları",
+    "about": "Hakkımızda",
+    "contact": "İletişim",
+    "book": "Araç bul",
+    "language": "Dil"
+  },
+  "hero": {
+    "title": "Girne ofisimizden tüm havalimanlarına, Kıbrıs genelinde araç kiralama",
+    "lead": "Aracı Ercan, Larnaka veya Baf'tan alın ya da otelinize getirelim. Rezervasyondan önce tarihlerinizde hangi araçların boş olduğunu görürsünüz.",
+    "mapLabel": "Teslim noktalarımız"
+  },
+  "search": {
+    "pickupLocation": "Alış yeri",
+    "returnLocation": "İade yeri",
+    "sameReturn": "Aynı yere iade",
+    "pickupDate": "Alış tarihi",
+    "returnDate": "İade tarihi",
+    "time": "Saat",
+    "delivery": "Otelime veya villama teslim edin",
+    "deliveryZone": "Teslimat bölgesi",
+    "submit": "Müsait araçları göster",
+    "errorRange": "İade tarihi alıştan sonra olmalı.",
+    "errorLead": "Alış en az 2 saat sonrası olmalı."
+  },
+  "results": {
+    "title": "Tarihlerinize uygun araçlar",
+    "summary": "{days} gün, {from} – {to}",
+    "available": "{count} araç boş",
+    "soldOut": "Bu tarihlerde dolu",
+    "perDay": "günlük",
+    "total": "toplam",
+    "select": "Bu aracı seç",
+    "filterAll": "Tümü",
+    "noResults": "Bu filtrelere uyan araç yok. Daha fazlası için bir filtreyi kaldırın.",
+    "changeSearch": "Aramayı değiştir",
+    "loading": "Anlık müsaitlik kontrol ediliyor…",
+    "error": "Müsaitlik yüklenemedi. Bağlantınızı kontrol edip tekrar deneyin.",
+    "retry": "Tekrar dene",
+    "discount": "%{percent} uzun kiralama indirimi dahil"
+  },
+  "car": {
+    "seats": "{n} koltuk",
+    "fleet": "Filomuzda {n} adet",
+    "from": "günlük {price}'dan başlayan",
+    "specs": "Özellikler",
+    "bookPanel": "Bu aracı kirala",
+    "checkDates": "Fiyat ve müsaitlik için tarih seçin",
+    "airCon": "Klima",
+    "engine": "{l} L motor",
+    "orSimilar": "Aracınız bir {name}. Plaka teslimde atanır."
+  },
+  "classes": {
+    "ECONOMY": "Ekonomik",
+    "MIDDLE": "Orta sınıf",
+    "LUXURY": "Lüks",
+    "SUV": "SUV",
+    "PEOPLE_CARRIER": "7+ koltuk",
+    "SPORT": "Spor",
+    "PREMIUM": "Premium"
+  },
+  "transmission": {
+    "AUTOMATIC": "Otomatik",
+    "MANUAL": "Manuel"
+  },
+  "fuel": {
+    "PETROL": "Benzin",
+    "DIESEL": "Dizel",
+    "HYBRID": "Hibrit",
+    "ELECTRIC": "Elektrik",
+    "LPG": "LPG"
+  },
+  "booking": {
+    "extras": "Ekstralar",
+    "perDay": "/ gün",
+    "perRental": "tek sefer",
+    "summary": "Fiyat özeti",
+    "rental": "Araç kiralama ({days} gün)",
+    "discount": "Uzun kiralama indirimi",
+    "fees": "Lokasyon ve teslimat",
+    "total": "Toplam",
+    "deposit": "Şimdi öde (depozito)",
+    "onPickup": "Teslimde öde",
+    "reserve": "Bu aracı ayır",
+    "reserving": "Ayrılıyor…",
+    "held": "Araç {minutes} dakika boyunca size ayrıldı",
+    "soldOut": "Bu araç az önce başka biri tarafından alındı. Başka tarih veya araç seçin.",
+    "details": "Sürücü bilgileri",
+    "firstName": "Ad",
+    "lastName": "Soyad",
+    "email": "E-posta",
+    "phone": "Telefon (ülke koduyla)",
+    "country": "Ülke",
+    "license": "Ehliyet numarası",
+    "flight": "Uçuş numarası (isteğe bağlı)",
+    "address": "Teslimat adresi",
+    "notes": "Bilmemiz gereken bir şey var mı?",
+    "terms": "Kiralama şartlarını okudum ve kabul ediyorum",
+    "payDeposit": "Depozitoyu öde ve onayla",
+    "payOnPickup": "Onayla, teslimde öde",
+    "confirming": "Onaylanıyor…",
+    "expired": "Ayırma süresi doldu. Araç almak için tekrar arayın.",
+    "confirmedTitle": "Rezervasyon onaylandı",
+    "confirmedLead": "Referans numaranız {ref}. Detayları e-postayla gönderdik, teslimden önce WhatsApp'tan yazacağız.",
+    "pendingTitle": "Ödeme bekleniyor",
+    "pendingLead": "{ref} rezervasyonunu onaylamak için depozitoyu tamamlayın.",
+    "notFound": "Bu rezervasyon bu cihazda bulunamadı. Onay e-postasındaki bağlantıyı kullanın.",
+    "whatsapp": "WhatsApp'tan yazın"
+  },
+  "home": {
+    "fleetTitle": "Filomuz",
+    "fleetLead": "Şehir araçlarından 7 kişilik araçlara ve Land Rover'lara. Tüm araçlarda klima var.",
+    "factsTitle": "Rezervasyondan önce bilmeniz gerekenler",
+    "fact1Title": "Girne bölgesine ücretsiz teslimat",
+    "fact1": "Alsancak, Çatalköy, Ozanköy, Karmi ve Girne merkez: aracı ücretsiz getiriyoruz.",
+    "fact2Title": "Güney Kıbrıs'a geçiş",
+    "fact2": "Kiralama başına £50 Güney Kıbrıs güvencesi ekleyin, istediğiniz kapıdan geçin.",
+    "fact3Title": "Larnaka ve Baf varışları",
+    "fact3": "Güneye mi iniyorsunuz? Aracı Larnaka veya Baf havalimanında teslim alın.",
+    "fact4Title": "Sterlin cinsinden net fiyat",
+    "fact4": "Gördüğünüz fiyata araç, indirimler ve lokasyon ücretleri dahildir. Küçük bir depozito rezervasyonu tutar; kalanı teslimde ödenir."
+  },
+  "footer": {
+    "address": "154 Karaoğlanoğlu Caddesi, Alsancak, Girne, KKTC",
+    "hours": "Pazartesi–Cuma 09:00–21:00, Cumartesi 09:00–19:00, Pazar kapalı",
+    "rights": "Atoll Rent a Car"
+  },
+  "errors": {
+    "generic": "Bir şeyler ters gitti. Lütfen tekrar deneyin.",
+    "notFound": "Bu sayfa mevcut değil.",
+    "home": "Ana sayfaya dön"
+  }
+}

@@ -1,0 +1,139 @@
+{
+  "meta": {
+    "title": "Atoll Rent a Car — car hire in North Cyprus",
+    "description": "Rent a car in Kyrenia, Ercan, Larnaca or Paphos. Live availability, clear prices in GBP, free delivery around Kyrenia."
+  },
+  "nav": {
+    "cars": "Cars",
+    "terms": "Rental terms",
+    "about": "About",
+    "contact": "Contact",
+    "book": "Find a car",
+    "language": "Language"
+  },
+  "hero": {
+    "title": "Car hire across Cyprus, from our Kyrenia office to every airport",
+    "lead": "Pick up at Ercan, Larnaca or Paphos, or have the car brought to your hotel. You see which cars are free for your dates before you book.",
+    "mapLabel": "Our pick-up points"
+  },
+  "search": {
+    "pickupLocation": "Pick-up",
+    "returnLocation": "Return",
+    "sameReturn": "Return to the same place",
+    "pickupDate": "Pick-up date",
+    "returnDate": "Return date",
+    "time": "Time",
+    "delivery": "Deliver to my hotel or villa",
+    "deliveryZone": "Delivery area",
+    "submit": "Show available cars",
+    "errorRange": "Return must be after pick-up.",
+    "errorLead": "Pick-up must be at least 2 hours from now."
+  },
+  "results": {
+    "title": "Cars for your dates",
+    "summary": "{days, plural, one {# day} other {# days}}, {from} to {to}",
+    "available": "{count, plural, one {# car free} other {# cars free}}",
+    "soldOut": "Booked for these dates",
+    "perDay": "per day",
+    "total": "total",
+    "select": "Choose this car",
+    "filterAll": "All",
+    "noResults": "No cars match these filters. Clear a filter to see more.",
+    "changeSearch": "Change search",
+    "loading": "Checking live availability…",
+    "error": "We couldn't load availability. Check your connection and try again.",
+    "retry": "Try again",
+    "discount": "{percent}% long-rental discount included"
+  },
+  "car": {
+    "seats": "{n} seats",
+    "fleet": "{n, plural, one {# car in our fleet} other {# cars in our fleet}}",
+    "from": "from {price} / day",
+    "specs": "Specifications",
+    "bookPanel": "Book this car",
+    "checkDates": "Choose dates to see the price and availability",
+    "airCon": "Air conditioning",
+    "engine": "{l} L engine",
+    "orSimilar": "Your car is a {name}. The exact plate is assigned at pick-up."
+  },
+  "classes": {
+    "ECONOMY": "Economy",
+    "MIDDLE": "Mid-size",
+    "LUXURY": "Luxury",
+    "SUV": "SUV",
+    "PEOPLE_CARRIER": "7+ seats",
+    "SPORT": "Sport",
+    "PREMIUM": "Premium"
+  },
+  "transmission": {
+    "AUTOMATIC": "Automatic",
+    "MANUAL": "Manual"
+  },
+  "fuel": {
+    "PETROL": "Petrol",
+    "DIESEL": "Diesel",
+    "HYBRID": "Hybrid",
+    "ELECTRIC": "Electric",
+    "LPG": "LPG"
+  },
+  "booking": {
+    "extras": "Add extras",
+    "perDay": "/ day",
+    "perRental": "one-off",
+    "summary": "Price summary",
+    "rental": "Car rental ({days, plural, one {# day} other {# days}})",
+    "discount": "Long-rental discount",
+    "fees": "Location & delivery",
+    "total": "Total",
+    "deposit": "Pay now (deposit)",
+    "onPickup": "Pay at pick-up",
+    "reserve": "Reserve this car",
+    "reserving": "Reserving…",
+    "held": "Car reserved for you for {minutes} minutes",
+    "soldOut": "This car was just booked by someone else. Choose other dates or another car.",
+    "details": "Driver details",
+    "firstName": "First name",
+    "lastName": "Last name",
+    "email": "Email",
+    "phone": "Phone (with country code)",
+    "country": "Country",
+    "license": "Driving licence number",
+    "flight": "Flight number (optional)",
+    "address": "Delivery address",
+    "notes": "Anything we should know?",
+    "terms": "I have read and accept the rental terms",
+    "payDeposit": "Pay deposit and confirm",
+    "payOnPickup": "Confirm, pay at pick-up",
+    "confirming": "Confirming…",
+    "expired": "Your reservation hold expired. Search again to get a car.",
+    "confirmedTitle": "Booking confirmed",
+    "confirmedLead": "Your reference is {ref}. We've emailed the details and will message you on WhatsApp before pick-up.",
+    "pendingTitle": "Waiting for payment",
+    "pendingLead": "Complete the deposit to confirm booking {ref}.",
+    "notFound": "We couldn't find this booking on this device. Use the link in your confirmation email.",
+    "whatsapp": "Message us on WhatsApp"
+  },
+  "home": {
+    "fleetTitle": "Our fleet",
+    "fleetLead": "From city hatchbacks to 7-seaters and Land Rovers. Every car has air conditioning.",
+    "factsTitle": "Good to know before you book",
+    "fact1Title": "Free delivery around Kyrenia",
+    "fact1": "Alsancak, Çatalköy, Ozanköy, Karmi and Kyrenia town: we bring the car to you at no charge.",
+    "fact2Title": "Drive into South Cyprus",
+    "fact2": "Add South Cyprus cover for £50 per rental and cross at any checkpoint.",
+    "fact3Title": "Larnaca and Paphos arrivals",
+    "fact3": "Landing in the south? Collect the car at Larnaca or Paphos airport.",
+    "fact4Title": "Clear prices in pounds",
+    "fact4": "The price you see includes the car, discounts and location fees. A small deposit holds the booking; the rest is paid at pick-up."
+  },
+  "footer": {
+    "address": "154 Karaoğlanoğlu Caddesi, Alsancak, Kyrenia, North Cyprus",
+    "hours": "Monday to Friday 09:00–21:00, Saturday 09:00–19:00, closed on Sunday",
+    "rights": "Atoll Rent a Car"
+  },
+  "errors": {
+    "generic": "Something went wrong. Please try again.",
+    "notFound": "This page doesn't exist.",
+    "home": "Back to home"
+  }
+}
