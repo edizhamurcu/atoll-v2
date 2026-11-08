@@ -23,7 +23,7 @@ services:
     networks: [internal]
 
   app:
-    build: { context: ., target: runner }
+    build: { context: ., target: runner, secrets: [corp_ca] }
     image: atoll-app:latest
     restart: unless-stopped
     env_file: .env
@@ -40,7 +40,7 @@ services:
     networks: [internal]
 
   tools:
-    build: { context: ., target: build }
+    build: { context: ., target: build, secrets: [corp_ca] }
     image: atoll-tools:latest
     profiles: ["tools"]
     env_file: .env
@@ -51,6 +51,11 @@ services:
     volumes:
       - ${IMPORT_DIR:-./import}:/import:ro
     networks: [internal]
+
+secrets:
+  # Corporate TLS-inspection CA for builds behind the FortiGate; /dev/null when not needed.
+  corp_ca:
+    file: ${CORP_CA_FILE:-/dev/null}
 
 volumes:
   pgdata:

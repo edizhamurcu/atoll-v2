@@ -32,6 +32,9 @@ const data = JSON.parse(readFileSync(file, "utf8")) as {
   options: { wpId: number; title: string; price: string }[]; orders: WpOrder[];
   seasonRates?: { variation_id: string; starttime: string; endtime: string; price: string }[];
 };
+// The live export stores some numeric ids as strings (MySQL rows): coerce once so Int columns and map lookups match.
+const num = (v: unknown) => (v === null || v === undefined || v === "" ? null : Number(v));
+data.orders = data.orders.map((o) => ({ ...o, wpId: Number(o.wpId), carWpId: num(o.carWpId), days: num(o.days) }));
 
 // ---------- normalisation ----------
 const NAME_FIX: Record<string, string> = { "TOYOTA CORROLLA": "TOYOTA COROLLA", "HYUNDAI ?30": "HYUNDAI I30", "HYUNDAI ?X35": "HYUNDAI IX35", "HYUNDAI İ30": "HYUNDAI I30", "HYUNDAI İX35": "HYUNDAI IX35", "MERC E220": "MERCEDES E220", "MERC C200": "MERCEDES C200", "MERC A180D": "MERCEDES A180D", "MERC C 220 SE D": "MERCEDES C220 SE D", "LANDROVER SPORT": "LAND ROVER RANGE ROVER SPORT", "LANDROVER DISCOVERY": "LAND ROVER DISCOVERY" };

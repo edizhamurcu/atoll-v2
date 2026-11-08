@@ -1,7 +1,11 @@
 # syntax=docker/dockerfile:1.7
 FROM node:22-alpine AS deps
 WORKDIR /app
-RUN apk add --no-cache libc6-compat
+# Optional corporate TLS-inspection CA (e.g. FortiGate), build stages only — never in the runner image.
+RUN --mount=type=secret,id=corp_ca,required=false \
+    if [ -s /run/secrets/corp_ca ]; then cat /run/secrets/corp_ca >> /etc/ssl/certs/ca-certificates.crt; fi; \
+    apk add --no-cache libc6-compat
+ENV NODE_EXTRA_CA_CERTS=/etc/ssl/certs/ca-certificates.crt
 COPY package.json package-lock.json ./
 RUN npm ci --no-audit --no-fund
 
