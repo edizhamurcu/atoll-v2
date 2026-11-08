@@ -52,6 +52,13 @@ describe("computeQuote", () => {
     expect(q.payOnPickup).toBe("180.00");
   });
 
+  it("most recently defined season wins on overlap (WP parity)", () => {
+    const q = computeQuote(base({ returnAt: at("2027-06-02T10:00:00+03:00"), seasonRates: [{ startDate: "2027-05-01", endDate: "2027-06-30", dailyRate: "40" }, { startDate: "2027-06-01", endDate: "2027-06-01", dailyRate: "25" }] }));
+    expect(q.rentalTotal).toBe("25.00");
+    const q2 = computeQuote(base({ returnAt: at("2027-06-02T10:00:00+03:00"), seasonRates: [{ startDate: "2027-06-01", endDate: "2027-06-01", dailyRate: "25" }, { startDate: "2027-05-01", endDate: "2027-06-30", dailyRate: "40" }] }));
+    expect(q2.rentalTotal).toBe("40.00");
+  });
+
   it("applies season rate only to days inside the season", () => {
     const q = computeQuote(base({ seasonRates: [{ startDate: "2027-06-05", endDate: "2027-09-30", dailyRate: "45" }] }));
     // 1,2,3,4 Jun @30 + 5,6,7 Jun @45

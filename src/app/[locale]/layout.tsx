@@ -19,12 +19,17 @@ export async function generateMetadata({ params }: LayoutProps<"/[locale]">): Pr
   const site = process.env.PUBLIC_SITE_URL ?? "https://atollrentacar.com";
   return {
     metadataBase: new URL(site),
-    title: { default: t("title"), template: `%s — Atoll Rent a Car` },
+    title: { default: t("title"), template: `%s | Atoll Rent A Car` },
     description: t("description"),
-    alternates: { canonical: `/${locale}`, languages: Object.fromEntries(routing.locales.map((l) => [l, `/${l}`])) },
-    openGraph: { siteName: "Atoll Rent a Car", locale, type: "website" },
+    alternates: { canonical: `/${locale}`, languages: { ...Object.fromEntries(routing.locales.map((l) => [l, `/${l}`])), "x-default": "/en" } },
+    openGraph: { siteName: "Atoll Rent A Car", locale, type: "website", images: [{ url: "/brand/og.png", width: 1200, height: 630, alt: "Atoll Rent A Car — car rental in North Cyprus" }] },
+    twitter: { card: "summary_large_image", images: ["/brand/og.png"] },
+    formatDetection: { telephone: true },
+    applicationName: "Atoll Rent A Car",
   };
 }
+
+export const viewport = { themeColor: "#0d3440", width: "device-width", initialScale: 1 };
 
 export default async function LocaleLayout({ children, params }: LayoutProps<"/[locale]">) {
   const { locale } = await params;

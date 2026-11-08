@@ -27,6 +27,7 @@ type WpOrder = {
 const data = JSON.parse(readFileSync(file, "utf8")) as {
   vehicles: WpVehicle[]; offices: { wpId: number; title: string; address: string; lat: string | null; lng: string | null; phone: string | null; hours: string }[];
   options: { wpId: number; title: string; price: string }[]; orders: WpOrder[];
+  seasonRates?: { variation_id: string; starttime: string; endtime: string; price: string }[];
 };
 
 // ---------- normalisation ----------
@@ -138,6 +139,28 @@ async function main() {
     { slug: "iskele", name: "Iskele", areas: ["İskele"], tiers: [{ minDays: 1, fee: "60.00" }, { minDays: 4, fee: "55.00" }, { minDays: 6, fee: "50.00" }] },
   ];
   if (!dry) for (const [i, z] of ZONES.entries()) await db.deliveryZone.upsert({ where: { slug: z.slug }, create: { ...z, sortOrder: i }, update: { areas: z.areas, tiers: z.tiers } });
+
+  // ---------- season rates (WP rental_price_date; unix seconds, inclusive) ----------
+  // Imported oldest-first so createdAt order = WP id order (newest wins on overlap, like the theme).
+  if (!dry && data.seasonRates?.length) {
+    const ymd = (sec: string) => new Date(Number(sec) * 1000).toLocaleDateString("en-CA", { timeZone: TZ });
+    let n = 0;
+    const seen = new Set<string>();
+    for (const r of [...data.seasonRates].sort((a, b) => Number((a as { id?: string }).id ?? 0) - Number((b as { id?: string }).id ?? 0))) {
+      const v = vehicleByWp.get(Number(r.variation_id));
+      if (!v) continue;
+      const key = `${v.modelId}|${r.starttime}|${r.endtime}`;
+      if (seen.has(key)) continue; // same model from several plates
+      seen.add(key);
+      const startDate = new Date(`${ymd(r.starttime)}T00:00:00Z`), endDate = new Date(`${ymd(r.endtime)}T00:00:00Z`);
+      const exists = await db.seasonRate.findFirst({ where: { modelId: v.modelId, startDate, endDate } });
+      if (!exists) {
+        await db.seasonRate.create({ data: { modelId: v.modelId, startDate, endDate, dailyRate: r.price, name: "Imported from WordPress", createdAt: new Date(Date.now() + n) } });
+        n++;
+      }
+    }
+    console.log(`season rates imported=${n}`);
+  }
 
   // ---------- legacy orders ----------
   const parse = (s: string | null) => {

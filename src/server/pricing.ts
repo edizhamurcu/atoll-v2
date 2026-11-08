@@ -93,11 +93,11 @@ export function rentalDates(pickupAt: Date, days: number, timezone: string): str
   return Array.from({ length: days }, (_, i) => formatInTimeZone(addDays(anchor, i), timezone, "yyyy-MM-dd"));
 }
 
+/** Season rate for a calendar day. Seasons are passed oldest-first; on overlap the most recently
+ * defined one wins (same rule as the WordPress Motors theme: ORDER BY id DESC LIMIT 1). */
 export function rateForDate(date: string, base: Decimal.Value, seasons: SeasonRateInput[]): Decimal {
-  // Later-starting (more specific) season wins when seasons overlap.
-  const hit = seasons
-    .filter((s) => s.startDate <= date && date <= s.endDate)
-    .sort((a, b) => (a.startDate < b.startDate ? 1 : -1))[0];
+  const hits = seasons.filter((s) => s.startDate <= date && date <= s.endDate);
+  const hit = hits[hits.length - 1];
   return m(hit ? hit.dailyRate : base);
 }
 

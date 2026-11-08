@@ -1,7 +1,7 @@
 {
   "meta": {
-    "title": "Atoll Rent a Car — Mietwagen in Nordzypern",
-    "description": "Mietwagen in Kyrenia, Ercan, Larnaka oder Paphos. Live-Verfügbarkeit, klare Preise in GBP, kostenlose Zustellung rund um Kyrenia."
+    "title": "Atoll Rent A Car – Garantiert niedrigste Mietwagenpreise in Nordzypern",
+    "description": "Atoll Rent A Car bietet Mietwagen in Nordzypern zu garantiert niedrigsten Preisen. Mietwagen ab £30 pro Tag. Büro in Kyrenia, Flughäfen Ercan, Larnaka und Paphos."
   },
   "nav": {
     "cars": "Fahrzeuge",
@@ -9,11 +9,27 @@
     "about": "Über uns",
     "contact": "Kontakt",
     "book": "Auto finden",
-    "language": "Sprache"
+    "language": "Sprache",
+    "home": "Startseite",
+    "explore": "Fahrzeuge",
+    "pages": "Seiten",
+    "carPrices": "Mietpreise",
+    "aboutUs": "Über uns",
+    "rentalTerms": "Mietbedingungen",
+    "specialOffers": "Angebote",
+    "guide": "Nordzypern-Reiseführer",
+    "aboutNorthCyprus": "Über Nordzypern",
+    "contactUs": "Kontakt",
+    "information": "Informationen",
+    "drivingSouth": "Fahren in Südzypern",
+    "privacy": "Datenschutz",
+    "agreement": "Mietvertrag",
+    "menu": "Menü",
+    "close": "Schließen"
   },
   "hero": {
-    "title": "Mietwagen auf ganz Zypern, von unserem Büro in Kyrenia bis zu jedem Flughafen",
-    "lead": "Abholung in Ercan, Larnaka oder Paphos oder Zustellung ans Hotel. Sie sehen vor der Buchung, welche Autos an Ihren Tagen frei sind.",
+    "title": "Weiter kommen mit Atoll Rent-A-Car!",
+    "lead": "Mietwagen in Nordzypern ab nur £30. Wählen Sie aus über 100 Fahrzeugen, von unserem Büro in Kyrenia bis zu den Flughäfen Ercan, Larnaka und Paphos.",
     "mapLabel": "Unsere Abholorte"
   },
   "search": {
@@ -123,29 +139,59 @@
     "fact2": "Fügen Sie für £50 pro Miete den Südzypern-Schutz hinzu und überqueren Sie jeden Grenzübergang.",
     "fact3Title": "Ankunft in Larnaka und Paphos",
     "fact3": "Landen Sie im Süden? Holen Sie das Auto am Flughafen Larnaka oder Paphos ab.",
-    "fact4Title": "Klare Preise in Pfund",
-    "fact4": "Der angezeigte Preis enthält Auto, Rabatte und Standortgebühren. Eine kleine Anzahlung sichert die Buchung, der Rest wird bei Abholung bezahlt.",
+    "fact4Title": "Klare Preise, keine Überraschungen",
+    "fact4": "Unsere Mietpreise beinhalten volle 24-Stunden-Tage, unbegrenzte Kilometer, Öl und Schmierung, Sicherheitsgurte in allen Autos und Fahrzeugtausch bei technischem Defekt. Die Selbstbeteiligung beträgt fest 500 Euro.",
     "stepsTitle": "So funktioniert die Buchung",
     "step1Title": "Reisedaten suchen",
     "step1": "Wählen Sie Ort und Zeit. Sie sehen sofort, welche Autos frei sind, und den Gesamtpreis.",
     "step2Title": "Auto reservieren",
     "step2": "Wir halten das Auto 15 Minuten für Sie, während Sie Extras wie einen Kindersitz oder den Südzypern-Schutz hinzufügen.",
     "step3Title": "Bestätigen und losfahren",
-    "step3": "Zahlen Sie eine kleine Anzahlung oder bei Abholung. Vor Ihrer Ankunft melden wir uns per WhatsApp.",
+    "step3": "Zahlen Sie bar bei Übernahme des Autos oder per Karte über unser sicheres Online-System.",
     "ctaTitle": "Fragen vor der Buchung?",
     "ctaLead": "Unser Team in Kyrenia antwortet auf WhatsApp, zu Bürozeiten meist innerhalb weniger Minuten.",
     "ctaWhatsapp": "Schreiben Sie uns auf WhatsApp",
-    "ctaCall": "Anrufen: {phone}"
+    "ctaCall": "Anrufen: {phone}",
+    "fact5Title": "Führerschein und Alter",
+    "fact5": "Alle internationalen und nationalen Führerscheine werden akzeptiert. Das Mindestalter für die Anmietung in Nordzypern beträgt 25 Jahre.",
+    "fact6Title": "Stornierung",
+    "fact6": "Bei Stornierung weniger als 48 Stunden vor der vereinbarten Abholzeit fällt eine Gebühr von 10 % an.",
+    "estateTitle": "Immobilien in Nordzypern",
+    "estate": "Seit Jahren sind das sonnige Wetter, niedrige Lebenshaltungskosten, günstige Immobilien, geringe Kriminalität und frische Lebensmittel die Hauptgründe für einen Immobilienkauf in Nordzypern. Immobilien in Nordzypern sind nicht nur eine vielversprechende Investition, sondern auch ein beliebtes Ziel für Umzug und Ruhestand.",
+    "estateCta": "Fragen Sie nach Villen, Wohnungen und Büros"
   },
   "footer": {
     "address": "154 Karaoğlanoğlu Caddesi, Alsancak, Kyrenia, Nordzypern",
     "hours": "Montag bis Freitag 09:00–21:00, Samstag 09:00–19:00, Sonntag geschlossen",
-    "rights": "Atoll Rent a Car"
+    "rights": "Atoll Rent a Car",
+    "title": "Die Nr. 1 Autovermietung in Nordzypern",
+    "lead": "Niedrigste Mietpreise!",
+    "englishNote": "Diese Seite ist auf Englisch verfügbar."
   },
   "errors": {
     "generic": "Etwas ist schiefgelaufen. Bitte versuchen Sie es erneut.",
     "notFound": "Diese Seite existiert nicht.",
     "home": "Zur Startseite",
     "retry": "Erneut versuchen"
+  },
+  "contact": {
+    "contactTitle": "Kontakt",
+    "contactLead": "Rufen Sie uns an oder kommen Sie jederzeit vorbei. Wir beantworten alle Anfragen an Werktagen innerhalb von 24 Stunden.",
+    "formTitle": "Kontaktformular",
+    "name": "Ihr Name",
+    "email": "Ihre E-Mail",
+    "subject": "Betreff",
+    "message": "Ihre Nachricht (optional)",
+    "send": "Senden",
+    "sending": "Wird gesendet…",
+    "sent": "Vielen Dank für Ihre Nachricht. Sie wurde gesendet.",
+    "error": "Beim Senden Ihrer Nachricht ist ein Fehler aufgetreten. Bitte versuchen Sie es später erneut.",
+    "office": "Büro",
+    "pricesTitle": "Mietpreise",
+    "pricesLead": "Tagespreise in GBP. Wählen Sie Ihre Daten für Verfügbarkeit und Gesamtpreis.",
+    "model": "Fahrzeug",
+    "class": "Klasse",
+    "perDay": "Pro Tag",
+    "book": "Verfügbarkeit prüfen"
   }
 }

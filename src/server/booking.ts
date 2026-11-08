@@ -45,7 +45,7 @@ export async function buildQuote(req: QuoteRequest, s?: BusinessSettings) {
   validateWindow(settings, req.pickupAt, req.returnAt, new Date(), req.allowImmediate);
 
   const [model, pickup, ret, zone, extras, discounts] = await Promise.all([
-    db.vehicleModel.findFirst({ where: { slug: req.modelSlug, active: true }, include: { seasonRates: true } }),
+    db.vehicleModel.findFirst({ where: { slug: req.modelSlug, active: true }, include: { seasonRates: { orderBy: { createdAt: "asc" } } } }),
     db.location.findFirst({ where: { slug: req.pickupLocation, active: true } }),
     db.location.findFirst({ where: { slug: req.returnLocation, active: true } }),
     req.deliveryZone ? db.deliveryZone.findFirst({ where: { slug: req.deliveryZone, active: true } }) : Promise.resolve(null),

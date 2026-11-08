@@ -1,4 +1,6 @@
-export const WHATSAPP = "+90 533 823 65 55";
-export const PHONE = "+90 539 103 61 66";
-export const EMAIL = "info@atollrentacar.com";
+import { SITE } from "./site";
+
+export const WHATSAPP = SITE.whatsapp;
+export const PHONE = SITE.phone;
+export const EMAIL = SITE.email;
 export const BUSINESS_TZ = "Asia/Famagusta";

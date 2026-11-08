@@ -89,13 +89,13 @@ export function SearchForm({ options, target = "/cars", compact = false, stacked
       </div>
 
       <div className="mt-4 flex flex-wrap items-center gap-x-6 gap-y-3 text-sm text-ink-soft">
-        <label className="inline-flex cursor-pointer items-center gap-2">
-          <input type="checkbox" className="size-4 accent-[var(--color-aegean)]" checked={same} onChange={(e) => setSame(e.target.checked)} />
+        <label className="inline-flex min-h-11 cursor-pointer items-center gap-2.5">
+          <input type="checkbox" className="size-5 accent-[var(--color-aegean)]" checked={same} onChange={(e) => setSame(e.target.checked)} />
           {t("sameReturn")}
         </label>
         {options.zones.length > 0 && (
-          <label className="inline-flex cursor-pointer items-center gap-2">
-            <input type="checkbox" className="size-4 accent-[var(--color-aegean)]" checked={delivery} onChange={(e) => setDelivery(e.target.checked)} />
+          <label className="inline-flex min-h-11 cursor-pointer items-center gap-2.5">
+            <input type="checkbox" className="size-5 accent-[var(--color-aegean)]" checked={delivery} onChange={(e) => setDelivery(e.target.checked)} />
             {t("delivery")}
           </label>
         )}

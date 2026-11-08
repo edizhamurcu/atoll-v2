@@ -350,3 +350,31 @@ model AuditLog {
   @@index([entity, entityId])
   @@index([createdAt])
 }
+
+/// Content pages migrated 1:1 from the WordPress site (English source text, clean HTML).
+model Page {
+  id              String   @id @default(cuid())
+  slug            String   @unique
+  title           String
+  html            String
+  metaTitle       String?
+  metaDescription String?
+  legacySlug      String?
+  showInSitemap   Boolean  @default(true)
+  updatedAt       DateTime @updatedAt @db.Timestamptz(6)
+  createdAt       DateTime @default(now()) @db.Timestamptz(6)
+}
+
+model ContactMessage {
+  id        String   @id @default(cuid())
+  name      String
+  email     String
+  subject   String?
+  message   String?
+  locale    String   @default("en")
+  ip        String?
+  emailedAt DateTime? @db.Timestamptz(6)
+  createdAt DateTime @default(now()) @db.Timestamptz(6)
+
+  @@index([createdAt])
+}

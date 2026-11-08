@@ -173,8 +173,8 @@ export function Checkout({ refCode }: { refCode: string }) {
         ) : (
           <input type="hidden" name="pay" value="pay_on_pickup" />
         )}
-        <label className="flex items-start gap-3 text-sm">
-          <input type="checkbox" name="terms" required className="mt-0.5 size-4 accent-[var(--color-aegean)]" />
+        <label className="flex min-h-11 cursor-pointer items-start gap-3 text-sm">
+          <input type="checkbox" name="terms" required className="mt-0.5 size-5 accent-[var(--color-aegean)]" />
           <span>
             {t("terms")} (<Link href="/rental-terms" className="underline" target="_blank">↗</Link>)
           </span>

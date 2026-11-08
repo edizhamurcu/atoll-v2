@@ -1,7 +1,7 @@
 {
   "meta": {
-    "title": "Atoll Rent a Car — Kuzey Kıbrıs araç kiralama",
-    "description": "Girne, Ercan, Larnaka veya Baf'ta araç kiralayın. Anlık müsaitlik, GBP net fiyatlar, Girne bölgesinde ücretsiz teslimat."
+    "title": "Atoll Rent A Car – Kuzey Kıbrıs'ta garantili en düşük araç kiralama fiyatları",
+    "description": "Atoll Rent A Car, Kuzey Kıbrıs'ta garantili en düşük fiyatlarla araç kiralama sunar. Günlük £30'dan başlayan fiyatlar. Girne ofisi, Ercan, Larnaka ve Baf havalimanları."
   },
   "nav": {
     "cars": "Araçlar",
@@ -9,11 +9,27 @@
     "about": "Hakkımızda",
     "contact": "İletişim",
     "book": "Araç bul",
-    "language": "Dil"
+    "language": "Dil",
+    "home": "Ana Sayfa",
+    "explore": "Araçlar",
+    "pages": "Sayfalar",
+    "carPrices": "Araç Fiyatları",
+    "aboutUs": "Hakkımızda",
+    "rentalTerms": "Kiralama Şartları",
+    "specialOffers": "Özel Teklifler",
+    "guide": "Kuzey Kıbrıs Rehberi",
+    "aboutNorthCyprus": "Kuzey Kıbrıs Hakkında",
+    "contactUs": "İletişim",
+    "information": "Bilgi",
+    "drivingSouth": "Güney Kıbrıs'ta Sürüş",
+    "privacy": "Gizlilik Politikası",
+    "agreement": "Kiralama Sözleşmesi",
+    "menu": "Menü",
+    "close": "Kapat"
   },
   "hero": {
-    "title": "Girne ofisimizden tüm havalimanlarına, Kıbrıs genelinde araç kiralama",
-    "lead": "Aracı Ercan, Larnaka veya Baf'tan alın ya da otelinize getirelim. Rezervasyondan önce tarihlerinizde hangi araçların boş olduğunu görürsünüz.",
+    "title": "Atoll Rent-A-Car ile daha ileri gidin!",
+    "lead": "Kuzey Kıbrıs'ta £30'dan başlayan araç kiralama. Girne ofisimizden Ercan, Larnaka ve Baf havalimanlarına kadar galerimizdeki 100'den fazla araç arasından seçin.",
     "mapLabel": "Teslim noktalarımız"
   },
   "search": {
@@ -123,29 +139,59 @@
     "fact2": "Kiralama başına £50 Güney Kıbrıs güvencesi ekleyin, istediğiniz kapıdan geçin.",
     "fact3Title": "Larnaka ve Baf varışları",
     "fact3": "Güneye mi iniyorsunuz? Aracı Larnaka veya Baf havalimanında teslim alın.",
-    "fact4Title": "Sterlin cinsinden net fiyat",
-    "fact4": "Gördüğünüz fiyata araç, indirimler ve lokasyon ücretleri dahildir. Küçük bir depozito rezervasyonu tutar; kalanı teslimde ödenir.",
+    "fact4Title": "Net fiyat, sürpriz yok",
+    "fact4": "Kiralama ücretlerimize tam 24 saatlik gün, sınırsız kilometre, yağ ve gresleme, tüm araçlarda emniyet kemeri ve mekanik arızada araç değişimi dahildir. Hasar muafiyeti 500 euro olarak sabittir.",
     "stepsTitle": "Rezervasyon nasıl işler",
     "step1Title": "Tarihlerinizi arayın",
     "step1": "Yeri ve zamanı seçin. Hangi araçların boş olduğunu ve toplam fiyatı hemen görürsünüz.",
     "step2Title": "Aracı ayırın",
     "step2": "Bebek koltuğu veya Güney Kıbrıs güvencesi gibi ekstraları eklerken araç 15 dakika size ayrılır.",
     "step3Title": "Onaylayın ve yola çıkın",
-    "step3": "Küçük bir depozito ödeyin ya da teslimde ödeyin. Gelmeden önce WhatsApp'tan yazarız.",
+    "step3": "Aracı teslim alırken nakit ödeyin ya da güvenli online sistemimizle kartla ödeyin.",
     "ctaTitle": "Rezervasyondan önce sorunuz mu var?",
     "ctaLead": "Girne ekibimiz WhatsApp'tan, mesai saatlerinde genellikle dakikalar içinde yanıt verir.",
     "ctaWhatsapp": "WhatsApp'tan yazın",
-    "ctaCall": "Arayın: {phone}"
+    "ctaCall": "Arayın: {phone}",
+    "fact5Title": "Ehliyet ve yaş",
+    "fact5": "Tüm uluslararası ve ulusal ehliyetler kabul edilir. Kuzey Kıbrıs'ta araç kiralamak için minimum yaş 25'tir.",
+    "fact6Title": "İptal",
+    "fact6": "Kararlaştırılan teslim saatine 48 saatten az kala iptal edilen rezervasyonlarda %10 iptal ücreti uygulanır.",
+    "estateTitle": "Kuzey Kıbrıs'ta Gayrimenkul",
+    "estate": "Yıllar boyunca Kuzey Kıbrıs'ta mülk almanın başlıca nedenleri güneşli hava, düşük yaşam maliyeti, uygun fiyatlı mülkler, düşük suç oranı ve taze gıdalar oldu. Kuzey Kıbrıs mülkleri yatırımcılar için iyi bir yatırım vaat etmekle kalmıyor, yerleşmek ve emekli olmak için de popüler bir destinasyon haline geliyor.",
+    "estateCta": "Villa, daire ve ofis için bize sorun"
   },
   "footer": {
     "address": "154 Karaoğlanoğlu Caddesi, Alsancak, Girne, KKTC",
     "hours": "Pazartesi–Cuma 09:00–21:00, Cumartesi 09:00–19:00, Pazar kapalı",
-    "rights": "Atoll Rent a Car"
+    "rights": "Atoll Rent a Car",
+    "title": "Kuzey Kıbrıs'ın 1 numaralı araç kiralama şirketi",
+    "lead": "En düşük kiralama fiyatları!",
+    "englishNote": "Bu sayfa İngilizce olarak sunulmaktadır."
   },
   "errors": {
     "generic": "Bir şeyler ters gitti. Lütfen tekrar deneyin.",
     "notFound": "Bu sayfa mevcut değil.",
     "home": "Ana sayfaya dön",
     "retry": "Tekrar dene"
+  },
+  "contact": {
+    "contactTitle": "İletişim",
+    "contactLead": "Bizi arayın ya da istediğiniz zaman uğrayın; iş günlerinde tüm taleplere 24 saat içinde yanıt vermeye çalışıyoruz.",
+    "formTitle": "İletişim Formu",
+    "name": "Adınız",
+    "email": "E-posta adresiniz",
+    "subject": "Konu",
+    "message": "Mesajınız (isteğe bağlı)",
+    "send": "Gönder",
+    "sending": "Gönderiliyor…",
+    "sent": "Mesajınız için teşekkürler. Mesajınız gönderildi.",
+    "error": "Mesajınız gönderilirken bir hata oluştu. Lütfen daha sonra tekrar deneyin.",
+    "office": "Ofis",
+    "pricesTitle": "Araç Fiyatları",
+    "pricesLead": "GBP cinsinden günlük kiralama fiyatları. Müsaitlik ve toplam fiyat için tarih seçin.",
+    "model": "Araç",
+    "class": "Sınıf",
+    "perDay": "Günlük",
+    "book": "Müsaitliğe bak"
   }
 }

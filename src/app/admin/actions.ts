@@ -12,8 +12,21 @@ import type { BookingStatus } from "@/generated/prisma/client";
 export type ActionState = { error?: string; ok?: string; email?: string } | null;
 const TZ = process.env.BUSINESS_TZ ?? "Asia/Famagusta";
 const local = (d: string, t: string) => fromZonedTime(`${d}T${t}:00`, TZ);
+const TR: Record<string, string> = {
+  SOLD_OUT: "Bu modelden bu tarihlerde boş araç yok.",
+  INVALID_RANGE: "İade tarihi alıştan sonra olmalı.",
+  INVALID_DATE: "Geçersiz tarih.",
+  LEAD_TIME: "Alış zamanı geçmişte olamaz.",
+  TOO_FAR: "Rezervasyon en fazla 18 ay ileri alınabilir.",
+  MIN_DAYS: "Minimum kiralama süresinin altında.",
+  MAX_DAYS: "Maksimum kiralama süresi aşıldı.",
+  MODEL_NOT_FOUND: "Araç modeli bulunamadı.",
+  LOCATION_NOT_FOUND: "Lokasyon bulunamadı.",
+  EXTRA_NOT_FOUND: "Ekstra bulunamadı.",
+  BAD_EXTRA_QTY: "Ekstra adedi geçersiz.",
+};
 const fail = (e: unknown): ActionState => {
-  if (e instanceof BookingError) return { error: e.message };
+  if (e instanceof BookingError) return { error: TR[e.code] ?? e.message };
   if (e instanceof z.ZodError) return { error: e.issues.map((i) => `${i.path.join(".")}: ${i.message}`).join(", ") };
   console.error("[admin]", e instanceof Error ? e.message : e);
   return { error: "Beklenmeyen bir hata oldu" };

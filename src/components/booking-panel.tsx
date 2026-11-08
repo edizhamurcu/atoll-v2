@@ -102,7 +102,8 @@ export function BookingPanel({ slug, extras }: { slug: string; extras: Extra[] }
           <legend className="font-display text-lg font-bold">{t("extras")}</legend>
           <ul className="mt-3 divide-y divide-ink/8">
             {extras.map((x) => (
-              <li key={x.code} className="flex items-center justify-between gap-3 py-2.5">
+              <li key={x.code}>
+                <label className="flex min-h-12 cursor-pointer items-center justify-between gap-3 py-2.5">
                 <span>
                   <span className="block">{x.name}</span>
                   <span className="text-sm text-ink-soft">{money(x.price, locale)} {x.pricing === "PER_DAY" ? t("perDay") : t("perRental")}</span>
@@ -112,8 +113,9 @@ export function BookingPanel({ slug, extras }: { slug: string; extras: Extra[] }
                     {Array.from({ length: x.maxQty + 1 }, (_, i) => <option key={i} value={i}>{i}</option>)}
                   </select>
                 ) : (
-                  <input type="checkbox" aria-label={x.name} className="size-5 accent-[var(--color-aegean)]" checked={(qty[x.code] ?? 0) > 0} onChange={(e) => setQty({ ...qty, [x.code]: e.target.checked ? 1 : 0 })} />
+                  <input type="checkbox" aria-label={x.name} className="size-6 accent-[var(--color-aegean)]" checked={(qty[x.code] ?? 0) > 0} onChange={(e) => setQty({ ...qty, [x.code]: e.target.checked ? 1 : 0 })} />
                 )}
+                </label>
               </li>
             ))}
           </ul>

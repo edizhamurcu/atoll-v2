@@ -5,11 +5,12 @@ import { SearchSection, SearchSkeleton } from "@/components/search-section";
 import { Results } from "@/components/results";
 import { FleetSection, FleetSkeleton } from "@/components/fleet-section";
 import type { Locale } from "@/server/catalog";
+import { routing } from "@/i18n/routing";
 
 export async function generateMetadata({ params }: PageProps<"/[locale]/cars">): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "results" });
-  return { title: t("title"), alternates: { canonical: `/${locale}/cars` } };
+  return { title: t("title"), alternates: { canonical: `/${locale}/cars`, languages: Object.fromEntries(routing.locales.map((l) => [l, `/${l}/cars`])) } };
 }
 
 export default async function CarsPage({ params, searchParams }: PageProps<"/[locale]/cars">) {

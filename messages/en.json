@@ -1,7 +1,7 @@
 {
   "meta": {
-    "title": "Atoll Rent a Car — car hire in North Cyprus",
-    "description": "Rent a car in Kyrenia, Ercan, Larnaca or Paphos. Live availability, clear prices in GBP, free delivery around Kyrenia."
+    "title": "Atoll Rent A Car – Lowest guaranteed prices for car rentals in North Cyprus",
+    "description": "Atoll Rent A Car offers Northern Cyprus car rental at the lowest guaranteed prices. Car rentals starting from as low as £30 in North Cyprus. Kyrenia office, Ercan, Larnaca and Paphos airports."
   },
   "nav": {
     "cars": "Cars",
@@ -9,11 +9,27 @@
     "about": "About",
     "contact": "Contact",
     "book": "Find a car",
-    "language": "Language"
+    "language": "Language",
+    "home": "Home",
+    "explore": "Explore Vehicles",
+    "pages": "Pages",
+    "carPrices": "Car Prices",
+    "aboutUs": "About Us",
+    "rentalTerms": "Rental Terms",
+    "specialOffers": "Special Offers",
+    "guide": "North Cyprus Guide",
+    "aboutNorthCyprus": "About North Cyprus",
+    "contactUs": "Contact Us",
+    "information": "Information",
+    "drivingSouth": "Driving in South Cyprus",
+    "privacy": "Privacy Policy",
+    "agreement": "Rental Agreement",
+    "menu": "Menu",
+    "close": "Close"
   },
   "hero": {
-    "title": "Car hire across Cyprus, from our Kyrenia office to every airport",
-    "lead": "Pick up at Ercan, Larnaca or Paphos, or have the car brought to your hotel. You see which cars are free for your dates before you book.",
+    "title": "Go further with Atoll Rent-A-Car!",
+    "lead": "Car rentals starting from as low as £30 in North Cyprus. Choose from over 100 vehicles in our gallery, from our Kyrenia office to Ercan, Larnaca and Paphos airports.",
     "mapLabel": "Our pick-up points"
   },
   "search": {
@@ -123,29 +139,59 @@
     "fact2": "Add South Cyprus cover for £50 per rental and cross at any checkpoint.",
     "fact3Title": "Larnaca and Paphos arrivals",
     "fact3": "Landing in the south? Collect the car at Larnaca or Paphos airport.",
-    "fact4Title": "Clear prices in pounds",
-    "fact4": "The price you see includes the car, discounts and location fees. A small deposit holds the booking; the rest is paid at pick-up.",
+    "fact4Title": "Clear prices, no surprises",
+    "fact4": "Our car hire rates include a full 24-hour day, unlimited mileage, oil and greasing, safety belts in all cars and a change of car in case of mechanical breakdown. Damage excess is fixed at 500 euros.",
     "stepsTitle": "How booking works",
     "step1Title": "Search your dates",
     "step1": "Choose where and when. You see straight away which cars are free and the full price.",
     "step2Title": "Reserve the car",
     "step2": "We hold the car for you for 15 minutes while you add extras like a baby seat or South Cyprus cover.",
     "step3Title": "Confirm and drive",
-    "step3": "Pay a small deposit or pay at pick-up. We message you on WhatsApp before you arrive.",
+    "step3": "Pay by cash when you take delivery of the car, or by card through our secure online system.",
     "ctaTitle": "Questions before you book?",
     "ctaLead": "Our Kyrenia team answers on WhatsApp, usually within minutes during office hours.",
     "ctaWhatsapp": "Message us on WhatsApp",
-    "ctaCall": "Call {phone}"
+    "ctaCall": "Call {phone}",
+    "fact5Title": "Licence and age",
+    "fact5": "All international and national licences are accepted. The minimum age for car hire in Northern Cyprus is 25.",
+    "fact6Title": "Cancellation",
+    "fact6": "A 10% cancellation fee applies to bookings cancelled less than 48 hours before the agreed pick-up time.",
+    "estateTitle": "Real Estate in North Cyprus",
+    "estate": "Over the years the main reason to buying property in North Cyprus was the great sunny weather, low cost living, cheap properties, low crime and fresh foods. North Cyprus properties is not only promising to be a good investment for investors but also becoming a popular destination to relocate and retire.",
+    "estateCta": "Ask about villas, apartments and office space"
   },
   "footer": {
     "address": "154 Karaoğlanoğlu Caddesi, Alsancak, Kyrenia, North Cyprus",
     "hours": "Monday to Friday 09:00–21:00, Saturday 09:00–19:00, closed on Sunday",
-    "rights": "Atoll Rent a Car"
+    "rights": "Atoll Rent a Car",
+    "title": "Number 1 Car Rental Company in North Cyprus",
+    "lead": "Lowest Rental Prices!",
+    "englishNote": "This page is available in English."
   },
   "errors": {
     "generic": "Something went wrong. Please try again.",
     "notFound": "This page doesn't exist.",
     "home": "Back to home",
     "retry": "Try again"
+  },
+  "contact": {
+    "contactTitle": "Contact Us",
+    "contactLead": "Give us a call or drop by anytime, we endeavour to answer all enquiries within 24 hours on business days.",
+    "formTitle": "Contact Form",
+    "name": "Your name",
+    "email": "Your email",
+    "subject": "Subject",
+    "message": "Your message (optional)",
+    "send": "Send",
+    "sending": "Sending…",
+    "sent": "Thank you for your message. It has been sent.",
+    "error": "There was an error trying to send your message. Please try again later.",
+    "office": "Office",
+    "pricesTitle": "Car Prices",
+    "pricesLead": "Daily rental prices in GBP. Choose your dates to see availability and the total price.",
+    "model": "Car",
+    "class": "Class",
+    "perDay": "Per day",
+    "book": "Check availability"
   }
 }

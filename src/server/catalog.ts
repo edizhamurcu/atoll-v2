@@ -38,7 +38,7 @@ export function serializeModel(m: Awaited<ReturnType<typeof listModels>>[number]
 export async function listModels(filter?: { class?: VehicleClass; slug?: string }) {
   return db.vehicleModel.findMany({
     where: { active: true, ...(filter?.class ? { class: filter.class } : {}), ...(filter?.slug ? { slug: filter.slug } : {}) },
-    include: { seasonRates: true, _count: { select: { vehicles: { where: { status: "ACTIVE" } } } } },
+    include: { seasonRates: { orderBy: { createdAt: "asc" } }, _count: { select: { vehicles: { where: { status: "ACTIVE" } } } } },
     orderBy: [{ sortOrder: "asc" }, { dailyRate: "asc" }],
   });
 }

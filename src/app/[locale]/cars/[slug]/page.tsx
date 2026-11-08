@@ -7,6 +7,24 @@ import { CarImage } from "@/components/car-image";
 import { BookingPanel } from "@/components/booking-panel";
 import { SearchSection, SearchSkeleton } from "@/components/search-section";
 import { money } from "@/lib/search-params";
+import type { Metadata } from "next";
+import { Breadcrumbs } from "@/components/breadcrumbs";
+import { JsonLd } from "@/components/json-ld";
+import { SITE } from "@/lib/site";
+import { routing } from "@/i18n/routing";
+
+export async function generateMetadata({ params }: PageProps<"/[locale]/cars/[slug]">): Promise<Metadata> {
+  const { locale, slug } = (await params) as { locale: Locale; slug: string };
+  const m = await getModel(slug, locale);
+  if (!m) return {};
+  const title = `${m.name} rental in North Cyprus from £${Number(m.dailyRate)}/day`;
+  const description = `Rent a ${m.name} (${m.transmission.toLowerCase()}, ${m.fuel.toLowerCase()}, ${m.seats} seats) with Atoll Rent A Car in Kyrenia, Ercan, Larnaca or Paphos. Live availability, from £${Number(m.dailyRate)} per day.`;
+  return {
+    title, description,
+    alternates: { canonical: `/${locale}/cars/${slug}`, languages: Object.fromEntries(routing.locales.map((l) => [l, `/${l}/cars/${slug}`])) },
+    openGraph: { title, description, images: m.images[0] ? [{ url: m.images[0] }] : undefined },
+  };
+}
 
 export default function CarPage({ params }: PageProps<"/[locale]/cars/[slug]">) {
   return (
@@ -26,7 +44,15 @@ async function CarDetail({ params }: { params: PageProps<"/[locale]/cars/[slug]"
   return (
     <div className="grid gap-10 lg:grid-cols-[1.4fr_1fr]">
       <div>
-        <p className="text-ink-soft">{tc(m.class)}</p>
+        <Breadcrumbs locale={locale} items={[{ name: "Atoll Rent A Car", href: "/" }, { name: tc(m.class), href: "/cars" }, { name: m.name, href: `/cars/${slug}` }]} />
+        <JsonLd data={{
+          "@context": "https://schema.org", "@type": "Car", name: m.name, brand: { "@type": "Brand", name: m.make }, model: m.model,
+          vehicleTransmission: m.transmission === "AUTOMATIC" ? "AutomaticTransmission" : "ManualTransmission",
+          fuelType: m.fuel, seatingCapacity: m.seats, image: m.images.map((i) => `${SITE.url}${i}`), url: `${SITE.url}/${locale}/cars/${slug}`,
+          offers: { "@type": "Offer", priceCurrency: "GBP", price: m.dailyRate, availability: "https://schema.org/InStock", businessFunction: "http://purl.org/goodrelations/v1#LeaseOut",
+            priceSpecification: { "@type": "UnitPriceSpecification", price: m.dailyRate, priceCurrency: "GBP", unitCode: "DAY" }, seller: { "@id": `${SITE.url}/#business` } },
+        }} />
+        <p className="mt-4 text-ink-soft">{tc(m.class)}</p>
         <h1 className="text-4xl font-extrabold md:text-5xl">{m.name}</h1>
         <div className="relative mt-6 aspect-[16/10] overflow-hidden rounded-[var(--radius-panel)]">
           <CarImage src={m.images[0]} alt={m.name} sizes="(min-width:1024px) 60vw, 100vw" priority />
