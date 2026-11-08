@@ -1,0 +1,136 @@
+import type { GuideContent } from "./types";
+
+const de: GuideContent = {
+  meta: {
+    title: "Nordzypern Reiseführer: Sehenswürdigkeiten, Strände, Autofahren und Tipps",
+    description: "Planen Sie Ihre Reise nach Nordzypern: Regionen, Burgen und antike Stätten, die schönsten Strände, beste Reisezeit, Feste, Einreise, Autofahren und Geld – aktuell für 2026.",
+  },
+  breadcrumb: "Nordzypern-Reiseführer",
+  hero: {
+    title: "Ihr Reiseführer für das schöne Nordzypern",
+    lead: "Nordzypern ist ein Fleckchen Erde, das der Himmel berührt hat. Mächtige Burgen hoch in den Bergen, ruhige Strände mit nistenden Meeresschildkröten, lebhafte Städte und verlassene römische Ruinen: Mit einem Mietwagen liegt all das in Reichweite.",
+    findCar: "Auto finden",
+    readBlog: "Zum Reiseblog",
+    updated: "Aktualisiert am",
+    updatedDate: "8. November 2026",
+  },
+  facts: {
+    title: "Nordzypern auf einen Blick",
+    items: [
+      ["Währung", "Türkische Lira (TRY). Karten werden weithin akzeptiert; Geldautomaten in jeder Stadt."],
+      ["Verkehr", "Linksverkehr, Fahrzeuge mit Rechtslenkung, Entfernungen in km."],
+      ["Steckdosen", "Britischer Dreipolstecker (Typ G), 230 V."],
+      ["Sprache", "Türkisch. In touristischen Gegenden wird viel Englisch gesprochen."],
+      ["Zeitzone", "Osteuropäische Zeit, UTC+2 (im Sommer UTC+3)."],
+      ["Einreise", "Kein Visum für Bürger aus Großbritannien, der EU und den USA bis 90 Tage. EU-Bürger können mit dem Personalausweis einreisen."],
+      ["Krankenversicherung", "EHIC und GHIC gelten hier nicht. Schließen Sie eine Reiseversicherung ab."],
+      ["Notruf", "Polizei 155 · Rettungsdienst 112 · Feuerwehr 199"],
+    ],
+  },
+  regions: {
+    title: "Wohin reisen",
+    lead: "Nordzypern ist klein: Kein Ort ist mehr als etwa drei Autostunden von Kyrenia entfernt. Die meisten Besucher wohnen an der Küste bei Kyrenia und erkunden den Rest auf Tagesausflügen. Die Fahrzeiten unten gelten ab unserem Büro in Alsancak.",
+    mapTitle: "Karte von Nordzypern mit Kyrenia, Nikosia, Famagusta, Güzelyurt, Kantara, Golden Beach und dem Flughafen Ercan",
+    mapLabels: { kyrenia: "Kyrenia", nicosia: "Nikosia", famagusta: "Famagusta", guzelyurt: "Güzelyurt", kantara: "Kantara", goldenBeach: "Golden Beach", ercan: "Flughafen Ercan" },
+    items: [
+      { name: "Kyrenia", local: "Girne", drive: "10 Minuten von unserem Büro in Alsancak", text: "Die schönste Stadt des Nordens: ein hufeisenförmiger Hafen unterhalb der Burg, dahinter steil aufragende Berge. Die meisten Besucher wohnen an dieser Küste.", see: ["Burg Kyrenia und Schiffswrackmuseum", "Burg St. Hilarion", "Abtei und Dorf Bellapais", "Schildkrötenstrand Alagadi"], cta: "Unser Tagesplan für Kyrenia" },
+      { name: "Nikosia", local: "Lefkoşa", drive: "Etwa 30 Minuten", text: "Die letzte geteilte Hauptstadt der Welt. In der Altstadt innerhalb der venezianischen Mauern mischen sich gotische Kirchen, osmanische Karawansereien und lebhafte Basare, und an der Ledra-Straße können Sie zu Fuß in den Süden gehen.", see: ["Selimiye-Moschee (Sophienkathedrale)", "Büyük Han, die große Karawanserei", "Venezianische Mauern und Kyrenia-Tor", "Übergang Ledra-Straße"] },
+      { name: "Famagusta", local: "Gazimağusa", drive: "Etwa 1 Stunde", text: "Eine mittelalterliche, ummauerte Hafenstadt, einst eine der reichsten Städte des Mittelmeers, mit den römischen Ruinen von Salamis und den wiedereröffneten Straßen von Varosha in der Nähe.", see: ["Lala-Mustafa-Pascha-Moschee", "Othello-Burg", "Antike Stadt Salamis", "Varosha (Maraş)"], cta: "Unser Tagesplan für Famagusta" },
+      { name: "Halbinsel Karpaz", local: "Kırpaşa", drive: "2,5 bis 3 Stunden bis zur Spitze", text: "Zyperns wilder Osten: ein langer Landfinger mit Olivenhainen, leeren Stränden, wilden Eseln und fast ohne Bebauung. Eine Übernachtung lohnt sich.", see: ["Golden Beach", "Wilde Esel im Nationalpark", "Kloster Apostolos Andreas", "Burg Kantara"], cta: "Unser Roadtrip über die Karpaz" },
+      { name: "Güzelyurt und Lefke", local: "Morphou", drive: "Etwa 45 Minuten", text: "Der grüne Westen, umgeben von Orangen- und Zitronenhainen, mit ruhigen Dörfern, der antiken Stadt Soli und dem Palast von Vouni hoch über der Bucht.", see: ["Orangenfest in Güzelyurt (Juni bis Juli)", "Soli und seine Mosaiken", "Palast von Vouni", "Sonnenuntergang in der Bucht von Güzelyurt"] },
+    ],
+    more: { before: "Mehr über die Städte und ihre Geschichte:", link: "Über Nordzypern", after: "." },
+  },
+  sights: {
+    title: "Sehenswürdigkeiten, die Sie nicht verpassen sollten",
+    items: [
+      { name: "Burg St. Hilarion", where: "Kyrenia-Gebirge", text: "Eine märchenhafte Burg, die sich über drei Ebenen die Felsgipfel hinaufzieht, mit Blick über die gesamte Nordküste." },
+      { name: "Abtei Bellapais", where: "Bellapais, oberhalb von Kyrenia", text: "Gotischer Kreuzgang und Refektorium mit Meerblick; Schauplatz des Internationalen Musikfestivals Bellapais." },
+      { name: "Burg Kyrenia", where: "Hafen von Kyrenia", text: "Venezianische Befestigungen und ein Museum mit einem über 2.000 Jahre alten griechischen Handelsschiff." },
+      { name: "Büyük Han und die Altstadt von Nikosia", where: "Nord-Nikosia", text: "Eine osmanische Karawanserei aus dem 16. Jahrhundert mit Kunsthandwerksläden und Cafés, nur wenige Schritte von der Selimiye-Moschee, der einstigen gotischen Sophienkathedrale." },
+      { name: "Golden Beach", where: "Halbinsel Karpaz", text: "Kilometerlange Dünen und Sand fast ohne Bebauung, oft als schönster Strand Zyperns bezeichnet." },
+      { name: "Salamis", where: "Nördlich von Famagusta", text: "Römisches Gymnasium, Thermen und Theater – eine der größten antiken Stätten Zyperns." },
+      { name: "Varosha (Maraş)", where: "Famagusta", text: "Ein Badeort der 1970er-Jahre, jahrzehntelang verlassen und seit 2020 teilweise tagsüber für Besucher geöffnet." },
+      { name: "Burg Kantara", where: "Östliches Kyrenia-Gebirge", text: "Die östlichste Bergburg; bei klarem Wetter sehen Sie beide Küsten." },
+      { name: "Wilde Esel der Karpaz", where: "Nationalpark Karpaz", text: "Hunderte Esel streifen frei umher und begrüßen die Autos am Parkeingang." },
+      { name: "Kloster Apostolos Andreas", where: "Spitze der Karpaz", text: "Ein Wallfahrtsort am Meer nahe der Ostspitze der Insel, Kap Zafer." },
+      { name: "Soli und Vouni", where: "Bei Lefke, Westküste", text: "Ein restauriertes römisches Theater und frühchristliche Mosaiken in Soli sowie der Palast von Vouni hoch über der Bucht." },
+      { name: "Schildkrötenstrand Alagadi", where: "Östlich von Kyrenia", text: "Geschützter Niststrand für Grüne Meeresschildkröten und Unechte Karettschildkröten; in der Saison geführte Nachtbesuche." },
+    ],
+  },
+  beaches: {
+    title: "Strände",
+    text: "Die Nordküste rund um Kyrenia ist eine Kette kleiner Buchten unterhalb der Berge. Lange Sandstrände finden Sie im Osten: die Buchten nördlich von Famagusta, Bafra, Kaplıca und – am schönsten – Golden Beach auf der Karpaz. Einige Strände sind Nistplätze von Schildkröten und im Sommer nachts gesperrt.",
+    caption: "Golden Beach, Karpaz.",
+    link: "Unsere Auswahl der schönsten Strände",
+  },
+  when: {
+    title: "Beste Reisezeit",
+    seasons: [
+      { name: "Frühling", months: "März bis Mai", text: "Wildblumen und Orchideen, angenehme Temperaturen für Wanderungen und Besichtigungen. Das Meer erwärmt sich im Mai." },
+      { name: "Sommer", months: "Juni bis September", text: "Heiß, trocken und sonnig, das Meer ist warm. Besichtigen Sie früh oder spät; Nist- und Schlüpfzeit der Schildkröten." },
+      { name: "Herbst", months: "Oktober und November", text: "Warmes Meer, mildere Hitze und weniger Besucher – für viele Stammgäste die schönste Zeit. Olivenfest im Oktober." },
+      { name: "Winter", months: "Dezember bis Februar", text: "Milde Tage und der meiste Regen des Jahres. Ideal für Burgen, Ruinen und Bergwanderungen auf ruhigen Straßen." },
+    ],
+    festivalsTitle: "Festkalender",
+    festivals: [
+      ["Frühling bis Frühsommer", "Internationales Musikfestival Bellapais, Abtei Bellapais"],
+      ["Juni bis Juli", "Orangenfest in Güzelyurt"],
+      ["Sommer", "Internationales Kultur- und Kunstfestival Famagusta"],
+      ["Oktober", "Olivenfest, Zeytinlik (Kyrenia)"],
+    ],
+    note: "Die genauen Termine ändern sich jedes Jahr und werden von den Veranstaltern bekannt gegeben.",
+    link: "Reisezeit nach Jahreszeiten",
+  },
+  getting: {
+    title: "Anreise",
+    ercanTitle: "Flughafen Ercan, Nordzypern",
+    ercanText: "Ercan ist der einzige Passagierflughafen Nordzyperns; das neue Terminal wurde 2023 eröffnet. Flüge kommen aus der Türkei, aus Deutschland und Europa steigen Sie also an einem türkischen Flughafen um. Atoll Rent A Car liefert täglich und kostenlos zum Flughafen Ercan: Unser Mitarbeiter empfängt Sie am Ankunftsausgang.",
+    viaTitle: "Über Larnaka oder Paphos",
+    viaText: { before: "Direktflüge aus ganz Europa landen im Süden. Von Larnaka fahren Sie auf dem Landweg in den Norden; wir organisieren Ihren", link: "Taxitransfer zu unserem Büro in Kyrenia", after: ". Fahrzeuge übergeben wir nur in Nordzypern." },
+    compare: "Ercan oder Larnaka? Die Optionen im Vergleich",
+  },
+  around: {
+    title: "Unterwegs auf der Insel",
+    items: [
+      { strong: "Es herrscht Linksverkehr.", text: "Gurtpflicht auf allen Plätzen, kein Handy in der Hand, und beim Alkohol gilt sicherheitshalber null Promille." },
+      { strong: "Berg- und Karpaz-Straßen", text: "sind schmal und kurvig; planen Sie mehr Zeit ein, achten Sie auf Esel und tanken Sie vor Fahrten in abgelegene Gegenden." },
+      { strong: "Fahrten in den Süden", text: "sind mit einem Atoll-Fahrzeug möglich: Kaufen Sie die Südzypern-Genehmigung bei uns und die Versicherung für den Süden am Grenzübergang.", link: "Anleitung Schritt für Schritt" },
+      { strong: "Unbegrenzte Kilometer", text: "sind in jeder Atoll-Miete enthalten, ebenso ein Fahrzeugtausch bei technischem Defekt." },
+    ],
+    tips: "12 Tipps zum Autofahren in Nordzypern",
+  },
+  food: {
+    title: "Kulinarisches",
+    text: "Beginnen Sie mit einer Meze, einer langen Folge kleiner kalter und warmer Gerichte. Probieren Sie dann gegrillten Hellim (Halloumi), Şeftali Kebab, langsam geschmortes Fırın Kebabı, Molehiya-Eintopf und frischen Fisch am Hafen von Kyrenia. Zum Abschluss eingemachte Früchte und ein türkischer Kaffee.",
+    link: "Was man in Nordzypern essen sollte",
+  },
+  hotels: {
+    title: "Empfohlene Hotels",
+    text: "Atoll Rent A Car empfiehlt diese Hotels in Nordzypern. Wir liefern Ihr Auto zu Ihrem Hotel oder Ihrer Villa.",
+    delivery: "Zustellgebühren nach Gebiet",
+  },
+  faq: {
+    title: "Häufige Fragen",
+    items: [
+      { q: "Brauche ich für Nordzypern einen Reisepass oder ein Visum?", a: "Bürger aus Großbritannien, der EU und den USA können bis zu 90 Tage ohne Visum einreisen. EU-Bürger können den Personalausweis nutzen; andere Besucher benötigen einen Reisepass. Die Bestimmungen hängen von der Staatsangehörigkeit ab, prüfen Sie sie vor der Reise." },
+      { q: "Kann ich direkt nach Nordzypern fliegen?", a: "Flüge zum Flughafen Ercan, dem einzigen Passagierflughafen des Nordens, gibt es nur aus der Türkei; aus Deutschland und Europa steigen Sie an einem türkischen Flughafen um. Viele Besucher fliegen stattdessen direkt nach Larnaka im Süden und fahren auf dem Landweg in den Norden." },
+      { q: "Auf welcher Straßenseite fährt man in Nordzypern?", a: "Links, wie in Großbritannien. Mietwagen haben das Lenkrad rechts, Geschwindigkeiten und Entfernungen werden in Kilometern angegeben." },
+      { q: "Darf ich mit einem Atoll-Mietwagen nach Südzypern fahren?", a: "Ja. Sie kaufen die Südzypern-Genehmigung bei Atoll und die für den Süden vorgeschriebene Versicherung am Grenzübergang. Die genaue Vorgehensweise finden Sie auf der Seite „Mit dem Mietwagen nach Südzypern“." },
+      { q: "Gilt meine EHIC oder GHIC in Nordzypern?", a: "Nein. Die Europäische Krankenversicherungskarte und die britische GHIC gelten in Nordzypern nicht; schließen Sie eine Reiseversicherung mit Krankenschutz ab." },
+      { q: "Welche Währung gilt in Nordzypern?", a: "Die Türkische Lira (TRY). Die meisten Hotels, Restaurants und Geschäfte akzeptieren Karten, Geldautomaten gibt es in allen Städten. Halten Sie etwas Bargeld für kleine Cafés und Eintritte bereit." },
+      { q: "Wann ist die beste Reisezeit für Nordzypern?", a: "Mai, Juni, September und Oktober bieten warmes Meer und angenehme Temperaturen. Juli und August sind am heißesten und ideal für Badeurlaub; der Winter ist mild und perfekt für Besichtigungen." },
+      { q: "Welche Notrufnummern gelten in Nordzypern?", a: "Polizei 155, Rettungsdienst 112 und Feuerwehr 199. Sie unterscheiden sich von den Notrufnummern im Süden." },
+    ],
+  },
+  blog: { title: "Aus dem Reiseblog", all: "Alle Artikel" },
+  cta: {
+    title: "Mieten Sie ein Auto und holen Sie das Beste aus Ihrem Nordzypern-Urlaub heraus",
+    text: "Abholung in unserem Büro in Kyrenia oder am Flughafen Ercan, oder wir liefern das Auto zu Ihrem Hotel. Unbegrenzte Kilometer, ab {price} pro Tag.",
+    button: "Verfügbarkeit prüfen",
+  },
+  credits: { title: "Bildnachweise" },
+  touristTypes: ["Badeurlaub", "Geschichte und Kultur", "Roadtrips", "Natur"],
+};
+
+export default de;

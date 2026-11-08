@@ -95,7 +95,9 @@
     "year": "Jahr",
     "color": "Farbe",
     "rentalInfo": "Mietinformationen",
-    "photo": "Foto {n} von {total}"
+    "photo": "Foto {n} von {total}",
+    "metaTitle": "{name} mieten in Nordzypern ab {price}/Tag",
+    "metaDesc": "Mieten Sie einen {name} ({gear}, {fuel}, {seats} Sitze) bei Atoll Rent A Car in Kyrenia, Ercan, Larnaka oder Paphos. Live-Verfügbarkeit, ab {price} pro Tag."
   },
   "classes": {
     "ECONOMY": "Kleinwagen",
@@ -191,7 +193,8 @@
     "rights": "Atoll Rent a Car",
     "title": "Die Nr. 1 Autovermietung in Nordzypern",
     "lead": "Niedrigste Mietpreise!",
-    "englishNote": "Diese Seite ist auf Englisch verfügbar."
+    "englishNote": "Diese Seite ist auf Englisch verfügbar.",
+    "developedBy": "Design und Entwicklung:"
   },
   "errors": {
     "generic": "Etwas ist schiefgelaufen. Bitte versuchen Sie es erneut.",
@@ -225,5 +228,34 @@
     "ESTATE": "Kombi",
     "SUV": "SUV",
     "VAN": "Van"
+  },
+  "common": {
+    "skip": "Zum Inhalt springen",
+    "photo": "Foto",
+    "via": "über Wikimedia Commons"
+  },
+  "colors": {
+    "Silver": "Silber",
+    "Green": "Grün",
+    "Red": "Rot",
+    "Gold": "Gold",
+    "Grey": "Grau",
+    "Pink": "Rosa",
+    "White": "Weiß",
+    "Black": "Schwarz",
+    "Blue": "Blau"
+  },
+  "blog": {
+    "title": "Nordzypern Reiseblog",
+    "description": "Reisetipps, Roadtrips, Strände, Essen und praktische Hinweise für Ihren Besuch in Nordzypern, vom Team von Atoll Rent A Car in Kyrenia.",
+    "newHere": "Zum ersten Mal auf der Insel? Starten Sie mit unserem",
+    "guideLink": "Nordzypern-Reiseführer",
+    "minRead": "{n} Min. Lesezeit",
+    "updated": "Aktualisiert",
+    "inThisArticle": "In diesem Artikel",
+    "keepReading": "Weiterlesen",
+    "ctaTitle": "Nordzypern mit dem Auto entdecken",
+    "ctaText": "Unbegrenzte Kilometer, kostenlose Zustellung zum Flughafen Ercan und nach Kyrenia, ab {price} pro Tag.",
+    "ctaButton": "Verfügbarkeit prüfen"
   }
 }

@@ -1,0 +1,136 @@
+import type { GuideContent } from "./types";
+
+const tr: GuideContent = {
+  meta: {
+    title: "Kuzey Kıbrıs Gezi Rehberi: gezilecek yerler, plajlar, araç kullanımı ve ipuçları",
+    description: "Kuzey Kıbrıs gezinizi planlayın: bölgeler, kaleler, antik kentler, en güzel plajlar, en iyi zaman, festivaller, giriş kuralları, trafik ve para; 2026 için güncel.",
+  },
+  breadcrumb: "Kuzey Kıbrıs Rehberi",
+  hero: {
+    title: "Güzel Kuzey Kıbrıs için rehberiniz",
+    lead: "Kuzey Kıbrıs, cennetin dokunduğu bir köşe. Dağların tepesinde heybetli kaleler, deniz kaplumbağalarının yuva yaptığı sakin kumsallar, hareketli kasabalar ve ıssız Roma kalıntıları: kiralık bir araçla hepsi elinizin altında.",
+    findCar: "Araç bul",
+    readBlog: "Seyahat blogunu okuyun",
+    updated: "Güncellendi:",
+    updatedDate: "8 Kasım 2026",
+  },
+  facts: {
+    title: "Bir bakışta Kuzey Kıbrıs",
+    items: [
+      ["Para birimi", "Türk lirası (TRY). Kartlar yaygın olarak kabul edilir; her kasabada ATM vardır."],
+      ["Trafik", "Soldan akar, araçlar sağdan direksiyonludur, mesafeler km cinsindendir."],
+      ["Priz", "İngiliz tipi üç uçlu (G tipi), 230 V."],
+      ["Dil", "Türkçe. Turistik bölgelerde İngilizce yaygın olarak konuşulur."],
+      ["Saat dilimi", "Doğu Avrupa Saati, UTC+2 (yazın UTC+3)."],
+      ["Giriş", "Birleşik Krallık, AB ve ABD vatandaşlarına 90 güne kadar vize yok. AB vatandaşları kimlik kartıyla girebilir."],
+      ["Sağlık güvencesi", "EHIC ve GHIC burada geçerli değildir. Seyahat sigortası yaptırın."],
+      ["Acil durum", "Polis 155 · Ambulans 112 · İtfaiye 199"],
+    ],
+  },
+  regions: {
+    title: "Nereye gidilir",
+    lead: "Kuzey Kıbrıs küçüktür: hiçbir yer Girne'ye yaklaşık üç saatten uzak değildir. Çoğu ziyaretçi Girne kıyısında kalır ve diğer yerleri günübirlik gezer. Aşağıdaki sürüş süreleri Alsancak'taki ofisimizden hesaplanmıştır.",
+    mapTitle: "Girne, Lefkoşa, Gazimağusa, Güzelyurt, Kantara, Altın Kum ve Ercan Havalimanı'nı gösteren Kuzey Kıbrıs haritası",
+    mapLabels: { kyrenia: "Girne", nicosia: "Lefkoşa", famagusta: "Gazimağusa", guzelyurt: "Güzelyurt", kantara: "Kantara", goldenBeach: "Altın Kum", ercan: "Ercan Havalimanı" },
+    items: [
+      { name: "Girne", local: "Kyrenia", drive: "Alsancak ofisimizden 10 dakika", text: "Kuzey'in en güzel kasabası: kalenin altında at nalı biçimli bir liman ve hemen arkasında yükselen dağlar. Ziyaretçilerin çoğu bu kıyıda konaklar.", see: ["Girne Kalesi ve Batık Gemi Müzesi", "St. Hilarion Kalesi", "Bellapais Manastırı ve köyü", "Alagadi kaplumbağa plajı"], cta: "Girne gezi planımızı okuyun" },
+      { name: "Lefkoşa", local: "Nicosia", drive: "Yaklaşık 30 dakika", text: "Dünyanın son bölünmüş başkenti. Venedik surlarının içindeki eski şehirde Gotik kiliseler, Osmanlı hanları ve hareketli çarşılar iç içedir; Lokmacı (Ledra) kapısından Güney'e yürüyerek geçebilirsiniz.", see: ["Selimiye Camii (Ayasofya Katedrali)", "Büyük Han", "Venedik surları ve Girne Kapısı", "Lokmacı (Ledra) geçiş noktası"] },
+      { name: "Gazimağusa", local: "Famagusta", drive: "Yaklaşık 1 saat", text: "Bir zamanlar Akdeniz'in en zengin şehirlerinden biri olan, surlarla çevrili ortaçağ limanı; yakınında Salamis'in Roma kalıntıları ve yeniden açılan Maraş sokakları var.", see: ["Lala Mustafa Paşa Camii", "Othello Kalesi", "Salamis antik kenti", "Maraş (Varosha)"], cta: "Gazimağusa gezi planımızı okuyun" },
+      { name: "Karpaz Yarımadası", local: "Kırpaşa", drive: "Uca kadar 2,5–3 saat", text: "Kıbrıs'ın vahşi doğusu: zeytinlikler, bomboş plajlar, yaban eşekleri ve neredeyse hiç yapılaşma olmayan uzun bir kara parçası. Bir gece konaklamaya değer.", see: ["Altın Kum Plajı", "Milli parktaki yaban eşekleri", "Apostolos Andreas Manastırı", "Kantara Kalesi"], cta: "Karpaz rotamızı okuyun" },
+      { name: "Güzelyurt ve Lefke", local: "Morphou", drive: "Yaklaşık 45 dakika", text: "Portakal ve limon bahçeleriyle çevrili yeşil batı; sakin köyler, Soli antik kenti ve körfeze bakan tepedeki Vouni Sarayı.", see: ["Güzelyurt Portakal Festivali (Haziran–Temmuz)", "Soli ve mozaikleri", "Vouni Sarayı", "Güzelyurt Körfezi'nde gün batımı"] },
+    ],
+    more: { before: "Kasabalar ve tarihleri hakkında daha fazlası:", link: "Kuzey Kıbrıs Hakkında", after: "." },
+  },
+  sights: {
+    title: "Kaçırmamanız gereken yerler",
+    items: [
+      { name: "St. Hilarion Kalesi", where: "Girne dağları", text: "Kayalık zirvelere üç kat halinde tırmanan masalsı bir kale; tüm kuzey kıyısına bakan manzarasıyla." },
+      { name: "Bellapais Manastırı", where: "Bellapais, Girne'nin yukarısında", text: "Denize bakan Gotik avlu ve yemekhane; Uluslararası Bellapais Müzik Festivali'ne ev sahipliği yapar." },
+      { name: "Girne Kalesi", where: "Girne limanı", text: "Venedik surları ve 2.000 yılı aşkın yaşıyla bir Yunan ticaret gemisinin sergilendiği müze." },
+      { name: "Büyük Han ve eski Lefkoşa", where: "Kuzey Lefkoşa", text: "El sanatları dükkânları ve kafeleriyle 16. yüzyıldan kalma bir Osmanlı hanı; eski Gotik Ayasofya Katedrali olan Selimiye Camii'ne birkaç dakika yürüme mesafesinde." },
+      { name: "Altın Kum Plajı", where: "Karpaz yarımadası", text: "Üzerinde neredeyse hiç yapı olmayan kilometrelerce kumul ve kum; sık sık Kıbrıs'ın en güzel plajı olarak anılır." },
+      { name: "Salamis", where: "Gazimağusa'nın kuzeyi", text: "Roma gymnasiumu, hamamları ve tiyatrosuyla Kıbrıs'ın en büyük antik alanlarından biri." },
+      { name: "Maraş (Varosha)", where: "Gazimağusa", text: "On yıllarca boş kalan 1970'lerin tatil beldesi; 2020'den beri bir kısmı gündüz ziyarete açık." },
+      { name: "Kantara Kalesi", where: "Doğu Girne dağları", text: "En doğudaki dağ kalesi; açık havada iki kıyıyı birden görebilirsiniz." },
+      { name: "Karpaz'ın yaban eşekleri", where: "Karpaz Milli Parkı", text: "Yüzlerce eşek serbestçe dolaşır ve park girişinde araçları karşılar." },
+      { name: "Apostolos Andreas Manastırı", where: "Karpaz'ın ucu", text: "Adanın doğu ucu Zafer Burnu'na yakın, deniz kenarında bir hac yeri." },
+      { name: "Soli ve Vouni", where: "Lefke yakınları, batı kıyısı", text: "Soli'de restore edilmiş Roma tiyatrosu ve erken Hristiyanlık dönemi mozaikleri, körfezin yukarısında ise Vouni Sarayı." },
+      { name: "Alagadi Kaplumbağa Plajı", where: "Girne'nin doğusu", text: "Yeşil deniz kaplumbağaları ve iribaş deniz kaplumbağaları (Caretta caretta) için koruma altındaki yuvalama plajı; sezonda rehberli gece ziyaretleri." },
+    ],
+  },
+  beaches: {
+    title: "Plajlar",
+    text: "Girne çevresindeki kuzey kıyısı, dağların eteğinde sıralanan küçük koylardan oluşur. Uzun kumsallar için doğuya gidin: Gazimağusa'nın kuzeyindeki koylar, Bafra, Kaplıca ve hepsinden güzeli Karpaz'daki Altın Kum. Bazı plajlar kaplumbağa yuvalama alanıdır ve yazın geceleri kapalıdır.",
+    caption: "Altın Kum, Karpaz.",
+    link: "En güzel plajlar için seçimlerimiz",
+  },
+  when: {
+    title: "Ne zaman gidilir",
+    seasons: [
+      { name: "İlkbahar", months: "Mart–Mayıs", text: "Kır çiçekleri ve orkideler; yürüyüş ve gezi için ideal sıcaklık. Deniz mayıs boyunca ısınır." },
+      { name: "Yaz", months: "Haziran–Eylül", text: "Sıcak, kuru ve güneşli; deniz ılık. Gezileri sabah erken ya da akşam yapın; kaplumbağaların yuvalama ve yumurtadan çıkma mevsimi." },
+      { name: "Sonbahar", months: "Ekim ve Kasım", text: "Ilık deniz, daha yumuşak sıcaklar ve daha az kalabalık: müdavimlerin en sevdiği dönem. Ekim'de Zeytin Festivali." },
+      { name: "Kış", months: "Aralık–Şubat", text: "Ilıman günler ve yılın yağışlarının çoğu. Kaleler, antik kalıntılar ve dağ yürüyüşleri için ideal, yollar sakin." },
+    ],
+    festivalsTitle: "Festival takvimi",
+    festivals: [
+      ["İlkbahardan yaz başına", "Uluslararası Bellapais Müzik Festivali, Bellapais Manastırı"],
+      ["Haziran–Temmuz", "Güzelyurt Portakal Festivali"],
+      ["Yaz", "Uluslararası Gazimağusa Kültür ve Sanat Festivali"],
+      ["Ekim", "Zeytin Festivali, Zeytinlik (Girne)"],
+    ],
+    note: "Kesin tarihler her yıl değişir ve organizatörler tarafından duyurulur.",
+    link: "Mevsim mevsim rehber",
+  },
+  getting: {
+    title: "Nasıl gelinir",
+    ercanTitle: "Ercan Havalimanı, Kuzey Kıbrıs",
+    ercanText: "Ercan, Kuzey Kıbrıs'ın tek yolcu havalimanıdır; yeni terminali 2023'te açıldı. Uçuşlar Türkiye'den gelir; Birleşik Krallık ve Avrupa'dan bir Türk havalimanında aktarma yaparsınız. Atoll Rent A Car her gün Ercan Havalimanı'na ücretsiz teslimat yapar: temsilcimiz sizi gelen yolcu kapısında karşılar.",
+    viaTitle: "Larnaka veya Baf üzerinden",
+    viaText: { before: "Avrupa'nın her yerinden direkt uçuşlar Güney'e iner. Larnaka'dan Kuzey'e karayoluyla geçersiniz; sizin için", link: "Girne ofisimize taksi transferi", after: " ayarlayabiliriz. Araçları yalnızca Kuzey Kıbrıs'ta teslim edebiliyoruz." },
+    compare: "Ercan mı Larnaka mı? Seçenekleri karşılaştırın",
+  },
+  around: {
+    title: "Ada içinde ulaşım",
+    items: [
+      { strong: "Trafik soldan akar.", text: "Tüm koltuklarda emniyet kemeri, elde telefon yok; alkolde güvenli kural sıfır toleranstır." },
+      { strong: "Dağ ve Karpaz yolları", text: "dar ve virajlıdır; fazladan zaman ayırın, eşeklere dikkat edin ve ıssız bölgelere gitmeden önce depoyu doldurun." },
+      { strong: "Güney'e geçiş", text: "Atoll aracıyla mümkündür: Güney Kıbrıs iznini bizden, Güney sigortasını geçiş noktasından satın alın.", link: "Adım adım rehber" },
+      { strong: "Sınırsız kilometre", text: "tüm Atoll kiralamalarına dahildir; mekanik arıza durumunda araç değişimi de." },
+    ],
+    tips: "Kuzey Kıbrıs için 12 sürüş ipucu",
+  },
+  food: {
+    title: "Mutlaka tadılacaklar",
+    text: "Soğuk ve sıcak küçük tabaklardan oluşan uzun bir meze sofrasıyla başlayın. Ardından ızgara hellim, şeftali kebabı, fırında saatlerce pişen fırın kebabı, molehiya ve Girne limanında taze balık deneyin. Macun tatlısı ve bir Türk kahvesiyle bitirin.",
+    link: "Kuzey Kıbrıs'ta ne yenir",
+  },
+  hotels: {
+    title: "Önerilen oteller",
+    text: "Atoll Rent A Car bu Kuzey Kıbrıs otellerini önerir. Aracınızı otelinize veya villanıza teslim ederiz.",
+    delivery: "Bölgelere göre teslimat ücretleri",
+  },
+  faq: {
+    title: "Sıkça sorulan sorular",
+    items: [
+      { q: "Kuzey Kıbrıs'a gitmek için pasaport veya vize gerekir mi?", a: "Birleşik Krallık, AB ve ABD vatandaşları 90 güne kadar vizesiz ziyaret edebilir. AB vatandaşları kimlik kartıyla girebilir; diğer ziyaretçilerin pasaportu olmalıdır. Şartlar uyruğa göre değişir; seyahatten önce kontrol edin." },
+      { q: "Kuzey Kıbrıs'a direkt uçabilir miyim?", a: "Kuzey'in tek yolcu havalimanı olan Ercan'a uçuşlar yalnızca Türkiye'den yapılır; Birleşik Krallık ve Avrupa'dan bir Türk havalimanında aktarma gerekir. Pek çok ziyaretçi bunun yerine Güney'deki Larnaka'ya direkt uçar ve Kuzey'e karayoluyla geçer." },
+      { q: "Kuzey Kıbrıs'ta trafik hangi taraftan akar?", a: "Birleşik Krallık'taki gibi soldan. Kiralık araçlar sağdan direksiyonludur; hız sınırları ve mesafeler kilometre cinsindendir." },
+      { q: "Atoll'dan kiraladığım aracı Güney Kıbrıs'a götürebilir miyim?", a: "Evet. Güney Kıbrıs iznini Atoll'dan satın alır, Güney için gereken sigortayı geçiş noktasından alırsınız. Adım adım işlemler için Güney Kıbrıs'ta Araç Kullanımı sayfasına bakın." },
+      { q: "EHIC veya GHIC kartım Kuzey Kıbrıs'ta geçerli mi?", a: "Hayır. Avrupa Sağlık Sigortası Kartı ve Birleşik Krallık Küresel Sağlık Sigortası Kartı Kuzey Kıbrıs'ta geçerli değildir; sağlık teminatlı bir seyahat sigortası yaptırın." },
+      { q: "Kuzey Kıbrıs'ta hangi para birimi kullanılır?", a: "Türk lirası (TRY). Otellerin, restoranların ve mağazaların çoğu kart kabul eder; kasabalarda ATM bulmak kolaydır. Küçük kafeler ve giriş ücretleri için yanınızda biraz nakit bulundurun." },
+      { q: "Kuzey Kıbrıs'a gitmek için en iyi zaman ne zaman?", a: "Mayıs, haziran, eylül ve ekim ılık deniz ve hoş sıcaklık sunar. Temmuz ve ağustos en sıcak aylardır ve plaj tatili için idealdir; kış ılımandır ve gezmek için mükemmeldir." },
+      { q: "Kuzey Kıbrıs'ta acil durum numaraları nelerdir?", a: "Polis 155, ambulans 112 ve itfaiye 199. Bu numaralar Güney'de kullanılanlardan farklıdır." },
+    ],
+  },
+  blog: { title: "Seyahat blogundan", all: "Tüm yazılar" },
+  cta: {
+    title: "Kuzey Kıbrıs tatilinizden en iyi şekilde yararlanmak için bir araç kiralayın",
+    text: "Aracı Girne ofisimizden veya Ercan Havalimanı'ndan teslim alın ya da otelinize getirelim. Sınırsız kilometre, günlük {price}'dan başlayan fiyatlarla.",
+    button: "Müsaitliği kontrol et",
+  },
+  credits: { title: "Fotoğraf kaynakları" },
+  touristTypes: ["Plaj tatili", "Tarih ve kültür", "Yol gezisi", "Doğa"],
+};
+
+export default tr;

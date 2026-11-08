@@ -45,7 +45,7 @@ export async function SiteFooter() {
         </address>
       </div>
       <p className="border-t border-ink/10 px-5 py-5 text-center text-xs text-ink-soft/80">
-        Copyright © <Year />. Atoll. Designed and Developed by <a href={SITE.developerUrl} rel="noopener" className="underline">Arekan Bilgi Teknolojileri Ltd.</a>
+        Copyright © <Year />. Atoll. {t("developedBy")} <a href={SITE.developerUrl} rel="noopener" className="underline">Arekan Bilgi Teknolojileri Ltd.</a>
       </p>
     </footer>
   );

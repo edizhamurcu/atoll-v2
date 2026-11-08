@@ -1,0 +1,136 @@
+import type { GuideContent } from "./types";
+
+const en: GuideContent = {
+  meta: {
+    title: "North Cyprus Travel Guide: things to do, beaches, driving and tips",
+    description: "Plan your trip to North Cyprus: regions, castles and ancient sites, the best beaches, when to go, festivals, entry rules, driving and money tips, updated for 2026.",
+  },
+  breadcrumb: "North Cyprus Guide",
+  hero: {
+    title: "Your guide to beautiful North Cyprus",
+    lead: "Northern Cyprus is a corner of Earth touched by heaven. Mighty castles high in the mountains, serene beaches with nesting sea turtles, bustling towns and deserted Roman remains: a hire car brings all of it within reach.",
+    findCar: "Find a car",
+    readBlog: "Read the travel blog",
+    updated: "Updated",
+    updatedDate: "8 November 2026",
+  },
+  facts: {
+    title: "North Cyprus at a glance",
+    items: [
+      ["Currency", "Turkish lira (TRY). Cards are widely accepted; ATMs in every town."],
+      ["Driving", "On the left, right-hand-drive cars, distances in km."],
+      ["Plugs", "UK-style three-pin (type G), 230 V."],
+      ["Language", "Turkish. English is widely spoken in tourist areas."],
+      ["Time zone", "Eastern European Time, UTC+2 (UTC+3 in summer)."],
+      ["Entry", "No visa for UK, EU and US visitors for up to 90 days. EU citizens can use an ID card."],
+      ["Health cover", "EHIC and GHIC are not valid here. Take travel insurance."],
+      ["Emergencies", "Police 155 · Ambulance 112 · Fire 199"],
+    ],
+  },
+  regions: {
+    title: "Where to go",
+    lead: "North Cyprus is small: nowhere is more than about three hours’ drive from Kyrenia. Most visitors stay on the Kyrenia coast and explore the rest on day trips. Drive times below are from our office in Alsancak.",
+    mapTitle: "Map of North Cyprus with Kyrenia, Nicosia, Famagusta, Güzelyurt, Kantara, Golden Beach and Ercan Airport",
+    mapLabels: { kyrenia: "Kyrenia", nicosia: "Nicosia", famagusta: "Famagusta", guzelyurt: "Güzelyurt", kantara: "Kantara", goldenBeach: "Golden Beach", ercan: "Ercan Airport" },
+    items: [
+      { name: "Kyrenia", local: "Girne", drive: "10 minutes from our Alsancak office", text: "The prettiest town in the North: a horseshoe harbour under the castle, with mountains rising straight behind. Most visitors base themselves on this coast.", see: ["Kyrenia Castle and Shipwreck Museum", "St Hilarion Castle", "Bellapais Abbey and village", "Alagadi turtle beach"], cta: "Read our Kyrenia day plan" },
+      { name: "Nicosia", local: "Lefkoşa", drive: "About 30 minutes", text: "The world's last divided capital. The old town inside the Venetian walls mixes Gothic churches, Ottoman inns and busy bazaars, and you can walk across to the South at Ledra Street.", see: ["Selimiye Mosque (St Sophia Cathedral)", "Büyük Han, the Great Inn", "The Venetian walls and Kyrenia Gate", "Ledra Street crossing"] },
+      { name: "Famagusta", local: "Gazimağusa", drive: "About 1 hour", text: "A medieval walled port that was once one of the richest cities in the Mediterranean, with the Roman ruins of Salamis and the reopened streets of Varosha close by.", see: ["Lala Mustafa Pasha Mosque", "Othello Castle", "Salamis ancient city", "Varosha (Maraş)"], cta: "Read our Famagusta day plan" },
+      { name: "Karpaz Peninsula", local: "Kırpaşa", drive: "2½ to 3 hours to the tip", text: "Cyprus's wild east: a long finger of land with olive groves, empty beaches, wild donkeys and almost no development. Worth an overnight stay.", see: ["Golden Beach", "Wild donkeys of the national park", "Apostolos Andreas Monastery", "Kantara Castle"], cta: "Read our Karpaz road trip" },
+      { name: "Güzelyurt and Lefke", local: "Morphou", drive: "About 45 minutes", text: "The green west, surrounded by orange and lemon groves, with quiet villages, the ancient city of Soli and the hilltop palace of Vouni looking over the bay.", see: ["Güzelyurt Orange Festival (June to July)", "Soli and its mosaics", "Vouni Palace", "Güzelyurt Bay sunsets"] },
+    ],
+    more: { before: "More on the towns and their history:", link: "About North Cyprus", after: "." },
+  },
+  sights: {
+    title: "Sights you shouldn’t miss",
+    items: [
+      { name: "St Hilarion Castle", where: "Kyrenia mountains", text: "A fairy-tale castle climbing over three levels of rocky peaks, with views along the whole north coast." },
+      { name: "Bellapais Abbey", where: "Bellapais, above Kyrenia", text: "Gothic cloisters and a refectory overlooking the sea; host of the International Bellapais Music Festival." },
+      { name: "Kyrenia Castle", where: "Kyrenia harbour", text: "Venetian ramparts and a museum holding a Greek merchant ship more than 2,000 years old." },
+      { name: "Büyük Han and old Nicosia", where: "North Nicosia", text: "A 16th-century Ottoman inn with craft shops and cafés, a short walk from Selimiye Mosque, the former Gothic cathedral of St Sophia." },
+      { name: "Golden Beach", where: "Karpaz peninsula", text: "Kilometres of dunes and sand with almost nothing built on them, often called the best beach in Cyprus." },
+      { name: "Salamis", where: "North of Famagusta", text: "Roman gymnasium, baths and theatre, among the largest ancient sites in Cyprus." },
+      { name: "Varosha (Maraş)", where: "Famagusta", text: "A 1970s resort left empty for decades, partly open to visitors by day since 2020." },
+      { name: "Kantara Castle", where: "Eastern Kyrenia range", text: "The easternmost mountain castle, with views over both coasts on a clear day." },
+      { name: "Wild donkeys of the Karpaz", where: "Karpaz National Park", text: "Hundreds of donkeys roam free and greet cars at the park entrance." },
+      { name: "Apostolos Andreas Monastery", where: "Tip of the Karpaz", text: "A seaside pilgrimage site near the island's eastern tip, Cape Zafer." },
+      { name: "Soli and Vouni", where: "Near Lefke, west coast", text: "A restored Roman theatre and early Christian mosaics at Soli, and the hilltop palace of Vouni above the bay." },
+      { name: "Alagadi Turtle Beach", where: "East of Kyrenia", text: "Protected nesting beach for green and loggerhead turtles; guided night visits in season." },
+    ],
+  },
+  beaches: {
+    title: "Beaches",
+    text: "The north coast around Kyrenia is a string of small coves below the mountains. For long sandy beaches head east: the bays north of Famagusta, Bafra, Kaplıca and, best of all, Golden Beach on the Karpaz. Several beaches are turtle nesting sites, closed at night in summer.",
+    caption: "Golden Beach, Karpaz.",
+    link: "Our pick of the best beaches",
+  },
+  when: {
+    title: "When to visit",
+    seasons: [
+      { name: "Spring", months: "March to May", text: "Wild flowers and orchids, comfortable heat for walking and sightseeing. The sea warms up through May." },
+      { name: "Summer", months: "June to September", text: "Hot, dry and sunny with a warm sea. Sightsee early or late; turtle nesting and hatching season." },
+      { name: "Autumn", months: "October and November", text: "Warm sea, softer heat and fewer crowds: many regulars' favourite time. Olive Festival in October." },
+      { name: "Winter", months: "December to February", text: "Mild days and most of the year's rain. Ideal for castles, ruins and mountain walks, with quiet roads." },
+    ],
+    festivalsTitle: "Festival calendar",
+    festivals: [
+      ["Spring to early summer", "International Bellapais Music Festival, Bellapais Abbey"],
+      ["June to July", "Güzelyurt Orange Festival"],
+      ["Summer", "International Famagusta Culture and Art Festival"],
+      ["October", "Olive Festival, Zeytinlik (Kyrenia)"],
+    ],
+    note: "Exact dates change each year and are announced by the organisers.",
+    link: "Season-by-season guide",
+  },
+  getting: {
+    title: "Getting here",
+    ercanTitle: "Ercan Airport, North Cyprus",
+    ercanText: "Ercan is the only passenger airport in Northern Cyprus; its new terminal opened in 2023. Flights arrive from Turkey, so from the UK and Europe you connect in a Turkish airport. Atoll Rent A Car delivers to Ercan Airport every day, free of charge: our representative will meet you at the arrivals gate.",
+    viaTitle: "Via Larnaca or Paphos",
+    viaText: { before: "Direct flights from across Europe land in the South. From Larnaca you cross into the North by road; we can arrange your", link: "taxi transfer to our Kyrenia office", after: ". We can only deliver cars in North Cyprus." },
+    compare: "Ercan or Larnaca? Compare the options",
+  },
+  around: {
+    title: "Getting around",
+    items: [
+      { strong: "Drive on the left.", text: "Seatbelts in every seat, no phone in your hand and zero tolerance is the safe rule for alcohol." },
+      { strong: "Mountain and Karpaz roads", text: "are narrow and winding; allow extra time, watch for donkeys, and fill up before remote drives." },
+      { strong: "Crossing to the South", text: "is possible with an Atoll car: buy the South Cyprus permission from us and the southern insurance at the crossing.", link: "Step-by-step guide" },
+      { strong: "Unlimited mileage", text: "is included in every Atoll rental, together with a change of car in case of mechanical breakdown." },
+    ],
+    tips: "12 driving tips for North Cyprus",
+  },
+  food: {
+    title: "Food to try",
+    text: "Start with a meze, a long parade of small cold and hot dishes. Then look for grilled hellim (halloumi), şeftali kebab, slow-cooked fırın kebabı, molehiya stew and fresh fish on Kyrenia harbour. Finish with fruit preserves and a Turkish coffee.",
+    link: "What to eat in North Cyprus",
+  },
+  hotels: {
+    title: "Recommended hotels",
+    text: "Atoll Rent A Car recommends these North Cyprus hotels. We deliver your car to your hotel or villa.",
+    delivery: "Delivery charges by area",
+  },
+  faq: {
+    title: "Frequently asked questions",
+    items: [
+      { q: "Do I need a passport or visa to visit North Cyprus?", a: "British, EU and US citizens can visit for up to 90 days without a visa. EU citizens can enter with a national ID card; other visitors need a passport. Requirements depend on nationality, so check before you travel." },
+      { q: "Can I fly directly to North Cyprus?", a: "Flights to Ercan Airport, the North's only passenger airport, operate only from Turkey, so from the UK and Europe you connect in a Turkish airport. Many visitors instead fly direct to Larnaca in the South and cross into the North by road." },
+      { q: "Which side of the road do they drive on in North Cyprus?", a: "On the left, as in the UK. Hire cars are right-hand drive, and speed limits and distances are in kilometres." },
+      { q: "Can I take an Atoll hire car to South Cyprus?", a: "Yes. You buy the South Cyprus permission from Atoll, then buy the insurance required for the South at the crossing point. See the Driving in South Cyprus page for the step-by-step procedure." },
+      { q: "Is my EHIC or GHIC valid in North Cyprus?", a: "No. The European Health Insurance Card and the UK Global Health Insurance Card are not valid in North Cyprus, so take out travel insurance with medical cover." },
+      { q: "What currency is used in North Cyprus?", a: "The Turkish lira (TRY). Cards are accepted in most hotels, restaurants and shops, and ATMs are easy to find in the towns. Carry some cash for small cafés and entrance fees." },
+      { q: "What is the best time to visit North Cyprus?", a: "May, June, September and October offer warm sea and pleasant heat. July and August are hottest and best for beach holidays; winter is mild and ideal for sightseeing." },
+      { q: "What are the emergency numbers in North Cyprus?", a: "Police 155, ambulance 112 and fire service 199. These differ from the emergency numbers used in the South." },
+    ],
+  },
+  blog: { title: "From the travel blog", all: "All articles" },
+  cta: {
+    title: "To make the most of your holiday in North Cyprus, hire a car",
+    text: "Pick up at our Kyrenia office or Ercan Airport, or have the car delivered to your hotel. Unlimited mileage, from {price} a day.",
+    button: "Check availability",
+  },
+  credits: { title: "Photo credits" },
+  touristTypes: ["Beach holidays", "History and culture", "Road trips", "Nature"],
+};
+
+export default en;

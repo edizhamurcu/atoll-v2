@@ -95,7 +95,9 @@
     "year": "Yıl",
     "color": "Renk",
     "rentalInfo": "Kiralama bilgileri",
-    "photo": "Fotoğraf {n} / {total}"
+    "photo": "Fotoğraf {n} / {total}",
+    "metaTitle": "Kuzey Kıbrıs'ta kiralık {name}, günlük {price}'dan başlayan fiyatlarla",
+    "metaDesc": "Atoll Rent A Car ile Girne, Ercan, Larnaka veya Baf'ta {name} kiralayın ({gear}, {fuel}, {seats} koltuk). Canlı müsaitlik, günlük {price}'dan başlayan fiyatlar."
   },
   "classes": {
     "ECONOMY": "Ekonomik",
@@ -191,7 +193,8 @@
     "rights": "Atoll Rent a Car",
     "title": "Kuzey Kıbrıs'ın 1 numaralı araç kiralama şirketi",
     "lead": "En düşük kiralama fiyatları!",
-    "englishNote": "Bu sayfa İngilizce olarak sunulmaktadır."
+    "englishNote": "Bu sayfa İngilizce olarak sunulmaktadır.",
+    "developedBy": "Tasarım ve geliştirme:"
   },
   "errors": {
     "generic": "Bir şeyler ters gitti. Lütfen tekrar deneyin.",
@@ -225,5 +228,34 @@
     "ESTATE": "Station wagon",
     "SUV": "SUV",
     "VAN": "Van"
+  },
+  "common": {
+    "skip": "İçeriğe geç",
+    "photo": "Fotoğraf",
+    "via": "Wikimedia Commons üzerinden"
+  },
+  "colors": {
+    "Silver": "Gümüş",
+    "Green": "Yeşil",
+    "Red": "Kırmızı",
+    "Gold": "Altın",
+    "Grey": "Gri",
+    "Pink": "Pembe",
+    "White": "Beyaz",
+    "Black": "Siyah",
+    "Blue": "Mavi"
+  },
+  "blog": {
+    "title": "Kuzey Kıbrıs Seyahat Blogu",
+    "description": "Kuzey Kıbrıs'ı ziyaret edecekler için seyahat ipuçları, yol rotaları, plajlar, yemekler ve pratik bilgiler; Girne'deki Atoll Rent A Car ekibinden.",
+    "newHere": "Adaya ilk kez mi geliyorsunuz? Önce şuna göz atın:",
+    "guideLink": "Kuzey Kıbrıs rehberi",
+    "minRead": "{n} dk okuma",
+    "updated": "Güncellendi",
+    "inThisArticle": "Bu yazıda",
+    "keepReading": "Okumaya devam edin",
+    "ctaTitle": "Kuzey Kıbrıs'ı arabayla keşfedin",
+    "ctaText": "Sınırsız kilometre, Ercan Havalimanı ve Girne'ye ücretsiz teslimat, günlük {price}'dan başlayan fiyatlarla.",
+    "ctaButton": "Müsaitliği kontrol et"
   }
 }

@@ -4,6 +4,7 @@ import { db } from "@/lib/db";
 import { routing } from "@/i18n/routing";
 import { SITE } from "@/lib/site";
 import { posts } from "@/content/blog";
+import { translatedLocales } from "@/content/page-i18n";
 
 const CODE_ROUTES = new Set(["north-cyprus-guide", "blog"]);
 
@@ -29,9 +30,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...localized("/car-prices", now, 0.8, "weekly"),
     ...localized("/contact", now, 0.6, "monthly"),
     ...models.flatMap((m) => localized(`/cars/${m.slug}`, m.updatedAt, 0.8, "weekly")),
-    { url: `${SITE.url}/en/north-cyprus-guide`, lastModified: new Date("2026-11-08"), changeFrequency: "monthly" as const, priority: 0.8 },
-    { url: `${SITE.url}/en/blog`, lastModified: new Date(posts()[0]?.published ?? "2026-11-08"), changeFrequency: "weekly" as const, priority: 0.7 },
-    ...posts().map((p) => ({ url: `${SITE.url}/en/blog/${p.slug}`, lastModified: new Date(p.updated ?? p.published), changeFrequency: "monthly" as const, priority: 0.7 })),
-    ...pages.filter((p) => !CODE_ROUTES.has(p.slug)).map((p) => ({ url: `${SITE.url}/en/${p.slug}`, lastModified: p.updatedAt, changeFrequency: "monthly" as const, priority: 0.6 })),
+    ...localized("/north-cyprus-guide", new Date("2026-11-08"), 0.8, "monthly"),
+    ...localized("/blog", new Date(posts()[0]?.published ?? "2026-11-08"), 0.7, "weekly"),
+    ...posts().flatMap((p) => localized(`/blog/${p.slug}`, new Date(p.updated ?? p.published), 0.7, "monthly")),
+    ...pages.filter((p) => !CODE_ROUTES.has(p.slug)).flatMap((p) => {
+      const langs = ["en", ...translatedLocales(p.slug)];
+      const languages = { ...Object.fromEntries(langs.map((l) => [l, `${SITE.url}/${l}/${p.slug}`])), "x-default": `${SITE.url}/en/${p.slug}` };
+      return langs.map((l) => ({ url: `${SITE.url}/${l}/${p.slug}`, lastModified: p.updatedAt, changeFrequency: "monthly" as const, priority: 0.6, alternates: { languages } }));
+    }),
   ];
 }

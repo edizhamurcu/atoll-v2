@@ -95,7 +95,9 @@
     "year": "Year",
     "color": "Colour",
     "rentalInfo": "Rental information",
-    "photo": "Photo {n} of {total}"
+    "photo": "Photo {n} of {total}",
+    "metaTitle": "{name} rental in North Cyprus from {price}/day",
+    "metaDesc": "Rent a {name} ({gear}, {fuel}, {seats} seats) with Atoll Rent A Car in Kyrenia, Ercan, Larnaca or Paphos. Live availability, from {price} per day."
   },
   "classes": {
     "ECONOMY": "Economy",
@@ -191,7 +193,8 @@
     "rights": "Atoll Rent a Car",
     "title": "Number 1 Car Rental Company in North Cyprus",
     "lead": "Lowest Rental Prices!",
-    "englishNote": "This page is available in English."
+    "englishNote": "This page is available in English.",
+    "developedBy": "Designed and Developed by"
   },
   "errors": {
     "generic": "Something went wrong. Please try again.",
@@ -225,5 +228,34 @@
     "ESTATE": "Stationwagon",
     "SUV": "SUV",
     "VAN": "Van"
+  },
+  "common": {
+    "skip": "Skip to content",
+    "photo": "Photo",
+    "via": "via Wikimedia Commons"
+  },
+  "colors": {
+    "Silver": "Silver",
+    "Green": "Green",
+    "Red": "Red",
+    "Gold": "Gold",
+    "Grey": "Grey",
+    "Pink": "Pink",
+    "White": "White",
+    "Black": "Black",
+    "Blue": "Blue"
+  },
+  "blog": {
+    "title": "North Cyprus Travel Blog",
+    "description": "Travel tips, road trips, beaches, food and practical advice for visiting North Cyprus, from the local team at Atoll Rent A Car in Kyrenia.",
+    "newHere": "New to the island? Start with our",
+    "guideLink": "North Cyprus guide",
+    "minRead": "{n} min read",
+    "updated": "Updated",
+    "inThisArticle": "In this article",
+    "keepReading": "Keep reading",
+    "ctaTitle": "Explore North Cyprus by car",
+    "ctaText": "Unlimited mileage, free delivery to Ercan Airport and Kyrenia, from {price} a day.",
+    "ctaButton": "Check availability"
   }
 }

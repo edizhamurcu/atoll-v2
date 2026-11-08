@@ -1,7 +1,7 @@
-import type { Post } from "./blog";
+import type { Post } from "../blog";
 
 /** Blog posts (English). Facts checked against official and recent sources in November 2026. */
-export const POSTS: Post[] = [
+const POSTS: Post[] = [
   {
     slug: "driving-in-north-cyprus-tips",
     title: "Driving in North Cyprus: 12 things to know before you pick up your hire car",
@@ -325,3 +325,4 @@ export const POSTS: Post[] = [
 `,
   },
 ];
+export default POSTS;

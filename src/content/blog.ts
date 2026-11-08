@@ -1,5 +1,5 @@
 import type { PhotoKey } from "./photos";
-import { POSTS } from "./posts";
+import { POSTS_BY_LOCALE } from "./posts";
 
 export type Post = {
   slug: string;
@@ -20,19 +20,22 @@ export type Post = {
 
 const PHOTO_RE = /<!--photo:([a-z0-9-]+)\|([^>]*?)-->/g;
 
-export const posts = (): Post[] => [...POSTS].sort((a, b) => b.published.localeCompare(a.published) || a.title.localeCompare(b.title));
-export const getPost = (slug: string) => POSTS.find((p) => p.slug === slug) ?? null;
-export const postSlugs = () => new Set(POSTS.map((p) => p.slug));
+export const BLOG_LOCALES = Object.keys(POSTS_BY_LOCALE);
+const list = (locale: string) => POSTS_BY_LOCALE[locale] ?? POSTS_BY_LOCALE.en;
+export const posts = (locale = "en"): Post[] => [...list(locale)].sort((a, b) => b.published.localeCompare(a.published) || a.slug.localeCompare(b.slug));
+export const getPost = (slug: string, locale = "en") => list(locale).find((p) => p.slug === slug) ?? null;
+export const postSlugs = () => new Set(POSTS_BY_LOCALE.en.map((p) => p.slug));
 
 export const headingId = (text: string) =>
-  text.replace(/<[^>]+>/g, "").toLowerCase().replace(/&[a-z]+;/g, "").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "").slice(0, 60);
+  text.replace(/<[^>]+>/g, "").toLocaleLowerCase("en").normalize("NFKD").replace(/[\u0300-\u036f]/g, "").replace(/ı/g, "i").replace(/&[a-z]+;/g, "").replace(/[^\p{L}\p{N}]+/gu, "-").replace(/^-|-$/g, "").slice(0, 60);
 
 export function plain(html: string) {
   return html.replace(PHOTO_RE, " ").replace(/<[^>]+>/g, " ").replace(/&nbsp;/g, " ").replace(/\s+/g, " ").trim();
 }
 
-export const fmtDate = (iso: string) =>
-  new Date(`${iso}T12:00:00Z`).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" });
+const DATE_LOCALE: Record<string, string> = { en: "en-GB", tr: "tr-TR", de: "de-DE", ru: "ru-RU" };
+export const fmtDate = (iso: string, locale = "en") =>
+  new Date(`${iso}T12:00:00Z`).toLocaleDateString(DATE_LOCALE[locale] ?? "en-GB", { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" });
 
 export const readingMinutes = (p: Post) => Math.max(2, Math.round(plain(p.body).split(" ").length / 220));
 
@@ -58,7 +61,7 @@ export function segments(p: Post): ({ type: "html"; html: string } | { type: "ph
 /** Photo keys referenced anywhere in a post (cover + inline). */
 export const photoKeys = (p: Post) => [p.cover, ...[...p.body.matchAll(PHOTO_RE)].map((m) => m[1])];
 
-export const related = (p: Post, n = 3) => {
+export const related = (p: Post, locale = "en", n = 3) => {
   const score = (q: Post) => q.tags.filter((t) => p.tags.includes(t)).length;
-  return posts().filter((q) => q.slug !== p.slug).sort((a, b) => score(b) - score(a)).slice(0, n);
+  return posts(locale).filter((q) => q.slug !== p.slug).sort((a, b) => score(b) - score(a)).slice(0, n);
 };

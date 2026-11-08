@@ -12,16 +12,19 @@ import { Breadcrumbs } from "@/components/breadcrumbs";
 import { JsonLd } from "@/components/json-ld";
 import { SITE } from "@/lib/site";
 import { routing } from "@/i18n/routing";
+import { localizedRentalInfo } from "@/content/rental-info";
 
 export async function generateMetadata({ params }: PageProps<"/[locale]/cars/[slug]">): Promise<Metadata> {
   const { locale, slug } = (await params) as { locale: Locale; slug: string };
   const m = await getModel(slug, locale);
   if (!m) return {};
-  const title = `${m.name} rental in North Cyprus from £${Number(m.dailyRate)}/day`;
-  const description = `Rent a ${m.name} (${m.transmission.toLowerCase()}, ${m.fuel.toLowerCase()}, ${m.seats} seats) with Atoll Rent A Car in Kyrenia, Ercan, Larnaca or Paphos. Live availability, from £${Number(m.dailyRate)} per day.`;
+  const [t, tx, tf] = await Promise.all([getTranslations({ locale, namespace: "car" }), getTranslations({ locale, namespace: "transmission" }), getTranslations({ locale, namespace: "fuel" })]);
+  const price = money(m.dailyRate, locale);
+  const title = t("metaTitle", { name: m.name, price });
+  const description = t("metaDesc", { name: m.name, price, seats: m.seats, gear: tx(m.transmission).toLocaleLowerCase(locale), fuel: tf(m.fuel).toLocaleLowerCase(locale) });
   return {
     title, description,
-    alternates: { canonical: `/${locale}/cars/${slug}`, languages: Object.fromEntries(routing.locales.map((l) => [l, `/${l}/cars/${slug}`])) },
+    alternates: { canonical: `/${locale}/cars/${slug}`, languages: { ...Object.fromEntries(routing.locales.map((l) => [l, `/${l}/cars/${slug}`])), "x-default": `/en/cars/${slug}` } },
     openGraph: { title, description, images: m.images[0] ? [{ url: m.images[0] }] : undefined },
   };
 }
@@ -40,7 +43,9 @@ async function CarDetail({ params }: { params: PageProps<"/[locale]/cars/[slug]"
   const { locale, slug } = (await params) as { locale: Locale; slug: string };
   const [m, extras] = await Promise.all([getModel(slug, locale), getExtras(locale)]);
   if (!m) notFound();
-  const [t, tc, tx, tf, tb] = await Promise.all([getTranslations("car"), getTranslations("classes"), getTranslations("transmission"), getTranslations("fuel"), getTranslations("bodyType")]);
+  const [t, tc, tx, tf, tb, tcol] = await Promise.all([getTranslations("car"), getTranslations("classes"), getTranslations("transmission"), getTranslations("fuel"), getTranslations("bodyType"), getTranslations("colors")]);
+  const color = (c: string) => (tcol.has(c as never) ? tcol(c as never) : c);
+  const info = m.description ? localizedRentalInfo(m.description, locale) : null;
   return (
     <div className="grid gap-10 lg:grid-cols-[1.4fr_1fr]">
       <div>
@@ -70,7 +75,7 @@ async function CarDetail({ params }: { params: PageProps<"/[locale]/cars/[slug]"
             [t("seatsLabel"), String(m.seats)],
             ...(m.engineLitres ? [[t("engineLabel"), `${m.engineLitres} L`]] : []),
             ...(m.years ? [[t("yearsLabel"), m.years.min === m.years.max ? String(m.years.min) : `${m.years.min}–${m.years.max}`]] : []),
-            ...(m.colors.length ? [[t("colorsLabel"), m.colors.join(", ")]] : []),
+            ...(m.colors.length ? [[t("colorsLabel"), m.colors.map(color).join(", ")]] : []),
           ].map(([k, v]) => (
             <div key={k} className="flex justify-between gap-4 border-b border-ink/8 py-2.5">
               <dt className="text-ink-soft">{k}</dt>
@@ -87,7 +92,7 @@ async function CarDetail({ params }: { params: PageProps<"/[locale]/cars/[slug]"
                 <thead className="border-b border-ink/10 text-ink-soft"><tr><th scope="col" className="px-4 py-2.5 font-medium">{t("plate")}</th><th scope="col" className="px-4 py-2.5 font-medium">{t("year")}</th><th scope="col" className="px-4 py-2.5 font-medium">{t("color")}</th></tr></thead>
                 <tbody>
                   {m.vehicles.map((v) => (
-                    <tr key={v.plate} className="border-b border-ink/5"><td className="px-4 py-2.5 font-medium tabular-nums">{v.plate}</td><td className="px-4 py-2.5">{v.year ?? "—"}</td><td className="px-4 py-2.5">{v.color ?? "—"}</td></tr>
+                    <tr key={v.plate} className="border-b border-ink/5"><td className="px-4 py-2.5 font-medium tabular-nums">{v.plate}</td><td className="px-4 py-2.5">{v.year ?? "—"}</td><td className="px-4 py-2.5">{v.color ? color(v.color) : "—"}</td></tr>
                   ))}
                 </tbody>
               </table>
@@ -95,10 +100,10 @@ async function CarDetail({ params }: { params: PageProps<"/[locale]/cars/[slug]"
           </section>
         )}
 
-        {m.description && (
-          <section className="mt-10" aria-labelledby="rental-info" lang="en">
+        {info && (
+          <section className="mt-10" aria-labelledby="rental-info">
             <h2 id="rental-info" className="text-2xl font-bold">{t("rentalInfo")}</h2>
-            <div className="prose-atoll mt-2" dangerouslySetInnerHTML={{ __html: m.description }} />
+            <div className="prose-atoll mt-2" lang={info.lang} dangerouslySetInnerHTML={{ __html: info.html }} />
           </section>
         )}
         <p className="mt-6 max-w-prose text-sm text-ink-soft">{t("orSimilar", { name: m.name })}</p>
