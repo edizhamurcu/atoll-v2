@@ -1,6 +1,9 @@
 import type { MetadataRoute } from "next";
+import { connection } from "next/server";
 
-export default function robots(): MetadataRoute.Robots {
+/** Read at request time: SITE_ENV / PUBLIC_SITE_URL come from the container env, not the build. */
+export default async function robots(): Promise<MetadataRoute.Robots> {
+  await connection();
   const site = process.env.PUBLIC_SITE_URL ?? "https://atollrentacar.com";
   const staging = process.env.SITE_ENV === "staging";
   return staging
