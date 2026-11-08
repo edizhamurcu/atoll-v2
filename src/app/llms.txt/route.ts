@@ -1,6 +1,7 @@
 import { connection } from "next/server";
 import { db } from "@/lib/db";
 import { SITE } from "@/lib/site";
+import { posts } from "@/content/blog";
 
 /** llms.txt — concise, factual summary for AI answer engines (GEO). Generated live from the database. */
 export async function GET() {
@@ -9,7 +10,7 @@ export async function GET() {
     db.vehicleModel.findMany({ where: { active: true }, orderBy: [{ dailyRate: "asc" }, { make: "asc" }], include: { _count: { select: { vehicles: { where: { status: "ACTIVE" } } } } } }),
     db.location.findMany({ where: { active: true }, orderBy: { sortOrder: "asc" } }),
     db.extra.findMany({ where: { active: true }, orderBy: { sortOrder: "asc" } }),
-    db.page.findMany({ where: { showInSitemap: true }, select: { slug: true, title: true }, orderBy: { slug: "asc" } }),
+    db.page.findMany({ where: { showInSitemap: true, slug: { not: "north-cyprus-guide" } }, select: { slug: true, title: true }, orderBy: { slug: "asc" } }),
   ]);
   const name = (j: unknown) => (j && typeof j === "object" ? ((j as Record<string, string>).en ?? "") : String(j ?? ""));
   const fleet = models.reduce((s, m) => s + m._count.vehicles, 0);
@@ -45,6 +46,12 @@ ${models.map((m) => `- [${m.make} ${m.model}](${SITE.url}/en/cars/${m.slug}): £
 - [Car prices](${SITE.url}/en/car-prices)
 - [Contact](${SITE.url}/en/contact)
 ${pages.map((p) => `- [${p.title}](${SITE.url}/en/${p.slug})`).join("\n")}
+
+## North Cyprus travel guide
+- [North Cyprus Travel Guide](${SITE.url}/en/north-cyprus-guide): regions, sights, beaches, seasons and festivals, entry rules, driving, money and emergency numbers (police 155, ambulance 112, fire 199)
+
+## Travel blog
+${posts().map((p) => `- [${p.title}](${SITE.url}/en/blog/${p.slug}): ${p.description}`).join("\n")}
 
 ## Languages
 English, Turkish (/tr), German (/de), Russian (/ru)

@@ -3,6 +3,9 @@ import { connection } from "next/server";
 import { db } from "@/lib/db";
 import { routing } from "@/i18n/routing";
 import { SITE } from "@/lib/site";
+import { posts } from "@/content/blog";
+
+const CODE_ROUTES = new Set(["north-cyprus-guide", "blog"]);
 
 /** All public URLs in 4 languages with hreflang alternates; migrated content pages are English (canonical /en). */
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
@@ -26,6 +29,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...localized("/car-prices", now, 0.8, "weekly"),
     ...localized("/contact", now, 0.6, "monthly"),
     ...models.flatMap((m) => localized(`/cars/${m.slug}`, m.updatedAt, 0.8, "weekly")),
-    ...pages.map((p) => ({ url: `${SITE.url}/en/${p.slug}`, lastModified: p.updatedAt, changeFrequency: "monthly" as const, priority: 0.6 })),
+    { url: `${SITE.url}/en/north-cyprus-guide`, lastModified: new Date("2026-11-08"), changeFrequency: "monthly" as const, priority: 0.8 },
+    { url: `${SITE.url}/en/blog`, lastModified: new Date(posts()[0]?.published ?? "2026-11-08"), changeFrequency: "weekly" as const, priority: 0.7 },
+    ...posts().map((p) => ({ url: `${SITE.url}/en/blog/${p.slug}`, lastModified: new Date(p.updated ?? p.published), changeFrequency: "monthly" as const, priority: 0.7 })),
+    ...pages.filter((p) => !CODE_ROUTES.has(p.slug)).map((p) => ({ url: `${SITE.url}/en/${p.slug}`, lastModified: p.updatedAt, changeFrequency: "monthly" as const, priority: 0.6 })),
   ];
 }

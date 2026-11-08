@@ -11,7 +11,7 @@ import { PrismaClient } from "../src/generated/prisma/client";
 type WpPage = { slug: string; title: string; html: string; yoast_title?: string; yoast_desc?: string };
 // Old WP slug -> new slug. Pages rebuilt as app routes are skipped (home, contact form, car lists).
 const SLUG: Record<string, string | null> = {
-  "home-page": null, contact: null, "our-cars": null, "explore-vehicles-2": null,
+  "home-page": null, contact: null, "our-cars": null, "explore-vehicles-2": null, "north-cyprus-guide": null,
   "about-us-2": "about-us", "privacy-policy-2": "privacy-policy",
 };
 // Internal links in the old content -> new routes.

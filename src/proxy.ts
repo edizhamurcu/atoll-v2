@@ -36,5 +36,5 @@ export default async function proxy(req: NextRequest) {
 }
 
 export const config = {
-  matcher: "/((?!api|_next|_vercel|media|brand|.*\\..*).*)",
+  matcher: "/((?!api|_next|_vercel|media|brand|photos|.*\\..*).*)",
 };

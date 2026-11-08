@@ -1,4 +1,5 @@
 import { db } from "@/lib/db";
+import { postSlugs } from "@/content/blog";
 
 /** Slugs of DB-backed routes, cached briefly so the proxy can answer 404 before streaming starts. */
 let cache: { at: number; pages: Set<string>; models: Set<string> } | null = null;
@@ -14,7 +15,7 @@ async function load() {
   return cache;
 }
 
-const STATIC = new Set(["cars", "car-prices", "contact", "booking"]);
+const STATIC = new Set(["cars", "car-prices", "contact", "booking", "blog", "north-cyprus-guide"]);
 
 /** true = known route, false = definitely missing, null = not a DB-backed path (let Next decide). */
 export async function dbRouteExists(segments: string[]): Promise<boolean | null> {
@@ -23,6 +24,7 @@ export async function dbRouteExists(segments: string[]): Promise<boolean | null>
       if (STATIC.has(segments[0])) return null;
       return (await load()).pages.has(segments[0]);
     }
+    if (segments.length === 2 && segments[0] === "blog") return postSlugs().has(segments[1]);
     if (segments.length === 2 && segments[0] === "cars") return (await load()).models.has(segments[1]);
     return null;
   } catch {

@@ -3,7 +3,7 @@ import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { LocaleSwitcher } from "./locale-switcher";
 
-/** Menu structure mirrors the WordPress primary menu: Home, Explore Vehicles, Pages ▾, Contact Us. */
+/** Menu mirrors the WordPress primary menu (Home, Explore Vehicles, Pages ▾, Contact Us), plus the new Blog. */
 export async function SiteHeader() {
   const t = await getTranslations("nav");
   const pages = [
@@ -35,6 +35,7 @@ export async function SiteHeader() {
               ))}
             </ul>
           </details>
+          <Link href="/blog" className={item}>{t("blog")}</Link>
           <Link href="/contact" className={item}>{t("contactUs")}</Link>
         </nav>
 
@@ -48,7 +49,7 @@ export async function SiteHeader() {
             </summary>
             <nav aria-label={t("menu")} className="absolute inset-x-0 top-[4.75rem] max-h-[calc(100dvh-4.75rem)] overflow-y-auto border-b border-ink/10 bg-paper px-5 pb-6 pt-2 shadow-lg">
               <ul className="divide-y divide-ink/8 text-lg">
-                {[["/", t("home")], ["/cars", t("explore")], ...pages, ["/contact", t("contactUs")]].map(([href, label]) => (
+                {[["/", t("home")], ["/cars", t("explore")], ...pages, ["/blog", t("blog")], ["/contact", t("contactUs")]].map(([href, label]) => (
                   <li key={href}><Link href={href} className="block py-3.5">{label}</Link></li>
                 ))}
               </ul>

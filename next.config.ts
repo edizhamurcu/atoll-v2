@@ -13,7 +13,7 @@ const nextConfig: NextConfig = {
   cacheComponents: true,
   partialPrefetching: true,
   poweredByHeader: false,
-  images: { formats: ["image/avif", "image/webp"], localPatterns: [{ pathname: "/media/**" }, { pathname: "/brand/**" }] },
+  images: { formats: ["image/avif", "image/webp"], localPatterns: [{ pathname: "/media/**" }, { pathname: "/brand/**" }, { pathname: "/photos/**" }] },
   turbopack: {
     rules: { "*.css": { loaders: ["@tailwindcss/turbopack"], as: "*.css" } },
   },
@@ -38,7 +38,7 @@ const nextConfig: NextConfig = {
       { source: "/:p(cart-2|checkout-2|my-account|my-account-2|login|password-recovery|your-order-details)", destination: "/en", permanent: true },
       { source: "/wp-sitemap.xml", destination: "/sitemap.xml", permanent: true },
       { source: "/sitemap_index.xml", destination: "/sitemap.xml", permanent: true },
-      { source: "/feed", destination: "/en", permanent: true },
+      { source: "/feed", destination: "/en/blog", permanent: true },
       { source: "/wp-login.php", destination: "/", permanent: false },
       { source: "/wp-admin/:path*", destination: "/", permanent: false },
     ];

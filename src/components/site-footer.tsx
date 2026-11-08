@@ -22,6 +22,7 @@ export async function SiteFooter() {
             <li><Link href="/about-us" className="hover:text-ink">{n("aboutUs")}</Link></li>
             <li><Link href="/contact" className="hover:text-ink">{n("contactUs")}</Link></li>
             <li><Link href="/north-cyprus-guide" className="hover:text-ink">{n("guide")}</Link></li>
+            <li><Link href="/blog" className="hover:text-ink">{n("blog")}</Link></li>
           </ul>
         </nav>
         <nav aria-label={n("information")}>
