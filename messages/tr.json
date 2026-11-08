@@ -59,7 +59,12 @@
     "loading": "Anlık müsaitlik kontrol ediliyor…",
     "error": "Müsaitlik yüklenemedi. Bağlantınızı kontrol edip tekrar deneyin.",
     "retry": "Tekrar dene",
-    "discount": "%{percent} uzun kiralama indirimi dahil"
+    "discount": "%{percent} uzun kiralama indirimi dahil",
+    "sort": "Sırala",
+    "sortHigh": "Fiyat: yüksekten düşüğe",
+    "sortLow": "Fiyat: düşükten yükseğe",
+    "filterClass": "Araç sınıfı",
+    "filterType": "Araç tipi"
   },
   "car": {
     "seats": "{n} koltuk",
@@ -70,7 +75,26 @@
     "checkDates": "Fiyat ve müsaitlik için tarih seçin",
     "airCon": "Klima",
     "engine": "{l} L motor",
-    "orSimilar": "Aracınız bir {name}. Plaka teslimde atanır."
+    "orSimilar": "Aracınız bir {name}. Plaka teslimde atanır.",
+    "orSimilarShort": "veya benzeri",
+    "allSpecs": "Tüm özellikler",
+    "classLabel": "Araç sınıfı",
+    "typeLabel": "Araç tipi",
+    "acLabel": "Klima",
+    "yes": "Var",
+    "no": "Yok",
+    "fuelLabel": "Yakıt",
+    "gearLabel": "Vites",
+    "seatsLabel": "Koltuk",
+    "engineLabel": "Motor",
+    "yearsLabel": "Model yılı",
+    "colorsLabel": "Renkler",
+    "fleetTable": "Filomuzdaki araçlar",
+    "plate": "Plaka",
+    "year": "Yıl",
+    "color": "Renk",
+    "rentalInfo": "Kiralama bilgileri",
+    "photo": "Fotoğraf {n} / {total}"
   },
   "classes": {
     "ECONOMY": "Ekonomik",
@@ -193,5 +217,12 @@
     "class": "Sınıf",
     "perDay": "Günlük",
     "book": "Müsaitliğe bak"
+  },
+  "bodyType": {
+    "HATCHBACK": "Hatchback",
+    "SEDAN": "Sedan",
+    "ESTATE": "Station wagon",
+    "SUV": "SUV",
+    "VAN": "Van"
   }
 }

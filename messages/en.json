@@ -59,7 +59,12 @@
     "loading": "Checking live availability…",
     "error": "We couldn't load availability. Check your connection and try again.",
     "retry": "Try again",
-    "discount": "{percent}% long-rental discount included"
+    "discount": "{percent}% long-rental discount included",
+    "sort": "Sort by",
+    "sortHigh": "Price: high to low",
+    "sortLow": "Price: low to high",
+    "filterClass": "Vehicle class",
+    "filterType": "Vehicle type"
   },
   "car": {
     "seats": "{n} seats",
@@ -70,7 +75,26 @@
     "checkDates": "Choose dates to see the price and availability",
     "airCon": "Air conditioning",
     "engine": "{l} L engine",
-    "orSimilar": "Your car is a {name}. The exact plate is assigned at pick-up."
+    "orSimilar": "Your car is a {name}. The exact plate is assigned at pick-up.",
+    "orSimilarShort": "or similar",
+    "allSpecs": "All specifications",
+    "classLabel": "Vehicle class",
+    "typeLabel": "Vehicle type",
+    "acLabel": "Air conditioning",
+    "yes": "Yes",
+    "no": "No",
+    "fuelLabel": "Fuel",
+    "gearLabel": "Gearbox",
+    "seatsLabel": "Seats",
+    "engineLabel": "Engine",
+    "yearsLabel": "Model year",
+    "colorsLabel": "Colours",
+    "fleetTable": "Cars in our fleet",
+    "plate": "Plate",
+    "year": "Year",
+    "color": "Colour",
+    "rentalInfo": "Rental information",
+    "photo": "Photo {n} of {total}"
   },
   "classes": {
     "ECONOMY": "Economy",
@@ -193,5 +217,12 @@
     "class": "Class",
     "perDay": "Per day",
     "book": "Check availability"
+  },
+  "bodyType": {
+    "HATCHBACK": "Hatchback",
+    "SEDAN": "Sedan",
+    "ESTATE": "Stationwagon",
+    "SUV": "SUV",
+    "VAN": "Van"
   }
 }

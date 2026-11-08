@@ -17,6 +17,7 @@ export function BookingPanel({ slug, extras }: { slug: string; extras: Extra[] }
   const state = queryToState(params);
   const [qty, setQty] = useState<Record<string, number>>({});
   const [quote, setQuote] = useState<Quote | null>(null);
+  const [depositOn, setDepositOn] = useState(false);
   const [avail, setAvail] = useState<{ available: boolean; count: number } | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [busy, setBusy] = useState(false);
@@ -41,6 +42,7 @@ export function BookingPanel({ slug, extras }: { slug: string; extras: Extra[] }
         const body = await res.json();
         if (!res.ok) throw new Error(body?.error?.message ?? "error");
         setQuote(body.quote);
+        setDepositOn(Boolean(body.depositAvailable));
       } catch (e) {
         if ((e as Error).name !== "AbortError") setError((e as Error).message);
       }
@@ -133,8 +135,14 @@ export function BookingPanel({ slug, extras }: { slug: string; extras: Extra[] }
               <dt>{t("total")}</dt>
               <dd>{money(quote.grandTotal, locale)}</dd>
             </div>
-            <Row label={t("deposit")} value={money(quote.depositAmount, locale)} />
-            <Row label={t("onPickup")} value={money(quote.payOnPickup, locale)} />
+            {depositOn ? (
+              <>
+                <Row label={t("deposit")} value={money(quote.depositAmount, locale)} />
+                <Row label={t("onPickup")} value={money(quote.payOnPickup, locale)} />
+              </>
+            ) : (
+              <Row label={t("onPickup")} value={money(quote.grandTotal, locale)} />
+            )}
           </dl>
         </section>
       )}

@@ -29,7 +29,11 @@ export function serializeModel(m: Awaited<ReturnType<typeof listModels>>[number]
     airCon: m.airCon,
     engineLitres: m.engineLitres?.toString() ?? null,
     images: m.images,
+    /** Rental information (HTML from the import, English source). */
     description: t(m.description, locale),
+    vehicles: (m.vehicles ?? []).map((v) => ({ plate: v.plate, year: v.year, color: v.color })),
+    years: (() => { const ys = (m.vehicles ?? []).map((v) => v.year).filter((y): y is number => !!y); return ys.length ? { min: Math.min(...ys), max: Math.max(...ys) } : null; })(),
+    colors: [...new Set((m.vehicles ?? []).map((v) => v.color).filter(Boolean))] as string[],
     dailyRate: m.dailyRate.toFixed(2),
     fleetSize: m._count.vehicles,
   };
@@ -38,7 +42,11 @@ export function serializeModel(m: Awaited<ReturnType<typeof listModels>>[number]
 export async function listModels(filter?: { class?: VehicleClass; slug?: string }) {
   return db.vehicleModel.findMany({
     where: { active: true, ...(filter?.class ? { class: filter.class } : {}), ...(filter?.slug ? { slug: filter.slug } : {}) },
-    include: { seasonRates: { orderBy: { createdAt: "asc" } }, _count: { select: { vehicles: { where: { status: "ACTIVE" } } } } },
+    include: {
+      seasonRates: { orderBy: { createdAt: "asc" } },
+      _count: { select: { vehicles: { where: { status: "ACTIVE" } } } },
+      vehicles: { where: { status: { not: "RETIRED" } }, select: { plate: true, year: true, color: true }, orderBy: [{ year: "desc" }, { plate: "asc" }] },
+    },
     orderBy: [{ sortOrder: "asc" }, { dailyRate: "asc" }],
   });
 }

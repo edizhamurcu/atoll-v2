@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import { getTranslations } from "next-intl/server";
 import { getExtras, getModel } from "@/server/queries";
 import type { Locale } from "@/server/catalog";
-import { CarImage } from "@/components/car-image";
+import { CarGallery } from "@/components/car-gallery";
 import { BookingPanel } from "@/components/booking-panel";
 import { SearchSection, SearchSkeleton } from "@/components/search-section";
 import { money } from "@/lib/search-params";
@@ -40,7 +40,7 @@ async function CarDetail({ params }: { params: PageProps<"/[locale]/cars/[slug]"
   const { locale, slug } = (await params) as { locale: Locale; slug: string };
   const [m, extras] = await Promise.all([getModel(slug, locale), getExtras(locale)]);
   if (!m) notFound();
-  const [t, tc, tx, tf] = await Promise.all([getTranslations("car"), getTranslations("classes"), getTranslations("transmission"), getTranslations("fuel")]);
+  const [t, tc, tx, tf, tb] = await Promise.all([getTranslations("car"), getTranslations("classes"), getTranslations("transmission"), getTranslations("fuel"), getTranslations("bodyType")]);
   return (
     <div className="grid gap-10 lg:grid-cols-[1.4fr_1fr]">
       <div>
@@ -54,27 +54,53 @@ async function CarDetail({ params }: { params: PageProps<"/[locale]/cars/[slug]"
         }} />
         <p className="mt-4 text-ink-soft">{tc(m.class)}</p>
         <h1 className="text-4xl font-extrabold md:text-5xl">{m.name}</h1>
-        <div className="relative mt-6 aspect-[16/10] overflow-hidden rounded-[var(--radius-panel)]">
-          <CarImage src={m.images[0]} alt={m.name} sizes="(min-width:1024px) 60vw, 100vw" priority />
+        <p className="text-lg text-ink-soft">{t("orSimilarShort")}</p>
+        <div className="mt-6">
+          <CarGallery images={m.images} alt={m.name} />
         </div>
-        {m.images.length > 1 && (
-          <ul className="mt-3 grid grid-cols-4 gap-3">
-            {m.images.slice(1, 5).map((src) => (
-              <li key={src} className="relative aspect-[4/3] overflow-hidden rounded-xl">
-                <CarImage src={src} alt="" sizes="15vw" />
-              </li>
-            ))}
-          </ul>
-        )}
-        <h2 className="mt-10 text-2xl font-bold">{t("specs")}</h2>
-        <dl className="mt-4 grid grid-cols-2 gap-x-8 gap-y-3 sm:grid-cols-3">
-          <Spec k={tx(m.transmission)} />
-          <Spec k={tf(m.fuel)} />
-          <Spec k={t("seats", { n: m.seats })} />
-          {m.airCon && <Spec k={t("airCon")} />}
-          {m.engineLitres && <Spec k={t("engine", { l: m.engineLitres })} />}
-          <Spec k={t("fleet", { n: m.fleetSize })} />
+
+        <h2 className="mt-10 text-2xl font-bold">{t("allSpecs")}</h2>
+        <dl className="mt-4 grid grid-cols-1 gap-x-8 sm:grid-cols-2">
+          {[
+            [t("classLabel"), tc(m.class)],
+            [t("typeLabel"), tb(m.bodyType)],
+            [t("acLabel"), m.airCon ? t("yes") : t("no")],
+            [t("fuelLabel"), tf(m.fuel)],
+            [t("gearLabel"), tx(m.transmission)],
+            [t("seatsLabel"), String(m.seats)],
+            ...(m.engineLitres ? [[t("engineLabel"), `${m.engineLitres} L`]] : []),
+            ...(m.years ? [[t("yearsLabel"), m.years.min === m.years.max ? String(m.years.min) : `${m.years.min}–${m.years.max}`]] : []),
+            ...(m.colors.length ? [[t("colorsLabel"), m.colors.join(", ")]] : []),
+          ].map(([k, v]) => (
+            <div key={k} className="flex justify-between gap-4 border-b border-ink/8 py-2.5">
+              <dt className="text-ink-soft">{k}</dt>
+              <dd className="text-right font-medium">{v}</dd>
+            </div>
+          ))}
         </dl>
+
+        {m.vehicles.length > 0 && (
+          <section className="mt-10" aria-labelledby="fleet-table">
+            <h2 id="fleet-table" className="text-2xl font-bold">{t("fleetTable")} <span className="font-normal text-ink-soft">({m.vehicles.length})</span></h2>
+            <div className="mt-4 overflow-x-auto rounded-2xl bg-paper">
+              <table className="w-full text-left text-sm">
+                <thead className="border-b border-ink/10 text-ink-soft"><tr><th scope="col" className="px-4 py-2.5 font-medium">{t("plate")}</th><th scope="col" className="px-4 py-2.5 font-medium">{t("year")}</th><th scope="col" className="px-4 py-2.5 font-medium">{t("color")}</th></tr></thead>
+                <tbody>
+                  {m.vehicles.map((v) => (
+                    <tr key={v.plate} className="border-b border-ink/5"><td className="px-4 py-2.5 font-medium tabular-nums">{v.plate}</td><td className="px-4 py-2.5">{v.year ?? "—"}</td><td className="px-4 py-2.5">{v.color ?? "—"}</td></tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </section>
+        )}
+
+        {m.description && (
+          <section className="mt-10" aria-labelledby="rental-info" lang="en">
+            <h2 id="rental-info" className="text-2xl font-bold">{t("rentalInfo")}</h2>
+            <div className="prose-atoll mt-2" dangerouslySetInnerHTML={{ __html: m.description }} />
+          </section>
+        )}
         <p className="mt-6 max-w-prose text-sm text-ink-soft">{t("orSimilar", { name: m.name })}</p>
       </div>
       <aside className="lg:sticky lg:top-24 lg:self-start">
@@ -97,6 +123,3 @@ async function CarDetail({ params }: { params: PageProps<"/[locale]/cars/[slug]"
   );
 }
 
-function Spec({ k }: { k: string }) {
-  return <dd className="border-l-2 border-aegean pl-3">{k}</dd>;
-}

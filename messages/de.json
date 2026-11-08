@@ -59,7 +59,12 @@
     "loading": "Live-Verfügbarkeit wird geprüft…",
     "error": "Verfügbarkeit konnte nicht geladen werden. Prüfen Sie die Verbindung und versuchen Sie es erneut.",
     "retry": "Erneut versuchen",
-    "discount": "Inklusive {percent} % Langzeitrabatt"
+    "discount": "Inklusive {percent} % Langzeitrabatt",
+    "sort": "Sortieren",
+    "sortHigh": "Preis: absteigend",
+    "sortLow": "Preis: aufsteigend",
+    "filterClass": "Fahrzeugklasse",
+    "filterType": "Fahrzeugtyp"
   },
   "car": {
     "seats": "{n} Sitze",
@@ -70,7 +75,26 @@
     "checkDates": "Wählen Sie Daten für Preis und Verfügbarkeit",
     "airCon": "Klimaanlage",
     "engine": "{l}-L-Motor",
-    "orSimilar": "Ihr Auto ist ein {name}. Das Kennzeichen wird bei Abholung zugewiesen."
+    "orSimilar": "Ihr Auto ist ein {name}. Das Kennzeichen wird bei Abholung zugewiesen.",
+    "orSimilarShort": "oder ähnlich",
+    "allSpecs": "Alle technischen Daten",
+    "classLabel": "Fahrzeugklasse",
+    "typeLabel": "Fahrzeugtyp",
+    "acLabel": "Klimaanlage",
+    "yes": "Ja",
+    "no": "Nein",
+    "fuelLabel": "Kraftstoff",
+    "gearLabel": "Getriebe",
+    "seatsLabel": "Sitze",
+    "engineLabel": "Motor",
+    "yearsLabel": "Baujahr",
+    "colorsLabel": "Farben",
+    "fleetTable": "Fahrzeuge in unserer Flotte",
+    "plate": "Kennzeichen",
+    "year": "Jahr",
+    "color": "Farbe",
+    "rentalInfo": "Mietinformationen",
+    "photo": "Foto {n} von {total}"
   },
   "classes": {
     "ECONOMY": "Kleinwagen",
@@ -193,5 +217,12 @@
     "class": "Klasse",
     "perDay": "Pro Tag",
     "book": "Verfügbarkeit prüfen"
+  },
+  "bodyType": {
+    "HATCHBACK": "Kompakt",
+    "SEDAN": "Limousine",
+    "ESTATE": "Kombi",
+    "SUV": "SUV",
+    "VAN": "Van"
   }
 }

@@ -7,7 +7,7 @@ import { CarImage } from "./car-image";
 import { money, queryToState } from "@/lib/search-params";
 
 type Result = {
-  slug: string; name: string; class: string; transmission: string; fuel: string; seats: number; images: string[]; dailyRate: string;
+  slug: string; name: string; class: string; bodyType: string; transmission: string; fuel: string; seats: number; images: string[]; dailyRate: string;
   availability: { available: boolean; count: number; total: number };
   quote: { days: number; total: string; averageDaily: string; deposit: string; discountPercent: string } | null;
 };
@@ -21,7 +21,10 @@ export function Results() {
   const params = useSearchParams();
   const state = queryToState(params);
   const [cls, setCls] = useState<string | null>(null);
+  const [body, setBody] = useState<string | null>(null);
   const [auto, setAuto] = useState(false);
+  const [sort, setSort] = useState<"high" | "low">("high"); // old site default: price high to low
+  const tb = useTranslations("bodyType");
   const [nonce, setNonce] = useState(0);
   const qs = params.toString();
   const reqKey = `${qs}|${locale}|${nonce}`;
@@ -47,7 +50,12 @@ export function Results() {
   const load = () => setNonce((n) => n + 1);
 
   const classes = useMemo(() => [...new Set((data?.results ?? []).map((r) => r.class))], [data]);
-  const shown = (data?.results ?? []).filter((r) => (!cls || r.class === cls) && (!auto || r.transmission === "AUTOMATIC"));
+  const bodies = useMemo(() => [...new Set((data?.results ?? []).map((r) => r.bodyType))], [data]);
+  const count = (k: "class" | "bodyType", v: string) => (data?.results ?? []).filter((r) => r[k] === v).length;
+  const price = (r: Result) => Number(r.quote?.total ?? r.dailyRate);
+  const shown = (data?.results ?? [])
+    .filter((r) => (!cls || r.class === cls) && (!body || r.bodyType === body) && (!auto || r.transmission === "AUTOMATIC"))
+    .sort((a, b) => Number(b.availability.available) - Number(a.availability.available) || (sort === "high" ? price(b) - price(a) : price(a) - price(b)));
 
   if (!state) return null;
   if (error)
@@ -70,12 +78,29 @@ export function Results() {
       <p className="text-ink-soft">
         {data.days ? t("summary", { days: data.days, from: fmtDate(state.pickupDate, state.pickupTime), to: fmtDate(state.returnDate, state.returnTime) }) : null}
       </p>
-      <div className="mt-5 flex flex-wrap gap-2" role="group" aria-label="Filter">
-        <Chip active={!cls} onClick={() => setCls(null)}>{t("filterAll")}</Chip>
-        {classes.map((c) => (
-          <Chip key={c} active={cls === c} onClick={() => setCls(cls === c ? null : c)}>{tc(c)}</Chip>
-        ))}
-        <Chip active={auto} onClick={() => setAuto(!auto)}>{tx("AUTOMATIC")}</Chip>
+      <div className="mt-5 space-y-3">
+        <div className="flex flex-wrap items-center gap-2" role="group" aria-label={t("filterClass")}>
+          <span className="mr-1 text-sm text-ink-soft">{t("filterClass")}</span>
+          <Chip active={!cls} onClick={() => setCls(null)}>{t("filterAll")}</Chip>
+          {classes.map((c) => (
+            <Chip key={c} active={cls === c} onClick={() => setCls(cls === c ? null : c)}>{tc(c)} ({count("class", c)})</Chip>
+          ))}
+        </div>
+        <div className="flex flex-wrap items-center gap-2" role="group" aria-label={t("filterType")}>
+          <span className="mr-1 text-sm text-ink-soft">{t("filterType")}</span>
+          <Chip active={!body} onClick={() => setBody(null)}>{t("filterAll")}</Chip>
+          {bodies.map((b) => (
+            <Chip key={b} active={body === b} onClick={() => setBody(body === b ? null : b)}>{tb(b)} ({count("bodyType", b)})</Chip>
+          ))}
+          <Chip active={auto} onClick={() => setAuto(!auto)}>{tx("AUTOMATIC")}</Chip>
+        </div>
+        <label className="flex items-center gap-2 text-sm text-ink-soft">
+          {t("sort")}
+          <select className="field !w-auto !py-1.5" value={sort} onChange={(e) => setSort(e.target.value as "high" | "low")}>
+            <option value="high">{t("sortHigh")}</option>
+            <option value="low">{t("sortLow")}</option>
+          </select>
+        </label>
       </div>
 
       {shown.length === 0 ? (
@@ -91,7 +116,7 @@ export function Results() {
                 </div>
                 <div className="mt-3 flex items-start justify-between gap-3">
                   <div>
-                    <h2 className="text-xl font-bold">{r.name}</h2>
+                    <h2 className="text-xl font-bold">{r.name} <span className="text-sm font-normal text-ink-soft">{tcar("orSimilarShort")}</span></h2>
                     <p className="text-sm text-ink-soft">{tc(r.class)}, {tx(r.transmission)}, {tcar("seats", { n: r.seats })}</p>
                   </div>
                   {r.quote && (
@@ -120,7 +145,7 @@ export function Results() {
 function Chip({ active, onClick, children }: { active: boolean; onClick: () => void; children: React.ReactNode }) {
   return (
     <button type="button" aria-pressed={active} onClick={onClick}
-      className={`rounded-full border px-4 py-1.5 text-sm font-medium transition-colors ${active ? "border-ink bg-ink text-white" : "border-ink/15 hover:border-ink/40"}`}>
+      className={`min-h-10 rounded-full border px-4 py-2 text-sm font-medium transition-colors ${active ? "border-ink bg-ink text-white" : "border-ink/15 hover:border-ink/40"}`}>
       {children}
     </button>
   );

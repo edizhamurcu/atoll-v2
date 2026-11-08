@@ -22,7 +22,7 @@ export async function FleetSection({ locale }: { locale: Locale }) {
                   <div className="relative aspect-[4/3] overflow-hidden rounded-2xl">
                     <CarImage src={m.images[0]} alt={m.name} sizes="256px" />
                   </div>
-                  <p className="mt-3 font-display text-lg font-bold group-hover:text-aegean">{m.name}</p>
+                  <p className="mt-3 font-display text-lg font-bold group-hover:text-aegean">{m.name} <span className="text-sm font-normal text-ink-soft">{t("orSimilarShort")}</span></p>
                   <p className="text-sm text-ink-soft">
                     {tx(m.transmission)}, {t("seats", { n: m.seats })}
                   </p>

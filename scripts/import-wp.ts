@@ -8,6 +8,7 @@ import { readFileSync } from "node:fs";
 import { randomBytes, createHash } from "node:crypto";
 import { fromZonedTime } from "date-fns-tz";
 import { PrismaPg } from "@prisma/adapter-pg";
+import { rentalInfoHtml } from "./wp-format";
 import { PrismaClient, type VehicleClass, type BodyType, type Transmission, type FuelType } from "../src/generated/prisma/client";
 
 const TZ = process.env.BUSINESS_TZ ?? "Asia/Famagusta";
@@ -17,7 +18,9 @@ const dry = process.argv.includes("--dry-run");
 if (!file) throw new Error("usage: import-wp.ts <wp-export.json>");
 const db = new PrismaClient({ adapter: new PrismaPg({ connectionString: process.env.DATABASE_URL!, options: "-c timezone=UTC" }) });
 
-type WpVehicle = { wpId: number; title: string; slug: string; price: string; attrs: Record<string, string>; images: string[]; offices: string; desc: string };
+type WpVehicle = { wpId: number; title: string; slug: string; price: string; attrs: Record<string, string>; images: string[]; offices: string; desc: string; imageMeta?: Record<string, { w: number | null; h: number | null }> };
+
+
 type WpOrder = {
   wpId: number; status: string; created: string; total: string; carWpId: number | null; days: number | null;
   options: { id: string | number | null; qty: number; name: string }[];
@@ -90,11 +93,15 @@ async function main() {
     const display = titleCase(g.name) + (dup && eng ? ` ${eng.toFixed(1)}` : "");
     const [make, ...rest] = display.split(" ");
     const slug = slugify(display) + (dup && !eng ? `-${g.price}` : "");
-    const images = [...new Set(g.items.flatMap((i) => i.images))].slice(0, 8).map(media);
+    // Gallery: every photo of every plate of this model, featured images first (as on the old product pages).
+    const featured = g.items.map((i) => i.images[0]).filter(Boolean);
+    const images = [...new Set([...featured, ...g.items.flatMap((i) => i.images)])].slice(0, 16).map(media);
+    const info = mode(g.items.map((i) => i.desc).filter(Boolean));
+    const description = info ? { en: rentalInfoHtml(info) } : undefined;
     const model = dry ? { id: `dry-${slug}` } : await db.vehicleModel.upsert({
       where: { slug },
-      create: { slug, make: make === "Land" ? "Land Rover" : make, model: make === "Land" ? rest.slice(1).join(" ") : rest.join(" "), class: cls(a("vehicle-class")), bodyType: body(a("vehicle-type")), transmission: gear(a("gear-type")), fuel: fuel(a("fuel-type")), seats: seats(a("seats")), airCon: true, engineLitres: eng ?? undefined, images, dailyRate: g.price, sortOrder: sort++ },
-      update: { images, dailyRate: g.price },
+      create: { slug, make: make === "Land" ? "Land Rover" : make, model: make === "Land" ? rest.slice(1).join(" ") : rest.join(" "), class: cls(a("vehicle-class")), bodyType: body(a("vehicle-type")), transmission: gear(a("gear-type")), fuel: fuel(a("fuel-type")), seats: seats(a("seats")), airCon: true, engineLitres: eng ?? undefined, images, description, dailyRate: g.price, sortOrder: sort++ },
+      update: { images, description, dailyRate: g.price, class: cls(a("vehicle-class")), bodyType: body(a("vehicle-type")), transmission: gear(a("gear-type")), fuel: fuel(a("fuel-type")), seats: seats(a("seats")), engineLitres: eng ?? undefined },
     });
     for (const v of g.items) {
       const plate = (v.attrs.plate || `WP${v.wpId}`).toUpperCase().replace(/\s+/g, "");

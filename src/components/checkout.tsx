@@ -110,7 +110,7 @@ export function Checkout({ refCode }: { refCode: string }) {
           <div key={x.name} className="flex justify-between"><dt>{x.name} ×{x.quantity}</dt><dd>{money(x.total, locale)}</dd></div>
         ))}
         <div className="flex justify-between border-t border-ink/10 pt-3 text-base font-bold"><dt>{t("total")}</dt><dd>{money(b.totals.grandTotal, locale)}</dd></div>
-        <div className="flex justify-between"><dt className="text-ink-soft">{t("deposit")}</dt><dd>{money(b.totals.deposit, locale)}</dd></div>
+        {b.depositAvailable && <div className="flex justify-between"><dt className="text-ink-soft">{t("deposit")}</dt><dd>{money(b.totals.deposit, locale)}</dd></div>}
       </dl>
     </section>
   );
