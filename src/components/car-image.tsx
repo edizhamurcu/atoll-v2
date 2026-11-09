@@ -2,7 +2,7 @@ import Image from "next/image";
 
 /** Car photo or a neutral silhouette when the model has no image yet. */
 export function CarImage({ src, alt, sizes, priority }: { src?: string | null; alt: string; sizes: string; priority?: boolean }) {
-  if (src) return <Image src={src} alt={alt} fill sizes={sizes} priority={priority} className="object-cover" />;
+  if (src) return <Image src={src} alt={alt} fill sizes={sizes} priority={priority} className="bg-car object-contain" />;
   return (
     <div className="flex size-full items-center justify-center bg-aegean-wash" role="img" aria-label={alt}>
       <svg viewBox="0 0 120 48" className="w-2/3 text-ink/25" aria-hidden>

@@ -13,7 +13,7 @@ export function CarGallery({ images, alt }: { images: string[]; alt: string }) {
   return (
     <div>
       <div
-        className="relative aspect-[16/10] overflow-hidden rounded-[var(--radius-panel)] bg-paper"
+        className="relative aspect-[16/10] overflow-hidden rounded-[var(--radius-panel)] bg-car"
         tabIndex={images.length > 1 ? 0 : -1}
         role="group"
         aria-roledescription="carousel"
@@ -23,8 +23,8 @@ export function CarGallery({ images, alt }: { images: string[]; alt: string }) {
         <Image key={images[i]} src={images[i]} alt={`${alt} — ${t("photo", { n: i + 1, total: images.length })}`} fill sizes="(min-width:1024px) 60vw, 100vw" priority={i === 0} className="object-contain" />
         {images.length > 1 && (
           <>
-            <button type="button" onClick={() => go(-1)} aria-label="Previous photo" className="absolute left-3 top-1/2 flex size-11 -translate-y-1/2 items-center justify-center rounded-full bg-paper/90 shadow hover:bg-paper">‹</button>
-            <button type="button" onClick={() => go(1)} aria-label="Next photo" className="absolute right-3 top-1/2 flex size-11 -translate-y-1/2 items-center justify-center rounded-full bg-paper/90 shadow hover:bg-paper">›</button>
+            <button type="button" onClick={() => go(-1)} aria-label={t("prevPhoto")} className="absolute left-3 top-1/2 flex size-11 -translate-y-1/2 items-center justify-center rounded-full bg-paper/90 shadow hover:bg-paper">‹</button>
+            <button type="button" onClick={() => go(1)} aria-label={t("nextPhoto")} className="absolute right-3 top-1/2 flex size-11 -translate-y-1/2 items-center justify-center rounded-full bg-paper/90 shadow hover:bg-paper">›</button>
             <span className="absolute bottom-3 right-3 rounded-full bg-ink/75 px-2.5 py-1 text-xs text-white tabular-nums">{i + 1} / {images.length}</span>
           </>
         )}
@@ -35,7 +35,7 @@ export function CarGallery({ images, alt }: { images: string[]; alt: string }) {
             <li key={src} className="shrink-0">
               <button type="button" onClick={() => setI(n)} aria-label={t("photo", { n: n + 1, total: images.length })} aria-current={n === i}
                 className={`relative block h-16 w-24 overflow-hidden rounded-lg ring-2 ${n === i ? "ring-bougain" : "ring-transparent hover:ring-ink/30"}`}>
-                <Image src={src} alt="" fill sizes="96px" className="object-cover" />
+                <Image src={src} alt="" fill sizes="96px" className="bg-car object-contain" />
               </button>
             </li>
           ))}

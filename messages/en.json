@@ -97,7 +97,9 @@
     "rentalInfo": "Rental information",
     "photo": "Photo {n} of {total}",
     "metaTitle": "{name} rental in North Cyprus from {price}/day",
-    "metaDesc": "Rent a {name} ({gear}, {fuel}, {seats} seats) with Atoll Rent A Car in Kyrenia, Ercan, Larnaca or Paphos. Live availability, from {price} per day."
+    "metaDesc": "Rent a {name} ({gear}, {fuel}, {seats} seats) with Atoll Rent A Car in Kyrenia, Ercan, Larnaca or Paphos. Live availability, from {price} per day.",
+    "prevPhoto": "Previous photo",
+    "nextPhoto": "Next photo"
   },
   "classes": {
     "ECONOMY": "Economy",
