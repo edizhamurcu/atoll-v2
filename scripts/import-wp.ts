@@ -123,9 +123,10 @@ async function main() {
   }
 
   // ---------- extras ----------
-  const EXTRA: Record<number, { code: string; name: Record<string, string>; pricing: "PER_DAY" | "PER_RENTAL"; maxQty: number; sort: number }> = {
-    488: { code: "baby_seat", name: { en: "Baby seat", tr: "Bebek koltuğu", de: "Babysitz", ru: "Детское кресло" }, pricing: "PER_DAY", maxQty: 2, sort: 1 },
-    58: { code: "booster_seat", name: { en: "Booster seat", tr: "Yükseltici koltuk", de: "Sitzerhöhung", ru: "Бустер" }, pricing: "PER_DAY", maxQty: 2, sort: 2 },
+  // `price` overrides the WordPress price for new bookings (legacy orders keep the WP price they were sold at).
+  const EXTRA: Record<number, { code: string; name: Record<string, string>; pricing: "PER_DAY" | "PER_RENTAL"; maxQty: number; sort: number; price?: string }> = {
+    488: { code: "baby_seat", name: { en: "Baby seat", tr: "Bebek koltuğu", de: "Babysitz", ru: "Детское кресло" }, pricing: "PER_DAY", maxQty: 2, sort: 1, price: "2.00" }, // £2/day — owner decision 2026-11-09 (WP: £3)
+    58: { code: "booster_seat", name: { en: "Booster seat", tr: "Yükseltici koltuk", de: "Sitzerhöhung", ru: "Бустер" }, pricing: "PER_DAY", maxQty: 2, sort: 2, price: "2.00" }, // £2/day — owner decision 2026-11-09 (WP: £2.50)
     1088: { code: "tyre_screen_cover", name: { en: "Tyre & windscreen cover", tr: "Lastik ve cam güvencesi", de: "Reifen- & Scheibenschutz", ru: "Защита шин и стекла" }, pricing: "PER_DAY", maxQty: 1, sort: 3 },
     57: { code: "south_cyprus", name: { en: "Driving in South Cyprus", tr: "Güney Kıbrıs kullanımı", de: "Fahrt in Südzypern", ru: "Поездки на юг Кипра" }, pricing: "PER_RENTAL", maxQty: 1, sort: 4 },
     1841: { code: "transfer_ercan", name: { en: "Ercan Airport transfer to Alsancak (one way)", tr: "Ercan → Alsancak transfer (tek yön)", de: "Transfer Ercan → Alsancak (einfach)", ru: "Трансфер Эрджан → Алсанджак" }, pricing: "PER_RENTAL", maxQty: 1, sort: 5 },
@@ -138,8 +139,8 @@ async function main() {
     if (!meta) continue;
     const row = dry ? { id: `dry-x${o.wpId}` } : await db.extra.upsert({
       where: { code: meta.code },
-      create: { code: meta.code, name: meta.name, pricing: meta.pricing, price: o.price, maxQty: meta.maxQty, sortOrder: meta.sort },
-      update: { price: o.price },
+      create: { code: meta.code, name: meta.name, pricing: meta.pricing, price: meta.price ?? o.price, maxQty: meta.maxQty, sortOrder: meta.sort },
+      update: { price: meta.price ?? o.price },
     });
     extraByWp.set(String(o.wpId), { id: row.id, price: Number(o.price), pricing: meta.pricing });
   }
