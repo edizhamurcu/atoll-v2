@@ -47,7 +47,7 @@ const pages: PageTranslations = {
     html: `<h2>KİRALIK ARACI GÜNEY KIBRIS'A GÖTÜRMEK İÇİN ADIM ADIM İŞLEMLER:</h2>
 <p>1- İzin belgesini bizden satın alın; ücreti £50,00'dır. (İzin belgesi yalnızca aracı Türk sınır kapısından Rum sınır kapısına kadar götürmenize izin verir.)</p>
 <p>2- Bu izin belgesi Türk sınır kapısındaki görevliye gösterilir.</p>
-<p>3- Türk sınır kapısını geçtikten sonra Rum sınır kapısına varırsınız; burada pasaportlarınızı göstermeniz ve Güney Kıbrıs'ta araç kullanmak için gereken Rum sigortasını ve yol vergisini satın almanız gerekir. Ücreti 25 Euro'dur (değişebilir).</p>
+<p>3- Türk sınır kapısını geçtikten sonra Rum sınır kapısına varırsınız; burada pasaportlarınızı göstermeniz ve Güney Kıbrıs'ta araç kullanmak için gereken Rum sigortasını ve yol vergisini satın almanız gerekir. Ücreti yaklaşık £21'dir (sınırda ödenir, değişebilir).</p>
 <p>4- Sigortayı ve yol vergisini Rum sınır ofislerinden satın alın**</p>
 <p>5- Güney Kıbrıs'ta araç kullanmaya başlayın.</p>
 <p>**Lütfen dikkat: Rum ofisleri yalnızca Lefkoşa'daki Metehan sınır kapısında bulunur, hafta içi yalnızca saat 14:00'e kadar açıktır ve Rum resmi tatillerinde kapalıdır. Gerekli belgeleri satın almazsanız Güney Kıbrıs'ta araç kullanmanıza izin verilmez; lütfen tatilinizi buna göre planlayın. Rum ofislerinin açık olup olmadığını öğrenmek için Rum sigorta ofisini +357-22-454700 numarasından veya yerel polisi +357 22802838 numarasından arayabilirsiniz. Herhangi bir nedenle sınırı geçememeniz durumunda Atoll Rent A Car sorumlu tutulamaz.</p>
@@ -75,7 +75,7 @@ const pages: PageTranslations = {
 <h2>Ek Sigorta</h2>
 <p>Ek sigorta ön cam ve lastik hasarlarını kapsar. <a href="/tr/extra-insurance">Ayrıntılar</a></p>
 <h2>Hasar Muafiyeti</h2>
-<p>Hasar muafiyeti sabit 500 Euro'dur</p>
+<p>Hasar muafiyeti sabit £450'dir</p>
 <h2>Araç kiralama ücretlerimize neler dahil?</h2>
 <p>Araç kiralama ücretlerimize şunlar dahildir:</p>
 <p>- Tam 24 saatlik gün.<br />

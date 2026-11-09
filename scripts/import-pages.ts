@@ -27,6 +27,9 @@ const LINKS: [RegExp, string][] = [
   [/href="https:\/\/www\.pacific-rentals\.com\/fuel-options\.asp"/g, 'href="/en/fuel-options"'],
   // "rental agreement" link pointed back at the rental terms page.
   [/<a href="\/en\/rental-terms">rental agreement<\/a>/g, '<a href="/en/rental-agreement">rental agreement</a>'],
+  // GBP only on the site (owner decision 2026-11-09): excess uses the £450 the WP product pages already quote.
+  [/Damaged Excess is fixed at 500 Euros/g, "Damage excess is fixed at £450"],
+  [/this will cost 25 Euros \(subject to change\)/g, "this will cost about £21 (paid at the border, subject to change)"],
 ];
 
 export function cleanHtml(html: string) {

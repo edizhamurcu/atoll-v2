@@ -150,3 +150,12 @@ describe("rental information", () => {
     expect(localizedRentalInfo("<p>Something else</p>", "tr")).toEqual({ html: "<p>Something else</p>", lang: "en" });
   });
 });
+
+describe("prices are GBP only", () => {
+  it("no euro/dollar amounts in UI messages, translated pages or site config", async () => {
+    const fs = await import("node:fs");
+    const files = ["messages/en.json", "messages/tr.json", "messages/de.json", "messages/ru.json", "src/content/page-i18n/tr.ts", "src/content/page-i18n/de.ts", "src/content/page-i18n/ru.ts", "src/content/rental-info.ts", "src/lib/site.ts"];
+    const money = /(€|\bEUR\b|\d\s*euros?\b|\beuros?\s*\d|\d\s*евро|US?\$\s*\d)/i;
+    for (const f of files) expect(fs.readFileSync(f, "utf8"), f).not.toMatch(money);
+  });
+});

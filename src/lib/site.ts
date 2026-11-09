@@ -15,7 +15,7 @@ export const SITE = {
   /** Rental terms (from /rental-terms, /driving-in-south-cyprus, /extra-insurance, /fuel-options, /delivery-charges). */
   terms: {
     minAge: 25,
-    damageExcess: "500 EUR",
+    damageExcess: "£450",
     includes: ["Full 24 hours day", "Unlimited mileage", "Oil and greasing", "Safety belts in all cars", "Change of car in case of mechanical breakdown"],
     cancellation: "10% cancellation fee for bookings cancelled less than 48 hours before the agreed pick-up time",
     payment: "Cash at the time of taking delivery of the car, or by card through the secure online system",

@@ -47,7 +47,7 @@ const pages: PageTranslations = {
     html: `<h2>SCHRITT FÜR SCHRITT: SO FAHREN SIE MIT DEM MIETWAGEN NACH SÜDZYPERN</h2>
 <p>1- Kaufen Sie bei uns die Genehmigung; sie kostet £50,00. (Die Genehmigung erlaubt Ihnen nur, mit dem Fahrzeug von der türkischen bis zur griechischen Grenzkontrolle zu fahren.)</p>
 <p>2- Diese Genehmigung zeigen Sie dem Beamten an der türkischen Grenzkontrolle.</p>
-<p>3- Nach der türkischen Grenzkontrolle erreichen Sie die griechische Grenzkontrolle. Dort müssen Sie Ihre Reisepässe vorzeigen und die für Fahrten in Südzypern erforderliche griechische Versicherung und Straßensteuer kaufen; dies kostet 25 Euro (Änderungen vorbehalten).</p>
+<p>3- Nach der türkischen Grenzkontrolle erreichen Sie die griechische Grenzkontrolle. Dort müssen Sie Ihre Reisepässe vorzeigen und die für Fahrten in Südzypern erforderliche griechische Versicherung und Straßensteuer kaufen; dies kostet etwa £21 (zahlbar an der Grenze, Änderungen vorbehalten).</p>
 <p>4- Kaufen Sie Versicherung und Straßensteuer in den griechischen Grenzbüros**</p>
 <p>5- Fahren Sie in Südzypern los.</p>
 <p>**Bitte beachten Sie: Die griechischen Büros befinden sich nur am Grenzübergang Metehan in Nikosia, sind werktags nur bis 14:00 Uhr geöffnet und an griechischen Feiertagen geschlossen. Ohne die erforderlichen Dokumente dürfen Sie in Südzypern nicht fahren; bitte planen Sie Ihren Urlaub entsprechend. Ob die griechischen Büros geöffnet sind, erfahren Sie beim griechischen Versicherungsbüro unter +357-22-454700 oder bei der örtlichen Polizei unter +357 22802838. Atoll Rent A Car haftet nicht, wenn Sie die Grenze aus irgendeinem Grund nicht passieren können.</p>
@@ -75,7 +75,7 @@ const pages: PageTranslations = {
 <h2>Zusatzversicherung</h2>
 <p>Die Zusatzversicherung deckt Schäden an Windschutzscheibe und Reifen. <a href="/de/extra-insurance">Weitere Details</a></p>
 <h2>Selbstbeteiligung</h2>
-<p>Die Selbstbeteiligung beträgt pauschal 500 Euro</p>
+<p>Die Selbstbeteiligung beträgt pauschal £450</p>
 <h2>Was ist in unseren Mietpreisen enthalten?</h2>
 <p>Unsere Mietpreise beinhalten:</p>
 <p>- Volle 24-Stunden-Tage.<br />
