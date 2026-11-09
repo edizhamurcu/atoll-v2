@@ -156,7 +156,52 @@
     "pendingTitle": "Waiting for payment",
     "pendingLead": "Complete the deposit to confirm booking {ref}.",
     "notFound": "We couldn't find this booking on this device. Use the link in your confirmation email.",
-    "whatsapp": "Message us on WhatsApp"
+    "whatsapp": "Message us on WhatsApp",
+    "ph": {
+      "firstName": "John",
+      "lastName": "Smith",
+      "email": "john.smith@example.com",
+      "phone": "+44 7700 900123",
+      "country": "United Kingdom",
+      "license": "e.g. SMITH712049J99AB",
+      "flight": "e.g. TK 1972",
+      "address": "Hotel or villa name, area (e.g. Alsancak)"
+    },
+    "notesTopic": "Topic",
+    "notesTopicNone": "Choose a topic (optional)",
+    "notesText": "Details",
+    "topics": {
+      "late_arrival": "Late or delayed arrival",
+      "child_seat": "Child or baby seat",
+      "extra_driver": "Additional driver",
+      "young_driver": "Young or newly licensed driver",
+      "south_cyprus": "Driving to South Cyprus",
+      "delivery_details": "Delivery or pick-up details",
+      "special_request": "Other request"
+    },
+    "topicHints": {
+      "none": "Anything else we should know…",
+      "late_arrival": "e.g. Our flight lands at 01:30, we may be about an hour late.",
+      "child_seat": "e.g. One seat for a 2-year-old and a booster for a 6-year-old.",
+      "extra_driver": "e.g. My partner will also drive: name, age and licence country.",
+      "young_driver": "e.g. The driver is 22 and has held a licence for 2 years.",
+      "south_cyprus": "e.g. We plan to cross to Larnaca for two days.",
+      "delivery_details": "e.g. Hotel name, room number or a landmark near the villa.",
+      "special_request": "Tell us what you need."
+    },
+    "errors": {
+      "generic": "Something went wrong. Please try again.",
+      "phone": "Please enter a valid phone number with country code.",
+      "email": "Please enter a valid email address.",
+      "name": "Please enter your first and last name.",
+      "terms": "Please accept the rental terms to continue.",
+      "address": "Please enter the delivery address.",
+      "spam": "We couldn't verify this request. Please wait a moment and try again.",
+      "rate": "Too many attempts. Please wait a few minutes and try again.",
+      "expired": "Your reservation hold expired. Please search again.",
+      "captcha": "Please complete the security check."
+    },
+    "hp": "Leave this field empty"
   },
   "home": {
     "fleetTitle": "Our fleet",

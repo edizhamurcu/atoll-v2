@@ -208,9 +208,11 @@ export interface CustomerInput {
  * Turns a live HOLD into a booking. With paymentMode "deposit" it moves to PENDING_PAYMENT
  * (Stripe Checkout confirms it via webhook); "pay_on_pickup" confirms immediately.
  */
-export async function confirmHold(ref: string, token: string, customer: CustomerInput, paymentMode: "deposit" | "pay_on_pickup") {
+export async function confirmHold(ref: string, token: string, customer: CustomerInput, paymentMode: "deposit" | "pay_on_pickup", opts: { minAgeMs?: number } = {}) {
   const b = await getBookingForCustomer(ref, token);
   if (b.status !== "HOLD") throw new BookingError("NOT_HOLD", `Booking is ${b.status.toLowerCase()}`, 409);
+  // Anti-bot: a person cannot fill in the driver form within a few seconds of reserving.
+  if (opts.minAgeMs && Date.now() - b.createdAt.getTime() < opts.minAgeMs) throw new BookingError("SPAM_CHECK", "We could not verify this request. Please try again.", 422);
   if (!b.holdExpiresAt || b.holdExpiresAt <= new Date()) throw new BookingError("HOLD_EXPIRED", "Your reservation hold expired. Please search again.", 410);
   if (b.deliveryZoneId && !customer.deliveryAddress?.trim()) throw new BookingError("ADDRESS_REQUIRED", "Delivery address is required");
 

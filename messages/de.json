@@ -156,7 +156,52 @@
     "pendingTitle": "Zahlung ausstehend",
     "pendingLead": "Schließen Sie die Anzahlung ab, um Buchung {ref} zu bestätigen.",
     "notFound": "Diese Buchung wurde auf diesem Gerät nicht gefunden. Nutzen Sie den Link aus Ihrer Bestätigungs-E-Mail.",
-    "whatsapp": "Schreiben Sie uns auf WhatsApp"
+    "whatsapp": "Schreiben Sie uns auf WhatsApp",
+    "ph": {
+      "firstName": "Max",
+      "lastName": "Mustermann",
+      "email": "max.mustermann@beispiel.de",
+      "phone": "+49 151 23456789",
+      "country": "Deutschland",
+      "license": "z. B. B072RRE2I55",
+      "flight": "z. B. TK 1972",
+      "address": "Hotel- oder Villenname, Ort (z. B. Alsancak)"
+    },
+    "notesTopic": "Thema",
+    "notesTopicNone": "Thema wählen (optional)",
+    "notesText": "Details",
+    "topics": {
+      "late_arrival": "Späte oder verspätete Ankunft",
+      "child_seat": "Kinder- oder Babysitz",
+      "extra_driver": "Zusätzlicher Fahrer",
+      "young_driver": "Junger Fahrer oder Führerschein-Neuling",
+      "south_cyprus": "Fahrt nach Südzypern",
+      "delivery_details": "Details zu Zustellung oder Abholung",
+      "special_request": "Sonstiger Wunsch"
+    },
+    "topicHints": {
+      "none": "Möchten Sie uns noch etwas mitteilen…",
+      "late_arrival": "z. B. Unser Flug landet um 01:30, wir kommen evtl. eine Stunde später.",
+      "child_seat": "z. B. Ein Sitz für ein 2-jähriges Kind und eine Sitzerhöhung für ein 6-jähriges.",
+      "extra_driver": "z. B. Meine Partnerin fährt auch: Name, Alter und Ausstellungsland des Führerscheins.",
+      "young_driver": "z. B. Der Fahrer ist 22 und hat den Führerschein seit 2 Jahren.",
+      "south_cyprus": "z. B. Wir möchten für zwei Tage nach Larnaka fahren.",
+      "delivery_details": "z. B. Hotelname, Zimmernummer oder ein Orientierungspunkt bei der Villa.",
+      "special_request": "Schreiben Sie uns, was Sie brauchen."
+    },
+    "errors": {
+      "generic": "Etwas ist schiefgelaufen. Bitte versuchen Sie es erneut.",
+      "phone": "Bitte geben Sie eine gültige Telefonnummer mit Ländervorwahl ein.",
+      "email": "Bitte geben Sie eine gültige E-Mail-Adresse ein.",
+      "name": "Bitte geben Sie Vor- und Nachnamen ein.",
+      "terms": "Bitte akzeptieren Sie die Mietbedingungen, um fortzufahren.",
+      "address": "Bitte geben Sie die Lieferadresse ein.",
+      "spam": "Wir konnten diese Anfrage nicht überprüfen. Bitte warten Sie kurz und versuchen Sie es erneut.",
+      "rate": "Zu viele Versuche. Bitte warten Sie einige Minuten und versuchen Sie es erneut.",
+      "expired": "Ihre Reservierung ist abgelaufen. Bitte suchen Sie erneut.",
+      "captcha": "Bitte schließen Sie die Sicherheitsprüfung ab."
+    },
+    "hp": "Dieses Feld leer lassen"
   },
   "home": {
     "fleetTitle": "Unsere Flotte",

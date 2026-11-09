@@ -1,4 +1,5 @@
-import { json, handleError, limit, parse, readJson } from "@/server/http";
+import { clientIp, json, handleError, limit, parse, readJson } from "@/server/http";
+import { composeNotes, MIN_FILL_MS, spamError, spamReason, verifyTurnstile } from "@/server/antispam";
 import { confirmSchema } from "@/server/schemas";
 import { confirmHold } from "@/server/booking";
 import { startDepositCheckout, stripeEnabled } from "@/server/payments";
@@ -10,8 +11,16 @@ export async function POST(req: Request, ctx: RouteContext<"/api/v1/bookings/[re
     const { ref } = await ctx.params;
     const token = (req.headers.get("authorization") ?? "").replace(/^Bearer\s+/i, "");
     const body = parse(confirmSchema, await readJson(req));
+    const { notesTopic, ...customer } = body.customer;
+    const notes = composeNotes(notesTopic, customer.notes);
+    const reason = body.website ? "honeypot" : spamReason({ ...customer, notes });
+    if (reason) {
+      console.warn("[antispam] blocked confirm", ref, reason);
+      throw spamError();
+    }
+    if (!(await verifyTurnstile(body.captchaToken, clientIp(req)))) throw spamError();
     const mode = body.paymentMode === "deposit" && stripeEnabled() ? "deposit" : "pay_on_pickup";
-    const b = await confirmHold(ref, token, body.customer, mode);
+    const b = await confirmHold(ref, token, { ...customer, notes }, mode, { minAgeMs: MIN_FILL_MS });
     if (mode === "deposit") {
       const url = await startDepositCheckout(b);
       return json({ ref: b.ref, status: b.status, checkoutUrl: url });

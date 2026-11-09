@@ -1,4 +1,5 @@
 import { z } from "zod";
+import { NOTE_TOPICS } from "@/content/booking-notes";
 
 const isoDate = z.iso.datetime({ offset: true }).transform((s) => new Date(s));
 const slug = z.string().regex(/^[a-z0-9-]{1,80}$/);
@@ -47,6 +48,10 @@ export const confirmSchema = z.object({
     flightNumber: z.string().trim().max(12).optional(),
     deliveryAddress: z.string().trim().max(300).optional(),
     notes: z.string().trim().max(1000).optional(),
+    notesTopic: z.enum(NOTE_TOPICS).optional(),
   }),
   acceptTerms: z.literal(true, { error: "You must accept the rental terms" }),
+  /** Honeypot: hidden from people, bots fill it. Checked in the route, not here, so the error stays generic. */
+  website: z.string().max(500).optional(),
+  captchaToken: z.string().max(2048).optional(),
 });

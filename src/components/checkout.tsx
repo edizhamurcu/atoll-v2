@@ -7,6 +7,8 @@ import { useSearchParams } from "next/navigation";
 import { Link } from "@/i18n/navigation";
 import { money } from "@/lib/search-params";
 import { WHATSAPP } from "@/lib/contact";
+import { NOTE_TOPICS } from "@/content/booking-notes";
+import { Turnstile } from "./turnstile";
 
 type Booking = {
   ref: string; status: string; paymentMode: string; holdExpiresAt: string | null; days: number;
@@ -18,7 +20,7 @@ type Booking = {
   customer: { firstName: string } | null;
 };
 
-export function Checkout({ refCode }: { refCode: string }) {
+export function Checkout({ refCode, turnstileSiteKey }: { refCode: string; turnstileSiteKey?: string }) {
   const t = useTranslations("booking");
   const tn = useTranslations("nav");
   const locale = useLocale();
@@ -28,6 +30,9 @@ export function Checkout({ refCode }: { refCode: string }) {
   const [now, setNow] = useState(() => Date.now());
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [topic, setTopic] = useState("");
+  const [captcha, setCaptcha] = useState<string | null>(null);
+  const [captchaKey, setCaptchaKey] = useState(0);
   const storageKey = `atoll:${refCode}`;
   const hydrated = useSyncExternalStore(noop, () => true, () => false);
   const stored = useSyncExternalStore(noop, () => sessionStorage.getItem(storageKey), () => null);
@@ -66,6 +71,10 @@ export function Checkout({ refCode }: { refCode: string }) {
     e.preventDefault();
     const f = new FormData(e.currentTarget);
     const get = (k: string) => String(f.get(k) ?? "").trim() || undefined;
+    if (turnstileSiteKey && !captcha) {
+      setError(t("errors.captcha"));
+      return;
+    }
     setBusy(true);
     setError(null);
     try {
@@ -75,18 +84,23 @@ export function Checkout({ refCode }: { refCode: string }) {
         body: JSON.stringify({
           paymentMode: f.get("pay") === "deposit" ? "deposit" : "pay_on_pickup",
           acceptTerms: f.get("terms") === "on",
-          customer: { firstName: get("firstName"), lastName: get("lastName"), email: get("email"), phone: get("phone"), country: get("country"), licenseNumber: get("license"), flightNumber: get("flight"), deliveryAddress: get("address"), notes: get("notes") },
+          customer: { firstName: get("firstName"), lastName: get("lastName"), email: get("email"), phone: get("phone"), country: get("country"), licenseNumber: get("license"), flightNumber: get("flight"), deliveryAddress: get("address"), notes: get("notes"), notesTopic: topic || undefined },
+          website: String(f.get("website") ?? ""),
+          captchaToken: captcha ?? undefined,
         }),
       });
       const body = await res.json();
-      if (!res.ok) throw new Error(body?.error?.details?.[0]?.message ?? body?.error?.message ?? "error");
+      if (!res.ok) throw new Error(errorKey(res.status, body?.error));
       if (body.checkoutUrl) {
         window.location.href = body.checkoutUrl;
         return;
       }
       await load();
     } catch (err) {
-      setError((err as Error).message);
+      const key = (err as Error).message;
+      setError(t.has(`errors.${key}`) ? t(`errors.${key}` as "errors.generic") : t("errors.generic"));
+      // Turnstile tokens are single-use and were spent by the server check: start a fresh challenge.
+      if (turnstileSiteKey) { setCaptcha(null); setCaptchaKey((k) => k + 1); }
     } finally {
       setBusy(false);
     }
@@ -146,19 +160,35 @@ export function Checkout({ refCode }: { refCode: string }) {
         </p>
         <h1 className="text-3xl font-extrabold">{t("details")}</h1>
         <div className="grid gap-4 sm:grid-cols-2">
-          <F name="firstName" label={t("firstName")} required autoComplete="given-name" />
-          <F name="lastName" label={t("lastName")} required autoComplete="family-name" />
-          <F name="email" label={t("email")} type="email" required autoComplete="email" />
-          <F name="phone" label={t("phone")} type="tel" required autoComplete="tel" />
-          <F name="country" label={t("country")} autoComplete="country-name" />
-          <F name="license" label={t("license")} />
-          <F name="flight" label={t("flight")} />
-          {b.deliveryZone && <F name="address" label={t("address")} required />}
+          <F name="firstName" label={t("firstName")} placeholder={t("ph.firstName")} required autoComplete="given-name" maxLength={80} />
+          <F name="lastName" label={t("lastName")} placeholder={t("ph.lastName")} required autoComplete="family-name" maxLength={80} />
+          <F name="email" label={t("email")} placeholder={t("ph.email")} type="email" required autoComplete="email" maxLength={200} />
+          <F name="phone" label={t("phone")} placeholder={t("ph.phone")} type="tel" required autoComplete="tel" maxLength={20} />
+          <F name="country" label={t("country")} placeholder={t("ph.country")} autoComplete="country-name" maxLength={60} />
+          <F name="license" label={t("license")} placeholder={t("ph.license")} maxLength={40} />
+          <F name="flight" label={t("flight")} placeholder={t("ph.flight")} maxLength={12} />
+          {b.deliveryZone && <F name="address" label={t("address")} placeholder={t("ph.address")} required maxLength={300} />}
         </div>
-        <div>
-          <label className="label" htmlFor="notes">{t("notes")}</label>
-          <textarea id="notes" name="notes" rows={3} className="field" maxLength={1000} />
+        <fieldset className="space-y-3">
+          <legend className="label">{t("notes")}</legend>
+          <div>
+            <label className="sr-only" htmlFor="notesTopic">{t("notesTopic")}</label>
+            <select id="notesTopic" value={topic} onChange={(e) => setTopic(e.target.value)} className="field">
+              <option value="">{t("notesTopicNone")}</option>
+              {NOTE_TOPICS.map((k) => <option key={k} value={k}>{t(`topics.${k}`)}</option>)}
+            </select>
+          </div>
+          <div>
+            <label className="sr-only" htmlFor="notes">{t("notesText")}</label>
+            <textarea id="notes" name="notes" rows={3} className="field" maxLength={1000} placeholder={t(`topicHints.${topic || "none"}` as "topicHints.none")} />
+          </div>
+        </fieldset>
+        {/* Honeypot: off-screen and skipped by keyboard and screen readers; bots that fill every field get rejected. */}
+        <div aria-hidden="true" className="absolute -left-[9999px] top-auto h-px w-px overflow-hidden">
+          <label htmlFor="website">{t("hp")}</label>
+          <input id="website" name="website" type="text" tabIndex={-1} autoComplete="off" defaultValue="" />
         </div>
+        {turnstileSiteKey && <Turnstile key={captchaKey} siteKey={turnstileSiteKey} locale={locale} onToken={setCaptcha} />}
         {b.depositAvailable ? (
         <fieldset className="space-y-2">
           <label className="flex items-center gap-3 rounded-xl border border-ink/10 p-3">
@@ -194,4 +224,18 @@ function F({ name, label, ...rest }: { name: string; label: string } & React.Inp
       <input id={name} name={name} className="field" {...rest} />
     </div>
   );
+}
+
+/** Map an API error to a message key under booking.errors (messages are localized on the client). */
+function errorKey(status: number, err: { code?: string; details?: { path?: string }[] } | undefined): string {
+  if (status === 429) return "rate";
+  if (err?.code === "SPAM_CHECK") return "spam";
+  if (err?.code === "HOLD_EXPIRED") return "expired";
+  if (err?.code === "ADDRESS_REQUIRED") return "address";
+  const path = err?.details?.[0]?.path ?? "";
+  if (path.endsWith("phone")) return "phone";
+  if (path.endsWith("email")) return "email";
+  if (path.endsWith("firstName") || path.endsWith("lastName")) return "name";
+  if (path === "acceptTerms") return "terms";
+  return "generic";
 }

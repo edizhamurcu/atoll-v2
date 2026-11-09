@@ -1,4 +1,5 @@
 import { Suspense } from "react";
+import { connection } from "next/server";
 import type { Metadata } from "next";
 import { Checkout } from "@/components/checkout";
 
@@ -16,5 +17,7 @@ export default function BookingPage({ params }: PageProps<"/[locale]/booking/[re
 
 async function BookingInner({ params }: { params: PageProps<"/[locale]/booking/[ref]">["params"] }) {
   const { ref } = await params;
-  return <Checkout refCode={ref} />;
+  await connection(); // read the Turnstile key at request time, not build time
+  const siteKey = process.env.TURNSTILE_SECRET_KEY ? process.env.TURNSTILE_SITE_KEY : undefined;
+  return <Checkout refCode={ref} turnstileSiteKey={siteKey || undefined} />;
 }

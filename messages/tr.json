@@ -156,7 +156,52 @@
     "pendingTitle": "Ödeme bekleniyor",
     "pendingLead": "{ref} rezervasyonunu onaylamak için depozitoyu tamamlayın.",
     "notFound": "Bu rezervasyon bu cihazda bulunamadı. Onay e-postasındaki bağlantıyı kullanın.",
-    "whatsapp": "WhatsApp'tan yazın"
+    "whatsapp": "WhatsApp'tan yazın",
+    "ph": {
+      "firstName": "Ahmet",
+      "lastName": "Yılmaz",
+      "email": "ahmet.yilmaz@ornek.com",
+      "phone": "+90 533 123 45 67",
+      "country": "Türkiye",
+      "license": "Örn. B1234567",
+      "flight": "Örn. TK 1972",
+      "address": "Otel veya villa adı, bölge (örn. Alsancak)"
+    },
+    "notesTopic": "Konu",
+    "notesTopicNone": "Konu seçin (isteğe bağlı)",
+    "notesText": "Ayrıntılar",
+    "topics": {
+      "late_arrival": "Geç veya rötarlı varış",
+      "child_seat": "Çocuk ya da bebek koltuğu",
+      "extra_driver": "Ek sürücü",
+      "young_driver": "Genç veya yeni ehliyetli sürücü",
+      "south_cyprus": "Güney Kıbrıs'a geçiş",
+      "delivery_details": "Teslim veya alış ayrıntıları",
+      "special_request": "Diğer talep"
+    },
+    "topicHints": {
+      "none": "Bize iletmek istediğiniz başka bir şey var mı…",
+      "late_arrival": "Örn. Uçağımız 01:30'da iniyor, bir saat kadar gecikebiliriz.",
+      "child_seat": "Örn. 2 yaşında çocuk için bir koltuk ve 6 yaşında çocuk için yükseltici.",
+      "extra_driver": "Örn. Eşim de araç kullanacak: ad, yaş ve ehliyet ülkesi.",
+      "young_driver": "Örn. Sürücü 22 yaşında, ehliyeti 2 yıllık.",
+      "south_cyprus": "Örn. İki günlüğüne Larnaka'ya geçmeyi planlıyoruz.",
+      "delivery_details": "Örn. Otel adı, oda numarası veya villanın yakınındaki bir nokta.",
+      "special_request": "Neye ihtiyacınız olduğunu yazın."
+    },
+    "errors": {
+      "generic": "Bir şeyler ters gitti. Lütfen tekrar deneyin.",
+      "phone": "Lütfen ülke koduyla geçerli bir telefon numarası girin.",
+      "email": "Lütfen geçerli bir e-posta adresi girin.",
+      "name": "Lütfen adınızı ve soyadınızı girin.",
+      "terms": "Devam etmek için kiralama şartlarını kabul edin.",
+      "address": "Lütfen teslimat adresini girin.",
+      "spam": "Bu isteği doğrulayamadık. Lütfen biraz bekleyip tekrar deneyin.",
+      "rate": "Çok fazla deneme yapıldı. Lütfen birkaç dakika bekleyip tekrar deneyin.",
+      "expired": "Rezervasyon süreniz doldu. Lütfen yeniden arama yapın.",
+      "captcha": "Lütfen güvenlik doğrulamasını tamamlayın."
+    },
+    "hp": "Bu alanı boş bırakın"
   },
   "home": {
     "fleetTitle": "Filomuz",
