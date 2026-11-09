@@ -30,7 +30,7 @@ export function LocalBusinessJsonLd() {
           areaServed: [{ "@type": "Place", name: "North Cyprus" }, { "@type": "Airport", name: "Ercan Airport" }, { "@type": "Airport", name: "Larnaca International Airport" }, { "@type": "Airport", name: "Paphos International Airport" }],
           contactPoint: [
             { "@type": "ContactPoint", telephone: SITE.phone.replace(/\s/g, ""), contactType: "reservations", availableLanguage: ["English", "Turkish", "German", "Russian"] },
-            { "@type": "ContactPoint", telephone: SITE.whatsapp.replace(/\s/g, ""), contactType: "customer service", contactOption: "WhatsApp", availableLanguage: ["English", "Turkish", "German", "Russian"] },
+            { "@type": "ContactPoint", telephone: SITE.phone2.replace(/\s/g, ""), contactType: "customer service", availableLanguage: ["English", "Turkish", "German", "Russian"] },
           ],
         },
         { "@context": "https://schema.org", "@type": "WebSite", "@id": `${SITE.url}/#website`, name: SITE.name, url: SITE.url, inLanguage: ["en", "tr", "de", "ru"], publisher: { "@id": `${SITE.url}/#business` } },

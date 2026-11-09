@@ -182,8 +182,12 @@ describe("contact details (owner corrections 2026-11-09)", () => {
     expect(SITE.address.street).toBe("157 Karaoğlanoğlu Caddesi");
     for (const l of ["en", "tr", "de", "ru"]) expect(JSON.parse(readFileSync(`messages/${l}.json`, "utf8")).footer.address).toMatch(/^157 Karaoğlanoğlu/);
   });
-  it("the footer lists the primary phone before WhatsApp", () => {
-    const f = readFileSync("src/components/site-footer.tsx", "utf8");
-    expect(f.indexOf("telLink(SITE.phone)")).toBeLessThan(f.indexOf("waLink()"));
+  it("+90 539 103 61 66 is the primary number for calls and WhatsApp; the second number follows", async () => {
+    const { SITE, PHONES, waLink } = await import("@/lib/site");
+    expect(SITE.phone).toBe("+90 539 103 61 66");
+    expect(SITE.whatsapp).toBe(SITE.phone);
+    expect(PHONES).toEqual(["+90 539 103 61 66", "+90 533 823 65 55"]);
+    expect(waLink()).toBe("https://wa.me/905391036166");
+    expect(readFileSync("src/components/site-footer.tsx", "utf8")).toContain("PHONES.map");
   });
 });

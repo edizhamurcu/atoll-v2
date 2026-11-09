@@ -6,9 +6,10 @@ export const SITE = {
   footerLead: "Lowest Rental Prices!",
   url: process.env.PUBLIC_SITE_URL ?? "https://atollrentacar.com",
   email: "info@atollrentacar.com",
-  /** Primary number: shown first everywhere (owner decision 2026-11-09). */
+  /** Both numbers take calls and WhatsApp; the primary one is always listed first and gets every WhatsApp button (owner, 2026-11-09). */
   phone: "+90 539 103 61 66",
-  whatsapp: "+90 533 823 65 55",
+  whatsapp: "+90 539 103 61 66",
+  phone2: "+90 533 823 65 55",
   address: { street: "157 Karaoğlanoğlu Caddesi", locality: "Alsancak", region: "Girne (Kyrenia)", country: "North Cyprus", lat: 35.343, lng: 33.188 },
   hours: "Mon - Fri: 09:00AM - 09:00PM; Saturday: 09:00AM - 07:00PM; Sunday: Closed",
   copyright: "Atoll. Designed and Developed by Arekan Bilgi Teknolojileri Ltd.",
@@ -23,5 +24,7 @@ export const SITE = {
   },
 } as const;
 
-export const waLink = (text?: string) => `https://wa.me/${SITE.whatsapp.replace(/\D/g, "")}${text ? `?text=${encodeURIComponent(text)}` : ""}`;
+export const waLink = (text?: string, number: string = SITE.whatsapp) => `https://wa.me/${number.replace(/\D/g, "")}${text ? `?text=${encodeURIComponent(text)}` : ""}`;
+/** Primary first. */
+export const PHONES = [SITE.phone, SITE.phone2] as const;
 export const telLink = (n: string) => `tel:${n.replace(/\s/g, "")}`;

@@ -29,7 +29,7 @@ export async function GET() {
 - Cancellation: ${SITE.terms.cancellation}
 - Driving into South Cyprus is allowed with the South Cyprus option
 - Live availability and instant online booking on the website
-- Contact: phone ${SITE.phone}, WhatsApp ${SITE.whatsapp}, email ${SITE.email}
+- Contact (phone and WhatsApp): ${SITE.phone} (primary), ${SITE.phone2}; email ${SITE.email}
 - Address: ${SITE.address.street}, ${SITE.address.locality}, ${SITE.address.region}, ${SITE.address.country}
 - Opening hours: ${SITE.hours}
 

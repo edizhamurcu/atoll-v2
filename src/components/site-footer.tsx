@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
-import { SITE, telLink, waLink } from "@/lib/site";
+import { SITE, telLink, waLink, PHONES } from "@/lib/site";
 import { Year } from "./year";
 
 /** Mirrors the WordPress footer: tagline widget, "Pages" and "Information" menus, copyright line. */
@@ -38,8 +38,12 @@ export async function SiteFooter() {
           <p>{t("address")}</p>
           <p className="mt-2 text-sm">{t("hours")}</p>
           <p className="mt-3 flex flex-col gap-1">
-            <a href={telLink(SITE.phone)} className="hover:text-ink">{SITE.phone}</a>
-            <a href={waLink()} className="hover:text-ink" rel="noopener">WhatsApp {SITE.whatsapp}</a>
+            {PHONES.map((n) => (
+              <span key={n} className="flex flex-wrap items-baseline gap-x-2">
+                <a href={telLink(n)} className="hover:text-ink">{n}</a>
+                <a href={waLink(undefined, n)} className="text-sm underline-offset-2 hover:text-ink hover:underline" rel="noopener" aria-label={`WhatsApp ${n}`}>WhatsApp</a>
+              </span>
+            ))}
             <a href={`mailto:${SITE.email}`} className="hover:text-ink">{SITE.email}</a>
           </p>
         </address>

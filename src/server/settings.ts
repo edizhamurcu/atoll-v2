@@ -26,7 +26,7 @@ export const DEFAULT_SETTINGS: BusinessSettings = {
   closingHour: 24,
   currency: "GBP",
   phone: "+905391036166", // primary
-  whatsapp: "+905338236555",
+  whatsapp: "+905391036166",
   email: "info@atollrentacar.com",
 };
 

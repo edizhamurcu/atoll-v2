@@ -34,6 +34,7 @@ export default async function ContactPage({ params }: PageProps<"/[locale]/conta
           <div className="flex flex-wrap gap-3">
             <a className="btn-primary" href={telLink(SITE.phone)}>{SITE.phone}</a>
             <a className="btn-quiet" href={waLink()} rel="noopener">{b("whatsapp")}</a>
+            <a className="btn-quiet" href={telLink(SITE.phone2)}>{SITE.phone2}</a>
             <a className="btn-quiet" href={`mailto:${SITE.email}`}>{SITE.email}</a>
           </div>
           <iframe title="Atoll Rent A Car office map" src={map} loading="lazy" className="aspect-[4/3] w-full rounded-2xl border border-ink/10" referrerPolicy="no-referrer" />
