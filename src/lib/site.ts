@@ -6,9 +6,10 @@ export const SITE = {
   footerLead: "Lowest Rental Prices!",
   url: process.env.PUBLIC_SITE_URL ?? "https://atollrentacar.com",
   email: "info@atollrentacar.com",
+  /** Primary number: shown first everywhere (owner decision 2026-11-09). */
   phone: "+90 539 103 61 66",
   whatsapp: "+90 533 823 65 55",
-  address: { street: "154 Karaoğlanoğlu Caddesi", locality: "Alsancak", region: "Girne (Kyrenia)", country: "North Cyprus", lat: 35.343, lng: 33.188 },
+  address: { street: "157 Karaoğlanoğlu Caddesi", locality: "Alsancak", region: "Girne (Kyrenia)", country: "North Cyprus", lat: 35.343, lng: 33.188 },
   hours: "Mon - Fri: 09:00AM - 09:00PM; Saturday: 09:00AM - 07:00PM; Sunday: Closed",
   copyright: "Atoll. Designed and Developed by Arekan Bilgi Teknolojileri Ltd.",
   developerUrl: "https://arekanteknoloji.com",

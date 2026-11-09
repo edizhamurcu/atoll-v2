@@ -175,3 +175,15 @@ describe("contact form topics", () => {
     for (const k of CONTACT_TOPICS) expect(CONTACT_TOPIC_LABELS[k]).toBeTruthy();
   });
 });
+
+describe("contact details (owner corrections 2026-11-09)", () => {
+  it("office address is 157 Karaoğlanoğlu Caddesi in config and every language", async () => {
+    const { SITE } = await import("@/lib/site");
+    expect(SITE.address.street).toBe("157 Karaoğlanoğlu Caddesi");
+    for (const l of ["en", "tr", "de", "ru"]) expect(JSON.parse(readFileSync(`messages/${l}.json`, "utf8")).footer.address).toMatch(/^157 Karaoğlanoğlu/);
+  });
+  it("the footer lists the primary phone before WhatsApp", () => {
+    const f = readFileSync("src/components/site-footer.tsx", "utf8");
+    expect(f.indexOf("telLink(SITE.phone)")).toBeLessThan(f.indexOf("waLink()"));
+  });
+});

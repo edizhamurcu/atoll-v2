@@ -6,7 +6,7 @@ import { useLocale, useTranslations } from "next-intl";
 import { useSearchParams } from "next/navigation";
 import { Link } from "@/i18n/navigation";
 import { money } from "@/lib/search-params";
-import { WHATSAPP } from "@/lib/contact";
+import { PHONE, WHATSAPP } from "@/lib/contact";
 import { NOTE_TOPICS } from "@/content/booking-notes";
 import { Turnstile } from "./turnstile";
 
@@ -23,6 +23,7 @@ type Booking = {
 export function Checkout({ refCode, turnstileSiteKey }: { refCode: string; turnstileSiteKey?: string }) {
   const t = useTranslations("booking");
   const tn = useTranslations("nav");
+  const th = useTranslations("home");
   const locale = useLocale();
   const params = useSearchParams();
   const [res, setRes] = useState<{ key: string; data: Booking | null } | null>(null);
@@ -136,7 +137,10 @@ export function Checkout({ refCode, turnstileSiteKey }: { refCode: string; turns
         <div>
           <h1 className="text-4xl font-extrabold">{done ? t("confirmedTitle") : t("pendingTitle")}</h1>
           <p className="mt-4 max-w-prose text-lg text-ink-soft">{done ? t("confirmedLead", { ref: b.ref }) : t("pendingLead", { ref: b.ref })}</p>
-          <a href={wa} className="btn-quiet mt-6" rel="noopener">{t("whatsapp")}</a>
+          <div className="mt-6 flex flex-wrap gap-3">
+            <a href={`tel:${PHONE.replace(/\s/g, "")}`} className="btn-quiet">{th("ctaCall", { phone: PHONE })}</a>
+            <a href={wa} className="btn-quiet" rel="noopener">{t("whatsapp")}</a>
+          </div>
         </div>
         {summary}
       </div>

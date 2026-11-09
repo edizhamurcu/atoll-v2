@@ -92,8 +92,8 @@ export default async function Home({ params }: PageProps<"/[locale]">) {
             <p className="mt-3 text-white/75">{h("ctaLead")}</p>
           </div>
           <div className="flex flex-wrap gap-3">
-            <a href={`https://wa.me/${WHATSAPP.replace(/\D/g, "")}`} className="btn-primary" rel="noopener">{h("ctaWhatsapp")}</a>
-            <a href={`tel:${PHONE.replace(/\s/g, "")}`} className="inline-flex items-center rounded-full border border-white/30 px-5 py-3 font-medium hover:border-white">{h("ctaCall", { phone: PHONE })}</a>
+            <a href={`tel:${PHONE.replace(/\s/g, "")}`} className="btn-primary">{h("ctaCall", { phone: PHONE })}</a>
+            <a href={`https://wa.me/${WHATSAPP.replace(/\D/g, "")}`} className="inline-flex items-center rounded-full border border-white/30 px-5 py-3 font-medium hover:border-white" rel="noopener">{h("ctaWhatsapp")}</a>
           </div>
         </div>
       </section>

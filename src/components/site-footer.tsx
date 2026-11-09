@@ -38,8 +38,8 @@ export async function SiteFooter() {
           <p>{t("address")}</p>
           <p className="mt-2 text-sm">{t("hours")}</p>
           <p className="mt-3 flex flex-col gap-1">
-            <a href={waLink()} className="hover:text-ink" rel="noopener">WhatsApp {SITE.whatsapp}</a>
             <a href={telLink(SITE.phone)} className="hover:text-ink">{SITE.phone}</a>
+            <a href={waLink()} className="hover:text-ink" rel="noopener">WhatsApp {SITE.whatsapp}</a>
             <a href={`mailto:${SITE.email}`} className="hover:text-ink">{SITE.email}</a>
           </p>
         </address>

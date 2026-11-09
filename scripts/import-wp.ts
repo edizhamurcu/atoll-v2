@@ -51,6 +51,9 @@ const seats = (v = "") => Number.parseInt(v, 10) || 5;
 const engine = (v = "") => { const n = Number.parseFloat(v); if (!n) return null; return n > 20 ? Math.round(n / 100) / 10 : n; };
 const media = (rel: string) => `/media/${rel}`;
 
+// Office address is 157 Karaoğlanoğlu Caddesi (owner correction 2026-11-09); the WP export still says 154.
+const fixAddress = (a: string) => a.replace(/\b154 Karaoğlanoğlu/, "157 Karaoğlanoğlu");
+
 // Group plates into models. Same name + different price => separate models (e.g. Corolla 1.3 @30 vs 1.8 @45).
 function modelKey(v: WpVehicle) {
   const name = NAME_FIX[v.title.toUpperCase()] ?? v.title.toUpperCase().replace(/\s+/g, " ");
@@ -82,8 +85,8 @@ async function main() {
     const meta = LOC[o.wpId] ?? { slug: slugify(o.title), name: { en: o.title }, airport: /airport/i.test(o.title), sort: 9 };
     const row = dry ? { id: `dry-${o.wpId}` } : await db.location.upsert({
       where: { legacyWpId: o.wpId },
-      create: { legacyWpId: o.wpId, slug: meta.slug, name: meta.name, address: o.address, lat: o.lat ?? undefined, lng: o.lng ?? undefined, phone: o.phone, hours, isAirport: meta.airport, sortOrder: meta.sort },
-      update: { address: o.address, lat: o.lat ?? undefined, lng: o.lng ?? undefined, phone: o.phone },
+      create: { legacyWpId: o.wpId, slug: meta.slug, name: meta.name, address: fixAddress(o.address), lat: o.lat ?? undefined, lng: o.lng ?? undefined, phone: o.phone, hours, isAirport: meta.airport, sortOrder: meta.sort },
+      update: { address: fixAddress(o.address), lat: o.lat ?? undefined, lng: o.lng ?? undefined, phone: o.phone },
     });
     locId.set(o.wpId, row.id);
   }
