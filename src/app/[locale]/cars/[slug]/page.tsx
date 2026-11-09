@@ -48,7 +48,7 @@ async function CarDetail({ params }: { params: PageProps<"/[locale]/cars/[slug]"
   const info = m.description ? localizedRentalInfo(m.description, locale) : null;
   return (
     <div className="grid gap-10 lg:grid-cols-[1.4fr_1fr]">
-      <div>
+      <div className="min-w-0">
         <Breadcrumbs locale={locale} items={[{ name: "Atoll Rent A Car", href: "/" }, { name: tc(m.class), href: "/cars" }, { name: m.name, href: `/cars/${slug}` }]} />
         <JsonLd data={{
           "@context": "https://schema.org", "@type": "Car", name: m.name, brand: { "@type": "Brand", name: m.make }, model: m.model,
@@ -108,7 +108,7 @@ async function CarDetail({ params }: { params: PageProps<"/[locale]/cars/[slug]"
         )}
         <p className="mt-6 max-w-prose text-sm text-ink-soft">{t("orSimilar", { name: m.name })}</p>
       </div>
-      <aside className="lg:sticky lg:top-24 lg:self-start">
+      <aside className="min-w-0 lg:sticky lg:top-24 lg:self-start">
         <div className="rounded-[var(--radius-panel)] bg-paper p-5 shadow-[0_18px_40px_-24px_rgba(13,52,64,.35)]">
           <h2 className="text-2xl font-bold">{t("bookPanel")}</h2>
           <p className="mt-1 text-ink-soft">{t("from", { price: money(m.dailyRate, locale) })}</p>
