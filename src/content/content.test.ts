@@ -159,3 +159,19 @@ describe("prices are GBP only", () => {
     for (const f of files) expect(fs.readFileSync(f, "utf8"), f).not.toMatch(money);
   });
 });
+
+describe("contact form topics", () => {
+  it("every topic has a label and a hint in every language, plus an English staff label", async () => {
+    const { CONTACT_TOPICS, CONTACT_TOPIC_LABELS } = await import("./contact-topics");
+    for (const l of ["en", "tr", "de", "ru"]) {
+      const c = JSON.parse(readFileSync(`messages/${l}.json`, "utf8")).contact;
+      for (const k of CONTACT_TOPICS) {
+        expect(c.topics[k], `${l}.${k}`).toBeTruthy();
+        expect(c.topicHints[k], `${l}.${k} hint`).toBeTruthy();
+      }
+      expect(c.topicHints.none && c.subjectNone && c.subjectRequired && c.namePh && c.emailPh).toBeTruthy();
+      if (l !== "en") expect(c.topics.booking_enquiry).not.toBe("Booking enquiry / availability");
+    }
+    for (const k of CONTACT_TOPICS) expect(CONTACT_TOPIC_LABELS[k]).toBeTruthy();
+  });
+});

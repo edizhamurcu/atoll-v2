@@ -267,7 +267,38 @@
     "model": "Fahrzeug",
     "class": "Klasse",
     "perDay": "Pro Tag",
-    "book": "Verfügbarkeit prüfen"
+    "book": "Verfügbarkeit prüfen",
+    "subjectNone": "Thema wählen",
+    "topics": {
+      "booking_enquiry": "Buchungsanfrage / Verfügbarkeit",
+      "change_booking": "Buchung ändern oder stornieren",
+      "airport_transfer": "Abholung am Flughafen oder Transfer",
+      "delivery": "Zustellung ins Hotel oder zur Villa",
+      "long_term": "Langzeit- oder Monatsmiete",
+      "south_cyprus": "Fahrt nach Südzypern",
+      "prices_offers": "Preise und Sonderangebote",
+      "documents": "Führerschein, Alter und Dokumente",
+      "business": "Firmen- / Geschäftsmiete",
+      "feedback": "Feedback oder Beschwerde",
+      "other": "Sonstiges"
+    },
+    "topicHints": {
+      "none": "Wie können wir helfen?",
+      "booking_enquiry": "z. B. Ein Auto für 4 Personen vom 12. bis 19. Juni, Abholung am Flughafen Ercan.",
+      "change_booking": "Ihre Buchungsnummer (ATL-…) und was Sie ändern möchten.",
+      "airport_transfer": "Flughafen, Flugnummer und Ankunftszeit.",
+      "delivery": "Name des Hotels oder der Villa und gewünschte Uhrzeit.",
+      "long_term": "Zeitraum, Fahrzeugtyp und für wie viele Monate.",
+      "south_cyprus": "Ihre Reisedaten und welches Ziel im Süden Sie planen.",
+      "prices_offers": "Gewünschte Daten und Fahrzeugklasse.",
+      "documents": "Alter des Fahrers und Ausstellungsland des Führerscheins.",
+      "business": "Firmenname, Anzahl der Fahrzeuge und Mietdauer.",
+      "feedback": "Schildern Sie, was passiert ist; gern mit Buchungsnummer.",
+      "other": "Schreiben Sie hier Ihre Nachricht."
+    },
+    "namePh": "Max Mustermann",
+    "emailPh": "max.mustermann@beispiel.de",
+    "subjectRequired": "Bitte wählen Sie ein Thema."
   },
   "bodyType": {
     "HATCHBACK": "Kompakt",

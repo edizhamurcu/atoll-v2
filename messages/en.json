@@ -267,7 +267,38 @@
     "model": "Car",
     "class": "Class",
     "perDay": "Per day",
-    "book": "Check availability"
+    "book": "Check availability",
+    "subjectNone": "Choose a topic",
+    "topics": {
+      "booking_enquiry": "Booking enquiry / availability",
+      "change_booking": "Change or cancel a booking",
+      "airport_transfer": "Airport pick-up or transfer",
+      "delivery": "Delivery to hotel or villa",
+      "long_term": "Long-term or monthly rental",
+      "south_cyprus": "Driving to South Cyprus",
+      "prices_offers": "Prices and special offers",
+      "documents": "Driving licence, age and documents",
+      "business": "Business / corporate rental",
+      "feedback": "Feedback or complaint",
+      "other": "Other"
+    },
+    "topicHints": {
+      "none": "How can we help?",
+      "booking_enquiry": "e.g. A car for 4 people from 12 to 19 June, pick-up at Ercan Airport.",
+      "change_booking": "Your booking reference (ATL-…) and what you would like to change.",
+      "airport_transfer": "Airport, flight number and arrival time.",
+      "delivery": "Hotel or villa name and the time you'd like the car.",
+      "long_term": "Dates, car type and how many months you need it.",
+      "south_cyprus": "Your dates and which part of the South you plan to visit.",
+      "prices_offers": "Dates and car class you are interested in.",
+      "documents": "Driver's age and the country your licence is from.",
+      "business": "Company name, number of cars and rental period.",
+      "feedback": "Tell us what happened; include your booking reference if you have one.",
+      "other": "Write your message here."
+    },
+    "namePh": "John Smith",
+    "emailPh": "john.smith@example.com",
+    "subjectRequired": "Please choose a topic."
   },
   "bodyType": {
     "HATCHBACK": "Hatchback",

@@ -267,7 +267,38 @@
     "model": "Araç",
     "class": "Sınıf",
     "perDay": "Günlük",
-    "book": "Müsaitliğe bak"
+    "book": "Müsaitliğe bak",
+    "subjectNone": "Konu seçin",
+    "topics": {
+      "booking_enquiry": "Rezervasyon talebi / müsaitlik",
+      "change_booking": "Rezervasyon değişikliği veya iptali",
+      "airport_transfer": "Havalimanında teslim veya transfer",
+      "delivery": "Otel veya villaya teslim",
+      "long_term": "Uzun dönem veya aylık kiralama",
+      "south_cyprus": "Güney Kıbrıs'a geçiş",
+      "prices_offers": "Fiyatlar ve özel teklifler",
+      "documents": "Ehliyet, yaş ve belgeler",
+      "business": "Şirket / kurumsal kiralama",
+      "feedback": "Görüş veya şikâyet",
+      "other": "Diğer"
+    },
+    "topicHints": {
+      "none": "Size nasıl yardımcı olabiliriz?",
+      "booking_enquiry": "Örn. 12–19 Haziran arası 4 kişilik bir araç, Ercan Havalimanı'nda teslim.",
+      "change_booking": "Rezervasyon numaranız (ATL-…) ve neyi değiştirmek istediğiniz.",
+      "airport_transfer": "Havalimanı, uçuş numarası ve varış saati.",
+      "delivery": "Otel veya villa adı ve aracı istediğiniz saat.",
+      "long_term": "Tarihler, araç tipi ve kaç ay ihtiyacınız olduğu.",
+      "south_cyprus": "Tarihleriniz ve Güney'de gitmeyi planladığınız yer.",
+      "prices_offers": "İlgilendiğiniz tarihler ve araç sınıfı.",
+      "documents": "Sürücünün yaşı ve ehliyetin alındığı ülke.",
+      "business": "Şirket adı, araç sayısı ve kiralama süresi.",
+      "feedback": "Ne olduğunu anlatın; varsa rezervasyon numaranızı ekleyin.",
+      "other": "Mesajınızı buraya yazın."
+    },
+    "namePh": "Ahmet Yılmaz",
+    "emailPh": "ahmet.yilmaz@ornek.com",
+    "subjectRequired": "Lütfen bir konu seçin."
   },
   "bodyType": {
     "HATCHBACK": "Hatchback",
