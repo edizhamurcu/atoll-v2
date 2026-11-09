@@ -75,7 +75,8 @@ const pages: PageTranslations = {
 <h2>Ek Sigorta</h2>
 <p>Ek sigorta ön cam ve lastik hasarlarını kapsar. <a href="/tr/extra-insurance">Ayrıntılar</a></p>
 <h2>Hasar Muafiyeti</h2>
-<p>Hasar muafiyeti sabit £450'dir</p>
+<p>Hasar muafiyeti araç sınıfına göre belirlenir:</p>
+<!--excess-->
 <h2>Araç kiralama ücretlerimize neler dahil?</h2>
 <p>Araç kiralama ücretlerimize şunlar dahildir:</p>
 <p>- Tam 24 saatlik gün.<br />

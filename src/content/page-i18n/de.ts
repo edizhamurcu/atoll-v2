@@ -75,7 +75,8 @@ const pages: PageTranslations = {
 <h2>Zusatzversicherung</h2>
 <p>Die Zusatzversicherung deckt Schäden an Windschutzscheibe und Reifen. <a href="/de/extra-insurance">Weitere Details</a></p>
 <h2>Selbstbeteiligung</h2>
-<p>Die Selbstbeteiligung beträgt pauschal £450</p>
+<p>Die Selbstbeteiligung richtet sich nach der Fahrzeugklasse:</p>
+<!--excess-->
 <h2>Was ist in unseren Mietpreisen enthalten?</h2>
 <p>Unsere Mietpreise beinhalten:</p>
 <p>- Volle 24-Stunden-Tage.<br />

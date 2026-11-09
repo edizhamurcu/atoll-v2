@@ -214,7 +214,7 @@
     "fact3Title": "Larnaka ve Baf varışları",
     "fact3": "Güneye mi iniyorsunuz? Aracı Larnaka veya Baf havalimanında teslim alın.",
     "fact4Title": "Net fiyat, sürpriz yok",
-    "fact4": "Kiralama ücretlerimize tam 24 saatlik gün, sınırsız kilometre, yağ ve gresleme, tüm araçlarda emniyet kemeri ve mekanik arızada araç değişimi dahildir. Hasar muafiyeti £450 olarak sabittir.",
+    "fact4": "Kiralama ücretlerimize tam 24 saatlik gün, sınırsız kilometre, yağ ve gresleme, tüm araçlarda emniyet kemeri ve mekanik arızada araç değişimi dahildir. Araç sınıfına göre hasar muafiyeti: {excess}.",
     "stepsTitle": "Rezervasyon nasıl işler",
     "step1Title": "Tarihlerinizi arayın",
     "step1": "Yeri ve zamanı seçin. Hangi araçların boş olduğunu ve toplam fiyatı hemen görürsünüz.",

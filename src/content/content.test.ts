@@ -131,7 +131,7 @@ describe("content page translations", () => {
       expect(count(p.html, /<h[2-4]>/g), l).toBe(count(base.html, /<h[2-4]>/g));
       expect(count(p.html, /<tr>/g), l).toBe(count(base.html, /<tr>/g));
       for (const [, href] of p.html.matchAll(/href="([^"]+)"/g)) expect(href.startsWith(`/${l}`), `${l} ${href}`).toBe(true);
-      expect(p.html).not.toMatch(/pacific-rentals|<!--/);
+      expect(p.html.split("<!--excess-->").join("")).not.toMatch(/pacific-rentals|<!--/); // the excess marker is rendered from damage-excess.ts
     }
   });
 });

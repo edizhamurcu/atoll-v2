@@ -6,6 +6,7 @@ import { FleetSection, FleetSkeleton } from "@/components/fleet-section";
 import type { Locale } from "@/server/catalog";
 import { LocalBusinessJsonLd } from "@/components/local-business-jsonld";
 import { WHATSAPP, PHONE } from "@/lib/contact";
+import { excessSummary } from "@/content/damage-excess";
 
 const MAP_NAMES: Record<string, Record<string, string>> = {
   en: { "alsancak-office": "Kyrenia office", "ercan-airport": "Ercan", "larnaca-airport": "Larnaca", "paphos-airport": "Paphos" },
@@ -69,7 +70,7 @@ export default async function Home({ params }: PageProps<"/[locale]">) {
           {facts.map((n) => (
             <div key={n}>
               <dt className="font-display text-xl font-bold">{h(`fact${n}Title`)}</dt>
-              <dd className="mt-2 max-w-md text-ink-soft">{h(`fact${n}`)}</dd>
+              <dd className="mt-2 max-w-md text-ink-soft">{n === 4 ? h("fact4", { excess: excessSummary(locale) }) : h(`fact${n}`)}</dd>
             </div>
           ))}
         </dl>

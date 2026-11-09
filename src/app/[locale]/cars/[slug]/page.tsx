@@ -13,6 +13,7 @@ import { JsonLd } from "@/components/json-ld";
 import { SITE } from "@/lib/site";
 import { routing } from "@/i18n/routing";
 import { localizedRentalInfo } from "@/content/rental-info";
+import { excessLabel } from "@/content/damage-excess";
 
 export async function generateMetadata({ params }: PageProps<"/[locale]/cars/[slug]">): Promise<Metadata> {
   const { locale, slug } = (await params) as { locale: Locale; slug: string };
@@ -45,7 +46,7 @@ async function CarDetail({ params }: { params: PageProps<"/[locale]/cars/[slug]"
   if (!m) notFound();
   const [t, tc, tx, tf, tb, tcol] = await Promise.all([getTranslations("car"), getTranslations("classes"), getTranslations("transmission"), getTranslations("fuel"), getTranslations("bodyType"), getTranslations("colors")]);
   const color = (c: string) => (tcol.has(c as never) ? tcol(c as never) : c);
-  const info = m.description ? localizedRentalInfo(m.description, locale) : null;
+  const info = m.description ? localizedRentalInfo(m.description, locale, excessLabel(m.class, locale)) : null;
   return (
     <div className="grid gap-10 lg:grid-cols-[1.4fr_1fr]">
       <div className="min-w-0">

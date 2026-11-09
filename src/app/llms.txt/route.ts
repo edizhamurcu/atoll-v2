@@ -2,6 +2,7 @@ import { connection } from "next/server";
 import { db } from "@/lib/db";
 import { SITE } from "@/lib/site";
 import { posts } from "@/content/blog";
+import { excessSummary } from "@/content/damage-excess";
 
 /** llms.txt — concise, factual summary for AI answer engines (GEO). Generated live from the database. */
 export async function GET() {
@@ -22,7 +23,7 @@ export async function GET() {
 - Fleet: ${fleet} cars across ${models.length} models (economy, mid-size, SUV, 7+ seats, luxury)
 - Prices: daily rates in GBP from £${Math.min(...models.map((m) => Number(m.dailyRate)))} to £${Math.max(...models.map((m) => Number(m.dailyRate)))}
 - Rates include: ${SITE.terms.includes.join(", ")}
-- Damage excess: fixed at ${SITE.terms.damageExcess}
+- Damage excess by car class: ${excessSummary("en")}
 - Minimum driver age: ${SITE.terms.minAge}; all international and national licences accepted
 - Payment: ${SITE.terms.payment}
 - Cancellation: ${SITE.terms.cancellation}

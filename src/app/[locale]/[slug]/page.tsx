@@ -7,6 +7,7 @@ import { JsonLd } from "@/components/json-ld";
 import { SITE } from "@/lib/site";
 import { routing } from "@/i18n/routing";
 import { pageTranslation, translatedLocales } from "@/content/page-i18n";
+import { withExcessList } from "@/content/damage-excess";
 
 export async function generateMetadata({ params }: PageProps<"/[locale]/[slug]">): Promise<Metadata> {
   const { locale, slug } = await params;
@@ -43,7 +44,7 @@ async function Content({ params }: { params: PageProps<"/[locale]/[slug]">["para
   if (!p) notFound();
   const tr = locale === "en" ? null : pageTranslation(slug, locale);
   const title = tr?.title ?? p.title;
-  const html = tr?.html ?? p.html;
+  const html = withExcessList(tr?.html ?? p.html, locale);
   const lang = tr ? locale : "en";
   const faq = faqFromHtml(html);
   return (

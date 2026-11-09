@@ -42,9 +42,12 @@ const TEMPLATE: Record<L, (excess: string, fuel: string) => string> = {
 <p>В стоимость аренды входит неограниченный бесплатный пробег.</p>`,
 };
 
-export function localizedRentalInfo(enHtml: string, locale: string): { html: string; lang: string } {
+/** `excessOverride`: the class-based excess (see damage-excess.ts) replaces the amount stored in the WP text. */
+export function localizedRentalInfo(enHtml: string, locale: string, excessOverride?: string): { html: string; lang: string } {
+  const stored = enHtml.match(/damage excess \((£[\d.,]+)\)/)?.[1];
+  if (stored && excessOverride) enHtml = enHtml.split(stored).join(excessOverride);
   if (locale === "en" || !(locale in TEMPLATE) || !/Collision Damage Waiver/.test(enHtml) || !/unlimited free kilometres/.test(enHtml)) return { html: enHtml, lang: "en" };
-  const excess = enHtml.match(/damage excess \((£[\d.,]+)\)/)?.[1];
+  const excess = excessOverride ?? stored;
   const fuel = enHtml.match(/delivered with (£[\d.,]+) worth of fuel/)?.[1];
   if (!excess || !fuel) return { html: enHtml, lang: "en" };
   return { html: TEMPLATE[locale as L](excess, fuel), lang: locale };
