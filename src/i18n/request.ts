@@ -5,10 +5,9 @@ import { hasLocale } from "next-intl";
 import { routing } from "./routing";
 
 export default getRequestConfig(async ({ locale }) => {
-  if (!locale) {
-    const paramValue = await rootParams.locale();
-    if (hasLocale(routing.locales, paramValue)) locale = paramValue;
-    else notFound();
-  }
+  // Validate explicit locales too: a malformed path segment must 404, not reach the dynamic import below.
+  const candidate = locale ?? (await rootParams.locale());
+  if (!hasLocale(routing.locales, candidate)) notFound();
+  locale = candidate;
   return { locale, messages: (await import(`../../messages/${locale}.json`)).default, timeZone: "Asia/Famagusta" };
 });
