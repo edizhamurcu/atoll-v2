@@ -8,12 +8,12 @@ import { CarImage } from "./car-image";
 export function CarGallery({ images, alt }: { images: string[]; alt: string }) {
   const t = useTranslations("car");
   const [i, setI] = useState(0);
-  if (images.length === 0) return <div className="relative aspect-[16/10] overflow-hidden rounded-[var(--radius-panel)]"><CarImage alt={alt} sizes="60vw" /></div>;
+  if (images.length === 0) return <div className="relative aspect-[4/3] overflow-hidden rounded-[var(--radius-panel)]"><CarImage alt={alt} sizes="60vw" /></div>;
   const go = (d: number) => setI((x) => (x + d + images.length) % images.length);
   return (
     <div>
       <div
-        className="relative aspect-[16/10] overflow-hidden rounded-[var(--radius-panel)] bg-car"
+        className="relative aspect-[4/3] overflow-hidden rounded-[var(--radius-panel)]"
         tabIndex={images.length > 1 ? 0 : -1}
         role="group"
         aria-roledescription="carousel"
@@ -34,8 +34,8 @@ export function CarGallery({ images, alt }: { images: string[]; alt: string }) {
           {images.map((src, n) => (
             <li key={src} className="shrink-0">
               <button type="button" onClick={() => setI(n)} aria-label={t("photo", { n: n + 1, total: images.length })} aria-current={n === i}
-                className={`relative block h-16 w-24 overflow-hidden rounded-lg ring-2 ${n === i ? "ring-bougain" : "ring-transparent hover:ring-ink/30"}`}>
-                <Image src={src} alt="" fill sizes="96px" className="bg-car object-contain" />
+                className={`relative block aspect-[4/3] w-24 overflow-hidden rounded-lg ring-2 ${n === i ? "ring-bougain" : "ring-transparent hover:ring-ink/30"}`}>
+                <Image src={src} alt="" fill sizes="96px" className="object-contain" />
               </button>
             </li>
           ))}
