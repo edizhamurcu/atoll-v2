@@ -5,6 +5,7 @@ import { PHOTOS, LICENSE_URL, type PhotoKey } from "./photos";
 import { BLOG_LOCALES, photoKeys, posts, readingMinutes, segments, toc, headingId } from "./blog";
 import { GUIDES } from "./guide";
 import { pageTranslation, translatedSlugs } from "./page-i18n";
+import { ABOUT } from "./page-i18n/about";
 import { localizedRentalInfo } from "./rental-info";
 
 const LOCALES = ["en", "tr", "de", "ru"] as const;
@@ -203,6 +204,12 @@ describe("home page and car sales copy (2026-11-10)", () => {
       expect(Object.keys(m.sales.imgAlt).sort(), l).toEqual(Object.keys(en.sales.imgAlt).sort());
       expect(m.hero.lead, l).not.toMatch(/100/);
       expect(m.home.fact2, l).toMatch(/Metehan|Метехан/);
+    }
+  });
+
+  it("about us no longer mentions real estate in any language", () => {
+    for (const [l, page] of Object.entries(ABOUT)) {
+      expect(`${page.title} ${page.metaDescription} ${page.html}`, l).not.toMatch(/real estate|emlak|Immobilien|недвижим|ofis yatırım|invest/i);
     }
   });
 });

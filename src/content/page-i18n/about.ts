@@ -36,7 +36,6 @@ export const ABOUT: Record<"en" | "tr" | "de" | "ru", PageTranslation> = {
 <li>A team that knows cars, not just paperwork</li>
 <li>Honest prices and clear information</li>
 </ul>
-<p>Our company also offers real estate consultancy, helping customers invest in villas, apartments and offices in North Cyprus.</p>
 ${contact.en}`,
   },
   tr: {
@@ -62,7 +61,6 @@ ${contact.en}`,
 <li>Sadece evrak değil, aracı da bilen bir ekip</li>
 <li>Dürüst fiyat ve açık bilgilendirme</li>
 </ul>
-<p>Şirketimizde emlak danışmanlığı hizmeti de verilmektedir; müşterilerimize Kuzey Kıbrıs'ta villa, daire ve ofis yatırımı konusunda yardımcı oluyoruz.</p>
 ${contact.tr}`,
   },
   de: {
@@ -88,7 +86,6 @@ ${contact.tr}`,
 <li>Ein Team, das Autos kennt, nicht nur Formulare</li>
 <li>Faire Preise und klare Informationen</li>
 </ul>
-<p>Außerdem bieten wir Immobilienberatung an und helfen Kunden, in Villen, Wohnungen und Büros in Nordzypern zu investieren.</p>
 ${contact.de}`,
   },
   ru: {
@@ -114,7 +111,6 @@ ${contact.de}`,
 <li>Команда, которая разбирается в автомобилях, а не только в бумагах</li>
 <li>Честные цены и понятная информация</li>
 </ul>
-<p>Наша компания также консультирует по недвижимости и помогает клиентам инвестировать в виллы, квартиры и офисы на Северном Кипре.</p>
 ${contact.ru}`,
   },
 };
