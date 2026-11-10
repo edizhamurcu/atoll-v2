@@ -11,6 +11,8 @@ export interface RentalRules {
   graceMinutes: number; // late return tolerance before an extra day is charged
   minDays: number;
   maxDays: number;
+  /** Company policy: shorter rentals are charged as this many days (e.g. 3 -> a 1-day rental costs 3 days). */
+  minChargeDays?: number;
   bufferMinutes: number; // turnaround between rentals
   deposit: { type: "fixed" | "percent" | "firstDay"; value: number; min?: number };
 }
@@ -55,6 +57,8 @@ export interface QuoteLine {
 
 export interface Quote {
   days: number;
+  /** Days actually charged for the car: max(days, minChargeDays). */
+  chargedDays: number;
   dailyBreakdown: { date: string; rate: Money }[];
   rentalTotal: Money;
   discountPercent: Money;
@@ -116,7 +120,8 @@ export function computeQuote(input: QuoteInput): Quote {
   if (days < rules.minDays) throw new PricingError("MIN_DAYS", `Minimum rental is ${rules.minDays} day(s)`);
   if (days > rules.maxDays) throw new PricingError("MAX_DAYS", `Maximum rental is ${rules.maxDays} days`);
 
-  const dates = rentalDates(input.pickupAt, days, rules.timezone);
+  const chargedDays = Math.max(days, rules.minChargeDays ?? 1);
+  const dates = rentalDates(input.pickupAt, chargedDays, rules.timezone);
   const daily = dates.map((date) => ({ date, rate: rateForDate(date, input.baseDailyRate, input.seasonRates) }));
   const rentalTotal = daily.reduce((s, d) => s.plus(d.rate), new Decimal(0));
 
@@ -127,7 +132,7 @@ export function computeQuote(input: QuoteInput): Quote {
   // Campaigns: the cheapest `freeDays` days of the rental are free. Only the best campaign applies, and it is
   // not stacked with the % discount; the larger saving wins.
   const cheapest = daily.map((d) => d.rate).sort((a, b) => a.comparedTo(b));
-  const freeValue = (n: number) => m(cheapest.slice(0, Math.min(n, days)).reduce((s, r) => s.plus(r), new Decimal(0)));
+  const freeValue = (n: number) => m(cheapest.slice(0, Math.min(n, chargedDays)).reduce((s, r) => s.plus(r), new Decimal(0)));
   let camp: { code: string; minDays: number; freeDays: number } | null = null;
   let campTotal = new Decimal(0);
   for (const c of input.campaigns ?? []) {
@@ -140,7 +145,14 @@ export function computeQuote(input: QuoteInput): Quote {
   const discountPercent = useCampaign ? new Decimal(0) : tierPercent;
 
   const lines: QuoteLine[] = [
-    { kind: "rental", code: "rental", label: "Car rental", quantity: days, unit: fmt(rentalTotal.div(days)), total: fmt(rentalTotal) },
+    {
+      kind: "rental",
+      code: "rental",
+      label: chargedDays > days ? `Car rental (minimum ${chargedDays}-day charge)` : "Car rental",
+      quantity: chargedDays,
+      unit: fmt(rentalTotal.div(chargedDays)),
+      total: fmt(rentalTotal),
+    },
   ];
   if (useCampaign) {
     lines.push({ kind: "discount", code: `campaign_${camp!.code}`, label: `Campaign: ${camp!.freeDays} days free`, quantity: camp!.freeDays, unit: fmt(campTotal.div(camp!.freeDays).neg()), total: fmt(campTotal.neg()) });
@@ -193,6 +205,7 @@ export function computeQuote(input: QuoteInput): Quote {
 
   return {
     days,
+    chargedDays,
     dailyBreakdown: daily.map((d) => ({ date: d.date, rate: fmt(d.rate) })),
     rentalTotal: fmt(rentalTotal),
     discountPercent: discountPercent.toFixed(2),
@@ -204,7 +217,7 @@ export function computeQuote(input: QuoteInput): Quote {
     grandTotal: fmt(grandTotal),
     depositAmount: fmt(deposit),
     payOnPickup: fmt(grandTotal.minus(deposit)),
-    averageDaily: fmt(rentalTotal.minus(discountTotal).div(days)),
+    averageDaily: fmt(rentalTotal.minus(discountTotal).div(chargedDays)),
     lines,
   };
 }

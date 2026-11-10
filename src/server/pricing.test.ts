@@ -181,3 +181,31 @@ describe("weekly campaign: rent 7 days, pay 6 (2026-11-10)", () => {
     expect(computeQuote(base({ ...days(10), campaigns: [month, week] })).campaignCode).toBe("week_1_day_free");
   });
 });
+
+describe("minimum 3-day charge (company policy, 2026-11-10)", () => {
+  const r3 = { ...rules, minChargeDays: 3 };
+  const days = (n: number) => ({ returnAt: new Date(at("2027-06-01T10:00:00+03:00").getTime() + n * 86_400_000) });
+
+  it("1-day rental at £30 is charged £90 (3 days)", () => {
+    const q = computeQuote(base({ ...days(1), rules: r3 }));
+    expect(q.days).toBe(1);
+    expect(q.chargedDays).toBe(3);
+    expect(q.rentalTotal).toBe("90.00");
+    expect(q.grandTotal).toBe("90.00");
+    expect(q.averageDaily).toBe("30.00");
+    expect(q.lines[0].quantity).toBe(3);
+  });
+  it("2 days -> 3 days charged; 3 and 4 days unchanged", () => {
+    expect(computeQuote(base({ ...days(2), rules: r3 })).grandTotal).toBe("90.00");
+    expect(computeQuote(base({ ...days(3), rules: r3 })).grandTotal).toBe("90.00");
+    expect(computeQuote(base({ ...days(4), rules: r3 })).grandTotal).toBe("120.00");
+  });
+  it("per-day extras follow the real rental length", () => {
+    const seat = { extra: { id: "s", code: "baby_seat", pricing: "PER_DAY" as const, price: 2, maxQty: 2 }, quantity: 1 };
+    expect(computeQuote(base({ ...days(1), rules: r3, extras: [seat] })).extrasTotal).toBe("2.00");
+  });
+  it("campaign eligibility uses the real length (a 1-day rental never gets the weekly free day)", () => {
+    const week = { code: "week_1_day_free", minDays: 7, freeDays: 1 };
+    expect(computeQuote(base({ ...days(1), rules: r3, campaigns: [week] })).discountTotal).toBe("0.00");
+  });
+});

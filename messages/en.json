@@ -67,7 +67,8 @@
     "sortHigh": "Price: high to low",
     "sortLow": "Price: low to high",
     "filterClass": "Vehicle class",
-    "filterType": "Vehicle type"
+    "filterType": "Vehicle type",
+    "minCharge": "A minimum {days}-day charge applies"
   },
   "car": {
     "seats": "{n} seats",
@@ -203,7 +204,8 @@
       "expired": "Your reservation hold expired. Please search again.",
       "captcha": "Please complete the security check."
     },
-    "hp": "Leave this field empty"
+    "hp": "Leave this field empty",
+    "rentalMin": "Rental (minimum {days}-day charge)"
   },
   "home": {
     "fleetTitle": "Our fleet",

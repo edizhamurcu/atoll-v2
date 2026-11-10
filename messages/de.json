@@ -67,7 +67,8 @@
     "sortHigh": "Preis: absteigend",
     "sortLow": "Preis: aufsteigend",
     "filterClass": "Fahrzeugklasse",
-    "filterType": "Fahrzeugtyp"
+    "filterType": "Fahrzeugtyp",
+    "minCharge": "Es gilt ein Mindestpreis für {days} Tage"
   },
   "car": {
     "seats": "{n} Sitze",
@@ -203,7 +204,8 @@
       "expired": "Ihre Reservierung ist abgelaufen. Bitte suchen Sie erneut.",
       "captcha": "Bitte schließen Sie die Sicherheitsprüfung ab."
     },
-    "hp": "Dieses Feld leer lassen"
+    "hp": "Dieses Feld leer lassen",
+    "rentalMin": "Miete (Mindestpreis für {days} Tage)"
   },
   "home": {
     "fleetTitle": "Unsere Flotte",
