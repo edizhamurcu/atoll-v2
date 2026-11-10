@@ -18,15 +18,15 @@ export async function SiteHeader() {
   const item = "rounded-lg px-3 py-2 hover:bg-ink/5 hover:text-ink";
   return (
     <header className="sticky top-0 z-30 border-b border-ink/8 bg-stone/90 backdrop-blur-md">
-      <div className="mx-auto flex h-[4.75rem] max-w-6xl items-center gap-4 px-5">
-        <div className="flex shrink-0 items-center gap-3 md:gap-4">
+      <div className="mx-auto flex h-[4.75rem] max-w-6xl items-center gap-3 px-4 sm:gap-4 sm:px-5">
+        <div className="flex shrink-0 items-center gap-2 sm:gap-3 md:gap-4">
           <Link href="/" className="shrink-0" aria-label="Atoll Rent A Car, home">
-            <Image src="/brand/atoll-logo.png" alt="Atoll Rent A Car" width={318} height={141} priority className="h-12 w-auto md:h-[3.25rem]" />
+            <Image src="/brand/atoll-logo.png" alt="Atoll Rent A Car" width={318} height={141} priority className="h-10 w-auto sm:h-12 md:h-[3.25rem]" />
           </Link>
           {/* Sister company in the same building (see About us) */}
-          <span aria-hidden="true" className="h-9 w-px bg-ink/15" />
+          <span aria-hidden="true" className="h-8 w-px bg-ink/15 sm:h-9" />
           <Link href="/about-us" className="shrink-0 opacity-90 transition-opacity hover:opacity-100" aria-label="OSK Auto by Karaçay">
-            <Image src="/brand/osk-auto.svg" alt="OSK Auto by Karaçay" width={353} height={206} unoptimized priority className="h-9 w-auto md:h-10" />
+            <Image src="/brand/osk-auto.svg" alt="OSK Auto by Karaçay" width={353} height={206} unoptimized priority className="h-7 w-auto sm:h-9 md:h-10" />
           </Link>
         </div>
 
