@@ -31,17 +31,6 @@ const pages: PageTranslations = {
 <hr />
 <h3>Şu anda herhangi bir teklifimiz bulunmamaktadır. Lütfen daha sonra tekrar kontrol edin.</h3>`,
   },
-  "about-us": {
-    title: "Hakkımızda",
-    html: `<p><img loading="lazy" src="/media/pages/revslider/home_slider_2/rt-b-3.jpg" alt=""></p>
-<h4><strong>ATOLL RENT-A-CAR'A HOŞ GELDİNİZ</strong></h4>
-<p>Atoll Rent A Car, Kuzey Kıbrıs'ta araç kiralama hizmeti sunar. Kuzey Kıbrıs'ta araç kiralamak isteyen her müşterimize, en düşük garantili fiyatlarla yüksek kaliteli hizmet veriyoruz. Kuzey Kıbrıs'taki araç kiralama hizmetinden ödün vermeden en düşük fiyatı sağlayabiliyoruz.</p>
-<p>Güçlü bir şekilde gelişen ve her geçen gün müşteri hizmetine değer katan seyahat sektöründe ve Kuzey Kıbrıs araç kiralama sektöründe hızla ve emin adımlarla büyüyoruz.</p>
-<p>Atoll Rent A Car, ağırlıklı olarak müşterilerine araç kiralama hizmeti sunan, araç kiralama alanında rekabetçi bir şirkettir.</p>
-<p>Atoll Rent A Car olarak değerli müşterilerimize, konfor ve güvenliğinizi esas alan, bakımlı çeşitli araçlar sunuyoruz.</p>
-<p>Amacımız araç filomuzu her yıl yenilemek, gelişmek ve size her yıl daha iyi hizmet sunmaktır.</p>
-<p>Şirketimizde emlak danışmanlığı hizmeti de verilmektedir. Müşterilerimize villa, daire ve ofis satışlarıyla Kuzey Kıbrıs'ın sürekli büyüyen gayrimenkul sektörüne yatırım yapma fırsatı sunuyoruz.</p>`,
-  },
   "driving-in-south-cyprus": {
     title: "Güney Kıbrıs'ta Araç Kullanımı",
     html: `<h2>KİRALIK ARACI GÜNEY KIBRIS'A GÖTÜRMEK İÇİN ADIM ADIM İŞLEMLER:</h2>

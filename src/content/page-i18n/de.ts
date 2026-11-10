@@ -31,17 +31,6 @@ const pages: PageTranslations = {
 <hr />
 <h3>Derzeit haben wir keine Angebote. Bitte schauen Sie später wieder vorbei.</h3>`,
   },
-  "about-us": {
-    title: "Über uns",
-    html: `<p><img loading="lazy" src="/media/pages/revslider/home_slider_2/rt-b-3.jpg" alt=""></p>
-<h4><strong>WILLKOMMEN BEI ATOLL RENT-A-CAR</strong></h4>
-<p>Atoll Rent A Car bietet Autovermietung in Nordzypern. Wir bieten jedem Kunden, der in Nordzypern ein Auto mieten möchte, hochwertigen Service zu garantiert niedrigsten Preisen – ohne Abstriche beim Service.</p>
-<p>Wir wachsen schnell und selbstbewusst in der Reisebranche und im Mietwagenmarkt Nordzyperns, der sich stark entwickelt und dem Kundenservice Tag für Tag mehr Wert verleiht.</p>
-<p>Atoll Rent A Car ist ein wettbewerbsfähiges Unternehmen der Autovermietungsbranche, das vor allem Mietwagen für Kunden anbietet.</p>
-<p>Bei Atoll Rent A Car bieten wir unseren geschätzten Kunden verschiedene gepflegte Fahrzeuge, bei denen Ihr Komfort und Ihre Sicherheit im Mittelpunkt stehen.</p>
-<p>Unser Ziel ist es, unsere Fahrzeugflotte jedes Jahr zu erneuern, uns zu verbessern und Ihnen jedes Jahr einen besseren Service zu bieten.</p>
-<p>Unser Unternehmen bietet außerdem Immobilienvermittlung an. Mit dem Verkauf von Villen, Wohnungen und Büroflächen bieten wir unseren Kunden die Möglichkeit, in den stetig wachsenden Immobilienmarkt Nordzyperns zu investieren.</p>`,
-  },
   "driving-in-south-cyprus": {
     title: "Mit dem Mietwagen nach Südzypern",
     html: `<h2>SCHRITT FÜR SCHRITT: SO FAHREN SIE MIT DEM MIETWAGEN NACH SÜDZYPERN</h2>

@@ -17,9 +17,16 @@ export async function SiteHeader() {
   return (
     <header className="sticky top-0 z-30 border-b border-ink/8 bg-stone/90 backdrop-blur-md">
       <div className="mx-auto flex h-[4.75rem] max-w-6xl items-center gap-4 px-5">
-        <Link href="/" className="shrink-0" aria-label="Atoll Rent A Car, home">
-          <Image src="/brand/atoll-logo.png" alt="Atoll Rent A Car" width={318} height={141} priority className="h-12 w-auto md:h-[3.25rem]" />
-        </Link>
+        <div className="flex shrink-0 items-center gap-3 md:gap-4">
+          <Link href="/" className="shrink-0" aria-label="Atoll Rent A Car, home">
+            <Image src="/brand/atoll-logo.png" alt="Atoll Rent A Car" width={318} height={141} priority className="h-12 w-auto md:h-[3.25rem]" />
+          </Link>
+          {/* Sister company in the same building (see About us) */}
+          <span aria-hidden="true" className="h-9 w-px bg-ink/15" />
+          <Link href="/about-us" className="shrink-0 opacity-90 transition-opacity hover:opacity-100" aria-label="OSK Auto by Karaçay">
+            <Image src="/brand/osk-auto.svg" alt="OSK Auto by Karaçay" width={353} height={206} unoptimized priority className="h-9 w-auto md:h-10" />
+          </Link>
+        </div>
 
         <nav aria-label="Main" className="ml-auto hidden items-center gap-1 text-[0.95rem] text-ink-soft lg:flex">
           <Link href="/" className={item}>{t("home")}</Link>

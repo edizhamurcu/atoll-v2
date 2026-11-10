@@ -8,12 +8,13 @@ import { SITE } from "@/lib/site";
 import { routing } from "@/i18n/routing";
 import { pageTranslation, translatedLocales } from "@/content/page-i18n";
 import { withExcessList } from "@/content/damage-excess";
+import { AboutVideo } from "@/components/about-video";
 
 export async function generateMetadata({ params }: PageProps<"/[locale]/[slug]">): Promise<Metadata> {
   const { locale, slug } = await params;
   const p = await getPage(slug);
   if (!p) return {};
-  const tr = locale === "en" ? null : pageTranslation(slug, locale);
+  const tr = pageTranslation(slug, locale);
   const title = tr?.title ?? p.metaTitle ?? p.title;
   const description = tr?.metaDescription ?? (tr ? plainText(tr.html) : p.metaDescription || plainText(p.html));
   const langs = ["en", ...translatedLocales(slug)];
@@ -42,7 +43,7 @@ async function Content({ params }: { params: PageProps<"/[locale]/[slug]">["para
   if (!(routing.locales as readonly string[]).includes(locale)) notFound();
   const p = await getPage(slug);
   if (!p) notFound();
-  const tr = locale === "en" ? null : pageTranslation(slug, locale);
+  const tr = pageTranslation(slug, locale);
   const title = tr?.title ?? p.title;
   const html = withExcessList(tr?.html ?? p.html, locale);
   const lang = tr ? locale : "en";
@@ -51,6 +52,7 @@ async function Content({ params }: { params: PageProps<"/[locale]/[slug]">["para
     <article className="mx-auto max-w-3xl px-5 pt-8" lang={lang}>
       <Breadcrumbs locale={locale} items={[{ name: "Atoll Rent A Car", href: "/" }, { name: title, href: `/${slug}` }]} />
       <h1 className="mt-4 text-4xl font-extrabold md:text-5xl">{title}</h1>
+      {slug === "about-us" && <AboutVideo />}
       <div className="prose-atoll mt-8" dangerouslySetInnerHTML={{ __html: html }} />
       <JsonLd
         data={[

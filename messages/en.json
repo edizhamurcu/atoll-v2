@@ -335,5 +335,10 @@
     "ctaTitle": "Explore North Cyprus by car",
     "ctaText": "Unlimited mileage, free delivery to Ercan Airport and Kyrenia, from {price} a day.",
     "ctaButton": "Check availability"
+  },
+  "about": {
+    "videoLabel": "Video: the Atoll Auto & Rent A Car building in Alsancak, with the rental fleet, showroom, workshop and car wash",
+    "pause": "Pause video",
+    "play": "Play video"
   }
 }

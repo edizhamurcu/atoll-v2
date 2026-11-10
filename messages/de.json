@@ -335,5 +335,10 @@
     "ctaTitle": "Nordzypern mit dem Auto entdecken",
     "ctaText": "Unbegrenzte Kilometer, kostenlose Zustellung zum Flughafen Ercan und nach Kyrenia, ab {price} pro Tag.",
     "ctaButton": "Verfügbarkeit prüfen"
+  },
+  "about": {
+    "videoLabel": "Video: das Gebäude von Atoll Auto & Rent A Car in Alsancak mit Mietflotte, Showroom, Werkstatt und Autowäsche",
+    "pause": "Video anhalten",
+    "play": "Video abspielen"
   }
 }

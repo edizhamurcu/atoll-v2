@@ -11,7 +11,11 @@ export async function SiteFooter() {
     <footer className="mt-24 border-t border-ink/10 bg-paper text-ink-soft">
       <div className="mx-auto grid max-w-6xl gap-10 px-5 py-14 sm:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1.2fr]">
         <div>
-          <Image src="/brand/atoll-logo.png" alt="Atoll Rent A Car" width={318} height={141} className="h-14 w-auto" />
+          <div className="flex items-center gap-4">
+            <Image src="/brand/atoll-logo.png" alt="Atoll Rent A Car" width={318} height={141} className="h-14 w-auto" />
+            <span aria-hidden="true" className="h-10 w-px bg-ink/15" />
+            <Image src="/brand/osk-auto.svg" alt="OSK Auto by Karaçay" width={353} height={206} unoptimized className="h-11 w-auto" />
+          </div>
           <p className="mt-4 font-display text-lg font-bold text-ink">{t("title")}</p>
           <p className="text-bougain">{t("lead")}</p>
         </div>

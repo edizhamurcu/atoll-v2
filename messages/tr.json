@@ -335,5 +335,10 @@
     "ctaTitle": "Kuzey Kıbrıs'ı arabayla keşfedin",
     "ctaText": "Sınırsız kilometre, Ercan Havalimanı ve Girne'ye ücretsiz teslimat, günlük {price}'dan başlayan fiyatlarla.",
     "ctaButton": "Müsaitliği kontrol et"
+  },
+  "about": {
+    "videoLabel": "Video: Alsancak'taki Atoll Auto & Rent A Car binası; kiralık filo, showroom, atölye ve araç yıkama",
+    "pause": "Videoyu durdur",
+    "play": "Videoyu oynat"
   }
 }
