@@ -383,5 +383,32 @@
       "wash": "OSK Auto'da araç yıkama",
       "building": "Alsancak'taki Atoll Auto & Rent A Car binası"
     }
+  },
+  "menu": {
+    "discover": "Keşfet",
+    "rentPitch": "Günlük £30'dan başlayan kiralama, havalimanına teslim.",
+    "rentCta": "Müsait araçları gör",
+    "fleet": "Araç filosu",
+    "fleetDesc": "Ekonomikten SUV ve 7 kişiliğe tüm sınıflar",
+    "pricesDesc": "Sezona göre günlük fiyat tablosu",
+    "termsDesc": "Yaş, ehliyet, depozito ve sigorta",
+    "offersDesc": "Güncel kampanyalar",
+    "agreementDesc": "Sözleşme metninin tamamı",
+    "salePitch": "Yeni ve ikinci el araçlar; servis ve yıkama aynı binada.",
+    "saleCta": "Showroom'u gör",
+    "showroom": "Showroomdaki araçlar",
+    "showroomDesc": "Yeni ve ikinci el araçlar",
+    "stock": "Stok ve fiyat sorun",
+    "stockDesc": "Bugün mevcut olanları söyleyelim",
+    "service": "Satış sonrası servis",
+    "serviceDesc": "Mekanik, kaporta-boya, oto elektrik, yıkama",
+    "whatsapp": "WhatsApp'tan yazın",
+    "guideDesc": "Gezilecek yerler ve ipuçları",
+    "southDesc": "Güney'e geçerken bilmeniz gerekenler",
+    "blogDesc": "Güncel yazılar",
+    "call": "Ara",
+    "general": "Diğer sayfalar",
+    "rentGroup": "Kiralık araç menüsü",
+    "saleGroup": "Satılık araç menüsü"
   }
 }

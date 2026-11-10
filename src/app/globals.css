@@ -106,3 +106,12 @@
 .prose-atoll th, .prose-atoll td { @apply border-b border-ink/10 px-3 py-2 text-left; }
 .prose-atoll hr { @apply my-8 border-ink/10; }
 .prose-atoll blockquote { @apply my-6 border-l-4 border-aegean pl-4 text-ink-soft; }
+
+/* Menu panels: one short pop-in when they open (main-nav.tsx). */
+@keyframes nav-pop {
+  from { opacity: 0; transform: translateY(-6px) scale(0.985); }
+}
+.nav-pop { animation: nav-pop 0.18s ease-out; transform-origin: top center; }
+@media (prefers-reduced-motion: reduce) {
+  .nav-pop { animation: none; }
+}

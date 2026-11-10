@@ -383,5 +383,32 @@
       "wash": "Car wash at OSK Auto",
       "building": "Atoll Auto & Rent A Car building in Alsancak"
     }
+  },
+  "menu": {
+    "discover": "Discover",
+    "rentPitch": "Rentals from £30 a day, delivered to the airport.",
+    "rentCta": "See available cars",
+    "fleet": "Our fleet",
+    "fleetDesc": "Every class from economy to SUV and 7-seaters",
+    "pricesDesc": "Daily prices by season",
+    "termsDesc": "Age, licence, deposit and insurance",
+    "offersDesc": "Current deals",
+    "agreementDesc": "The full agreement text",
+    "salePitch": "New and used cars, with servicing and car wash in the same building.",
+    "saleCta": "Visit the showroom",
+    "showroom": "Cars in the showroom",
+    "showroomDesc": "New and used cars",
+    "stock": "Ask for stock and prices",
+    "stockDesc": "We'll tell you what's available today",
+    "service": "After-sales service",
+    "serviceDesc": "Mechanical, body and paint, auto electrics, car wash",
+    "whatsapp": "Message us on WhatsApp",
+    "guideDesc": "Places to go and tips",
+    "southDesc": "What to know before crossing south",
+    "blogDesc": "Latest articles",
+    "call": "Call",
+    "general": "More pages",
+    "rentGroup": "Rental cars menu",
+    "saleGroup": "Cars for sale menu"
   }
 }

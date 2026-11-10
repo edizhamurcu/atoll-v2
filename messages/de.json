@@ -383,5 +383,32 @@
       "wash": "Autowäsche bei OSK Auto",
       "building": "Gebäude von Atoll Auto & Rent A Car in Alsancak"
     }
+  },
+  "menu": {
+    "discover": "Entdecken",
+    "rentPitch": "Mietwagen ab £30 pro Tag, Lieferung zum Flughafen.",
+    "rentCta": "Verfügbare Autos ansehen",
+    "fleet": "Unsere Flotte",
+    "fleetDesc": "Alle Klassen vom Kleinwagen bis SUV und 7-Sitzer",
+    "pricesDesc": "Tagespreise nach Saison",
+    "termsDesc": "Alter, Führerschein, Kaution und Versicherung",
+    "offersDesc": "Aktuelle Angebote",
+    "agreementDesc": "Der vollständige Vertragstext",
+    "salePitch": "Neu- und Gebrauchtwagen, Werkstatt und Autowäsche im selben Gebäude.",
+    "saleCta": "Zum Showroom",
+    "showroom": "Autos im Showroom",
+    "showroomDesc": "Neu- und Gebrauchtwagen",
+    "stock": "Bestand und Preise erfragen",
+    "stockDesc": "Wir sagen Ihnen, was heute verfügbar ist",
+    "service": "Service nach dem Kauf",
+    "serviceDesc": "Mechanik, Karosserie und Lack, Autoelektrik, Autowäsche",
+    "whatsapp": "Per WhatsApp schreiben",
+    "guideDesc": "Ausflugsziele und Tipps",
+    "southDesc": "Was Sie vor der Fahrt in den Süden wissen sollten",
+    "blogDesc": "Aktuelle Artikel",
+    "call": "Anrufen",
+    "general": "Weitere Seiten",
+    "rentGroup": "Menü Mietwagen",
+    "saleGroup": "Menü Autos zu verkaufen"
   }
 }
