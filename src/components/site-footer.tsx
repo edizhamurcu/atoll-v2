@@ -93,18 +93,18 @@ export async function SiteFooter() {
 
       {/* Link groups, same split as the header */}
       <div className="mx-auto grid max-w-6xl grid-cols-2 gap-x-6 gap-y-10 border-t border-ink/10 px-5 py-12 md:grid-cols-4 lg:grid-cols-[1fr_1fr_1fr_1.3fr]">
-        <nav aria-label={n("rentCars")} className="rounded-3xl border-t-4 border-bougain bg-stone/60 p-5">
+        <nav aria-label={n("rentCars")} className="col-span-2 rounded-3xl sm:col-span-1 border-t-4 border-bougain bg-stone/60 p-5">
           {heading(n("rentCars"), "bg-bougain")}
           {list(rent)}
         </nav>
-        <nav aria-label={n("carSales")} className="rounded-3xl border-t-4 border-gold bg-stone/60 p-5">
+        <nav aria-label={n("carSales")} className="col-span-2 rounded-3xl sm:col-span-1 border-t-4 border-gold bg-stone/60 p-5">
           {heading(n("carSales"), "bg-gold")}
           {list(sale)}
           <a href={waLink(s("waText"))} target="_blank" rel="noopener" className="mt-5 inline-flex items-center gap-2 rounded-full bg-gold px-4 py-2 text-sm font-bold text-ink transition-colors hover:bg-gold/80">
             {m("whatsapp")}
           </a>
         </nav>
-        <div className="space-y-8 md:pt-5">
+        <div className="col-span-2 grid grid-cols-2 gap-6 sm:col-span-1 sm:block sm:space-y-8 md:pt-5">
           <nav aria-label={m("discover")}>
             {heading(m("discover"))}
             {list(discover)}
