@@ -11,7 +11,7 @@ const THUMBS = [
 
 /** Home page: OSK Auto (sister company in the same building) — sales, workshop, body shop, car wash. */
 export async function OskSection() {
-  const [h, s] = await Promise.all([getTranslations("home"), getTranslations("sales")]);
+  const [h, s, n] = await Promise.all([getTranslations("home"), getTranslations("sales"), getTranslations("nav")]);
   const services = [
     ["oskSales", "oskSalesText"],
     ["oskWorkshop", "oskWorkshopText"],
@@ -20,7 +20,7 @@ export async function OskSection() {
   ] as const;
   return (
     <section className="mx-auto mt-24 max-w-6xl px-5" aria-labelledby="osk">
-      <div className="grid gap-10 border-t border-ink/10 pt-12 lg:grid-cols-[1.05fr_1fr] lg:items-start">
+      <div className="grid gap-10 rounded-[2rem] border border-gold/30 bg-paper p-6 md:p-10 lg:grid-cols-[1.05fr_1fr] lg:items-start">
         <div>
           <Link href="/car-sales" className="group relative block overflow-hidden rounded-2xl">
             <Image src={`${IMG}/showroom-mercedes.webp`} alt={s("imgAlt.mercedes")} width={1440} height={1080} sizes="(min-width: 1024px) 560px, 100vw" className="aspect-[4/3] w-full object-cover transition-transform duration-500 group-hover:scale-[1.02]" />
@@ -37,7 +37,10 @@ export async function OskSection() {
           </ul>
         </div>
         <div>
-          <Image src="/brand/osk-auto.svg" alt={h("oskEyebrow")} width={353} height={206} unoptimized className="h-14 w-auto" />
+          <div className="flex items-center justify-between gap-4">
+            <p className="inline-flex items-center gap-2 rounded-full bg-gold/20 px-3 py-1 text-sm font-semibold text-ink"><span aria-hidden className="size-2 rounded-full bg-gold" />{n("carSales")}</p>
+            <Image src="/brand/osk-auto.svg" alt={h("oskEyebrow")} width={353} height={206} unoptimized className="h-14 w-auto" />
+          </div>
           <h2 id="osk" className="mt-5 text-3xl font-extrabold md:text-4xl">{h("oskTitle")}</h2>
           <p className="mt-3 text-lg text-ink-soft">{h("oskLead")}</p>
           <dl className="mt-8 grid gap-6 sm:grid-cols-2">

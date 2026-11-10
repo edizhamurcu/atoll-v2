@@ -18,7 +18,7 @@ const MAP_NAMES: Record<string, Record<string, string>> = {
 
 export default async function Home({ params }: PageProps<"/[locale]">) {
   const { locale } = (await params) as { locale: Locale };
-  const [t, h] = await Promise.all([getTranslations("hero"), getTranslations("home")]);
+  const [t, h, n] = await Promise.all([getTranslations("hero"), getTranslations("home"), getTranslations("nav")]);
   const facts = [1, 2, 3, 4, 5, 6] as const;
   const steps = [1, 2, 3] as const;
   const map = <CyprusMap title={t("mapLabel")} points={MAP_POINTS.map((p) => ({ ...p, label: MAP_NAMES[locale]?.[p.slug] ?? p.slug }))} />;
@@ -56,6 +56,7 @@ export default async function Home({ params }: PageProps<"/[locale]">) {
       </section>
 
       <section className="mx-auto mt-24 max-w-6xl px-5" aria-labelledby="fleet">
+        <p className="mb-3 inline-flex items-center gap-2 rounded-full bg-bougain/10 px-3 py-1 text-sm font-semibold text-bougain-deep"><span aria-hidden className="size-2 rounded-full bg-bougain" />{n("rentCars")}</p>
         <h2 id="fleet" className="text-3xl font-extrabold md:text-4xl">{h("fleetTitle")}</h2>
         <p className="mt-2 max-w-xl text-ink-soft">{h("fleetLead")}</p>
         <div className="mt-8">
