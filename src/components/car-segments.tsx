@@ -4,11 +4,15 @@ import { Link, usePathname } from "@/i18n/navigation";
 type Props = { rentLabel: string; saleLabel: string; variant?: "bar" | "cards" };
 
 /** Rental (Atoll, red) vs. sales (OSK Auto, gold): two clearly separate segments in the header and mobile menu. */
-export function CarSegments({ rentLabel, saleLabel, variant = "bar" }: Props) {
+export function CarSegments(props: Props) {
   const path = usePathname();
   const sale = path.startsWith("/car-sales");
   const rent = !sale && (path.startsWith("/cars") || path.startsWith("/car-prices") || path.startsWith("/booking"));
+  return <CarSegmentsView {...props} rent={rent} sale={sale} />;
+}
 
+/** Same markup without route state: the Suspense fallback while the pathname is resolved. */
+export function CarSegmentsView({ rentLabel, saleLabel, variant = "bar", rent = false, sale = false }: Props & { rent?: boolean; sale?: boolean }) {
   if (variant === "cards") {
     return (
       <div className="grid grid-cols-2 gap-3 py-4">
