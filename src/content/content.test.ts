@@ -241,3 +241,11 @@ describe("monthly campaign config (2026-11-10)", () => {
     }
   });
 });
+
+describe("streamed Suspense content always reveals (2026-11-10)", () => {
+  it("layout ships the $RV flush fallback for frame-starved browsers", () => {
+    const src = readFileSync("src/app/[locale]/layout.tsx", "utf8");
+    expect(src).toContain("STREAM_REVEAL_FALLBACK");
+    expect(src).toMatch(/window\.\$RB/);
+  });
+});

@@ -37,6 +37,11 @@ export default async function LocaleLayout({ children, params }: LayoutProps<"/[
   return (
     <html lang={locale}>
       <body className="min-h-dvh antialiased">
+        {/* React reveals streamed Suspense content on the next animation frame ($RC -> requestAnimationFrame($RV)).
+            Where frames are not painted (embedded/in-app webviews, some background loads) that frame never comes and
+            fallbacks such as the search skeleton stay forever. Flush any still-queued reveal after 250 ms; a no-op when
+            React already did it. */}
+        <script dangerouslySetInnerHTML={{ __html: STREAM_REVEAL_FALLBACK }} />
         <NextIntlClientProvider>
           <a href="#main" className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-full focus:bg-ink focus:px-4 focus:py-2 focus:text-white">
             {(await getTranslations({ locale, namespace: "common" }))("skip")}
@@ -49,3 +54,6 @@ export default async function LocaleLayout({ children, params }: LayoutProps<"/[
     </html>
   );
 }
+
+const STREAM_REVEAL_FALLBACK =
+  "(function(){var n=0,t=setInterval(function(){var q=window.$RB,v=window.$RV;if(q&&q.length&&typeof v==='function'){try{v(q)}catch(e){}}if(++n>=60)clearInterval(t)},250)})();";
