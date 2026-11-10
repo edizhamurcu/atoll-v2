@@ -313,7 +313,10 @@
     },
     "namePh": "Иван Иванов",
     "emailPh": "ivan.ivanov@example.ru",
-    "subjectRequired": "Пожалуйста, выберите тему."
+    "subjectRequired": "Пожалуйста, выберите тему.",
+    "mapTitle": "Карта офиса Atoll Rent A Car",
+    "directions": "Проложить маршрут",
+    "openMap": "Открыть в Google Картах"
   },
   "bodyType": {
     "HATCHBACK": "Хэтчбек",

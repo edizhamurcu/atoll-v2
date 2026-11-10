@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import { ContactForm } from "@/components/contact-form";
 import { Breadcrumbs } from "@/components/breadcrumbs";
-import { SITE, telLink, waLink } from "@/lib/site";
+import { SITE, mapEmbedUrl, mapOpenUrl, mapDirectionsUrl, telLink, waLink } from "@/lib/site";
 import { routing } from "@/i18n/routing";
 
 export async function generateMetadata({ params }: PageProps<"/[locale]/contact">): Promise<Metadata> {
@@ -14,7 +14,6 @@ export async function generateMetadata({ params }: PageProps<"/[locale]/contact"
 export default async function ContactPage({ params }: PageProps<"/[locale]/contact">) {
   const { locale } = await params;
   const [t, f, b] = await Promise.all([getTranslations("contact"), getTranslations("footer"), getTranslations("booking")]);
-  const map = `https://www.openstreetmap.org/export/embed.html?bbox=${SITE.address.lng - 0.01}%2C${SITE.address.lat - 0.006}%2C${SITE.address.lng + 0.01}%2C${SITE.address.lat + 0.006}&layer=mapnik&marker=${SITE.address.lat}%2C${SITE.address.lng}`;
   return (
     <div className="mx-auto max-w-6xl px-5 pt-8">
       <Breadcrumbs locale={locale} items={[{ name: "Atoll Rent A Car", href: "/" }, { name: t("contactTitle"), href: "/contact" }]} />
@@ -37,7 +36,20 @@ export default async function ContactPage({ params }: PageProps<"/[locale]/conta
             <a className="btn-quiet" href={telLink(SITE.phone2)}>{SITE.phone2}</a>
             <a className="btn-quiet" href={`mailto:${SITE.email}`}>{SITE.email}</a>
           </div>
-          <iframe title="Atoll Rent A Car office map" src={map} loading="lazy" className="aspect-[4/3] w-full rounded-2xl border border-ink/10" referrerPolicy="no-referrer" />
+          <figure className="overflow-hidden rounded-2xl border border-ink/10 bg-paper">
+            <iframe
+              title={t("mapTitle")}
+              src={mapEmbedUrl(locale)}
+              loading="lazy"
+              allowFullScreen
+              referrerPolicy="strict-origin-when-cross-origin"
+              className="block aspect-[4/3] w-full"
+            />
+            <figcaption className="flex flex-wrap gap-2 p-3">
+              <a className="btn-primary !py-2 text-sm" href={mapDirectionsUrl} target="_blank" rel="noopener">{t("directions")}</a>
+              <a className="btn-quiet !py-2 text-sm" href={mapOpenUrl} target="_blank" rel="noopener">{t("openMap")}</a>
+            </figcaption>
+          </figure>
         </section>
       </div>
     </div>

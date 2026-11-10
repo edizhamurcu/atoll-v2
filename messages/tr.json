@@ -313,7 +313,10 @@
     },
     "namePh": "Ahmet Yılmaz",
     "emailPh": "ahmet.yilmaz@ornek.com",
-    "subjectRequired": "Lütfen bir konu seçin."
+    "subjectRequired": "Lütfen bir konu seçin.",
+    "mapTitle": "Atoll Rent A Car ofisi haritası",
+    "directions": "Yol tarifi al",
+    "openMap": "Google Haritalar'da aç"
   },
   "bodyType": {
     "HATCHBACK": "Hatchback",

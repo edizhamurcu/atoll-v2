@@ -249,3 +249,14 @@ describe("streamed Suspense content always reveals (2026-11-10)", () => {
     expect(src).toMatch(/window\.\$RB/);
   });
 });
+
+describe("contact map (2026-11-10)", () => {
+  it("Google Maps embed points at the plus code 86W3+W43 and the office coordinates match it", async () => {
+    const { mapEmbedUrl, mapDirectionsUrl, SITE } = await import("@/lib/site");
+    expect(decodeURIComponent(mapEmbedUrl("tr"))).toContain("Atoll Rent A Car, 86W3+W43, Alsancak");
+    expect(mapEmbedUrl("tr")).toMatch(/^https:\/\/www\.google\.com\/maps\?q=.*&output=embed$/);
+    expect(mapDirectionsUrl).toMatch(/^https:\/\/www\.google\.com\/maps\/dir\/\?api=1&destination=/);
+    expect(SITE.address.lat).toBeCloseTo(35.3473, 3);
+    expect(SITE.address.lng).toBeCloseTo(33.2028, 3);
+  });
+});

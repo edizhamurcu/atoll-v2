@@ -10,7 +10,7 @@ export const SITE = {
   phone: "+90 539 103 61 66",
   whatsapp: "+90 539 103 61 66",
   phone2: "+90 533 823 65 55",
-  address: { street: "157 Karaoğlanoğlu Caddesi", locality: "Alsancak", region: "Girne (Kyrenia)", country: "North Cyprus", lat: 35.343, lng: 33.188 },
+  address: { street: "157 Karaoğlanoğlu Caddesi", locality: "Alsancak", region: "Girne (Kyrenia)", country: "North Cyprus", lat: 35.347262, lng: 33.202797, plusCode: "86W3+W43" },
   hours: "Mon - Fri: 09:00AM - 09:00PM; Saturday: 09:00AM - 07:00PM; Sunday: Closed",
   copyright: "Atoll. Designed and Developed by Arekan Bilgi Teknolojileri Ltd.",
   developerUrl: "https://arekanteknoloji.com",
@@ -34,6 +34,12 @@ export const waLink = (text?: string, number: string = SITE.whatsapp) => `https:
 /** Primary first. */
 export const PHONES = [SITE.phone, SITE.phone2] as const;
 export const telLink = (n: string) => `tel:${n.replace(/\s/g, "")}`;
+/** Google Maps for the office, by business name + plus code 86W3+W43 (8G7M86W3+W43 = 35.347262, 33.202797). */
+const MAP_QUERY = encodeURIComponent("Atoll Rent A Car, 86W3+W43, Alsancak");
+export const mapEmbedUrl = (locale: string) => `https://www.google.com/maps?q=${MAP_QUERY}&hl=${locale}&z=17&output=embed`;
+export const mapOpenUrl = `https://www.google.com/maps/search/?api=1&query=${MAP_QUERY}`;
+export const mapDirectionsUrl = `https://www.google.com/maps/dir/?api=1&destination=${MAP_QUERY}`;
+
 /** Social profiles that have a URL, in display order. */
 export const SOCIAL = (["instagram", "facebook", "youtube"] as const)
   .map((k) => ({ key: k, url: SITE.social[k] as string }))

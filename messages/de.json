@@ -313,7 +313,10 @@
     },
     "namePh": "Max Mustermann",
     "emailPh": "max.mustermann@beispiel.de",
-    "subjectRequired": "Bitte wählen Sie ein Thema."
+    "subjectRequired": "Bitte wählen Sie ein Thema.",
+    "mapTitle": "Karte des Büros von Atoll Rent A Car",
+    "directions": "Route planen",
+    "openMap": "In Google Maps öffnen"
   },
   "bodyType": {
     "HATCHBACK": "Kompakt",

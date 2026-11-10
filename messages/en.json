@@ -313,7 +313,10 @@
     },
     "namePh": "John Smith",
     "emailPh": "john.smith@example.com",
-    "subjectRequired": "Please choose a topic."
+    "subjectRequired": "Please choose a topic.",
+    "mapTitle": "Map of the Atoll Rent A Car office",
+    "directions": "Get directions",
+    "openMap": "Open in Google Maps"
   },
   "bodyType": {
     "HATCHBACK": "Hatchback",
