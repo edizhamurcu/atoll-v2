@@ -3,29 +3,97 @@ import Decimal from "decimal.js";
 import { Link } from "@/i18n/navigation";
 import { db } from "@/lib/db";
 import { money } from "@/lib/search-params";
-import { CAMPAIGNS, campaignFor } from "@/content/campaigns";
+import { MONTH_CAMPAIGN, WEEK_CAMPAIGN, campaignFor } from "@/content/campaigns";
 import { CarImage } from "./car-image";
 
-/** Banner on a campaign car's page (src/content/campaigns.ts). */
+/** Campaign banner on every car page: the weekly offer for all cars, plus the model's own offer if it has one. */
 export async function CampaignBanner({ slug }: { slug: string }) {
-  if (!campaignFor(slug)) return null;
   const t = await getTranslations("campaign");
+  const own = campaignFor(slug);
   return (
     <div className="rounded-2xl border border-bougain/30 bg-bougain/8 p-4">
-      <p className="flex items-center gap-2">
-        <span className="rounded-full bg-bougain px-2.5 py-0.5 text-xs font-bold text-white">{t("tag")}</span>
-        <span className="font-bold text-ink">{t("short")}</span>
-      </p>
-      <p className="mt-2 text-sm text-ink-soft">{t("detail")}</p>
-      <Link href="/special-offers#campaign" className="mt-2 inline-block text-sm font-semibold text-bougain underline-offset-2 hover:underline">{t("more")}</Link>
+      <span className="rounded-full bg-bougain px-2.5 py-0.5 text-xs font-bold text-white">{t("tag")}</span>
+      <ul className="mt-2 space-y-1.5">
+        <li><span className="font-bold text-ink">{t("weekShort")}</span> <span className="text-sm text-ink-soft">{t("weekDetail")}</span></li>
+        {own && <li><span className="font-bold text-ink">{t("short")}</span> <span className="text-sm text-ink-soft">{t("detail")}</span></li>}
+      </ul>
+      <Link href="/special-offers" className="mt-2 inline-block text-sm font-semibold text-bougain underline-offset-2 hover:underline">{t("more")}</Link>
     </div>
+  );
+}
+
+/** Special offers page body: weekly offer for every car, then the monthly offer for selected cars. */
+export async function SpecialOffers({ locale }: { locale: string }) {
+  const [t, tc] = await Promise.all([getTranslations("campaign"), getTranslations("classes")]);
+  const classes = ["ECONOMY", "SUV", "LUXURY"] as const;
+  const cheapest = await Promise.all(
+    classes.map((c) => db.vehicleModel.findFirst({ where: { class: c, active: true }, orderBy: { dailyRate: "asc" }, select: { make: true, model: true, class: true, dailyRate: true, images: true } })),
+  );
+  const examples = cheapest.filter((m) => m !== null);
+  const w = WEEK_CAMPAIGN;
+  return (
+    <>
+      <p className="mt-4 max-w-2xl text-lg text-ink-soft">{t("pageLead")}</p>
+
+      <section id="week" aria-labelledby="week-title" className="mt-8 scroll-mt-28 overflow-hidden rounded-[2rem] bg-ink p-5 text-white md:p-8">
+        <p className="w-fit rounded-full bg-gold px-3 py-1 text-sm font-bold text-ink">{t("weekShort")}</p>
+        <h2 id="week-title" className="mt-3 text-3xl font-extrabold md:text-4xl">{t("weekTitle")}</h2>
+        <p className="mt-2 max-w-prose text-white/85">{t("weekLead")}</p>
+
+        <ol aria-label={t("weekShort")} className="mt-6 grid grid-cols-7 gap-1.5 sm:gap-2">
+          {Array.from({ length: w.minDays }, (_, i) => {
+            const free = i >= w.minDays - w.freeDays;
+            return (
+              <li
+                key={i}
+                className={`flex aspect-square flex-col items-center justify-center rounded-xl text-center sm:rounded-2xl ${free ? "rotate-3 bg-gold text-ink shadow-lg" : "bg-white/10"}`}
+              >
+                <span className="text-lg font-extrabold sm:text-2xl">{i + 1}</span>
+                <span className={`hidden text-[0.7rem] font-semibold sm:block ${free ? "" : "text-white/60"}`}>{free ? t("free") : t("dayN", { n: i + 1 })}</span>
+                {free && <span className="text-[0.6rem] font-bold sm:hidden">{t("free")}</span>}
+              </li>
+            );
+          })}
+        </ol>
+
+        {examples.length > 0 && (
+          <>
+            <h3 className="mt-8 text-lg font-bold">{t("examplesTitle")}</h3>
+            <ul className="mt-3 grid gap-3 sm:grid-cols-3">
+              {examples.map((m) => {
+                const rate = new Decimal(m.dailyRate.toString());
+                return (
+                  <li key={m.class} className="flex items-center gap-3 rounded-2xl bg-white p-3 text-ink">
+                    <div className="relative aspect-[4/3] w-24 shrink-0 overflow-hidden rounded-xl">
+                      <CarImage src={m.images[0]} alt={`${m.make} ${m.model}`} sizes="96px" />
+                    </div>
+                    <div className="min-w-0">
+                      <p className="text-sm font-semibold text-ink-soft">{tc(m.class)}</p>
+                      <p className="truncate font-bold">{m.make} {m.model}</p>
+                      <p className="text-sm">
+                        <span className="text-ink-soft line-through">{money(rate.mul(w.minDays).toFixed(2), locale)}</span>{" "}
+                        <span className="font-extrabold text-bougain">{money(rate.mul(w.minDays - w.freeDays).toFixed(2), locale)}</span>
+                      </p>
+                    </div>
+                  </li>
+                );
+              })}
+            </ul>
+          </>
+        )}
+        <Link href="/#search" className="btn-primary mt-6">{t("pickDates")}</Link>
+        <p className="mt-5 text-sm text-white/70">{t("example")} {t("weekTerms")}</p>
+      </section>
+
+      <CampaignOffers locale={locale} />
+    </>
   );
 }
 
 /** Campaign cards at the top of /special-offers: one card per campaign car with a 30-day example. */
 export async function CampaignOffers({ locale }: { locale: string }) {
   const t = await getTranslations("campaign");
-  const slugs = CAMPAIGNS.flatMap((c) => c.models);
+  const slugs = MONTH_CAMPAIGN.models === "all" ? [] : [...MONTH_CAMPAIGN.models];
   const models = await db.vehicleModel.findMany({ where: { slug: { in: slugs }, active: true } });
   const ordered = slugs.map((s) => models.find((m) => m.slug === s)).filter((m) => m !== undefined);
   if (!ordered.length) return null;

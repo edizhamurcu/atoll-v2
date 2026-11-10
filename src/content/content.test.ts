@@ -260,3 +260,16 @@ describe("contact map (2026-11-10)", () => {
     expect(SITE.address.lng).toBeCloseTo(33.2028, 3);
   });
 });
+
+describe("weekly campaign + special offers page (2026-11-10)", () => {
+  it("every car gets the weekly offer; BMW 520d / i30 also the monthly one", async () => {
+    const { campaignsFor, campaignFor } = await import("./campaigns");
+    expect(campaignsFor("toyota-vitz").map((c) => c.code)).toEqual(["week_1_day_free"]);
+    expect(campaignsFor("bmw-520d").map((c) => c.code).sort()).toEqual(["month_3_days_free", "week_1_day_free"]);
+    expect(campaignFor("toyota-vitz")).toBeNull();
+  });
+  it("special offers no longer renders the old WordPress body", () => {
+    const src = readFileSync("src/app/[locale]/[slug]/page.tsx", "utf8");
+    expect(src).toMatch(/slug === "special-offers" \? <SpecialOffers/);
+  });
+});

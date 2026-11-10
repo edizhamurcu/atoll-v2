@@ -1,3 +1,4 @@
+import { getTranslations } from "next-intl/server";
 import { Suspense } from "react";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
@@ -9,7 +10,7 @@ import { routing } from "@/i18n/routing";
 import { pageTranslation, translatedLocales } from "@/content/page-i18n";
 import { withExcessList } from "@/content/damage-excess";
 import { AboutVideo } from "@/components/about-video";
-import { CampaignOffers } from "@/components/campaign";
+import { SpecialOffers } from "@/components/campaign";
 
 export async function generateMetadata({ params }: PageProps<"/[locale]/[slug]">): Promise<Metadata> {
   const { locale, slug } = await params;
@@ -18,16 +19,17 @@ export async function generateMetadata({ params }: PageProps<"/[locale]/[slug]">
   const tr = pageTranslation(slug, locale);
   const title = tr?.title ?? p.metaTitle ?? p.title;
   const description = tr?.metaDescription ?? (tr ? plainText(tr.html) : p.metaDescription || plainText(p.html));
+  const desc = slug === "special-offers" ? (await getTranslations({ locale, namespace: "campaign" }))("metaDescription") : description;
   const langs = ["en", ...translatedLocales(slug)];
   // A page is indexable in every language it has been translated into; elsewhere it shows English and points to /en.
   const own = locale === "en" || !!tr;
   const url = `/${own ? locale : "en"}/${slug}`;
   return {
     title,
-    description,
+    description: desc,
     alternates: { canonical: url, languages: { ...Object.fromEntries(langs.map((l) => [l, `/${l}/${slug}`])), "x-default": `/en/${slug}` } },
     robots: own ? undefined : { index: false, follow: true },
-    openGraph: { title, description, url, type: "article" },
+    openGraph: { title, description: desc, url, type: "article" },
   };
 }
 
@@ -54,8 +56,8 @@ async function Content({ params }: { params: PageProps<"/[locale]/[slug]">["para
       <Breadcrumbs locale={locale} items={[{ name: "Atoll Rent A Car", href: "/" }, { name: title, href: `/${slug}` }]} />
       <h1 className="mt-4 text-4xl font-extrabold md:text-5xl">{title}</h1>
       {slug === "about-us" && <AboutVideo />}
-      {slug === "special-offers" && <CampaignOffers locale={locale} />}
-      <div className="prose-atoll mt-8" dangerouslySetInnerHTML={{ __html: html }} />
+      {/* Special offers: the old WordPress body (stock photo + "no offers at the moment") is replaced by the live campaigns. */}
+      {slug === "special-offers" ? <SpecialOffers locale={locale} /> : <div className="prose-atoll mt-8" dangerouslySetInnerHTML={{ __html: html }} />}
       <JsonLd
         data={[
           { "@context": "https://schema.org", "@type": "WebPage", name: title, url: `${SITE.url}/${lang}/${slug}`, inLanguage: lang, dateModified: p.updatedAt.toISOString(), isPartOf: { "@type": "WebSite", name: SITE.name, url: SITE.url } },

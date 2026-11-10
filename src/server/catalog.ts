@@ -2,7 +2,7 @@ import "server-only";
 import { db } from "@/lib/db";
 import type { VehicleClass } from "@/generated/prisma/client";
 import { availabilityByModel } from "./availability";
-import { campaignFor } from "@/content/campaigns";
+import { campaignFor, campaignsFor } from "@/content/campaigns";
 import { computeQuote, PricingError } from "./pricing";
 import { getSettings } from "./settings";
 import { validateWindow } from "./booking";
@@ -81,7 +81,7 @@ export async function search(params: { pickupAt: Date; returnAt: Date; pickupLoc
         pickupFee: pickup.pickupFee.toString(),
         returnFee: ret.returnFee.toString(),
         deliveryTiers: zone ? (zone.tiers as { minDays: number; fee: string }[]) : null,
-        campaign: campaignFor(m.slug),
+        campaigns: campaignsFor(m.slug),
         rules: settings,
       });
     } catch (e) {

@@ -429,6 +429,18 @@
     "cta": "Aracı incele ve rezervasyon yap",
     "more": "Kampanya detayları",
     "terms": "Bedava günler, kiralama süresindeki en düşük fiyatlı 3 gündür. Uzun kiralama indirimiyle birleştirilmez; hangisi daha avantajlıysa o uygulanır. Ekstralar ve teslimat ücretleri hariçtir.",
-    "example": "Standart günlük fiyatla örnek; sezona göre değişebilir."
+    "example": "Standart günlük fiyatla örnek; sezona göre değişebilir.",
+    "weekShort": "7 gün kirala, 6 öde",
+    "weekTitle": "Bir hafta kirala, bir günü bizden",
+    "weekLead": "Tüm araçlarımızda 7 gün ve üzeri kiralamalarda 1 günün ücretini biz karşılıyoruz. Kod yok, form yok: indirim fiyata kendiliğinden yansır.",
+    "weekDetail": "7 gün veya daha uzun kiralamada 1 gün bedava.",
+    "dayN": "{n}. gün",
+    "free": "Bedava",
+    "examplesTitle": "7 günlük örnek fiyatlar",
+    "pay6": "6 gün öde",
+    "pickDates": "Tarihlerinizi seçin",
+    "weekTerms": "Tüm araçlarda geçerlidir. Bedava gün, kiralama süresindeki en düşük fiyatlı gündür. Aylık kampanyası olan araçlarda daha avantajlı olan uygulanır; kampanyalar birbiriyle ve uzun kiralama indirimiyle birleştirilmez. Ekstralar ve teslimat ücretleri hariçtir.",
+    "pageLead": "Kuzey Kıbrıs'ta daha uzun kalın, daha az ödeyin. Kampanyalar rezervasyon sırasında fiyata otomatik uygulanır.",
+    "metaDescription": "Atoll Rent A Car kampanyaları: tüm araçlarda 7 gün kirala 6 öde, BMW 520d ve Hyundai i30'da 30 gün kirala 27 öde."
   }
 }

@@ -39,8 +39,8 @@ export interface QuoteInput {
   pickupFee: Decimal.Value;
   returnFee: Decimal.Value;
   deliveryTiers?: { minDays: number; fee: Decimal.Value }[] | null;
-  /** "Pay N days less" campaign for this model (src/content/campaigns.ts). */
-  campaign?: { code: string; minDays: number; freeDays: number } | null;
+  /** "Pay N days less" campaigns that can apply to this model (src/content/campaigns.ts); the best one wins. */
+  campaigns?: { code: string; minDays: number; freeDays: number }[];
   rules: RentalRules;
 }
 
@@ -124,11 +124,17 @@ export function computeQuote(input: QuoteInput): Quote {
   const tierPercent = tier ? new Decimal(tier.percent) : new Decimal(0);
   const tierTotal = m(rentalTotal.mul(tierPercent).div(100));
 
-  // Campaign: the cheapest `freeDays` days of the rental are free. Not stacked with the % discount; the larger saving wins.
-  const camp = input.campaign && days >= input.campaign.minDays && input.campaign.freeDays > 0 ? input.campaign : null;
-  const campTotal = camp
-    ? m(daily.map((d) => d.rate).sort((a, b) => a.comparedTo(b)).slice(0, Math.min(camp.freeDays, days)).reduce((s, r) => s.plus(r), new Decimal(0)))
-    : new Decimal(0);
+  // Campaigns: the cheapest `freeDays` days of the rental are free. Only the best campaign applies, and it is
+  // not stacked with the % discount; the larger saving wins.
+  const cheapest = daily.map((d) => d.rate).sort((a, b) => a.comparedTo(b));
+  const freeValue = (n: number) => m(cheapest.slice(0, Math.min(n, days)).reduce((s, r) => s.plus(r), new Decimal(0)));
+  let camp: { code: string; minDays: number; freeDays: number } | null = null;
+  let campTotal = new Decimal(0);
+  for (const c of input.campaigns ?? []) {
+    if (days < c.minDays || c.freeDays <= 0) continue;
+    const v = freeValue(c.freeDays);
+    if (v.gt(campTotal)) { camp = c; campTotal = v; }
+  }
   const useCampaign = camp !== null && campTotal.gt(tierTotal);
   const discountTotal = useCampaign ? campTotal : tierTotal;
   const discountPercent = useCampaign ? new Decimal(0) : tierPercent;

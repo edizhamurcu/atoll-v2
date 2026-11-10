@@ -2,7 +2,7 @@ import "server-only";
 import { createHash, randomBytes, timingSafeEqual } from "node:crypto";
 import { db } from "@/lib/db";
 import { Prisma } from "@/generated/prisma/client";
-import { campaignFor } from "@/content/campaigns";
+import { campaignsFor } from "@/content/campaigns";
 import { computeQuote, PricingError, type Quote } from "./pricing";
 import { getSettings, type BusinessSettings } from "./settings";
 import { freeVehicleIds } from "./availability";
@@ -77,7 +77,7 @@ export async function buildQuote(req: QuoteRequest, s?: BusinessSettings) {
       pickupFee: pickup.pickupFee.toString(),
       returnFee: ret.returnFee.toString(),
       deliveryTiers: zone ? (zone.tiers as { minDays: number; fee: string }[]) : null,
-      campaign: campaignFor(model.slug),
+      campaigns: campaignsFor(model.slug),
       rules: settings,
     });
     return { quote, model, pickup, ret, zone, extras: byCode, settings };
