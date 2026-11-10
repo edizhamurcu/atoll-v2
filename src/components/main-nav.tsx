@@ -70,6 +70,7 @@ export function MainNavView({ labels: l, path }: { labels: NavLabels; path: stri
   const [open, setOpen] = useState<Group | null>(null);
   const ref = useRef<HTMLElement>(null);
   const timer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const hoverAt = useRef(0);
   const id = useId();
   const active = activeGroup(path);
   const { rent, sale, discover } = items(l);
@@ -87,6 +88,7 @@ export function MainNavView({ labels: l, path }: { labels: NavLabels; path: stri
   const enter = (e: RPointerEvent, g: Group) => {
     if (e.pointerType !== "mouse") return;
     cancel();
+    if (open !== g) hoverAt.current = Date.now();
     setOpen(g);
   };
   const leave = (e: RPointerEvent) => {
@@ -109,7 +111,11 @@ export function MainNavView({ labels: l, path }: { labels: NavLabels; path: stri
         type="button"
         aria-expanded={isOpen}
         aria-controls={`${id}-${g}`}
-        onClick={() => setOpen(isOpen ? null : g)}
+        onClick={() => {
+          // A mouse hover has just opened this panel: the click that follows must not close it again.
+          if (isOpen && Date.now() - hoverAt.current < 600) return;
+          setOpen(isOpen ? null : g);
+        }}
         className={`flex items-center gap-2 whitespace-nowrap rounded-full px-3 py-2 text-sm font-semibold transition-colors xl:px-4 xl:text-[0.95rem] ${isOpen || isActive ? on : idle}`}
       >
         {dot && <span aria-hidden className={`size-2 rounded-full ${isOpen || isActive ? (tone === "gold" ? "bg-ink" : "bg-white") : dot}`} />}
@@ -198,6 +204,8 @@ function Feature({ tone, href, brand, pitch, cta, img, onPick, compact }: {
         width={1600}
         height={1200}
         sizes={compact ? "112px" : "240px"}
+        loading="eager"
+        fetchPriority="low"
         className={`rounded-2xl object-cover shadow-lg transition-transform duration-500 ${compact ? "aspect-[4/3] w-28 shrink-0 rotate-2" : "mt-auto aspect-[4/3] w-full translate-y-3 rotate-[-2deg] motion-safe:group-hover:translate-y-1 motion-safe:group-hover:rotate-0"}`}
       />
     </Link>
