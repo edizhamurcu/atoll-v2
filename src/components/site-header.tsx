@@ -8,6 +8,7 @@ export async function SiteHeader() {
   const t = await getTranslations("nav");
   const pages = [
     ["/car-prices", t("carPrices")],
+    ["/car-sales", t("carSales")],
     ["/about-us", t("aboutUs")],
     ["/rental-terms", t("rentalTerms")],
     ["/special-offers", t("specialOffers")],

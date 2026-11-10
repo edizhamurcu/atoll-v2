@@ -26,11 +26,12 @@
     "agreement": "Kiralama Sözleşmesi",
     "menu": "Menü",
     "close": "Kapat",
-    "blog": "Blog"
+    "blog": "Blog",
+    "carSales": "Satılık araçlar"
   },
   "hero": {
     "title": "Atoll Rent-A-Car ile daha ileri gidin!",
-    "lead": "Kuzey Kıbrıs'ta £30'dan başlayan araç kiralama. Girne ofisimizden Ercan, Larnaka ve Baf havalimanlarına kadar galerimizdeki 100'den fazla araç arasından seçin.",
+    "lead": "Kuzey Kıbrıs'ta günlük £30'dan başlayan araç kiralama. Girne ofisimizdeki filodan seçin; Ercan, Larnaka ve Baf havalimanlarına teslim edelim. Aynı binada OSK Auto ile araç satışı, servis ve yıkama.",
     "mapLabel": "Teslim noktalarımız"
   },
   "search": {
@@ -210,7 +211,7 @@
     "fact1Title": "Girne bölgesine ücretsiz teslimat",
     "fact1": "Alsancak, Çatalköy, Ozanköy, Karmi ve Girne merkez: aracı ücretsiz getiriyoruz.",
     "fact2Title": "Güney Kıbrıs'a geçiş",
-    "fact2": "Kiralama başına £50 Güney Kıbrıs güvencesi ekleyin, istediğiniz kapıdan geçin.",
+    "fact2": "Kiralamanıza £50'lık Güney Kıbrıs izin belgesini ekleyin. Rum sigortası sınırda (Metehan kapısı) alınır.",
     "fact3Title": "Larnaka ve Baf varışları",
     "fact3": "Güneye mi iniyorsunuz? Aracı Larnaka veya Baf havalimanında teslim alın.",
     "fact4Title": "Net fiyat, sürpriz yok",
@@ -230,9 +231,20 @@
     "fact5": "Tüm uluslararası ve ulusal ehliyetler kabul edilir. Kuzey Kıbrıs'ta araç kiralamak için minimum yaş 25'tir.",
     "fact6Title": "İptal",
     "fact6": "Kararlaştırılan teslim saatine 48 saatten az kala iptal edilen rezervasyonlarda %10 iptal ücreti uygulanır.",
-    "estateTitle": "Kuzey Kıbrıs'ta Gayrimenkul",
-    "estate": "Yıllar boyunca Kuzey Kıbrıs'ta mülk almanın başlıca nedenleri güneşli hava, düşük yaşam maliyeti, uygun fiyatlı mülkler, düşük suç oranı ve taze gıdalar oldu. Kuzey Kıbrıs mülkleri yatırımcılar için iyi bir yatırım vaat etmekle kalmıyor, yerleşmek ve emekli olmak için de popüler bir destinasyon haline geliyor.",
-    "estateCta": "Villa, daire ve ofis için bize sorun"
+    "oskEyebrow": "OSK Auto by Karaçay",
+    "oskTitle": "Aracınızı aynı binada satın alın, bakımını yaptırın",
+    "oskLead": "Atoll Rent A Car'ın hemen yanında OSK Auto yeni ve ikinci el araç satışı yapıyor; kendi atölyesi ve yıkamasıyla araçları en iyi durumda tutuyor.",
+    "oskSales": "Yeni ve ikinci el araç satışı",
+    "oskSalesText": "Araçları yerinde görebileceğiniz, içine oturup karşılaştırabileceğiniz aydınlık bir showroom.",
+    "oskWorkshop": "Mekanik onarım ve oto elektrik",
+    "oskWorkshopText": "Bakım, onarım ve elektrik arıza tespiti kendi atölyemizde.",
+    "oskBody": "Kaporta ve boya",
+    "oskBodyText": "Küçük çiziklerden büyük kaporta hasarlarına kadar onarım ve boya.",
+    "oskWash": "Araç yıkama",
+    "oskWashText": "İçi ve dışıyla gerçekten temiz teslim edilen araç.",
+    "oskShowroom": "Showroom'umuzdan",
+    "oskCta": "Satıştaki araçları görün",
+    "oskAbout": "Hakkımızda"
   },
   "footer": {
     "address": "157 Karaoğlanoğlu Caddesi, Alsancak, Girne, KKTC",
@@ -340,5 +352,35 @@
     "videoLabel": "Video: Alsancak'taki Atoll Auto & Rent A Car binası; kiralık filo, showroom, atölye ve araç yıkama",
     "pause": "Videoyu durdur",
     "play": "Videoyu oynat"
+  },
+  "sales": {
+    "title": "Yeni ve ikinci el araç satışı",
+    "metaTitle": "Girne'de satılık yeni ve ikinci el araçlar | OSK Auto by Karaçay",
+    "metaDescription": "Alsancak, Girne'de Atoll Rent A Car'ın yanında OSK Auto by Karaçay: showroom'da yeni ve ikinci el araçlar; kendi atölyemiz, kaporta-boya ve yıkamamızla.",
+    "lead": "OSK Auto by Karaçay, Alsancak'taki binamızı bizimle paylaşıyor. Showroom'a gelin, yeni ve ikinci el araçları yerinde görün; satıştan sonrası da tek adreste: bakım, onarım, kaporta ve boya, oto elektrik ve yıkama.",
+    "galleryTitle": "Showroom'dan kareler",
+    "galleryNote": "Fotoğraflar showroom'u gösterir; sergilenen araçlar düzenli olarak değişir.",
+    "whyTitle": "Neden OSK Auto'dan araç almalı?",
+    "why1": "Aracı yerinde görün, acele etmeden karşılaştırın.",
+    "why2": "Bakım, onarım, kaporta-boya ve oto elektrik aynı binadaki kendi atölyemizde.",
+    "why3": "Yerinde araç yıkama; aracınız temiz teslim edilir.",
+    "why4": "Atoll Rent A Car ile kiralama, satış ve servis tek adreste.",
+    "stockTitle": "Güncel stok ve fiyatlar",
+    "stockText": "Stokumuz sık değiştiği için fiyatları internette yayınlamıyoruz. Aradığınız aracı telefonla veya WhatsApp'tan bize yazın, bugün mevcut olanları söyleyelim.",
+    "callCta": "Arayın: {phone}",
+    "waCta": "WhatsApp'tan sorun",
+    "waText": "Merhaba, OSK Auto'daki satılık bir araçla ilgileniyorum.",
+    "contactCta": "Mesaj gönderin",
+    "servicesTitle": "Satıştan sonra",
+    "imgAlt": {
+      "mercedes": "OSK Auto showroom'unda Mercedes SUV",
+      "bmwX6": "Showroom'da sıralanmış BMW SUV'lar",
+      "bmw": "Showroom'da sergilenen sedanlar",
+      "hall": "OSK Auto showroom salonu",
+      "workshop": "OSK Auto atölyesi",
+      "body": "Kaporta ve boya çalışması",
+      "wash": "OSK Auto'da araç yıkama",
+      "building": "Alsancak'taki Atoll Auto & Rent A Car binası"
+    }
   }
 }

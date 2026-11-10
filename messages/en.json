@@ -26,11 +26,12 @@
     "agreement": "Rental Agreement",
     "menu": "Menu",
     "close": "Close",
-    "blog": "Blog"
+    "blog": "Blog",
+    "carSales": "Cars for sale"
   },
   "hero": {
     "title": "Go further with Atoll Rent-A-Car!",
-    "lead": "Car rentals starting from as low as £30 in North Cyprus. Choose from over 100 vehicles in our gallery, from our Kyrenia office to Ercan, Larnaca and Paphos airports.",
+    "lead": "Car rental in North Cyprus from £30 a day. Choose from our fleet at the Kyrenia office, with delivery to Ercan, Larnaca and Paphos airports. In the same building, OSK Auto sells, services and washes cars.",
     "mapLabel": "Our pick-up points"
   },
   "search": {
@@ -210,7 +211,7 @@
     "fact1Title": "Free delivery around Kyrenia",
     "fact1": "Alsancak, Çatalköy, Ozanköy, Karmi and Kyrenia town: we bring the car to you at no charge.",
     "fact2Title": "Drive into South Cyprus",
-    "fact2": "Add South Cyprus cover for £50 per rental and cross at any checkpoint.",
+    "fact2": "Add the £50 South Cyprus permit to your rental. Greek Cypriot insurance is bought at the border (Metehan crossing).",
     "fact3Title": "Larnaca and Paphos arrivals",
     "fact3": "Landing in the south? Collect the car at Larnaca or Paphos airport.",
     "fact4Title": "Clear prices, no surprises",
@@ -230,9 +231,20 @@
     "fact5": "All international and national licences are accepted. The minimum age for car hire in Northern Cyprus is 25.",
     "fact6Title": "Cancellation",
     "fact6": "A 10% cancellation fee applies to bookings cancelled less than 48 hours before the agreed pick-up time.",
-    "estateTitle": "Real Estate in North Cyprus",
-    "estate": "Over the years the main reason to buying property in North Cyprus was the great sunny weather, low cost living, cheap properties, low crime and fresh foods. North Cyprus properties is not only promising to be a good investment for investors but also becoming a popular destination to relocate and retire.",
-    "estateCta": "Ask about villas, apartments and office space"
+    "oskEyebrow": "OSK Auto by Karaçay",
+    "oskTitle": "Buy, service and look after your car in the same building",
+    "oskLead": "Next door to Atoll Rent A Car, OSK Auto sells new and used cars and keeps them in top shape with its own workshop and car wash.",
+    "oskSales": "New and used car sales",
+    "oskSalesText": "A bright showroom with cars you can see, sit in and compare.",
+    "oskWorkshop": "Mechanical repair and auto electrics",
+    "oskWorkshopText": "Servicing, repairs and electrical diagnostics in our own workshop.",
+    "oskBody": "Body and paint",
+    "oskBodyText": "From small scratches to larger bodywork, repaired and refinished.",
+    "oskWash": "Car wash",
+    "oskWashText": "Inside and out, your car handed back properly clean.",
+    "oskShowroom": "From our showroom",
+    "oskCta": "See cars for sale",
+    "oskAbout": "About us"
   },
   "footer": {
     "address": "157 Karaoğlanoğlu Caddesi, Alsancak, Kyrenia, North Cyprus",
@@ -340,5 +352,35 @@
     "videoLabel": "Video: the Atoll Auto & Rent A Car building in Alsancak, with the rental fleet, showroom, workshop and car wash",
     "pause": "Pause video",
     "play": "Play video"
+  },
+  "sales": {
+    "title": "New and used cars for sale",
+    "metaTitle": "New and used cars for sale in Kyrenia | OSK Auto by Karaçay",
+    "metaDescription": "OSK Auto by Karaçay, next to Atoll Rent A Car in Alsancak, Kyrenia: new and used cars in our showroom, with our own workshop, body shop and car wash.",
+    "lead": "OSK Auto by Karaçay shares our building in Alsancak, Kyrenia. Visit the showroom to see new and used cars in person, and keep everything after the sale in one place: servicing, repairs, body and paint, auto electrics and car wash.",
+    "galleryTitle": "A look around the showroom",
+    "galleryNote": "Photos show the showroom; the cars on display change regularly.",
+    "whyTitle": "Why buy from OSK Auto",
+    "why1": "See the car in person and take your time to compare.",
+    "why2": "Servicing, repairs, body and paint and auto electrics in our own workshop in the same building.",
+    "why3": "A car wash on site, so your car leaves clean.",
+    "why4": "Rental, sales and service at one address with Atoll Rent A Car.",
+    "stockTitle": "Current stock and prices",
+    "stockText": "Our stock changes often, so we don't list prices online. Call or message us on WhatsApp with the car you are looking for and we'll tell you what is available today.",
+    "callCta": "Call {phone}",
+    "waCta": "Ask on WhatsApp",
+    "waText": "Hello, I'm interested in a car for sale at OSK Auto.",
+    "contactCta": "Send a message",
+    "servicesTitle": "After the sale",
+    "imgAlt": {
+      "mercedes": "Mercedes SUV in the OSK Auto showroom",
+      "bmwX6": "BMW SUVs lined up in the showroom",
+      "bmw": "Sedans on display in the showroom",
+      "hall": "The OSK Auto showroom hall",
+      "workshop": "OSK Auto workshop",
+      "body": "Body and paint work in progress",
+      "wash": "Car wash at OSK Auto",
+      "building": "Atoll Auto & Rent A Car building in Alsancak"
+    }
   }
 }

@@ -3,6 +3,7 @@ import { getTranslations } from "next-intl/server";
 import { CyprusMap, MAP_POINTS } from "@/components/cyprus-map";
 import { SearchSection, SearchSkeleton } from "@/components/search-section";
 import { FleetSection, FleetSkeleton } from "@/components/fleet-section";
+import { OskSection } from "@/components/osk-section";
 import type { Locale } from "@/server/catalog";
 import { LocalBusinessJsonLd } from "@/components/local-business-jsonld";
 import { WHATSAPP, PHONE } from "@/lib/contact";
@@ -75,15 +76,7 @@ export default async function Home({ params }: PageProps<"/[locale]">) {
           ))}
         </dl>
       </section>
-      <section className="mx-auto mt-24 max-w-6xl px-5" aria-labelledby="estate">
-        <div className="grid gap-6 border-t border-ink/10 pt-10 md:grid-cols-[1fr_1.4fr]">
-          <h2 id="estate" className="text-3xl font-extrabold md:text-4xl">{h("estateTitle")}</h2>
-          <div>
-            <p className="text-lg text-ink-soft">{h("estate")}</p>
-            <a href={`https://wa.me/${WHATSAPP.replace(/\D/g, "")}?text=${encodeURIComponent("Real Estate in North Cyprus")}`} className="btn-quiet mt-5" rel="noopener">{h("estateCta")}</a>
-          </div>
-        </div>
-      </section>
+      <OskSection />
 
       <section className="mx-auto mt-24 max-w-6xl px-5" aria-labelledby="cta">
         <div className="flex flex-col gap-6 rounded-[var(--radius-panel)] bg-ink px-6 py-10 text-white md:flex-row md:items-center md:justify-between md:px-10">

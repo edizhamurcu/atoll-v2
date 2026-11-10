@@ -24,6 +24,7 @@ export async function SiteFooter() {
           <ul className="space-y-2">
             <li><Link href="/cars" className="hover:text-ink">{n("explore")}</Link></li>
             <li><Link href="/about-us" className="hover:text-ink">{n("aboutUs")}</Link></li>
+            <li><Link href="/car-sales" className="hover:text-ink">{n("carSales")}</Link></li>
             <li><Link href="/contact" className="hover:text-ink">{n("contactUs")}</Link></li>
             <li><Link href="/north-cyprus-guide" className="hover:text-ink">{n("guide")}</Link></li>
             <li><Link href="/blog" className="hover:text-ink">{n("blog")}</Link></li>

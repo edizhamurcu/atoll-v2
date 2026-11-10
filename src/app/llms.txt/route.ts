@@ -31,6 +31,7 @@ export async function GET() {
 - Live availability and instant online booking on the website
 - Contact (phone and WhatsApp): ${SITE.phone} (primary), ${SITE.phone2}; email ${SITE.email}
 - Address: ${SITE.address.street}, ${SITE.address.locality}, ${SITE.address.region}, ${SITE.address.country}
+- Same building: OSK Auto by Karaçay — new and used car sales, car wash, body and paint, mechanical repair and auto electrics (${SITE.url}/en/car-sales)
 - Opening hours: ${SITE.hours}
 
 ## Pick-up locations

@@ -15,7 +15,7 @@ async function load() {
   return cache;
 }
 
-const STATIC = new Set(["cars", "car-prices", "contact", "booking", "blog", "north-cyprus-guide"]);
+const STATIC = new Set(["cars", "car-prices", "car-sales", "contact", "booking", "blog", "north-cyprus-guide"]);
 
 /** true = known route, false = definitely missing, null = not a DB-backed path (let Next decide). */
 export async function dbRouteExists(segments: string[]): Promise<boolean | null> {

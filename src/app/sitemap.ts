@@ -28,6 +28,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...localized("", now, 1, "daily"),
     ...localized("/cars", now, 0.9, "daily"),
     ...localized("/car-prices", now, 0.8, "weekly"),
+    ...localized("/car-sales", now, 0.7, "monthly"),
     ...localized("/contact", now, 0.6, "monthly"),
     ...models.flatMap((m) => localized(`/cars/${m.slug}`, m.updatedAt, 0.8, "weekly")),
     ...localized("/north-cyprus-guide", new Date("2026-11-08"), 0.8, "monthly"),

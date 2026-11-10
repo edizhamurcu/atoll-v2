@@ -191,3 +191,18 @@ describe("contact details (owner corrections 2026-11-09)", () => {
     expect(readFileSync("src/components/site-footer.tsx", "utf8")).toContain("PHONES.map");
   });
 });
+
+describe("home page and car sales copy (2026-11-10)", () => {
+  it("real estate block is gone and OSK/sales copy exists in every language", () => {
+    const en = JSON.parse(readFileSync("messages/en.json", "utf8"));
+    for (const l of ["en", "tr", "de", "ru"]) {
+      const m = JSON.parse(readFileSync(`messages/${l}.json`, "utf8"));
+      expect(m.home.estate, l).toBeUndefined();
+      for (const k of ["oskTitle", "oskLead", "oskCta", "oskSales", "oskWorkshop", "oskBody", "oskWash"]) expect(m.home[k], `${l}.${k}`).toBeTruthy();
+      expect(Object.keys(m.sales).sort(), l).toEqual(Object.keys(en.sales).sort());
+      expect(Object.keys(m.sales.imgAlt).sort(), l).toEqual(Object.keys(en.sales.imgAlt).sort());
+      expect(m.hero.lead, l).not.toMatch(/100/);
+      expect(m.home.fact2, l).toMatch(/Metehan|Метехан/);
+    }
+  });
+});

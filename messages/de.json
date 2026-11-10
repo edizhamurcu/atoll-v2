@@ -26,11 +26,12 @@
     "agreement": "Mietvertrag",
     "menu": "Menü",
     "close": "Schließen",
-    "blog": "Blog"
+    "blog": "Blog",
+    "carSales": "Autos zu verkaufen"
   },
   "hero": {
     "title": "Weiter kommen mit Atoll Rent-A-Car!",
-    "lead": "Mietwagen in Nordzypern ab nur £30. Wählen Sie aus über 100 Fahrzeugen, von unserem Büro in Kyrenia bis zu den Flughäfen Ercan, Larnaka und Paphos.",
+    "lead": "Mietwagen in Nordzypern ab £30 pro Tag. Wählen Sie aus unserer Flotte im Büro in Kyrenia, mit Übergabe an den Flughäfen Ercan, Larnaka und Paphos. Im selben Gebäude: OSK Auto mit Autoverkauf, Service und Autowäsche.",
     "mapLabel": "Unsere Abholorte"
   },
   "search": {
@@ -210,7 +211,7 @@
     "fact1Title": "Kostenlose Zustellung rund um Kyrenia",
     "fact1": "Alsancak, Çatalköy, Ozanköy, Karmi und Kyrenia: Wir bringen das Auto kostenlos zu Ihnen.",
     "fact2Title": "Fahrten nach Südzypern",
-    "fact2": "Fügen Sie für £50 pro Miete den Südzypern-Schutz hinzu und überqueren Sie jeden Grenzübergang.",
+    "fact2": "Buchen Sie die Südzypern-Genehmigung für £50 dazu. Die griechisch-zyprische Versicherung kaufen Sie an der Grenze (Übergang Metehan).",
     "fact3Title": "Ankunft in Larnaka und Paphos",
     "fact3": "Landen Sie im Süden? Holen Sie das Auto am Flughafen Larnaka oder Paphos ab.",
     "fact4Title": "Klare Preise, keine Überraschungen",
@@ -230,9 +231,20 @@
     "fact5": "Alle internationalen und nationalen Führerscheine werden akzeptiert. Das Mindestalter für die Anmietung in Nordzypern beträgt 25 Jahre.",
     "fact6Title": "Stornierung",
     "fact6": "Bei Stornierung weniger als 48 Stunden vor der vereinbarten Abholzeit fällt eine Gebühr von 10 % an.",
-    "estateTitle": "Immobilien in Nordzypern",
-    "estate": "Seit Jahren sind das sonnige Wetter, niedrige Lebenshaltungskosten, günstige Immobilien, geringe Kriminalität und frische Lebensmittel die Hauptgründe für einen Immobilienkauf in Nordzypern. Immobilien in Nordzypern sind nicht nur eine vielversprechende Investition, sondern auch ein beliebtes Ziel für Umzug und Ruhestand.",
-    "estateCta": "Fragen Sie nach Villen, Wohnungen und Büros"
+    "oskEyebrow": "OSK Auto by Karaçay",
+    "oskTitle": "Auto kaufen, warten und pflegen im selben Gebäude",
+    "oskLead": "Direkt neben Atoll Rent A Car verkauft OSK Auto Neu- und Gebrauchtwagen und hält sie mit eigener Werkstatt und Autowäsche in Bestform.",
+    "oskSales": "Neu- und Gebrauchtwagenverkauf",
+    "oskSalesText": "Ein heller Showroom: Autos ansehen, Probe sitzen und vergleichen.",
+    "oskWorkshop": "Mechanik und Autoelektrik",
+    "oskWorkshopText": "Wartung, Reparaturen und Elektrikdiagnose in unserer eigenen Werkstatt.",
+    "oskBody": "Karosserie und Lack",
+    "oskBodyText": "Von kleinen Kratzern bis zu größeren Karosserieschäden, repariert und lackiert.",
+    "oskWash": "Autowäsche",
+    "oskWashText": "Innen und außen, Ihr Auto kommt richtig sauber zurück.",
+    "oskShowroom": "Aus unserem Showroom",
+    "oskCta": "Fahrzeuge zum Verkauf ansehen",
+    "oskAbout": "Über uns"
   },
   "footer": {
     "address": "157 Karaoğlanoğlu Caddesi, Alsancak, Kyrenia, Nordzypern",
@@ -340,5 +352,35 @@
     "videoLabel": "Video: das Gebäude von Atoll Auto & Rent A Car in Alsancak mit Mietflotte, Showroom, Werkstatt und Autowäsche",
     "pause": "Video anhalten",
     "play": "Video abspielen"
+  },
+  "sales": {
+    "title": "Neu- und Gebrauchtwagen zu verkaufen",
+    "metaTitle": "Neu- und Gebrauchtwagen in Kyrenia | OSK Auto by Karaçay",
+    "metaDescription": "OSK Auto by Karaçay neben Atoll Rent A Car in Alsancak, Kyrenia: Neu- und Gebrauchtwagen im Showroom, mit eigener Werkstatt, Karosserie und Autowäsche.",
+    "lead": "OSK Auto by Karaçay teilt sich unser Gebäude in Alsancak, Kyrenia. Besuchen Sie den Showroom und sehen Sie sich Neu- und Gebrauchtwagen vor Ort an – und auch nach dem Kauf ist alles an einem Ort: Wartung, Reparatur, Karosserie und Lack, Autoelektrik und Autowäsche.",
+    "galleryTitle": "Ein Blick in den Showroom",
+    "galleryNote": "Die Fotos zeigen den Showroom; die ausgestellten Fahrzeuge wechseln regelmäßig.",
+    "whyTitle": "Warum bei OSK Auto kaufen",
+    "why1": "Das Auto vor Ort ansehen und in Ruhe vergleichen.",
+    "why2": "Wartung, Reparatur, Karosserie und Lack sowie Autoelektrik in unserer eigenen Werkstatt im selben Gebäude.",
+    "why3": "Autowäsche vor Ort – Ihr Auto fährt sauber vom Hof.",
+    "why4": "Vermietung, Verkauf und Service an einer Adresse mit Atoll Rent A Car.",
+    "stockTitle": "Aktueller Bestand und Preise",
+    "stockText": "Unser Bestand wechselt oft, daher veröffentlichen wir keine Preise online. Rufen Sie an oder schreiben Sie per WhatsApp, welches Auto Sie suchen – wir sagen Ihnen, was heute verfügbar ist.",
+    "callCta": "Anrufen: {phone}",
+    "waCta": "Per WhatsApp fragen",
+    "waText": "Hallo, ich interessiere mich für ein Auto bei OSK Auto.",
+    "contactCta": "Nachricht senden",
+    "servicesTitle": "Nach dem Kauf",
+    "imgAlt": {
+      "mercedes": "Mercedes-SUV im Showroom von OSK Auto",
+      "bmwX6": "BMW-SUVs im Showroom",
+      "bmw": "Ausgestellte Limousinen im Showroom",
+      "hall": "Die Showroom-Halle von OSK Auto",
+      "workshop": "Werkstatt von OSK Auto",
+      "body": "Karosserie- und Lackarbeiten",
+      "wash": "Autowäsche bei OSK Auto",
+      "building": "Gebäude von Atoll Auto & Rent A Car in Alsancak"
+    }
   }
 }
