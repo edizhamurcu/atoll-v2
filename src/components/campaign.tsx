@@ -63,16 +63,18 @@ export async function SpecialOffers({ locale }: { locale: string }) {
               {examples.map((m) => {
                 const rate = new Decimal(m.dailyRate.toString());
                 return (
-                  <li key={m.class} className="flex items-center gap-3 rounded-2xl bg-white p-3 text-ink">
-                    <div className="relative aspect-[4/3] w-24 shrink-0 overflow-hidden rounded-xl">
-                      <CarImage src={m.images[0]} alt={`${m.make} ${m.model}`} sizes="96px" />
+                  <li key={m.class} className="overflow-hidden rounded-2xl bg-white text-ink">
+                    <div className="relative aspect-[16/10]">
+                      <CarImage src={m.images[0]} alt={`${m.make} ${m.model}`} sizes="(min-width:640px) 260px, 100vw" />
                     </div>
-                    <div className="min-w-0">
-                      <p className="text-sm font-semibold text-ink-soft">{tc(m.class)}</p>
-                      <p className="truncate font-bold">{m.make} {m.model}</p>
-                      <p className="text-sm">
-                        <span className="text-ink-soft line-through">{money(rate.mul(w.minDays).toFixed(2), locale)}</span>{" "}
-                        <span className="font-extrabold text-bougain">{money(rate.mul(w.minDays - w.freeDays).toFixed(2), locale)}</span>
+                    <div className="flex items-end justify-between gap-3 p-4">
+                      <div className="min-w-0">
+                        <p className="text-sm font-semibold text-ink-soft">{tc(m.class)}</p>
+                        <p className="font-bold">{m.make} {m.model}</p>
+                      </div>
+                      <p className="shrink-0 text-right">
+                        <span className="block text-sm text-ink-soft line-through">{money(rate.mul(w.minDays).toFixed(2), locale)}</span>
+                        <span className="text-xl font-extrabold text-bougain">{money(rate.mul(w.minDays - w.freeDays).toFixed(2), locale)}</span>
                       </p>
                     </div>
                   </li>
