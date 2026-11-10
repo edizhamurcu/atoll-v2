@@ -7,9 +7,9 @@ import { CarImage } from "./car-image";
 import { money, queryToState } from "@/lib/search-params";
 
 type Result = {
-  slug: string; name: string; class: string; bodyType: string; transmission: string; fuel: string; seats: number; images: string[]; dailyRate: string;
+  slug: string; campaign?: boolean; name: string; class: string; bodyType: string; transmission: string; fuel: string; seats: number; images: string[]; dailyRate: string;
   availability: { available: boolean; count: number; total: number };
-  quote: { days: number; total: string; averageDaily: string; deposit: string; discountPercent: string } | null;
+  quote: { days: number; total: string; averageDaily: string; deposit: string; discountPercent: string; campaignFreeDays?: number } | null;
 };
 
 export function Results() {
@@ -17,6 +17,7 @@ export function Results() {
   const tc = useTranslations("classes");
   const tx = useTranslations("transmission");
   const tcar = useTranslations("car");
+  const tcamp = useTranslations("campaign");
   const locale = useLocale();
   const params = useSearchParams();
   const state = queryToState(params);
@@ -113,6 +114,7 @@ export function Results() {
               <li key={r.slug} className={ok ? "" : "opacity-60"}>
                 <div className="relative aspect-[4/3] overflow-hidden rounded-2xl">
                   <CarImage src={r.images[0]} alt={r.name} sizes="(min-width:1024px) 33vw, (min-width:640px) 50vw, 100vw" />
+                  {r.campaign && <span className="absolute left-3 top-3 rounded-full bg-bougain px-3 py-1 text-xs font-bold text-white shadow">{tcamp("short")}</span>}
                 </div>
                 <div className="mt-3 flex items-start justify-between gap-3">
                   <div>
@@ -129,6 +131,7 @@ export function Results() {
                 <p className={`mt-2 text-sm font-semibold ${ok ? "text-bougain" : "text-ink-soft"}`}>
                   {ok ? t("available", { count: r.availability.count }) : t("soldOut")}
                 </p>
+                {r.quote && (r.quote.campaignFreeDays ?? 0) > 0 && <p className="text-xs font-semibold text-bougain">{tcamp("applied", { days: r.quote.campaignFreeDays! })}</p>}
                 {r.quote && Number(r.quote.discountPercent) > 0 && <p className="text-xs text-ink-soft">{t("discount", { percent: Number(r.quote.discountPercent) })}</p>}
                 {ok ? (
                   <Link href={`/cars/${r.slug}?${qs}`} className="btn-ink mt-4 w-full">{t("select")}</Link>

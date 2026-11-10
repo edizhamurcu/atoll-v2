@@ -228,3 +228,16 @@ describe("footer mirrors the header (2026-11-10)", () => {
     }
   });
 });
+
+describe("monthly campaign config (2026-11-10)", () => {
+  it("BMW 520d and Hyundai i30: 30+ days, 3 days free; translations in every language", async () => {
+    const { campaignFor } = await import("./campaigns");
+    for (const slug of ["bmw-520d", "hyundai-i30"]) expect(campaignFor(slug)).toMatchObject({ minDays: 30, freeDays: 3 });
+    expect(campaignFor("toyota-vitz")).toBeNull();
+    const en = JSON.parse(readFileSync("messages/en.json", "utf8")).campaign;
+    for (const l of ["tr", "de", "ru"]) {
+      const c = JSON.parse(readFileSync(`messages/${l}.json`, "utf8")).campaign;
+      expect(Object.keys(c).sort(), l).toEqual(Object.keys(en).sort());
+    }
+  });
+});

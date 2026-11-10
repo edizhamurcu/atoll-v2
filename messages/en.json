@@ -412,5 +412,20 @@
     "general": "More pages",
     "rentGroup": "Rental cars menu",
     "saleGroup": "Cars for sale menu"
+  },
+  "campaign": {
+    "tag": "Offer",
+    "short": "Rent 30 days, pay 27",
+    "detail": "Rent this car for 30 days or more and 3 days come off the total.",
+    "applied": "Offer: {days} days free",
+    "offersTitle": "Monthly rental offer",
+    "offersLead": "Rent one of these cars for 30 days or more and we cover 3 days.",
+    "normal": "Standard 30-day price",
+    "campaignPrice": "Offer price",
+    "save": "You save {amount}",
+    "cta": "See the car and book",
+    "more": "Offer details",
+    "terms": "The free days are the 3 lowest-priced days of your rental. Not combined with the long-rental discount; whichever saves you more applies. Extras and delivery fees are not included.",
+    "example": "Example at the standard daily rate; seasonal prices may differ."
   }
 }

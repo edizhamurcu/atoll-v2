@@ -2,6 +2,7 @@ import "server-only";
 import { db } from "@/lib/db";
 import type { VehicleClass } from "@/generated/prisma/client";
 import { availabilityByModel } from "./availability";
+import { campaignFor } from "@/content/campaigns";
 import { computeQuote, PricingError } from "./pricing";
 import { getSettings } from "./settings";
 import { validateWindow } from "./booking";
@@ -16,6 +17,7 @@ export const t = (v: unknown, locale: Locale): string => {
 export function serializeModel(m: Awaited<ReturnType<typeof listModels>>[number], locale: Locale) {
   return {
     slug: m.slug,
+    campaign: campaignFor(m.slug) !== null,
     name: `${m.make} ${m.model}`,
     make: m.make,
     model: m.model,
@@ -79,6 +81,7 @@ export async function search(params: { pickupAt: Date; returnAt: Date; pickupLoc
         pickupFee: pickup.pickupFee.toString(),
         returnFee: ret.returnFee.toString(),
         deliveryTiers: zone ? (zone.tiers as { minDays: number; fee: string }[]) : null,
+        campaign: campaignFor(m.slug),
         rules: settings,
       });
     } catch (e) {
@@ -88,7 +91,7 @@ export async function search(params: { pickupAt: Date; returnAt: Date; pickupLoc
     return {
       ...serializeModel(m, params.locale),
       availability: { available: a.available > 0, count: a.available, total: a.total },
-      quote: quote && { days: quote.days, total: quote.grandTotal, averageDaily: quote.averageDaily, deposit: quote.depositAmount, discountPercent: quote.discountPercent },
+      quote: quote && { days: quote.days, total: quote.grandTotal, averageDaily: quote.averageDaily, deposit: quote.depositAmount, discountPercent: quote.discountPercent, campaignFreeDays: quote.campaignFreeDays },
     };
   });
   results.sort((a, b) => Number(b.availability.available) - Number(a.availability.available));

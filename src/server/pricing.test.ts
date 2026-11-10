@@ -119,3 +119,46 @@ describe("computeQuote", () => {
     expect(() => computeQuote(base({ rules: { ...rules, minDays: 3 }, returnAt: at("2027-06-02T10:00:00+03:00") }))).toThrow(/Minimum/);
   });
 });
+
+describe("campaign: rent 30 days, pay 27 (2026-11-10)", () => {
+  const camp = { code: "month_3_days_free", minDays: 30, freeDays: 3 };
+  const days = (n: number) => ({ returnAt: new Date(at("2027-06-01T10:00:00+03:00").getTime() + n * 86_400_000) });
+
+  it("30 days at £30 -> pays 27 days (£810)", () => {
+    const q = computeQuote(base({ ...days(30), campaign: camp }));
+    expect(q.days).toBe(30);
+    expect(q.rentalTotal).toBe("900.00");
+    expect(q.discountTotal).toBe("90.00");
+    expect(q.grandTotal).toBe("810.00");
+    expect(q.campaignFreeDays).toBe(3);
+    expect(q.lines.find((l) => l.kind === "discount")?.code).toBe("campaign_month_3_days_free");
+  });
+  it("BMW 520d: 30 days at £90 -> £2430", () => {
+    expect(computeQuote(base({ ...days(30), baseDailyRate: "90", campaign: camp })).grandTotal).toBe("2430.00");
+  });
+  it("29 days: no campaign", () => {
+    const q = computeQuote(base({ ...days(29), campaign: camp }));
+    expect(q.discountTotal).toBe("0.00");
+    expect(q.campaignFreeDays).toBe(0);
+  });
+  it("longer than a month: still 3 free days", () => {
+    expect(computeQuote(base({ ...days(45), campaign: camp })).discountTotal).toBe("90.00");
+  });
+  it("free days are the cheapest days when seasons differ", () => {
+    const q = computeQuote(base({ ...days(30), campaign: camp, seasonRates: [{ startDate: "2027-06-01", endDate: "2027-06-27", dailyRate: "50" }] }));
+    // 27 days at 50 + 3 days at the base 30; the three £30 days are free
+    expect(q.rentalTotal).toBe("1440.00");
+    expect(q.discountTotal).toBe("90.00");
+  });
+  it("not stacked with the long-rental discount: the larger saving wins", () => {
+    const small = computeQuote(base({ ...days(30), campaign: camp, discounts: [{ minDays: 30, percent: 5 }] }));
+    expect(small.discountTotal).toBe("90.00"); // 3 days (£90) > 5% (£45)
+    expect(small.discountPercent).toBe("0.00");
+    const big = computeQuote(base({ ...days(30), campaign: camp, discounts: [{ minDays: 30, percent: 15 }] }));
+    expect(big.discountTotal).toBe("135.00"); // 15% (£135) > 3 days
+    expect(big.campaignFreeDays).toBe(0);
+  });
+  it("cars without a campaign are unchanged", () => {
+    expect(computeQuote(base(days(30))).grandTotal).toBe("900.00");
+  });
+});

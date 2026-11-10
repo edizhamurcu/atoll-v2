@@ -6,11 +6,12 @@ import { useRouter } from "@/i18n/navigation";
 import { money, queryToState } from "@/lib/search-params";
 
 type Extra = { code: string; name: string; pricing: "PER_DAY" | "PER_RENTAL"; price: string; maxQty: number };
-type Quote = { days: number; rentalTotal: string; discountTotal: string; extrasTotal: string; feesTotal: string; grandTotal: string; depositAmount: string; payOnPickup: string; lines: { kind: string; code: string; total: string }[] };
+type Quote = { days: number; rentalTotal: string; discountTotal: string; campaignFreeDays?: number; extrasTotal: string; feesTotal: string; grandTotal: string; depositAmount: string; payOnPickup: string; lines: { kind: string; code: string; total: string }[] };
 
 export function BookingPanel({ slug, extras }: { slug: string; extras: Extra[] }) {
   const t = useTranslations("booking");
   const tr = useTranslations("results");
+  const tcamp = useTranslations("campaign");
   const locale = useLocale();
   const router = useRouter();
   const params = useSearchParams();
@@ -128,7 +129,7 @@ export function BookingPanel({ slug, extras }: { slug: string; extras: Extra[] }
           <h3 id="sum" className="text-lg font-bold">{t("summary")}</h3>
           <dl className="mt-3 space-y-1.5 text-sm">
             <Row label={t("rental", { days: quote.days })} value={money(quote.rentalTotal, locale)} />
-            {Number(quote.discountTotal) > 0 && <Row label={t("discount")} value={`−${money(quote.discountTotal, locale)}`} />}
+            {Number(quote.discountTotal) > 0 && <Row label={(quote.campaignFreeDays ?? 0) > 0 ? tcamp("applied", { days: quote.campaignFreeDays! }) : t("discount")} value={`−${money(quote.discountTotal, locale)}`} />}
             {Number(quote.extrasTotal) > 0 && <Row label={t("extras")} value={money(quote.extrasTotal, locale)} />}
             {Number(quote.feesTotal) > 0 && <Row label={t("fees")} value={money(quote.feesTotal, locale)} />}
             <div className="flex justify-between border-t border-ink/10 pt-2 text-base font-bold">

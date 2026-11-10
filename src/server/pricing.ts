@@ -39,6 +39,8 @@ export interface QuoteInput {
   pickupFee: Decimal.Value;
   returnFee: Decimal.Value;
   deliveryTiers?: { minDays: number; fee: Decimal.Value }[] | null;
+  /** "Pay N days less" campaign for this model (src/content/campaigns.ts). */
+  campaign?: { code: string; minDays: number; freeDays: number } | null;
   rules: RentalRules;
 }
 
@@ -57,6 +59,9 @@ export interface Quote {
   rentalTotal: Money;
   discountPercent: Money;
   discountTotal: Money;
+  /** Days given free by a campaign (0 when the long-rental % discount or nothing applied). */
+  campaignFreeDays: number;
+  campaignCode: string | null;
   extrasTotal: Money;
   feesTotal: Money;
   grandTotal: Money;
@@ -116,13 +121,24 @@ export function computeQuote(input: QuoteInput): Quote {
   const rentalTotal = daily.reduce((s, d) => s.plus(d.rate), new Decimal(0));
 
   const tier = pickTier(input.discounts, days);
-  const discountPercent = tier ? new Decimal(tier.percent) : new Decimal(0);
-  const discountTotal = m(rentalTotal.mul(discountPercent).div(100));
+  const tierPercent = tier ? new Decimal(tier.percent) : new Decimal(0);
+  const tierTotal = m(rentalTotal.mul(tierPercent).div(100));
+
+  // Campaign: the cheapest `freeDays` days of the rental are free. Not stacked with the % discount; the larger saving wins.
+  const camp = input.campaign && days >= input.campaign.minDays && input.campaign.freeDays > 0 ? input.campaign : null;
+  const campTotal = camp
+    ? m(daily.map((d) => d.rate).sort((a, b) => a.comparedTo(b)).slice(0, Math.min(camp.freeDays, days)).reduce((s, r) => s.plus(r), new Decimal(0)))
+    : new Decimal(0);
+  const useCampaign = camp !== null && campTotal.gt(tierTotal);
+  const discountTotal = useCampaign ? campTotal : tierTotal;
+  const discountPercent = useCampaign ? new Decimal(0) : tierPercent;
 
   const lines: QuoteLine[] = [
     { kind: "rental", code: "rental", label: "Car rental", quantity: days, unit: fmt(rentalTotal.div(days)), total: fmt(rentalTotal) },
   ];
-  if (discountTotal.gt(0)) {
+  if (useCampaign) {
+    lines.push({ kind: "discount", code: `campaign_${camp!.code}`, label: `Campaign: ${camp!.freeDays} days free`, quantity: camp!.freeDays, unit: fmt(campTotal.div(camp!.freeDays).neg()), total: fmt(campTotal.neg()) });
+  } else if (discountTotal.gt(0)) {
     lines.push({ kind: "discount", code: `discount_${tier!.minDays}d`, label: `${discountPercent.toString()}% long-rental discount`, quantity: 1, unit: fmt(discountTotal.neg()), total: fmt(discountTotal.neg()) });
   }
 
@@ -175,6 +191,8 @@ export function computeQuote(input: QuoteInput): Quote {
     rentalTotal: fmt(rentalTotal),
     discountPercent: discountPercent.toFixed(2),
     discountTotal: fmt(discountTotal),
+    campaignFreeDays: useCampaign ? camp!.freeDays : 0,
+    campaignCode: useCampaign ? camp!.code : null,
     extrasTotal: fmt(extrasTotal),
     feesTotal: fmt(feesTotal),
     grandTotal: fmt(grandTotal),

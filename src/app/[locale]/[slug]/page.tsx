@@ -9,6 +9,7 @@ import { routing } from "@/i18n/routing";
 import { pageTranslation, translatedLocales } from "@/content/page-i18n";
 import { withExcessList } from "@/content/damage-excess";
 import { AboutVideo } from "@/components/about-video";
+import { CampaignOffers } from "@/components/campaign";
 
 export async function generateMetadata({ params }: PageProps<"/[locale]/[slug]">): Promise<Metadata> {
   const { locale, slug } = await params;
@@ -53,6 +54,7 @@ async function Content({ params }: { params: PageProps<"/[locale]/[slug]">["para
       <Breadcrumbs locale={locale} items={[{ name: "Atoll Rent A Car", href: "/" }, { name: title, href: `/${slug}` }]} />
       <h1 className="mt-4 text-4xl font-extrabold md:text-5xl">{title}</h1>
       {slug === "about-us" && <AboutVideo />}
+      {slug === "special-offers" && <CampaignOffers locale={locale} />}
       <div className="prose-atoll mt-8" dangerouslySetInnerHTML={{ __html: html }} />
       <JsonLd
         data={[

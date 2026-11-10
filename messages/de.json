@@ -412,5 +412,20 @@
     "general": "Weitere Seiten",
     "rentGroup": "Menü Mietwagen",
     "saleGroup": "Menü Autos zu verkaufen"
+  },
+  "campaign": {
+    "tag": "Angebot",
+    "short": "30 Tage mieten, 27 zahlen",
+    "detail": "Mieten Sie dieses Auto 30 Tage oder länger, und 3 Tage werden vom Gesamtpreis abgezogen.",
+    "applied": "Angebot: {days} Tage gratis",
+    "offersTitle": "Angebot für Monatsmieten",
+    "offersLead": "Mieten Sie eines dieser Autos 30 Tage oder länger – 3 Tage übernehmen wir.",
+    "normal": "Normalpreis für 30 Tage",
+    "campaignPrice": "Angebotspreis",
+    "save": "Sie sparen {amount}",
+    "cta": "Auto ansehen und buchen",
+    "more": "Details zum Angebot",
+    "terms": "Gratis sind die 3 günstigsten Tage Ihrer Miete. Nicht mit dem Langzeitrabatt kombinierbar; es gilt, was Ihnen mehr spart. Extras und Zustellgebühren sind nicht enthalten.",
+    "example": "Beispiel zum Standard-Tagespreis; Saisonpreise können abweichen."
   }
 }

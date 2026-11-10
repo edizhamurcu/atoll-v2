@@ -412,5 +412,20 @@
     "general": "Diğer sayfalar",
     "rentGroup": "Kiralık araç menüsü",
     "saleGroup": "Satılık araç menüsü"
+  },
+  "campaign": {
+    "tag": "Kampanya",
+    "short": "30 gün kirala, 27 gün öde",
+    "detail": "Bu aracı 30 gün veya daha uzun kiralarsanız toplam bedelden 3 günlük ücret düşülür.",
+    "applied": "Kampanya: {days} gün bedava",
+    "offersTitle": "Aylık kiralama kampanyası",
+    "offersLead": "Bu araçlardan birini 30 gün veya daha uzun kiralayın, 3 günün ücretini biz karşılayalım.",
+    "normal": "Normal 30 günlük fiyat",
+    "campaignPrice": "Kampanyalı fiyat",
+    "save": "{amount} tasarruf",
+    "cta": "Aracı incele ve rezervasyon yap",
+    "more": "Kampanya detayları",
+    "terms": "Bedava günler, kiralama süresindeki en düşük fiyatlı 3 gündür. Uzun kiralama indirimiyle birleştirilmez; hangisi daha avantajlıysa o uygulanır. Ekstralar ve teslimat ücretleri hariçtir.",
+    "example": "Standart günlük fiyatla örnek; sezona göre değişebilir."
   }
 }
