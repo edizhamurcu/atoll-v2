@@ -32,7 +32,7 @@ export async function SiteHeader() {
 
         <nav aria-label="Main" className="ml-auto hidden items-center gap-1 text-[0.95rem] text-ink-soft lg:flex">
           <Link href="/" className={`${item} hidden xl:block`}>{t("home")}</Link>
-          <div className="mx-2"><Suspense fallback={<CarSegmentsView rentLabel={t("rentCars")} saleLabel={t("carSales")} />}><CarSegments rentLabel={t("rentCars")} saleLabel={t("carSales")} /></Suspense></div>
+          <div className="mx-1 xl:mx-2"><Suspense fallback={<CarSegmentsView rentLabel={t("rentCars")} saleLabel={t("carSales")} />}><CarSegments rentLabel={t("rentCars")} saleLabel={t("carSales")} /></Suspense></div>
           <details className="group relative">
             <summary className={`${item} flex cursor-pointer list-none items-center gap-1 [&::-webkit-details-marker]:hidden`}>
               {t("pages")}
@@ -42,15 +42,16 @@ export async function SiteHeader() {
               {pages.map(([href, label]) => (
                 <li key={href}><Link href={href} className="block rounded-lg px-3 py-2 hover:bg-stone hover:text-ink">{label}</Link></li>
               ))}
+              <li className="xl:hidden"><Link href="/blog" className="block rounded-lg px-3 py-2 hover:bg-stone hover:text-ink">{t("blog")}</Link></li>
             </ul>
           </details>
-          <Link href="/blog" className={item}>{t("blog")}</Link>
+          <Link href="/blog" className={`${item} hidden xl:block`}>{t("blog")}</Link>
           <Link href="/contact" className={item}>{t("contactUs")}</Link>
         </nav>
 
         <div className="ml-auto flex items-center gap-2 lg:ml-2">
           <LocaleSwitcher label={t("language")} />
-          <Link href="/#search" className="btn-primary hidden !px-5 !py-2 text-sm sm:inline-flex">{t("book")}</Link>
+          <Link href="/#search" className="btn-primary hidden whitespace-nowrap !px-5 !py-2 text-sm sm:inline-flex">{t("book")}</Link>
           <details className="group lg:hidden">
             <summary aria-label={t("menu")} className="flex size-11 cursor-pointer list-none items-center justify-center rounded-full border border-ink/15 [&::-webkit-details-marker]:hidden">
               <svg aria-hidden viewBox="0 0 24 24" className="size-5 group-open:hidden"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" strokeWidth="2" strokeLinecap="round" /></svg>

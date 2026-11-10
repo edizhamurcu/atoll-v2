@@ -28,9 +28,9 @@ export function CarSegmentsView({ rentLabel, saleLabel, variant = "bar", rent = 
     );
   }
 
-  const base = "flex items-center gap-2 rounded-full px-3.5 py-1.5 transition-colors";
+  const base = "flex items-center gap-2 whitespace-nowrap rounded-full px-3 py-1.5 transition-colors xl:px-3.5";
   return (
-    <div className="flex items-center rounded-full border border-ink/12 bg-paper/70 p-1 text-[0.9rem] font-medium">
+    <div className="flex items-center rounded-full border border-ink/12 bg-paper/70 p-1 text-sm font-medium xl:text-[0.9rem]">
       <Link href="/cars" aria-current={rent ? "page" : undefined} className={`${base} ${rent ? "bg-bougain text-white" : "text-ink-soft hover:bg-bougain/10 hover:text-ink"}`}>
         <span aria-hidden className={`size-2 rounded-full ${rent ? "bg-white" : "bg-bougain"}`} />
         {rentLabel}
