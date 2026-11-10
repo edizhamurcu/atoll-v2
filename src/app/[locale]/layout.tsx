@@ -56,4 +56,6 @@ export default async function LocaleLayout({ children, params }: LayoutProps<"/[
 }
 
 const STREAM_REVEAL_FALLBACK =
-  "(function(){var n=0,t=setInterval(function(){var q=window.$RB,v=window.$RV;if(q&&q.length&&typeof v==='function'){try{v(q)}catch(e){}}if(++n>=60)clearInterval(t)},250)})();";
+  // $RV also schedules hydration of each revealed boundary with requestAnimationFrame(_reactRetry);
+  // swap rAF for a timer while flushing so those boundaries hydrate too (otherwise effects never run).
+  "(function(){var n=0,t=setInterval(function(){var q=window.$RB,v=window.$RV;if(q&&q.length&&typeof v==='function'){var r=window.requestAnimationFrame;window.requestAnimationFrame=function(f){return setTimeout(f,0)};try{v(q)}catch(e){}finally{window.requestAnimationFrame=r}}if(++n>=60)clearInterval(t)},250)})();";
