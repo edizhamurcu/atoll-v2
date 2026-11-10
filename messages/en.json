@@ -254,7 +254,9 @@
     "title": "Number 1 Car Rental Company in North Cyprus",
     "lead": "Lowest Rental Prices!",
     "englishNote": "This page is available in English.",
-    "developedBy": "Designed and Developed by"
+    "developedBy": "Designed and Developed by",
+    "follow": "Follow us",
+    "company": "Company"
   },
   "errors": {
     "generic": "Something went wrong. Please try again.",

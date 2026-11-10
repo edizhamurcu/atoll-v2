@@ -213,3 +213,18 @@ describe("home page and car sales copy (2026-11-10)", () => {
     }
   });
 });
+
+describe("footer mirrors the header (2026-11-10)", () => {
+  it("has separate rental and sales groups and only real social links", async () => {
+    const src = readFileSync("src/components/site-footer.tsx", "utf8");
+    for (const href of ["/rental-terms", "/car-prices", "/car-sales#stock", "/about-us", "/privacy-policy"]) expect(src).toContain(`"${href}"`);
+    const { SOCIAL } = await import("@/lib/site");
+    expect(SOCIAL.map((s) => s.key)).toEqual(expect.arrayContaining(["instagram", "facebook"]));
+    for (const s of SOCIAL) expect(s.url).toMatch(/^https:\/\/www\.(instagram|facebook|youtube)\.com\//);
+    for (const l of ["en", "tr", "de", "ru"]) {
+      const f = JSON.parse(readFileSync(`messages/${l}.json`, "utf8")).footer;
+      expect(f.follow, l).toBeTruthy();
+      expect(f.company, l).toBeTruthy();
+    }
+  });
+});

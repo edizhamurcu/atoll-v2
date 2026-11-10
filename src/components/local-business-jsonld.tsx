@@ -1,4 +1,4 @@
-import { SITE } from "@/lib/site";
+import { SOCIAL, SITE } from "@/lib/site";
 import { JsonLd } from "./json-ld";
 
 /** schema.org AutoRental + WebSite (rich results, Google Business consistency, AI answer engines). */
@@ -18,6 +18,7 @@ export function LocalBusinessJsonLd() {
           image: `${SITE.url}/brand/og.png`,
           telephone: SITE.phone.replace(/\s/g, ""),
           email: SITE.email,
+          sameAs: SOCIAL.map((s) => s.url),
           priceRange: "£30+",
           currenciesAccepted: "GBP",
           paymentAccepted: "Cash, Credit Card",

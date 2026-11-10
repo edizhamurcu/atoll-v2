@@ -14,6 +14,12 @@ export const SITE = {
   hours: "Mon - Fri: 09:00AM - 09:00PM; Saturday: 09:00AM - 07:00PM; Sunday: Closed",
   copyright: "Atoll. Designed and Developed by Arekan Bilgi Teknolojileri Ltd.",
   developerUrl: "https://arekanteknoloji.com",
+  /** Social profiles linked from the WordPress footer (2026-11-10). YouTube: no channel known yet; the icon appears once a URL is set. */
+  social: {
+    instagram: "https://www.instagram.com/atoll_rent_a_car/",
+    facebook: "https://www.facebook.com/atollrentacar",
+    youtube: "",
+  },
   /** Rental terms (from /rental-terms, /driving-in-south-cyprus, /extra-insurance, /fuel-options, /delivery-charges). */
   terms: {
     minAge: 25,
@@ -28,3 +34,7 @@ export const waLink = (text?: string, number: string = SITE.whatsapp) => `https:
 /** Primary first. */
 export const PHONES = [SITE.phone, SITE.phone2] as const;
 export const telLink = (n: string) => `tel:${n.replace(/\s/g, "")}`;
+/** Social profiles that have a URL, in display order. */
+export const SOCIAL = (["instagram", "facebook", "youtube"] as const)
+  .map((k) => ({ key: k, url: SITE.social[k] as string }))
+  .filter((s) => s.url !== "");
