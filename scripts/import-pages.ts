@@ -30,6 +30,10 @@ const LINKS: [RegExp, string][] = [
   // Damage excess depends on the car class (owner decision 2026-11-09): rendered from src/content/damage-excess.ts.
   [/<p>Damaged Excess is fixed at 500 Euros<\/p>/g, "<p>Damage excess depends on the car class:</p>\n<!--excess-->"],
   [/this will cost 25 Euros \(subject to change\)/g, "this will cost about £21 (paid at the border, subject to change)"],
+  // Owner, 2026-11-11: company name on the transfer page; the agreement must allow driving into South Cyprus (as the rental terms say)
+  [/Exclusive Offer to Pacific Rent-A-Car Clients/g, "Exclusive Offer to Atoll Rent A Car Clients"],
+  [/<li>Vehicle not to be taken out of the TRNC<\/li>/g, "<li>The vehicle may not be taken out of the TRNC, except into South Cyprus</li>"],
+  [/\(g\) The renter shall not take the vehicle outside the Turkish Republic of Northern Cyprus,/g, "(g) The renter shall not take the vehicle outside the Turkish Republic of Northern Cyprus, except into South Cyprus,"],
 ];
 
 export function cleanHtml(html: string) {

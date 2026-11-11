@@ -44,7 +44,7 @@ const pages: PageTranslations = {
   },
   "larnaca-airport-transfer-to-girne-kyrenia-north-cyprus": {
     title: "Larnaka Havalimanı'ndan Girne'ye (Kyrenia) Transfer, Kuzey Kıbrıs",
-    html: `<p><strong>Pacific Rent-A-Car Müşterilerine Özel Teklif</strong></p>
+    html: `<p><strong>Atoll Rent A Car Müşterilerine Özel Teklif</strong></p>
 <p>Larnaka Havalimanı'na iniyorsanız, kiralık aracınızı teslim alabileceğiniz Alsancak, Girne (Kyrenia) ofisimize taksi transferinizi £60,00'a ayarlayabiliriz.</p>
 <p>Araç kiralama müşterilerimiz için Kuzey Kıbrıs'ın her yerine taksi transferi ayarlayabiliriz; fiyat listesi aşağıdadır:</p>
 <p><strong>Larnaka</strong> <strong>taksi transfer fiyatları </strong>(fiyatlar tek yöndür)</p>
@@ -162,7 +162,7 @@ const pages: PageTranslations = {
 <hr />
 <p>Şartlar ve Koşullar:</p>
 <ol>
-<li>Araç KKTC dışına çıkarılamaz.</li>
+<li>Araç KKTC dışına çıkarılamaz; yalnızca Güney Kıbrıs'a geçiş yapılabilir.</li>
 <li>Atoll Rent A Car aracının sürücüsünün kusurlu bulunması halinde, karşı tarafın mal varlığının en fazla 10.000 İngiliz sterlini teminata kadar karşılandığını biliyorum/biliyoruz. Aşan kısım kiracının sorumluluğundadır.</li>
 <li>Kiracı, şirketin önceden onayı olmadan ve bu onay bu sözleşmede belirtilmeden söz konusu aracı başka hiçbir kişinin kullanmasına izin vermeyeceğini kabul eder.</li>
 <li>Arka sayfadaki şartları ve koşulları okuduğumu/okuduğumuzu, kabul ettiğimi/ettiğimizi ve tüm bilgilerin doğru olduğunu beyan ederim/ederiz.</li>
@@ -186,7 +186,7 @@ const pages: PageTranslations = {
 <p>(d) Kiracı, aracı mal sahibinden teslim almakla aracın iyi durumda olduğunu kabul eder ve aracı aletleri, parçaları ve donanımıyla birlikte aynı durumda iade eder; olağan aşınma kabul edilir, ancak kötü kullanımdan kaynaklanan aşırı aşınma bunun dışındadır.</p>
 <p>(e) Mal sahibi hiçbir koşulda kiracı tarafından ibraz edilen onarım faturaları dahil hiçbir faturayı kabul etmez. Tüm park ve trafik cezalarından kiracılar sorumludur.</p>
 <p>(f) Kiracı, (kendi zilyetliğindeyken) araçta meydana gelen her türlü kayıp ve/veya hasarı ya da arızayı derhal mal sahibine bildirir ve aracı yola çıkmaya elverişsiz durumdayken ya da herhangi bir kişiye veya mala zarar verebilecek durumdayken kullanmaz.</p>
-<p>(g) Kiracı aracı Kuzey Kıbrıs Türk Cumhuriyeti dışına çıkarmaz, aracı her zaman kendi zilyetliğinde ve muhafazasında tutar, mal sahibinin önceden yazılı onayı olmadan aracı başkasına kiralamaz veya başkasının müdahale etmesine izin vermez.</p>
+<p>(g) Kiracı aracı, Güney Kıbrıs'a geçiş dışında Kuzey Kıbrıs Türk Cumhuriyeti dışına çıkarmaz, aracı her zaman kendi zilyetliğinde ve muhafazasında tutar, mal sahibinin önceden yazılı onayı olmadan aracı başkasına kiralamaz veya başkasının müdahale etmesine izin vermez.</p>
 <p>(h) Sürücüler aracı gereken özen, dikkat ve beceriyle, tüm yasal gerekliliklere ve mal sahibinin standart sigorta poliçesinin (üçüncü şahıs sigortası) şartlarına uygun şekilde kullanmalıdır.</p>
 <p>(i) Kiracı, talep halinde mal sahibine bir depozito ve tahmini kira bedelini ödemeyi taahhüt eder. Nihai ücret düzeltmeleri ve ödeme, kiralama süresi sona erdiğinde ve mal sahibi aracı teslim aldıktan sonra yapılır. Kiracı, talep halinde kiralama uzatmasının tahmini bedelini peşin ödemeyi kabul eder. Tüm kira ve ek hizmet ücretleri sözleşmenin ilk sayfasında gösterilir ve kiracı bunların tamamını ödemeyi kabul eder.</p>
 <p>(j) C.D.W. bölümünde belirtilen tüm ek hizmetler günlük ücret üzerinden verilir.</p>

@@ -44,7 +44,7 @@ const pages: PageTranslations = {
   },
   "larnaca-airport-transfer-to-girne-kyrenia-north-cyprus": {
     title: "Transfer vom Flughafen Larnaka nach Girne (Kyrenia), Nordzypern",
-    html: `<p><strong>Exklusives Angebot für Kunden von Pacific Rent-A-Car</strong></p>
+    html: `<p><strong>Exklusives Angebot für Kunden von Atoll Rent A Car</strong></p>
 <p>Wenn Sie am Flughafen Larnaka landen, organisieren wir Ihren Taxitransfer zu unserem Büro in Alsancak, Girne (Kyrenia), für £60,00. Dort können Sie Ihren Mietwagen übernehmen.</p>
 <p>Für unsere Mietwagenkunden organisieren wir Taxitransfers in ganz Nordzypern; die Preise finden Sie unten:</p>
 <p><strong>Larnaka</strong> <strong>Taxitransfer-Preise </strong>(Preise pro Strecke)</p>
@@ -162,7 +162,7 @@ const pages: PageTranslations = {
 <hr />
 <p>Allgemeine Bedingungen:</p>
 <ol>
-<li>Das Fahrzeug darf die TRNZ nicht verlassen.</li>
+<li>Das Fahrzeug darf die TRNZ nicht verlassen; erlaubt ist nur die Fahrt nach Südzypern.</li>
 <li>Ich/wir weiß/wissen, dass bei Fahrlässigkeit des Fahrers des Atoll-Rent-A-Car-Fahrzeugs das Eigentum der Gegenseite bis zu einer Deckungssumme von höchstens 10.000 GBP abgedeckt ist. Der darüber hinausgehende Betrag liegt in der Verantwortung des Mieters.</li>
 <li>Der Mieter verpflichtet sich, keiner anderen Person das Führen des Fahrzeugs ohne vorherige Zustimmung des Unternehmens zu gestatten, wobei diese Zustimmung in diesem Vertrag zu vermerken ist.</li>
 <li>Ich/wir habe(n) die umseitigen Bedingungen gelesen, stimme(n) ihnen zu und versichere(n), dass alle Angaben korrekt sind.</li>
@@ -186,7 +186,7 @@ const pages: PageTranslations = {
 <p>(d) Mit der Übernahme des Fahrzeugs bestätigt der Mieter, dass sich das Fahrzeug in gutem Zustand befindet, und verpflichtet sich, es samt Werkzeug, Bestandteilen und Ausrüstung im selben Zustand zurückzugeben; normale Abnutzung ist akzeptiert, übermäßige Abnutzung durch unsachgemäßen Gebrauch jedoch nicht.</p>
 <p>(e) Der Eigentümer akzeptiert unter keinen Umständen vom Mieter vorgelegte Rechnungen, auch keine Reparaturrechnungen. Die Mieter haften für alle Park- und Verkehrsstrafen.</p>
 <p>(f) Der Mieter informiert den Eigentümer unverzüglich über jeden Verlust und/oder Schaden am Fahrzeug oder jeden Fehler (während es sich im Besitz des Mieters befindet) und benutzt das Fahrzeug nicht, solange es nicht verkehrstauglich ist oder Personen oder Sachen schädigen könnte.</p>
-<p>(g) Der Mieter darf das Fahrzeug nicht aus der Türkischen Republik Nordzypern verbringen, muss es jederzeit in seinem Besitz und Gewahrsam halten und darf es ohne vorherige schriftliche Zustimmung des Eigentümers weder untervermieten noch Dritten den Zugriff gestatten.</p>
+<p>(g) Der Mieter darf das Fahrzeug außer nach Südzypern nicht aus der Türkischen Republik Nordzypern verbringen, muss es jederzeit in seinem Besitz und Gewahrsam halten und darf es ohne vorherige schriftliche Zustimmung des Eigentümers weder untervermieten noch Dritten den Zugriff gestatten.</p>
 <p>(h) Die Fahrer müssen das Fahrzeug mit der gebotenen Sorgfalt, Umsicht und Geschicklichkeit führen, und zwar so, dass alle gesetzlichen Anforderungen sowie die Bedingungen der Standardversicherung des Eigentümers (Haftpflichtversicherung) erfüllt werden.</p>
 <p>(i) Der Mieter verpflichtet sich, dem Eigentümer auf Verlangen eine Kaution und die voraussichtlichen Mietkosten zu zahlen. Die endgültige Abrechnung und Zahlung erfolgen nach Ende der Mietdauer und nach Rückgabe des Fahrzeugs an den Eigentümer. Der Mieter verpflichtet sich, auf Verlangen die voraussichtlichen Kosten einer Mietverlängerung im Voraus zu zahlen. Alle Miet- und Zusatzleistungspreise sind auf der ersten Seite des Vertrags angegeben, und der Mieter verpflichtet sich, diese vollständig zu bezahlen.</p>
 <p>(j) Alle im Abschnitt C.D.W. genannten Zusatzleistungen werden zu einem Tagessatz erbracht.</p>

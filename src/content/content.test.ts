@@ -268,3 +268,20 @@ describe("weekly offer: one car per class (owner, 2026-11-11)", () => {
     for (const l of ["tr", "de", "ru"]) expect(Object.keys(JSON.parse(readFileSync(`messages/${l}.json`, "utf8")).campaign).sort(), l).toEqual(Object.keys(en).sort());
   });
 });
+
+describe("content fixes (owner, 2026-11-11)", () => {
+  it("no other company name on the transfer page, and the agreement allows only South Cyprus", async () => {
+    const { pageTranslation } = await import("./page-i18n");
+    const south: Record<string, RegExp> = { tr: /Güney Kıbrıs'a geçiş/, de: /Südzypern/, ru: /Южный Кипр/ };
+    for (const l of ["tr", "de", "ru"] as const) {
+      const transfer = pageTranslation("larnaca-airport-transfer-to-girne-kyrenia-north-cyprus", l)!;
+      expect(transfer.html, l).not.toMatch(/Pacific/i);
+      expect(transfer.html, l).toContain("Atoll Rent A Car");
+      const agreement = pageTranslation("rental-agreement", l)!.html;
+      expect(agreement.match(new RegExp(south[l].source, "g"))?.length ?? 0, l).toBeGreaterThanOrEqual(2);
+    }
+    const imp = readFileSync("scripts/import-pages.ts", "utf8");
+    expect(imp).toContain("Exclusive Offer to Atoll Rent A Car Clients");
+    expect(imp).toContain("except into South Cyprus");
+  });
+});
