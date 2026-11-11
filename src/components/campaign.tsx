@@ -69,7 +69,7 @@ export async function SpecialOffers({ locale }: { locale: string }) {
         })}
       </ol>
 
-      <ul className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      <ul className="mt-8 grid gap-4 sm:grid-cols-2">
         {cars.map((m) => {
           const rate = new Decimal(m.dailyRate.toString());
           const normal = rate.mul(camp.minDays);
