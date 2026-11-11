@@ -11,6 +11,12 @@ import { PrismaPg } from "@prisma/adapter-pg";
 import { rentalInfoHtml } from "./wp-format";
 import { PrismaClient, type VehicleClass, type BodyType, type Transmission, type FuelType } from "../src/generated/prisma/client";
 
+/** Daily rates set by the owner on the new site; they win over the WordPress price on every import. */
+const PRICE_PINS: Record<string, number> = {
+  "mazda-carol": 25, // 2026-11-11
+  "suzuki-alto": 25, // 2026-11-11
+};
+
 const TZ = process.env.BUSINESS_TZ ?? "Asia/Famagusta";
 const BUFFER_MIN = 120;
 const file = process.argv[2];
@@ -102,6 +108,7 @@ async function main() {
     const display = titleCase(g.name) + (dup && eng ? ` ${eng.toFixed(1)}` : "");
     const [make, ...rest] = display.split(" ");
     const slug = slugify(display) + (dup && !eng ? `-${g.price}` : "");
+    const price = PRICE_PINS[slug] ?? g.price; // owner overrides survive a re-import
     // Gallery: every photo of every plate of this model, featured images first (as on the old product pages).
     const featured = g.items.map((i) => i.images[0]).filter(Boolean);
     const images = [...new Set([...featured, ...g.items.flatMap((i) => i.images)])].slice(0, 16).map(media);
@@ -109,8 +116,8 @@ async function main() {
     const description = info ? { en: rentalInfoHtml(info) } : undefined;
     const model = dry ? { id: `dry-${slug}` } : await db.vehicleModel.upsert({
       where: { slug },
-      create: { slug, make: make === "Land" ? "Land Rover" : make, model: make === "Land" ? rest.slice(1).join(" ") : rest.join(" "), class: cls(a("vehicle-class")), bodyType: body(a("vehicle-type")), transmission: gear(a("gear-type")), fuel: fuel(a("fuel-type")), seats: seats(a("seats")), airCon: true, engineLitres: eng ?? undefined, images, description, dailyRate: g.price, sortOrder: sort++ },
-      update: { images, description, dailyRate: g.price, class: cls(a("vehicle-class")), bodyType: body(a("vehicle-type")), transmission: gear(a("gear-type")), fuel: fuel(a("fuel-type")), seats: seats(a("seats")), engineLitres: eng ?? undefined },
+      create: { slug, make: make === "Land" ? "Land Rover" : make, model: make === "Land" ? rest.slice(1).join(" ") : rest.join(" "), class: cls(a("vehicle-class")), bodyType: body(a("vehicle-type")), transmission: gear(a("gear-type")), fuel: fuel(a("fuel-type")), seats: seats(a("seats")), airCon: true, engineLitres: eng ?? undefined, images, description, dailyRate: price, sortOrder: sort++ },
+      update: { images, description, dailyRate: price, class: cls(a("vehicle-class")), bodyType: body(a("vehicle-type")), transmission: gear(a("gear-type")), fuel: fuel(a("fuel-type")), seats: seats(a("seats")), engineLitres: eng ?? undefined },
     });
     for (const v of g.items) {
       const plate = (v.attrs.plate || `WP${v.wpId}`).toUpperCase().replace(/\s+/g, "");
@@ -122,7 +129,7 @@ async function main() {
       });
       vehicleByWp.set(v.wpId, { id: row.id, modelId: model.id });
     }
-    console.log(`model ${display.padEnd(32)} £${String(g.price).padStart(3)}  x${g.items.length}  ${slug}`);
+    console.log(`model ${display.padEnd(32)} £${String(price).padStart(3)}  x${g.items.length}  ${slug}`);
   }
 
   // ---------- extras ----------

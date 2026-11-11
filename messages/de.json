@@ -1,7 +1,7 @@
 {
   "meta": {
     "title": "Atoll Rent A Car – Garantiert niedrigste Mietwagenpreise in Nordzypern",
-    "description": "Atoll Rent A Car bietet Mietwagen in Nordzypern zu garantiert niedrigsten Preisen. Mietwagen ab £30 pro Tag. Büro in Kyrenia, Flughäfen Ercan, Larnaka und Paphos."
+    "description": "Atoll Rent A Car bietet Mietwagen in Nordzypern zu garantiert niedrigsten Preisen. Mietwagen ab £25 pro Tag. Büro in Kyrenia, Flughäfen Ercan, Larnaka und Paphos."
   },
   "nav": {
     "cars": "Fahrzeuge",
@@ -32,7 +32,7 @@
   },
   "hero": {
     "title": "Weiter kommen mit Atoll Rent-A-Car!",
-    "lead": "Mietwagen in Nordzypern ab £30 pro Tag. Wählen Sie aus unserer Flotte im Büro in Kyrenia, mit Übergabe an den Flughäfen Ercan, Larnaka und Paphos. Im selben Gebäude: OSK Auto mit Autoverkauf, Service und Autowäsche.",
+    "lead": "Mietwagen in Nordzypern ab £25 pro Tag. Wählen Sie aus unserer Flotte im Büro in Kyrenia, mit Übergabe an den Flughäfen Ercan, Larnaka und Paphos. Im selben Gebäude: OSK Auto mit Autoverkauf, Service und Autowäsche.",
     "mapLabel": "Unsere Abholorte"
   },
   "search": {
@@ -391,7 +391,7 @@
   },
   "menu": {
     "discover": "Entdecken",
-    "rentPitch": "Mietwagen ab £30 pro Tag, Lieferung zum Flughafen.",
+    "rentPitch": "Mietwagen ab £25 pro Tag, Lieferung zum Flughafen.",
     "rentCta": "Verfügbare Autos ansehen",
     "fleet": "Unsere Flotte",
     "fleetDesc": "Alle Klassen vom Kleinwagen bis SUV und 7-Sitzer",

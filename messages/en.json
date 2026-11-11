@@ -1,7 +1,7 @@
 {
   "meta": {
     "title": "Atoll Rent A Car – Lowest guaranteed prices for car rentals in North Cyprus",
-    "description": "Atoll Rent A Car offers Northern Cyprus car rental at the lowest guaranteed prices. Car rentals starting from as low as £30 in North Cyprus. Kyrenia office, Ercan, Larnaca and Paphos airports."
+    "description": "Atoll Rent A Car offers Northern Cyprus car rental at the lowest guaranteed prices. Car rentals starting from as low as £25 in North Cyprus. Kyrenia office, Ercan, Larnaca and Paphos airports."
   },
   "nav": {
     "cars": "Cars",
@@ -32,7 +32,7 @@
   },
   "hero": {
     "title": "Go further with Atoll Rent-A-Car!",
-    "lead": "Car rental in North Cyprus from £30 a day. Choose from our fleet at the Kyrenia office, with delivery to Ercan, Larnaca and Paphos airports. In the same building, OSK Auto sells, services and washes cars.",
+    "lead": "Car rental in North Cyprus from £25 a day. Choose from our fleet at the Kyrenia office, with delivery to Ercan, Larnaca and Paphos airports. In the same building, OSK Auto sells, services and washes cars.",
     "mapLabel": "Our pick-up points"
   },
   "search": {
@@ -391,7 +391,7 @@
   },
   "menu": {
     "discover": "Discover",
-    "rentPitch": "Rentals from £30 a day, delivered to the airport.",
+    "rentPitch": "Rentals from £25 a day, delivered to the airport.",
     "rentCta": "See available cars",
     "fleet": "Our fleet",
     "fleetDesc": "Every class from economy to SUV and 7-seaters",

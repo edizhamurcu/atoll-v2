@@ -1,7 +1,7 @@
 {
   "meta": {
     "title": "Atoll Rent A Car – Kuzey Kıbrıs'ta garantili en düşük araç kiralama fiyatları",
-    "description": "Atoll Rent A Car, Kuzey Kıbrıs'ta garantili en düşük fiyatlarla araç kiralama sunar. Günlük £30'dan başlayan fiyatlar. Girne ofisi, Ercan, Larnaka ve Baf havalimanları."
+    "description": "Atoll Rent A Car, Kuzey Kıbrıs'ta garantili en düşük fiyatlarla araç kiralama sunar. Günlük £25'ten başlayan fiyatlar. Girne ofisi, Ercan, Larnaka ve Baf havalimanları."
   },
   "nav": {
     "cars": "Araçlar",
@@ -32,7 +32,7 @@
   },
   "hero": {
     "title": "Atoll Rent-A-Car ile daha ileri gidin!",
-    "lead": "Kuzey Kıbrıs'ta günlük £30'dan başlayan araç kiralama. Girne ofisimizdeki filodan seçin; Ercan, Larnaka ve Baf havalimanlarına teslim edelim. Aynı binada OSK Auto ile araç satışı, servis ve yıkama.",
+    "lead": "Kuzey Kıbrıs'ta günlük £25'ten başlayan araç kiralama. Girne ofisimizdeki filodan seçin; Ercan, Larnaka ve Baf havalimanlarına teslim edelim. Aynı binada OSK Auto ile araç satışı, servis ve yıkama.",
     "mapLabel": "Teslim noktalarımız"
   },
   "search": {
@@ -391,7 +391,7 @@
   },
   "menu": {
     "discover": "Keşfet",
-    "rentPitch": "Günlük £30'dan başlayan kiralama, havalimanına teslim.",
+    "rentPitch": "Günlük £25'ten başlayan kiralama, havalimanına teslim.",
     "rentCta": "Müsait araçları gör",
     "fleet": "Araç filosu",
     "fleetDesc": "Ekonomikten SUV ve 7 kişiliğe tüm sınıflar",
