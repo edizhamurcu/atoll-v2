@@ -417,30 +417,11 @@
     "saleGroup": "Cars for sale menu"
   },
   "campaign": {
-    "tag": "Offer",
-    "short": "Rent 30 days, pay 27",
-    "detail": "Rent this car for 30 days or more and 3 days come off the total.",
     "applied": "Offer: {days} days free",
-    "offersTitle": "Monthly rental offer",
-    "offersLead": "Rent one of these cars for 30 days or more and we cover 3 days.",
-    "normal": "Standard 30-day price",
-    "campaignPrice": "Offer price",
-    "save": "You save {amount}",
-    "cta": "See the car and book",
-    "more": "Offer details",
-    "terms": "The free days are the 3 lowest-priced days of your rental. Not combined with the long-rental discount; whichever saves you more applies. Extras and delivery fees are not included.",
-    "example": "Example at the standard daily rate; seasonal prices may differ.",
-    "weekShort": "Rent 7 days, pay 6",
-    "weekTitle": "Rent for a week, one day is on us",
-    "weekLead": "On every car, rentals of 7 days or more get one day free. No code, no form: the discount comes off the price automatically.",
-    "weekDetail": "Rent 7 days or more and one day is free.",
-    "dayN": "Day {n}",
-    "free": "Free",
-    "examplesTitle": "Example 7-day prices",
-    "pay6": "pay for 6 days",
-    "pickDates": "Choose your dates",
-    "weekTerms": "Valid on every car. The free day is the lowest-priced day of your rental. Cars with the monthly offer get whichever saves more; offers are not combined with each other or with the long-rental discount. Extras and delivery fees are not included.",
-    "pageLead": "Stay longer in North Cyprus and pay less. Offers are applied to the price automatically when you book.",
-    "metaDescription": "Atoll Rent A Car offers: rent 7 days and pay 6 on every car, and rent 30 days and pay 27 on the BMW 520d and Hyundai i30."
+    "noneTitle": "There are no offers running right now",
+    "noneText": "New offers will be announced on this page. For a long-term rental or a special request, message us on WhatsApp or call us for a price.",
+    "whatsapp": "Message us on WhatsApp",
+    "waText": "Hello, I would like a price for a car rental.",
+    "metaDescription": "Atoll Rent A Car offers and deals. Message us on WhatsApp for a long-term rental price."
   }
 }

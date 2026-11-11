@@ -229,18 +229,6 @@ describe("footer mirrors the header (2026-11-10)", () => {
   });
 });
 
-describe("monthly campaign config (2026-11-10)", () => {
-  it("BMW 520d and Hyundai i30: 30+ days, 3 days free; translations in every language", async () => {
-    const { campaignFor } = await import("./campaigns");
-    for (const slug of ["bmw-520d", "hyundai-i30"]) expect(campaignFor(slug)).toMatchObject({ minDays: 30, freeDays: 3 });
-    expect(campaignFor("toyota-vitz")).toBeNull();
-    const en = JSON.parse(readFileSync("messages/en.json", "utf8")).campaign;
-    for (const l of ["tr", "de", "ru"]) {
-      const c = JSON.parse(readFileSync(`messages/${l}.json`, "utf8")).campaign;
-      expect(Object.keys(c).sort(), l).toEqual(Object.keys(en).sort());
-    }
-  });
-});
 
 describe("streamed Suspense content always reveals (2026-11-10)", () => {
   it("layout ships the $RV flush fallback for frame-starved browsers", () => {
@@ -261,15 +249,17 @@ describe("contact map (2026-11-10)", () => {
   });
 });
 
-describe("weekly campaign + special offers page (2026-11-10)", () => {
-  it("every car gets the weekly offer; BMW 520d / i30 also the monthly one", async () => {
-    const { campaignsFor, campaignFor } = await import("./campaigns");
-    expect(campaignsFor("toyota-vitz").map((c) => c.code)).toEqual(["week_1_day_free"]);
-    expect(campaignsFor("bmw-520d").map((c) => c.code).sort()).toEqual(["month_3_days_free", "week_1_day_free"]);
-    expect(campaignFor("toyota-vitz")).toBeNull();
-  });
-  it("special offers no longer renders the old WordPress body", () => {
-    const src = readFileSync("src/app/[locale]/[slug]/page.tsx", "utf8");
-    expect(src).toMatch(/slug === "special-offers" \? <SpecialOffers/);
+
+describe("campaigns cancelled (owner, 2026-11-11)", () => {
+  it("no campaign applies to any car and the results list shows no stock counter", async () => {
+    const { CAMPAIGNS, campaignsFor, campaignFor } = await import("./campaigns");
+    expect(CAMPAIGNS).toHaveLength(0);
+    for (const slug of ["bmw-520d", "hyundai-i30", "toyota-vitz"]) {
+      expect(campaignsFor(slug)).toEqual([]);
+      expect(campaignFor(slug)).toBeNull();
+    }
+    const results = readFileSync("src/components/results.tsx", "utf8");
+    expect(results).not.toContain('t("available"');
+    expect(readFileSync("src/app/[locale]/cars/[slug]/page.tsx", "utf8")).not.toContain("CampaignBanner");
   });
 });

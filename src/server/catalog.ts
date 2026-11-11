@@ -2,7 +2,7 @@ import "server-only";
 import { db } from "@/lib/db";
 import type { VehicleClass } from "@/generated/prisma/client";
 import { availabilityByModel } from "./availability";
-import { campaignFor, campaignsFor } from "@/content/campaigns";
+import { campaignsFor } from "@/content/campaigns";
 import { computeQuote, PricingError } from "./pricing";
 import { getSettings } from "./settings";
 import { validateWindow } from "./booking";
@@ -17,7 +17,6 @@ export const t = (v: unknown, locale: Locale): string => {
 export function serializeModel(m: Awaited<ReturnType<typeof listModels>>[number], locale: Locale) {
   return {
     slug: m.slug,
-    campaign: campaignFor(m.slug) !== null,
     name: `${m.make} ${m.model}`,
     make: m.make,
     model: m.model,
