@@ -26,7 +26,7 @@ export const SITE = {
     includes: ["Full 24 hours day", "Unlimited mileage", "Oil and greasing", "Safety belts in all cars", "Change of car in case of mechanical breakdown"],
     cancellation: "10% cancellation fee for bookings cancelled less than 48 hours before the agreed pick-up time",
     payment: "Cash at the time of taking delivery of the car, or by card through the secure online system",
-    fromPrice: 30,
+    fromPrice: 25, // cheapest daily rate (Mazda Carol / Suzuki Alto, 2026-11-11)
   },
 } as const;
 

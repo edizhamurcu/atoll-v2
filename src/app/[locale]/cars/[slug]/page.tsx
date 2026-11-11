@@ -15,6 +15,7 @@ import { SITE } from "@/lib/site";
 import { routing } from "@/i18n/routing";
 import { localizedRentalInfo } from "@/content/rental-info";
 import { excessLabel } from "@/content/damage-excess";
+import { trAblative } from "@/lib/tr-suffix";
 
 export async function generateMetadata({ params }: PageProps<"/[locale]/cars/[slug]">): Promise<Metadata> {
   const { locale, slug } = (await params) as { locale: Locale; slug: string };
@@ -22,8 +23,9 @@ export async function generateMetadata({ params }: PageProps<"/[locale]/cars/[sl
   if (!m) return {};
   const [t, tx, tf] = await Promise.all([getTranslations({ locale, namespace: "car" }), getTranslations({ locale, namespace: "transmission" }), getTranslations({ locale, namespace: "fuel" })]);
   const price = money(m.dailyRate, locale);
-  const title = t("metaTitle", { name: m.name, price });
-  const description = t("metaDesc", { name: m.name, price, seats: m.seats, gear: tx(m.transmission).toLocaleLowerCase(locale), fuel: tf(m.fuel).toLocaleLowerCase(locale) });
+  const abl = trAblative(m.dailyRate);
+  const title = t("metaTitle", { name: m.name, price, abl });
+  const description = t("metaDesc", { name: m.name, price, abl, seats: m.seats, gear: tx(m.transmission).toLocaleLowerCase(locale), fuel: tf(m.fuel).toLocaleLowerCase(locale) });
   return {
     title, description,
     alternates: { canonical: `/${locale}/cars/${slug}`, languages: { ...Object.fromEntries(routing.locales.map((l) => [l, `/${l}/cars/${slug}`])), "x-default": `/en/cars/${slug}` } },
@@ -113,7 +115,7 @@ async function CarDetail({ params }: { params: PageProps<"/[locale]/cars/[slug]"
       <aside className="min-w-0 lg:sticky lg:top-24 lg:self-start">
         <div className="rounded-[var(--radius-panel)] bg-paper p-5 shadow-[0_18px_40px_-24px_rgba(13,52,64,.35)]">
           <h2 className="text-2xl font-bold">{t("bookPanel")}</h2>
-          <p className="mt-1 text-ink-soft">{t("from", { price: money(m.dailyRate, locale) })}</p>
+          <p className="mt-1 text-ink-soft">{t("from", { price: money(m.dailyRate, locale), abl: trAblative(m.dailyRate) })}</p>
           <div className="mt-4"><CampaignBanner slug={slug} /></div>
           <div className="mt-4">
             <Suspense fallback={<SearchSkeleton />}>

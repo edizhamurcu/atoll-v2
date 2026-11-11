@@ -11,6 +11,7 @@ import { posts } from "@/content/blog";
 import { guide } from "@/content/guide";
 import { SITE } from "@/lib/site";
 import { money } from "@/lib/search-params";
+import { trAblative } from "@/lib/tr-suffix";
 
 const PATH = "/north-cyprus-guide";
 const UPDATED = "2026-11-08";
@@ -256,7 +257,7 @@ export default async function GuidePage({ params }: PageProps<"/[locale]/north-c
 
         <section className="my-10 rounded-panel bg-ink px-6 py-10 text-white md:px-12">
           <h2 className="max-w-2xl text-3xl font-extrabold">{g.cta.title}</h2>
-          <p className="mt-3 max-w-2xl text-white/85">{g.cta.text.replace("{price}", money(SITE.terms.fromPrice, locale))}</p>
+          <p className="mt-3 max-w-2xl text-white/85">{g.cta.text.replace("{price}", money(SITE.terms.fromPrice, locale)).replace("{abl}", trAblative(SITE.terms.fromPrice))}</p>
           <Link href="/#search" className="btn-primary mt-6">{g.cta.button}</Link>
         </section>
 

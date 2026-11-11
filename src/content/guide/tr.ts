@@ -126,7 +126,7 @@ const tr: GuideContent = {
   blog: { title: "Seyahat blogundan", all: "Tüm yazılar" },
   cta: {
     title: "Kuzey Kıbrıs tatilinizden en iyi şekilde yararlanmak için bir araç kiralayın",
-    text: "Aracı Girne ofisimizden veya Ercan Havalimanı'ndan teslim alın ya da otelinize getirelim. Sınırsız kilometre, günlük {price}'dan başlayan fiyatlarla.",
+    text: "Aracı Girne ofisimizden veya Ercan Havalimanı'ndan teslim alın ya da otelinize getirelim. Sınırsız kilometre, günlük {price}{abl} başlayan fiyatlarla.",
     button: "Müsaitliği kontrol et",
   },
   credits: { title: "Fotoğraf kaynakları" },

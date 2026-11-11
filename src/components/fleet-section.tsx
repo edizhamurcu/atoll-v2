@@ -4,6 +4,7 @@ import { getFleet } from "@/server/queries";
 import type { Locale } from "@/server/catalog";
 import { CarImage } from "./car-image";
 import { money } from "@/lib/search-params";
+import { trAblative } from "@/lib/tr-suffix";
 
 const ORDER = ["ECONOMY", "MIDDLE", "SUV", "PEOPLE_CARRIER", "LUXURY", "PREMIUM", "SPORT"];
 
@@ -26,7 +27,7 @@ export async function FleetSection({ locale }: { locale: Locale }) {
                   <p className="text-sm text-ink-soft">
                     {tx(m.transmission)}, {t("seats", { n: m.seats })}
                   </p>
-                  <p className="mt-1 text-sm font-semibold">{t("from", { price: money(m.dailyRate, locale) })}</p>
+                  <p className="mt-1 text-sm font-semibold">{t("from", { price: money(m.dailyRate, locale), abl: trAblative(m.dailyRate) })}</p>
                 </Link>
               </li>
             ))}

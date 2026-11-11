@@ -11,6 +11,7 @@ import { PHOTOS, photo, photoAlt } from "@/content/photos";
 import { BLOG_LOCALES, fmtDate, getPost, posts, readingMinutes, related, segments, toc } from "@/content/blog";
 import { money } from "@/lib/search-params";
 import { SITE } from "@/lib/site";
+import { trAblative } from "@/lib/tr-suffix";
 
 export function generateStaticParams() {
   return posts().map((p) => ({ slug: p.slug }));
@@ -81,7 +82,7 @@ export default async function BlogPost({ params }: PageProps<"/[locale]/blog/[sl
 
           <aside className="mt-12 rounded-panel bg-ink p-6 text-white md:p-8">
             <h2 className="text-2xl font-extrabold">{t("ctaTitle")}</h2>
-            <p className="mt-2 text-white/85">{t("ctaText", { price: money(SITE.terms.fromPrice, locale) })}</p>
+            <p className="mt-2 text-white/85">{t("ctaText", { price: money(SITE.terms.fromPrice, locale), abl: trAblative(SITE.terms.fromPrice) })}</p>
             <Link href="/#search" className="btn-primary mt-5">{t("ctaButton")}</Link>
           </aside>
         </div>

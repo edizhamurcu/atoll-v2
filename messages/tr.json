@@ -72,7 +72,7 @@
   "car": {
     "seats": "{n} koltuk",
     "fleet": "Filomuzda {n} adet",
-    "from": "günlük {price}'dan başlayan",
+    "from": "günlük {price}{abl} başlayan",
     "specs": "Özellikler",
     "bookPanel": "Bu aracı kirala",
     "checkDates": "Fiyat ve müsaitlik için tarih seçin",
@@ -98,8 +98,8 @@
     "color": "Renk",
     "rentalInfo": "Kiralama bilgileri",
     "photo": "Fotoğraf {n} / {total}",
-    "metaTitle": "Kuzey Kıbrıs'ta kiralık {name}, günlük {price}'dan başlayan fiyatlarla",
-    "metaDesc": "Atoll Rent A Car ile Girne, Ercan, Larnaka veya Baf'ta {name} kiralayın ({gear}, {fuel}, {seats} koltuk). Canlı müsaitlik, günlük {price}'dan başlayan fiyatlar.",
+    "metaTitle": "Kuzey Kıbrıs'ta kiralık {name}, günlük {price}{abl} başlayan fiyatlarla",
+    "metaDesc": "Atoll Rent A Car ile Girne, Ercan, Larnaka veya Baf'ta {name} kiralayın ({gear}, {fuel}, {seats} koltuk). Canlı müsaitlik, günlük {price}{abl} başlayan fiyatlar.",
     "prevPhoto": "Önceki fotoğraf",
     "nextPhoto": "Sonraki fotoğraf"
   },
@@ -351,7 +351,7 @@
     "inThisArticle": "Bu yazıda",
     "keepReading": "Okumaya devam edin",
     "ctaTitle": "Kuzey Kıbrıs'ı arabayla keşfedin",
-    "ctaText": "Sınırsız kilometre, Ercan Havalimanı ve Girne'ye ücretsiz teslimat, günlük {price}'dan başlayan fiyatlarla.",
+    "ctaText": "Sınırsız kilometre, Ercan Havalimanı ve Girne'ye ücretsiz teslimat, günlük {price}{abl} başlayan fiyatlarla.",
     "ctaButton": "Müsaitliği kontrol et"
   },
   "about": {
