@@ -91,7 +91,7 @@ export async function search(params: { pickupAt: Date; returnAt: Date; pickupLoc
     return {
       ...serializeModel(m, params.locale),
       availability: { available: a.available > 0, count: a.available, total: a.total },
-      quote: quote && { days: quote.days, chargedDays: quote.chargedDays, total: quote.grandTotal, averageDaily: quote.averageDaily, deposit: quote.depositAmount, discountPercent: quote.discountPercent, campaignFreeDays: quote.campaignFreeDays },
+      quote: quote && { days: quote.days, total: quote.grandTotal, averageDaily: quote.averageDaily, deposit: quote.depositAmount, discountPercent: quote.discountPercent, campaignFreeDays: quote.campaignFreeDays },
     };
   });
   results.sort((a, b) => Number(b.availability.available) - Number(a.availability.available));

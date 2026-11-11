@@ -18,7 +18,6 @@ export const DEFAULT_SETTINGS: BusinessSettings = {
   graceMinutes: 59,
   minDays: 1,
   maxDays: 90,
-  minChargeDays: 3, // company policy (owner, 2026-11-10): 1-2 day rentals are charged as 3 days
   bufferMinutes: 120,
   deposit: { type: "firstDay", value: 0, min: 30 },
   holdMinutes: 15,

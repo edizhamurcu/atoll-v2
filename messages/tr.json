@@ -67,8 +67,7 @@
     "sortHigh": "Fiyat: yüksekten düşüğe",
     "sortLow": "Fiyat: düşükten yükseğe",
     "filterClass": "Araç sınıfı",
-    "filterType": "Araç tipi",
-    "minCharge": "Minimum {days} günlük ücret uygulanır"
+    "filterType": "Araç tipi"
   },
   "car": {
     "seats": "{n} koltuk",
@@ -204,8 +203,7 @@
       "expired": "Rezervasyon süreniz doldu. Lütfen yeniden arama yapın.",
       "captcha": "Lütfen güvenlik doğrulamasını tamamlayın."
     },
-    "hp": "Bu alanı boş bırakın",
-    "rentalMin": "Kiralama (en az {days} günlük ücret)"
+    "hp": "Bu alanı boş bırakın"
   },
   "home": {
     "fleetTitle": "Filomuz",

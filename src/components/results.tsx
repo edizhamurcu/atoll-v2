@@ -9,7 +9,7 @@ import { money, queryToState } from "@/lib/search-params";
 type Result = {
   slug: string; campaign?: boolean; name: string; class: string; bodyType: string; transmission: string; fuel: string; seats: number; images: string[]; dailyRate: string;
   availability: { available: boolean; count: number; total: number };
-  quote: { days: number; chargedDays?: number; total: string; averageDaily: string; deposit: string; discountPercent: string; campaignFreeDays?: number } | null;
+  quote: { days: number; total: string; averageDaily: string; deposit: string; discountPercent: string; campaignFreeDays?: number } | null;
 };
 
 export function Results() {
@@ -131,7 +131,6 @@ export function Results() {
                 <p className={`mt-2 text-sm font-semibold ${ok ? "text-bougain" : "text-ink-soft"}`}>
                   {ok ? t("available", { count: r.availability.count }) : t("soldOut")}
                 </p>
-                {r.quote && (r.quote.chargedDays ?? r.quote.days) > r.quote.days && <p className="text-xs text-ink-soft">{t("minCharge", { days: r.quote.chargedDays! })}</p>}
                 {r.quote && (r.quote.campaignFreeDays ?? 0) > 0 && <p className="text-xs font-semibold text-bougain">{tcamp("applied", { days: r.quote.campaignFreeDays! })}</p>}
                 {r.quote && Number(r.quote.discountPercent) > 0 && <p className="text-xs text-ink-soft">{t("discount", { percent: Number(r.quote.discountPercent) })}</p>}
                 {ok ? (
