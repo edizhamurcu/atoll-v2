@@ -417,11 +417,23 @@
     "saleGroup": "Satılık araç menüsü"
   },
   "campaign": {
-    "applied": "Kampanya: {days} gün bedava",
+    "tag": "Kampanya",
+    "weekShort": "7 gün kirala, 6 öde",
+    "weekTitle": "Her sınıftan bir araçta 1 gün bedava",
+    "weekLead": "Aşağıdaki araçlardan birini 7 gün veya daha uzun kiralayın, 1 günün ücretini biz karşılayalım. Kod yok, form yok: indirim rezervasyonda fiyata kendiliğinden yansır.",
+    "weekDetail": "Bu aracı 7 gün veya daha uzun kiralarsanız 1 günün ücreti bizden.",
+    "free": "Bedava",
+    "daily": "Günlük {price}",
+    "normal7": "Normal 7 günlük fiyat",
+    "offer7": "Kampanyalı 7 gün",
+    "cta": "Aracı incele ve rezervasyon yap",
+    "more": "Kampanya detayları",
+    "weekTerms": "Kampanya yalnızca bu sayfadaki araçlarda geçerlidir. Bedava gün, kiralama süresindeki en düşük fiyatlı gündür; 7 günden uzun kiralamalarda da 1 gün bedavadır. Örnekler standart günlük fiyatla hesaplanmıştır, sezona göre değişebilir. Ekstralar ve teslimat ücretleri hariçtir.",
+    "applied": "7 gün kirala 6 öde: {days} gün bedava",
     "noneTitle": "Şu anda aktif bir kampanyamız yok",
     "noneText": "Yeni kampanyalarımızı bu sayfada duyuracağız. Uzun süreli kiralama ya da özel bir talep için fiyat almak isterseniz bize WhatsApp'tan yazın veya arayın.",
     "whatsapp": "WhatsApp'tan yazın",
     "waText": "Merhaba, araç kiralama için fiyat almak istiyorum.",
-    "metaDescription": "Atoll Rent A Car kampanyaları ve özel teklifler. Uzun süreli kiralama için WhatsApp'tan fiyat alın."
+    "metaDescription": "Atoll Rent A Car kampanyası: her araç sınıfından seçili bir araçta 7 gün kirala, 6 gün öde."
   }
 }

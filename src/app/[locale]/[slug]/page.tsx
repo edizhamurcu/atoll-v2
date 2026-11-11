@@ -57,7 +57,7 @@ async function Content({ params }: { params: PageProps<"/[locale]/[slug]">["para
       <h1 className="mt-4 text-4xl font-extrabold md:text-5xl">{title}</h1>
       {slug === "about-us" && <AboutVideo />}
       {/* Special offers: the old WordPress body (stock photo + "no offers at the moment") is replaced by the live campaigns. */}
-      {slug === "special-offers" ? <SpecialOffers /> : <div className="prose-atoll mt-8" dangerouslySetInnerHTML={{ __html: html }} />}
+      {slug === "special-offers" ? <SpecialOffers locale={locale} /> : <div className="prose-atoll mt-8" dangerouslySetInnerHTML={{ __html: html }} />}
       <JsonLd
         data={[
           { "@context": "https://schema.org", "@type": "WebPage", name: title, url: `${SITE.url}/${lang}/${slug}`, inLanguage: lang, dateModified: p.updatedAt.toISOString(), isPartOf: { "@type": "WebSite", name: SITE.name, url: SITE.url } },

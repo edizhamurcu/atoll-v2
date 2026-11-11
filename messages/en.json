@@ -417,11 +417,23 @@
     "saleGroup": "Cars for sale menu"
   },
   "campaign": {
-    "applied": "Offer: {days} days free",
+    "tag": "Offer",
+    "weekShort": "Rent 7 days, pay 6",
+    "weekTitle": "One day free on one car from every class",
+    "weekLead": "Rent one of the cars below for 7 days or more and one day is on us. No code, no form: the discount comes off the price when you book.",
+    "weekDetail": "Rent this car for 7 days or more and one day is on us.",
+    "free": "Free",
+    "daily": "{price} per day",
+    "normal7": "Standard 7-day price",
+    "offer7": "7 days with the offer",
+    "cta": "See the car and book",
+    "more": "Offer details",
+    "weekTerms": "The offer applies only to the cars on this page. The free day is the lowest-priced day of your rental; rentals longer than 7 days also get one day free. Examples use the standard daily rate and may vary by season. Extras and delivery fees are not included.",
+    "applied": "Rent 7, pay 6: {days} day free",
     "noneTitle": "There are no offers running right now",
     "noneText": "New offers will be announced on this page. For a long-term rental or a special request, message us on WhatsApp or call us for a price.",
     "whatsapp": "Message us on WhatsApp",
     "waText": "Hello, I would like a price for a car rental.",
-    "metaDescription": "Atoll Rent A Car offers and deals. Message us on WhatsApp for a long-term rental price."
+    "metaDescription": "Atoll Rent A Car offer: rent a selected car from every class for 7 days and pay for 6."
   }
 }

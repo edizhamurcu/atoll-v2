@@ -250,16 +250,21 @@ describe("contact map (2026-11-10)", () => {
 });
 
 
-describe("campaigns cancelled (owner, 2026-11-11)", () => {
-  it("no campaign applies to any car and the results list shows no stock counter", async () => {
+describe("weekly offer: one car per class (owner, 2026-11-11)", () => {
+  it("exactly one car from each class gets rent 7 / pay 6; others get nothing", async () => {
     const { CAMPAIGNS, campaignsFor, campaignFor } = await import("./campaigns");
-    expect(CAMPAIGNS).toHaveLength(0);
-    for (const slug of ["bmw-520d", "hyundai-i30", "toyota-vitz"]) {
-      expect(campaignsFor(slug)).toEqual([]);
-      expect(campaignFor(slug)).toBeNull();
-    }
+    expect(CAMPAIGNS).toHaveLength(1);
+    expect(CAMPAIGNS[0]).toMatchObject({ code: "week_1_day_free", minDays: 7, freeDays: 1 });
+    for (const slug of ["nissan-note", "nissan-juke", "suzuki-vitara", "toyota-sienta-1-5", "mercedes-c200"]) expect(campaignFor(slug)).not.toBeNull();
+    for (const slug of ["bmw-520d", "hyundai-i30", "toyota-vitz", "mazda-carol"]) expect(campaignsFor(slug)).toEqual([]);
+  });
+  it("results show the normal daily rate (not the discounted average) and no stock counter", () => {
     const results = readFileSync("src/components/results.tsx", "utf8");
+    expect(results).toContain("r.quote.normalDaily ?? r.quote.averageDaily");
     expect(results).not.toContain('t("available"');
-    expect(readFileSync("src/app/[locale]/cars/[slug]/page.tsx", "utf8")).not.toContain("CampaignBanner");
+  });
+  it("campaign copy exists in every language with the same keys", () => {
+    const en = JSON.parse(readFileSync("messages/en.json", "utf8")).campaign;
+    for (const l of ["tr", "de", "ru"]) expect(Object.keys(JSON.parse(readFileSync(`messages/${l}.json`, "utf8")).campaign).sort(), l).toEqual(Object.keys(en).sort());
   });
 });

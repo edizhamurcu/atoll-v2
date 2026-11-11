@@ -417,11 +417,23 @@
     "saleGroup": "Menü Autos zu verkaufen"
   },
   "campaign": {
-    "applied": "Angebot: {days} Tage gratis",
+    "tag": "Angebot",
+    "weekShort": "7 Tage mieten, 6 zahlen",
+    "weekTitle": "Ein Tag gratis bei einem Auto jeder Klasse",
+    "weekLead": "Mieten Sie eines der Autos unten für 7 Tage oder länger – ein Tag geht auf uns. Kein Code, kein Formular: Der Rabatt wird bei der Buchung automatisch abgezogen.",
+    "weekDetail": "Mieten Sie dieses Auto 7 Tage oder länger, und ein Tag geht auf uns.",
+    "free": "Gratis",
+    "daily": "{price} pro Tag",
+    "normal7": "Normalpreis für 7 Tage",
+    "offer7": "7 Tage mit Angebot",
+    "cta": "Auto ansehen und buchen",
+    "more": "Details zum Angebot",
+    "weekTerms": "Das Angebot gilt nur für die Autos auf dieser Seite. Gratis ist der günstigste Tag Ihrer Miete; auch bei mehr als 7 Tagen ist ein Tag gratis. Beispiele zum Standard-Tagespreis, Saisonpreise können abweichen. Extras und Zustellgebühren sind nicht enthalten.",
+    "applied": "7 mieten, 6 zahlen: {days} Tag gratis",
     "noneTitle": "Derzeit laufen keine Angebote",
     "noneText": "Neue Angebote kündigen wir auf dieser Seite an. Für eine Langzeitmiete oder eine besondere Anfrage schreiben Sie uns per WhatsApp oder rufen Sie uns an.",
     "whatsapp": "Per WhatsApp schreiben",
     "waText": "Hallo, ich hätte gerne ein Angebot für einen Mietwagen.",
-    "metaDescription": "Angebote von Atoll Rent A Car. Preis für eine Langzeitmiete per WhatsApp anfragen."
+    "metaDescription": "Angebot von Atoll Rent A Car: ausgewähltes Auto jeder Klasse 7 Tage mieten, 6 zahlen."
   }
 }

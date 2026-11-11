@@ -7,9 +7,9 @@ import { CarImage } from "./car-image";
 import { money, queryToState } from "@/lib/search-params";
 
 type Result = {
-  slug: string; name: string; class: string; bodyType: string; transmission: string; fuel: string; seats: number; images: string[]; dailyRate: string;
+  slug: string; campaign?: boolean; name: string; class: string; bodyType: string; transmission: string; fuel: string; seats: number; images: string[]; dailyRate: string;
   availability: { available: boolean; count: number; total: number };
-  quote: { days: number; total: string; averageDaily: string; deposit: string; discountPercent: string; campaignFreeDays?: number } | null;
+  quote: { days: number; total: string; averageDaily: string; normalDaily?: string; deposit: string; discountPercent: string; campaignFreeDays?: number } | null;
 };
 
 export function Results() {
@@ -114,6 +114,7 @@ export function Results() {
               <li key={r.slug} className={ok ? "" : "opacity-60"}>
                 <div className="relative aspect-[4/3] overflow-hidden rounded-2xl">
                   <CarImage src={r.images[0]} alt={r.name} sizes="(min-width:1024px) 33vw, (min-width:640px) 50vw, 100vw" />
+                  {r.campaign && <span className="absolute left-3 top-3 rounded-full bg-bougain px-3 py-1 text-xs font-bold text-white shadow">{tcamp("weekShort")}</span>}
                 </div>
                 <div className="mt-3 flex items-start justify-between gap-3">
                   <div>
@@ -123,7 +124,7 @@ export function Results() {
                   {r.quote && (
                     <p className="text-right">
                       <span className="block font-display text-2xl font-extrabold">{money(r.quote.total, locale)}</span>
-                      <span className="text-xs text-ink-soft">{money(r.quote.averageDaily, locale)} {t("perDay")}</span>
+                      <span className="text-xs text-ink-soft">{money(r.quote.normalDaily ?? r.quote.averageDaily, locale)} {t("perDay")}</span>
                     </p>
                   )}
                 </div>
