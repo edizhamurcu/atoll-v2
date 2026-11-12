@@ -326,7 +326,12 @@
     "subjectRequired": "Пожалуйста, выберите тему.",
     "mapTitle": "Карта офиса Atoll Rent A Car",
     "directions": "Проложить маршрут",
-    "openMap": "Открыть в Google Картах"
+    "openMap": "Открыть в Google Картах",
+    "challengeTitle": "Подтвердите, что вы не робот",
+    "challengeQ": "Сколько будет {a} плюс {b}?",
+    "challengeWrong": "Ответ неверный. Пожалуйста, ответьте на новый вопрос.",
+    "challengeLoading": "Загрузка вопроса…",
+    "challengeNew": "Показать другой вопрос"
   },
   "bodyType": {
     "HATCHBACK": "Хэтчбек",

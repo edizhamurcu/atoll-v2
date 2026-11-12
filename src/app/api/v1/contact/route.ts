@@ -1,6 +1,7 @@
 import { z } from "zod";
 import { db } from "@/lib/db";
-import { clientIp, handleError, json, limit, parse, readJson } from "@/server/http";
+import { clientIp, handleError, json, limit, parse, problem, readJson } from "@/server/http";
+import { verifyChallenge } from "@/server/challenge";
 import { notifyStaff } from "@/server/mail";
 import { contactEmail } from "@/server/email-templates";
 import { CONTACT_TOPICS, CONTACT_TOPIC_LABELS } from "@/content/contact-topics";
@@ -13,6 +14,8 @@ const schema = z.object({
   message: z.string().trim().max(5000).optional(),
   locale: z.enum(["en", "tr", "de", "ru"]).default("en"),
   website: z.string().max(0).optional(), // honeypot: bots fill it
+  challenge: z.string().max(200).optional(),
+  answer: z.union([z.string().max(5), z.number()]).optional(),
 });
 
 /** Contact form (replaces Contact Form 7). Stored first, then mailed to info@ if SMTP is configured. */
@@ -21,6 +24,11 @@ export async function POST(req: Request) {
   if (limited) return limited;
   try {
     const v = parse(schema, await readJson(req));
+    const check = await verifyChallenge(v.challenge, v.answer);
+    if (check !== "OK") {
+      console.warn("[contact] challenge", check);
+      return problem(422, `CHALLENGE_${check}`, "Please answer the security question");
+    }
     const rawSubject = v.subject;
     // Staff read the English topic label, whatever language the visitor used.
     v.subject = [v.topic ? CONTACT_TOPIC_LABELS[v.topic] : "", v.subject].filter(Boolean).join(" — ") || undefined;

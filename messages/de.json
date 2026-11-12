@@ -326,7 +326,12 @@
     "subjectRequired": "Bitte wählen Sie ein Thema.",
     "mapTitle": "Karte des Büros von Atoll Rent A Car",
     "directions": "Route planen",
-    "openMap": "In Google Maps öffnen"
+    "openMap": "In Google Maps öffnen",
+    "challengeTitle": "Kurze Prüfung, dass Sie kein Roboter sind",
+    "challengeQ": "Was ist {a} plus {b}?",
+    "challengeWrong": "Die Antwort ist nicht richtig. Bitte beantworten Sie die neue Frage.",
+    "challengeLoading": "Frage wird geladen…",
+    "challengeNew": "Andere Frage anzeigen"
   },
   "bodyType": {
     "HATCHBACK": "Kompakt",

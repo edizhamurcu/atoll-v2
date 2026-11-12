@@ -326,7 +326,12 @@
     "subjectRequired": "Please choose a topic.",
     "mapTitle": "Map of the Atoll Rent A Car office",
     "directions": "Get directions",
-    "openMap": "Open in Google Maps"
+    "openMap": "Open in Google Maps",
+    "challengeTitle": "Quick check that you're not a robot",
+    "challengeQ": "What is {a} plus {b}?",
+    "challengeWrong": "That answer is not right. Please try the new question.",
+    "challengeLoading": "Loading question…",
+    "challengeNew": "Show another question"
   },
   "bodyType": {
     "HATCHBACK": "Hatchback",

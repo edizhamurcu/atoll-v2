@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { CONTACT_TOPICS } from "@/content/contact-topics";
 
@@ -9,6 +9,22 @@ export function ContactForm() {
   const [state, setState] = useState<"idle" | "sending" | "sent" | "error">("idle");
   const [topic, setTopic] = useState("");
   const [topicError, setTopicError] = useState(false);
+  const [chal, setChal] = useState<{ a: number; b: number; token: string } | null>(null);
+  const [answer, setAnswer] = useState("");
+  const [chalWrong, setChalWrong] = useState(false);
+  const loadChallenge = useCallback(() => {
+    fetch("/api/v1/contact/challenge", { cache: "no-store" })
+      .then((r) => (r.ok ? r.json() : null))
+      .then((c) => setChal(c))
+      .catch(() => setChal(null));
+  }, []);
+  useEffect(() => {
+    loadChallenge();
+  }, [loadChallenge]);
+  const newChallenge = () => {
+    setAnswer("");
+    loadChallenge();
+  };
   async function submit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const form = e.currentTarget;
@@ -22,12 +38,22 @@ export function ContactForm() {
     const res = await fetch("/api/v1/contact", {
       method: "POST",
       headers: { "content-type": "application/json" },
-      body: JSON.stringify({ name: f.get("name"), email: f.get("email"), topic, message: f.get("message") || undefined, website: f.get("website") || undefined, locale }),
+      body: JSON.stringify({ name: f.get("name"), email: f.get("email"), topic, message: f.get("message") || undefined, website: f.get("website") || undefined, challenge: chal?.token, answer, locale }),
     }).catch(() => null);
     if (res?.ok) {
       setState("sent");
       form.reset();
       setTopic("");
+      setChalWrong(false);
+      newChallenge();
+      return;
+    }
+    const code = res ? ((await res.json().catch(() => null)) as { error?: { code?: string } } | null)?.error?.code ?? "" : "";
+    if (code.startsWith("CHALLENGE_")) {
+      setState("idle");
+      setChalWrong(true);
+      newChallenge();
+      form.querySelector<HTMLInputElement>("#c-answer")?.focus();
     } else setState("error");
   }
   return (
@@ -47,7 +73,20 @@ export function ContactForm() {
       </div>
       <div><label className="label" htmlFor="c-message">{t("message")}</label><textarea id="c-message" name="message" rows={5} maxLength={5000} placeholder={t(`topicHints.${topic || "none"}` as "topicHints.none")} className="field" /></div>
       <div className="hidden" aria-hidden><label>Website<input name="website" tabIndex={-1} autoComplete="off" /></label></div>
-      <button className="btn-primary" disabled={state === "sending"}>{state === "sending" ? t("sending") : t("send")}</button>
+      <fieldset className="rounded-xl border border-ink/15 p-4">
+        <legend className="px-1 text-sm font-semibold">{t("challengeTitle")}</legend>
+        <div className="flex flex-wrap items-end gap-3">
+          <div className="min-w-0">
+            <label className="label" htmlFor="c-answer">{chal ? t("challengeQ", { a: chal.a, b: chal.b }) : t("challengeLoading")} *</label>
+            <input id="c-answer" value={answer} onChange={(e) => { setAnswer(e.target.value.replace(/\D/g, "").slice(0, 2)); setChalWrong(false); }}
+              required inputMode="numeric" pattern="[0-9]{1,2}" maxLength={2} autoComplete="off" disabled={!chal}
+              aria-invalid={chalWrong || undefined} aria-describedby={chalWrong ? "c-answer-err" : undefined} className="field w-24" />
+          </div>
+          <button type="button" onClick={newChallenge} className="pb-3 text-sm font-medium text-aegean underline-offset-2 hover:underline">{t("challengeNew")}</button>
+        </div>
+        {chalWrong && <p id="c-answer-err" role="alert" className="mt-2 text-sm font-medium text-alert">{t("challengeWrong")}</p>}
+      </fieldset>
+      <button className="btn-primary" disabled={state === "sending" || !chal}>{state === "sending" ? t("sending") : t("send")}</button>
       {state === "sent" && <p role="status" className="font-medium text-aegean">{t("sent")}</p>}
       {state === "error" && <p role="alert" className="font-medium text-alert">{t("error")}</p>}
     </form>
