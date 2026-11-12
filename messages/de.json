@@ -442,5 +442,22 @@
     "whatsapp": "Per WhatsApp schreiben",
     "waText": "Hallo, ich hätte gerne ein Angebot für einen Mietwagen.",
     "metaDescription": "Angebot von Atoll Rent A Car: ausgewähltes Auto jeder Klasse 7 Tage mieten, 6 zahlen."
+  },
+  "fleetCards": {
+    "all": "Alle",
+    "family": "Familie (7+ Sitze)",
+    "automatic": "Automatik",
+    "budget": "Günstig (bis {price})",
+    "luxury": "Luxus",
+    "filterLabel": "Autos filtern",
+    "unlimitedKm": "Unbegrenzte km",
+    "excess": "Selbstbeteiligung {amount}",
+    "popular": "Meistgebucht",
+    "total": "{days} Tage: {price}",
+    "soldOut": "An diesen Tagen ausgebucht",
+    "datesNote": "Die Preise sind Gesamtpreise für die im Suchformular gewählten Daten.",
+    "empty": "Kein Auto passt zu diesem Filter.",
+    "prev": "{cls}: vorherige Autos",
+    "next": "{cls}: weitere Autos"
   }
 }

@@ -442,5 +442,22 @@
     "whatsapp": "WhatsApp'tan yazın",
     "waText": "Merhaba, araç kiralama için fiyat almak istiyorum.",
     "metaDescription": "Atoll Rent A Car kampanyası: her araç sınıfından seçili bir araçta 7 gün kirala, 6 gün öde."
+  },
+  "fleetCards": {
+    "all": "Tümü",
+    "family": "Aile (7+ koltuk)",
+    "automatic": "Otomatik",
+    "budget": "Bütçe dostu ({price} ve altı)",
+    "luxury": "Lüks",
+    "filterLabel": "Araçları filtrele",
+    "unlimitedKm": "Sınırsız km",
+    "excess": "Muafiyet {amount}",
+    "popular": "En çok tercih edilen",
+    "total": "{days} gün: {price}",
+    "soldOut": "Bu tarihlerde dolu",
+    "datesNote": "Fiyatlar, arama formunda seçtiğiniz tarihlerin toplam tutarıdır.",
+    "empty": "Bu filtreye uyan araç yok.",
+    "prev": "{cls}: önceki araçlar",
+    "next": "{cls}: sonraki araçlar"
   }
 }

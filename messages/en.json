@@ -442,5 +442,22 @@
     "whatsapp": "Message us on WhatsApp",
     "waText": "Hello, I would like a price for a car rental.",
     "metaDescription": "Atoll Rent A Car offer: rent a selected car from every class for 7 days and pay for 6."
+  },
+  "fleetCards": {
+    "all": "All",
+    "family": "Family (7+ seats)",
+    "automatic": "Automatic",
+    "budget": "Budget ({price} or less)",
+    "luxury": "Luxury",
+    "filterLabel": "Filter cars",
+    "unlimitedKm": "Unlimited km",
+    "excess": "Excess {amount}",
+    "popular": "Most booked",
+    "total": "{days} days: {price}",
+    "soldOut": "Booked for these dates",
+    "datesNote": "Prices are totals for the dates chosen in the search form.",
+    "empty": "No cars match this filter.",
+    "prev": "{cls}: previous cars",
+    "next": "{cls}: next cars"
   }
 }

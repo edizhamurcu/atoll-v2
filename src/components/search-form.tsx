@@ -1,8 +1,9 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useTranslations } from "next-intl";
 import { useSearchParams } from "next/navigation";
 import { useRouter } from "@/i18n/navigation";
+import { SEARCH_EVENT, SEARCH_KEY } from "./fleet-browser";
 import { defaultState, queryToState, stateToQuery, TIMES, toIso, type SearchState } from "@/lib/search-params";
 
 export interface SearchOptions {
@@ -30,6 +31,16 @@ export function SearchForm({ options, target = "/cars", compact = false, stacked
   }
 
   const set = <K extends keyof SearchState>(k: K, v: SearchState[K]) => setS((p) => ({ ...p, [k]: v }));
+
+  // Share the current valid search with the fleet cards (live totals on the home page).
+  useEffect(() => {
+    const next = { ...s, returnLocation: same ? s.pickupLocation : s.returnLocation, deliveryZone: delivery ? s.deliveryZone ?? options.zones[0]?.slug ?? null : null };
+    const p = new Date(toIso(next.pickupDate, next.pickupTime)), r = new Date(toIso(next.returnDate, next.returnTime));
+    if (!(r > p) || p.getTime() < Date.now() + 2 * 3_600_000) return;
+    const q = stateToQuery(next).toString();
+    try { sessionStorage.setItem(SEARCH_KEY, q); } catch { /* storage unavailable */ }
+    window.dispatchEvent(new CustomEvent(SEARCH_EVENT, { detail: q }));
+  }, [s, same, delivery, options.zones]);
 
   function submit(e: React.FormEvent) {
     e.preventDefault();

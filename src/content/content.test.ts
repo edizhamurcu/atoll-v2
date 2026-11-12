@@ -295,3 +295,16 @@ describe("rental agreement, 1. Parties (owner, 2026-11-12)", () => {
     expect(readFileSync("scripts/import-pages.ts", "utf8")).toContain("Atoll Rent A Car Ltd. is the owner of the vehicles.");
   });
 });
+
+describe("fleet cards (2026-11-12)", () => {
+  it("fleetCards copy exists in every language with the same keys", () => {
+    const en = JSON.parse(readFileSync("messages/en.json", "utf8")).fleetCards;
+    for (const l of ["tr", "de", "ru"]) expect(Object.keys(JSON.parse(readFileSync(`messages/${l}.json`, "utf8")).fleetCards).sort(), l).toEqual(Object.keys(en).sort());
+  });
+  it("popular badge needs real bookings (min 3 in 180 days) and campaign cars sort first", () => {
+    const q = readFileSync("src/server/queries.ts", "utf8");
+    expect(q).toMatch(/POPULAR_MIN = 3/);
+    expect(q).toMatch(/status: \{ in: \["CONFIRMED", "COMPLETED"\] \}/);
+    expect(readFileSync("src/components/fleet-section.tsx", "utf8")).toMatch(/Number\(b\.campaign\) - Number\(a\.campaign\)/);
+  });
+});
