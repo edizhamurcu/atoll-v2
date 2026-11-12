@@ -11,6 +11,7 @@ const NAV = [
   ["/admin/calendar", "Takvim"],
   ["/admin/fleet", "Filo"],
   ["/admin/reviews", "Yorumlar"],
+  ["/admin/sales", "Satılık araçlar"],
 ] as const;
 
 export default function PanelLayout({ children }: { children: React.ReactNode }) {

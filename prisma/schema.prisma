@@ -407,3 +407,35 @@ model Review {
   @@index([status, createdAt])
   @@index([modelId, status])
 }
+
+enum SaleStatus {
+  AVAILABLE
+  RESERVED
+  SOLD
+  HIDDEN
+}
+
+/// OSK Auto: cars for sale (managed in /admin/sales). Photos are file names in STOCK_DIR, served by /api/v1/stock/photo/<file>.
+model SaleCar {
+  id           String       @id @default(cuid())
+  make         String
+  model        String
+  year         Int
+  mileageKm    Int
+  fuel         FuelType
+  transmission Transmission
+  bodyType     BodyType?
+  colour       String?
+  /// GBP; null = "price on request"
+  price        Decimal?     @db.Decimal(10, 2)
+  /// Short note shown on the card (any language the staff writes in)
+  note         String?
+  photos       String[]
+  status       SaleStatus   @default(AVAILABLE)
+  sortOrder    Int          @default(0)
+  soldAt       DateTime?    @db.Timestamptz(6)
+  createdAt    DateTime     @default(now()) @db.Timestamptz(6)
+  updatedAt    DateTime     @updatedAt @db.Timestamptz(6)
+
+  @@index([status, sortOrder])
+}

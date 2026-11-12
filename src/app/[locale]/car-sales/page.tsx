@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import Image from "next/image";
 import { getTranslations } from "next-intl/server";
 import { Breadcrumbs } from "@/components/breadcrumbs";
 import { JsonLd } from "@/components/json-ld";
 import { Link } from "@/i18n/navigation";
+import { SaleStockSection } from "@/components/sale-stock-section";
 import { SITE, telLink, waLink } from "@/lib/site";
 import { routing } from "@/i18n/routing";
 
@@ -63,6 +65,10 @@ export default async function CarSalesPage({ params }: PageProps<"/[locale]/car-
         <p className="mt-3 text-sm text-ink-soft">{s("galleryNote")}</p>
       </section>
 
+      <Suspense fallback={<span id="stock" />}>
+        <SaleStockSection locale={locale} />
+      </Suspense>
+
       <div className="mt-20 grid gap-10 lg:grid-cols-2">
         <section aria-labelledby="why">
           <h2 id="why" className="text-3xl font-extrabold">{s("whyTitle")}</h2>
@@ -72,8 +78,8 @@ export default async function CarSalesPage({ params }: PageProps<"/[locale]/car-
             ))}
           </ul>
         </section>
-        <section aria-labelledby="stock" className="rounded-[var(--radius-panel)] bg-paper p-7">
-          <h2 id="stock" className="text-2xl font-bold">{s("stockTitle")}</h2>
+        <section aria-labelledby="stock-contact" className="rounded-[var(--radius-panel)] bg-paper p-7">
+          <h2 id="stock-contact" className="text-2xl font-bold">{s("stockTitle")}</h2>
           <p className="mt-3 text-ink-soft">{s("stockText")}</p>
           <div className="mt-6 flex flex-wrap gap-3">
             <a href={telLink(SITE.phone)} className="btn-primary">{s("callCta", { phone: SITE.phone })}</a>

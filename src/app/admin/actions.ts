@@ -140,3 +140,77 @@ export async function reviewDecisionAction(f: FormData) {
   await audit(a.id, `review:${status}`, "Review", r.id);
   refresh();
 }
+
+/* ---------- OSK sales stock ---------- */
+
+const saleData = (f: FormData) => {
+  const g = (k: string) => {
+    const v = f.get(k);
+    return typeof v === "string" ? v : undefined;
+  };
+  return {
+    make: g("make"), model: g("model"), year: g("year"), mileageKm: g("mileageKm"), fuel: g("fuel"), transmission: g("transmission"),
+    bodyType: g("bodyType") ?? "", colour: g("colour") || undefined, price: g("price") || undefined, note: g("note") || undefined, sortOrder: g("sortOrder") || 0,
+  };
+};
+
+export async function saleCarSaveAction(_: ActionState, f: FormData): Promise<ActionState> {
+  const a = await requireAdmin();
+  try {
+    const { SaleCarInput } = await import("@/server/sales");
+    const v = SaleCarInput.parse(saleData(f));
+    const data = { ...v, bodyType: v.bodyType ?? null, colour: v.colour || null, note: v.note || null, price: v.price ? v.price : null };
+    const id = f.get("id");
+    if (typeof id === "string" && id) {
+      await db.saleCar.update({ where: { id }, data });
+      await audit(a.id, "sale_update", "SaleCar", id);
+    } else {
+      const c = await db.saleCar.create({ data });
+      await audit(a.id, "sale_create", "SaleCar", c.id);
+    }
+    refresh();
+    return { ok: "Kaydedildi" };
+  } catch (e) {
+    return fail(e);
+  }
+}
+
+export async function saleCarStatusAction(f: FormData) {
+  const a = await requireAdmin();
+  const id = z.string().min(5).max(40).parse(f.get("id"));
+  const status = z.enum(["AVAILABLE", "RESERVED", "SOLD", "HIDDEN"]).parse(f.get("status"));
+  await db.saleCar.update({ where: { id }, data: { status, soldAt: status === "SOLD" ? new Date() : null } });
+  await audit(a.id, `sale_status:${status}`, "SaleCar", id);
+  refresh();
+}
+
+export async function saleCarPhotoDeleteAction(f: FormData) {
+  const a = await requireAdmin();
+  const id = z.string().min(5).max(40).parse(f.get("id"));
+  const file = z.string().regex(/^[a-z0-9]{16}\.webp$/).parse(f.get("file"));
+  const { deleteStockPhoto } = await import("@/server/sales");
+  const car = await db.saleCar.findUniqueOrThrow({ where: { id } });
+  await db.saleCar.update({ where: { id }, data: { photos: car.photos.filter((p) => p !== file) } });
+  await deleteStockPhoto(file);
+  await audit(a.id, "sale_photo_delete", "SaleCar", id, { file });
+  refresh();
+}
+
+export async function saleCarPhotoFirstAction(f: FormData) {
+  await requireAdmin();
+  const id = z.string().min(5).max(40).parse(f.get("id"));
+  const file = z.string().regex(/^[a-z0-9]{16}\.webp$/).parse(f.get("file"));
+  const car = await db.saleCar.findUniqueOrThrow({ where: { id } });
+  await db.saleCar.update({ where: { id }, data: { photos: [file, ...car.photos.filter((p) => p !== file)] } });
+  refresh();
+}
+
+export async function saleCarDeleteAction(f: FormData) {
+  const a = await requireAdmin("owner");
+  const id = z.string().min(5).max(40).parse(f.get("id"));
+  const { deleteStockPhoto } = await import("@/server/sales");
+  const car = await db.saleCar.delete({ where: { id } });
+  await Promise.all(car.photos.map(deleteStockPhoto));
+  await audit(a.id, "sale_delete", "SaleCar", id, { make: car.make, model: car.model });
+  refresh();
+}
