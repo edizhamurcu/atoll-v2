@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { seo } from "@/lib/seo";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { getTranslations } from "next-intl/server";
@@ -23,13 +24,13 @@ export async function generateMetadata({ params }: PageProps<"/[locale]/blog/[sl
   if (!p) return {};
   const cover = photo(p.cover);
   const url = `/${locale}/blog/${p.slug}`;
-  return {
+  return seo({
     title: p.title,
     description: p.description,
     alternates: { canonical: url, languages: { ...Object.fromEntries(BLOG_LOCALES.map((l) => [l, `/${l}/blog/${p.slug}`])), "x-default": `/en/blog/${p.slug}` } },
     openGraph: { title: p.title, description: p.description, url, type: "article", publishedTime: p.published, modifiedTime: p.updated ?? p.published, images: [{ url: cover.src, width: cover.w, height: cover.h, alt: photoAlt(p.cover, locale) }] },
     twitter: { card: "summary_large_image", images: [cover.src] },
-  };
+  }, locale);
 }
 
 export default async function BlogPost({ params }: PageProps<"/[locale]/blog/[slug]">) {

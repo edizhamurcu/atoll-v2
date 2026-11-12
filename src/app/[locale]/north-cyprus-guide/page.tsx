@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { seo } from "@/lib/seo";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { Link } from "@/i18n/navigation";
@@ -29,13 +30,13 @@ export async function generateMetadata({ params }: PageProps<"/[locale]/north-cy
   const g = guide(locale);
   const hero = photo("kyrenia-harbour");
   const url = `/${locale}${PATH}`;
-  return {
+  return seo({
     title: g.meta.title,
     description: g.meta.description,
     alternates: { canonical: url, languages: { ...Object.fromEntries(LANGS.map((l) => [l, `/${l}${PATH}`])), "x-default": `/en${PATH}` } },
     openGraph: { title: g.meta.title, description: g.meta.description, url, type: "article", images: [{ url: hero.src, width: hero.w, height: hero.h, alt: photoAlt("kyrenia-harbour", locale) }] },
     twitter: { card: "summary_large_image", images: [hero.src] },
-  };
+  }, locale);
 }
 
 export default async function GuidePage({ params }: PageProps<"/[locale]/north-cyprus-guide">) {

@@ -1,15 +1,15 @@
 import type { Metadata } from "next";
+import { seo, seoAlternates } from "@/lib/seo";
 import { WhatsAppIcon } from "@/components/whatsapp-icon";
 import { getTranslations } from "next-intl/server";
 import { ContactForm } from "@/components/contact-form";
 import { Breadcrumbs } from "@/components/breadcrumbs";
 import { SITE, mapEmbedUrl, mapOpenUrl, mapDirectionsUrl, telLink, waLink } from "@/lib/site";
-import { routing } from "@/i18n/routing";
 
 export async function generateMetadata({ params }: PageProps<"/[locale]/contact">): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "contact" });
-  return { title: t("contactTitle"), description: t("contactLead"), alternates: { canonical: `/${locale}/contact`, languages: Object.fromEntries(routing.locales.map((l) => [l, `/${l}/contact`])) } };
+  return seo({ title: t("contactTitle"), description: t("contactLead"), alternates: seoAlternates(locale, "/contact"), openGraph: { url: `/${locale}/contact` } }, locale);
 }
 
 export default async function ContactPage({ params }: PageProps<"/[locale]/contact">) {

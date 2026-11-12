@@ -29,7 +29,16 @@ const securityHeaders = [
   },
 ];
 
+/**
+ * Crawlers that get title/description/canonical/hreflang in <head> of the raw HTML (blocking metadata) instead of
+ * streamed into <body>. Next's default list (Bing, social previews, other Google bots) plus Googlebot and the AI
+ * search/answer crawlers, which read raw HTML without running JavaScript (GEO).
+ */
+const HTML_LIMITED_BOTS =
+  /[\w-]+-Google|Google-[\w-]+|Googlebot|Chrome-Lighthouse|Slurp|DuckDuckBot|baiduspider|yandex|sogou|bitlybot|tumblr|vkShare|quora link preview|redditbot|ia_archiver|Bingbot|BingPreview|applebot|facebookexternalhit|facebookcatalog|Twitterbot|LinkedInBot|Slackbot|Discordbot|WhatsApp|SkypeUriPreview|Yeti|googleweblight|GPTBot|OAI-SearchBot|ChatGPT-User|ClaudeBot|Claude-User|Claude-SearchBot|anthropic-ai|PerplexityBot|Perplexity-User|CCBot|Amazonbot|meta-externalagent|meta-externalfetcher|cohere-ai|Bytespider|YouBot|DuckAssistBot|MistralAI-User|Diffbot|PetalBot/i;
+
 const nextConfig: NextConfig = {
+  htmlLimitedBots: HTML_LIMITED_BOTS,
   output: "standalone",
   cacheComponents: true,
   partialPrefetching: true,

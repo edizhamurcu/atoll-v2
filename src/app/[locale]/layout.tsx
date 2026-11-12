@@ -2,6 +2,7 @@ import "@fontsource-variable/bricolage-grotesque";
 import "@fontsource-variable/onest";
 import "../globals.css";
 import type { Metadata } from "next";
+import { seoDescription } from "@/lib/seo";
 import { notFound } from "next/navigation";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { getTranslations } from "next-intl/server";
@@ -23,7 +24,7 @@ export async function generateMetadata({ params }: LayoutProps<"/[locale]">): Pr
   return {
     metadataBase: new URL(site),
     title: { default: t("title"), template: `%s | Atoll Rent A Car` },
-    description: t("description"),
+    description: seoDescription(t("description")),
     alternates: { canonical: `/${locale}`, languages: { ...Object.fromEntries(routing.locales.map((l) => [l, `/${l}`])), "x-default": "/en" } },
     openGraph: { siteName: "Atoll Rent A Car", locale, type: "website", images: [{ url: "/brand/og.png", width: 1200, height: 630, alt: "Atoll Rent A Car — car rental in North Cyprus" }] },
     twitter: { card: "summary_large_image", images: ["/brand/og.png"] },

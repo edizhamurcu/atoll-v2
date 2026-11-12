@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { seo } from "@/lib/seo";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { getTranslations } from "next-intl/server";
@@ -16,12 +17,12 @@ export async function generateMetadata({ params }: PageProps<"/[locale]/blog">):
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "blog" });
   const url = `/${locale}/blog`;
-  return {
+  return seo({
     title: t("title"),
     description: t("description"),
     alternates: { canonical: url, languages: { ...Object.fromEntries(BLOG_LOCALES.map((l) => [l, `/${l}/blog`])), "x-default": "/en/blog" }, types: { "application/rss+xml": "/blog/feed.xml" } },
     openGraph: { title: t("title"), description: t("description"), url, type: "website" },
-  };
+  }, locale);
 }
 
 export default async function BlogIndex({ params }: PageProps<"/[locale]/blog">) {

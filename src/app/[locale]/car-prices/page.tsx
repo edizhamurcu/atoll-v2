@@ -1,5 +1,6 @@
 import { Suspense } from "react";
 import type { Metadata } from "next";
+import { seo, seoAlternates } from "@/lib/seo";
 import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { getFleet } from "@/server/queries";
@@ -8,12 +9,11 @@ import { Breadcrumbs } from "@/components/breadcrumbs";
 import { JsonLd } from "@/components/json-ld";
 import { money } from "@/lib/search-params";
 import { SITE } from "@/lib/site";
-import { routing } from "@/i18n/routing";
 
 export async function generateMetadata({ params }: PageProps<"/[locale]/car-prices">): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "contact" });
-  return { title: t("pricesTitle"), description: t("pricesLead"), alternates: { canonical: `/${locale}/car-prices`, languages: Object.fromEntries(routing.locales.map((l) => [l, `/${l}/car-prices`])) } };
+  return seo({ title: t("pricesTitle"), description: t("pricesLead"), alternates: seoAlternates(locale, "/car-prices"), openGraph: { url: `/${locale}/car-prices` } }, locale);
 }
 
 export default async function CarPrices({ params }: PageProps<"/[locale]/car-prices">) {

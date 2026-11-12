@@ -1,6 +1,7 @@
 import { getTranslations } from "next-intl/server";
 import { Suspense } from "react";
 import type { Metadata } from "next";
+import { seo } from "@/lib/seo";
 import { notFound } from "next/navigation";
 import { getPage, faqFromHtml, plainText } from "@/server/pages";
 import { Breadcrumbs } from "@/components/breadcrumbs";
@@ -24,13 +25,13 @@ export async function generateMetadata({ params }: PageProps<"/[locale]/[slug]">
   // A page is indexable in every language it has been translated into; elsewhere it shows English and points to /en.
   const own = locale === "en" || !!tr;
   const url = `/${own ? locale : "en"}/${slug}`;
-  return {
+  return seo({
     title,
     description: desc,
     alternates: { canonical: url, languages: { ...Object.fromEntries(langs.map((l) => [l, `/${l}/${slug}`])), "x-default": `/en/${slug}` } },
     robots: own ? undefined : { index: false, follow: true },
     openGraph: { title, description: desc, url, type: "article" },
-  };
+  }, locale);
 }
 
 export default function ContentPage({ params }: PageProps<"/[locale]/[slug]">) {

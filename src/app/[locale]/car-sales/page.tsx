@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { seo } from "@/lib/seo";
 import { WhatsAppIcon } from "@/components/whatsapp-icon";
 import { Suspense } from "react";
 import Image from "next/image";
@@ -27,12 +28,12 @@ export async function generateMetadata({ params }: PageProps<"/[locale]/car-sale
   const { locale } = await params;
   const s = await getTranslations({ locale, namespace: "sales" });
   const languages = { ...Object.fromEntries(routing.locales.map((l) => [l, `/${l}/car-sales`])), "x-default": "/en/car-sales" };
-  return {
+  return seo({
     title: { absolute: s("metaTitle") },
     description: s("metaDescription"),
     alternates: { canonical: `/${locale}/car-sales`, languages },
     openGraph: { title: s("metaTitle"), description: s("metaDescription"), url: `/${locale}/car-sales`, images: [`${IMG}/showroom-mercedes.webp`] },
-  };
+  }, locale);
 }
 
 export default async function CarSalesPage({ params }: PageProps<"/[locale]/car-sales">) {

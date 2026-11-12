@@ -11,6 +11,7 @@ import { CampaignBanner } from "@/components/campaign";
 import { SearchSection, SearchSkeleton } from "@/components/search-section";
 import { money } from "@/lib/search-params";
 import type { Metadata } from "next";
+import { seo } from "@/lib/seo";
 import { Breadcrumbs } from "@/components/breadcrumbs";
 import { JsonLd } from "@/components/json-ld";
 import { SITE } from "@/lib/site";
@@ -18,6 +19,8 @@ import { routing } from "@/i18n/routing";
 import { localizedRentalInfo } from "@/content/rental-info";
 import { excessLabel } from "@/content/damage-excess";
 import { trAblative } from "@/lib/tr-suffix";
+
+const FUEL_LABEL: Record<string, string> = { PETROL: "Petrol", DIESEL: "Diesel", HYBRID: "Hybrid", ELECTRIC: "Electric", LPG: "LPG" };
 
 export async function generateMetadata({ params }: PageProps<"/[locale]/cars/[slug]">): Promise<Metadata> {
   const { locale, slug } = (await params) as { locale: Locale; slug: string };
@@ -28,11 +31,11 @@ export async function generateMetadata({ params }: PageProps<"/[locale]/cars/[sl
   const abl = trAblative(m.dailyRate);
   const title = t("metaTitle", { name: m.name, price, abl });
   const description = t("metaDesc", { name: m.name, price, abl, seats: m.seats, gear: tx(m.transmission).toLocaleLowerCase(locale), fuel: tf(m.fuel).toLocaleLowerCase(locale) });
-  return {
+  return seo({
     title, description,
     alternates: { canonical: `/${locale}/cars/${slug}`, languages: { ...Object.fromEntries(routing.locales.map((l) => [l, `/${l}/cars/${slug}`])), "x-default": `/en/cars/${slug}` } },
     openGraph: { title, description, images: m.images[0] ? [{ url: m.images[0] }] : undefined },
-  };
+  }, locale);
 }
 
 export default function CarPage({ params }: PageProps<"/[locale]/cars/[slug]">) {
@@ -59,7 +62,7 @@ async function CarDetail({ params }: { params: PageProps<"/[locale]/cars/[slug]"
         <JsonLd data={{
           "@context": "https://schema.org", "@type": "Car", name: m.name, brand: { "@type": "Brand", name: m.make }, model: m.model,
           vehicleTransmission: m.transmission === "AUTOMATIC" ? "AutomaticTransmission" : "ManualTransmission",
-          fuelType: m.fuel, seatingCapacity: m.seats, image: m.images.map((i) => `${SITE.url}${i}`), url: `${SITE.url}/${locale}/cars/${slug}`,
+          fuelType: FUEL_LABEL[m.fuel] ?? m.fuel, seatingCapacity: m.seats, image: m.images.map((i) => `${SITE.url}${i}`), url: `${SITE.url}/${locale}/cars/${slug}`,
           offers: { "@type": "Offer", priceCurrency: "GBP", price: m.dailyRate, availability: "https://schema.org/InStock", businessFunction: "http://purl.org/goodrelations/v1#LeaseOut",
             priceSpecification: { "@type": "UnitPriceSpecification", price: m.dailyRate, priceCurrency: "GBP", unitCode: "DAY" }, seller: { "@id": `${SITE.url}/#business` } },
         }} />
