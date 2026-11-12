@@ -39,6 +39,24 @@ services:
       - nextcache:/app/.next/cache
     networks: [internal]
 
+  # Second replica of the same image: nginx balances across both and retries on the other one,
+  # and deploys restart them one at a time, so a deploy never takes the site down.
+  app2:
+    image: atoll-app:latest
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      DATABASE_URL: postgresql://atoll:${POSTGRES_PASSWORD}@db:5432/atoll
+      REDIS_URL: redis://redis:6379
+    depends_on:
+      db: { condition: service_healthy }
+      redis: { condition: service_started }
+    ports: ["127.0.0.1:${APP2_PORT:-3101}:3000"]
+    networks: [internal]
+    volumes:
+      - ${MEDIA_DIR:-./media}:/app/public/media:ro
+      - nextcache2:/app/.next/cache
+
   tools:
     build: { context: ., target: build, secrets: [corp_ca] }
     image: atoll-tools:latest
@@ -60,6 +78,7 @@ secrets:
 volumes:
   pgdata:
   nextcache:
+  nextcache2:
 
 networks:
   internal:
