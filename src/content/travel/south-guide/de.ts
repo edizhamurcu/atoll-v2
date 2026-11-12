@@ -1,0 +1,130 @@
+import type { TravelPage } from "../types";
+
+const de: TravelPage = {
+  meta: {
+    title: "Reiseführer Südzypern: Sehenswürdigkeiten, Strände und Tagesausflüge ab Kyrenia",
+    description: "Planen Sie Ihre Reise in den Süden Zyperns mit Ihrem Atoll-Mietwagen: Larnaka, Limassol, Paphos, Ayia Napa und das Troodos-Gebirge, Highlights, Strände, Reisezeit und Grenztipps.",
+  },
+  breadcrumb: "Reiseführer Südzypern",
+  destination: "Südzypern",
+  heroPhoto: "aphrodite-rock-dusk",
+  hero: {
+    title: "Südzypern, eine kurze Fahrt von Kyrenia",
+    lead: "Römische Mosaike in Paphos, Weindörfer im Troodos, die belebten Uferpromenaden von Limassol und Larnaka und das klare Wasser von Ayia Napa: alles als Tagesausflug von unserem Büro in Alsancak erreichbar. Atoll-Fahrzeuge dürfen mit Genehmigung in den Süden fahren.",
+    primary: { label: "Auto finden", href: "/#search" },
+    secondary: { label: "So fahren Sie in den Süden", href: "/driving-in-south-cyprus" },
+    updated: "Aktualisiert:",
+    updatedDate: "12. November 2026",
+  },
+  facts: {
+    title: "Südzypern auf einen Blick",
+    items: [
+      ["Währung", "Euro (EUR). Karten werden fast überall akzeptiert; etwas Bargeld für Dorfcafés und Kioske mitnehmen."],
+      ["Verkehr", "Linksverkehr wie im Norden. Entfernungen und Tempolimits in km und km/h."],
+      ["Steckdosen", "Britischer Dreipolstecker (Typ G), 230 V, wie im Norden."],
+      ["Sprache", "Griechisch. Englisch ist weit verbreitet, Verkehrsschilder sind griechisch und englisch."],
+      ["Zeitzone", "UTC+2 (im Sommer UTC+3), wie im Norden."],
+      ["Grenzübertritt", "Am Übergang zeigen Sie Reisepass oder EU-Personalausweis. Die Visaregeln hängen von Ihrer Staatsangehörigkeit ab; prüfen Sie sie vor der Fahrt."],
+      ["Mit einem Atoll-Auto", "Grenzgenehmigung bei uns kaufen (£50), dann die griechisch-zyprische Versicherung am Übergang Metehan (etwa £21)."],
+      ["Notruf", "112 oder 199 für Polizei, Rettungsdienst und Feuerwehr."],
+    ],
+  },
+  sections: [
+    {
+      kind: "regions",
+      id: "regions",
+      title: "Wohin fahren",
+      lead: "Alle Fahrten unten beginnen an unserem Büro in Alsancak und führen über den Übergang Metehan (Agios Dometios) in Nikosia, wo die griechisch-zyprische Versicherung verkauft wird. Die Zeiten sind Richtwerte ohne Wartezeit an der Grenze.",
+      items: [
+        { name: "Larnaka", local: "Larnaca", tag: "Etwa 1 Std. 20 Min.", text: "Eine entspannte Küstenstadt mit Palmenpromenade, dem Strand Finikoudes und dem wichtigsten Flughafen der Insel. Im Winter sammeln sich Flamingos auf dem Salzsee am Stadtrand.", see: ["Lazarus-Kirche", "Promenade Finikoudes", "Hala Sultan Tekke und der Salzsee", "Spitzendorf Lefkara (40 Min.)"], photo: "st-lazarus" },
+        { name: "Limassol", local: "Lemesos", tag: "Etwa 1 Std. 45 Min.", text: "Die lebhafteste Stadt des Südens: 16 km Uferpromenade, eine elegante Marina, die mittelalterliche Burg in der Altstadt und Weindörfer in den Hügeln dahinter.", see: ["Burg von Limassol und alter Hafen", "Uferpark Molos", "Kourion und sein Theater", "Burg Kolossi"], photo: "limassol-seafront" },
+        { name: "Paphos", local: "Pafos", tag: "Etwa 2 Std. 30 Min.", text: "Eine Stadt auf der UNESCO-Welterbeliste, in der römische Villen, Mosaike und Felsengräber nur wenige Gehminuten vom Hafen liegen. Der beste Ausgangspunkt für die wilde Halbinsel Akamas.", see: ["Archäologischer Park und Mosaike", "Königsgräber", "Burg und Hafen von Paphos", "Felsen der Aphrodite auf dem Weg"], photo: "paphos-marina" },
+        { name: "Ayia Napa und Protaras", tag: "Etwa 1 Std. 45 Min.", text: "Die Strandecke der Insel: weißer Sand, flaches türkisfarbenes Wasser und Meereshöhlen. Ayia Napa ist im Sommer belebt, Protaras ruhiger und familienfreundlich.", see: ["Nissi Beach", "Kap Greco und die Meereshöhlen", "Fig Tree Bay, Protaras", "Konnos-Bucht"], photo: "nissi-beach" },
+        { name: "Troodos-Gebirge", tag: "Etwa 1 Std. 45 Min. bis Kakopetria", text: "Pinienwälder, Steindörfer und zehn bemalte byzantinische Kirchen auf der UNESCO-Liste. Im Sommer bis zu 10 °C kühler als die Küste, im Winter liegt Schnee auf dem Olympos.", see: ["Altstadt von Kakopetria", "Kloster Kykkos", "Weindorf Omodos", "Bemalte Kirchen wie Podithou und Asinou"], photo: "kakopetria" },
+        { name: "Nikosia (Süden)", local: "Lefkosia", tag: "Etwa 40 Min.", text: "Die südliche Hälfte der geteilten Hauptstadt: Museen, die Geschäfte und Cafés der Ledra-Straße und die alten Gassen von Laiki Geitonia innerhalb der venezianischen Mauern. An der Ledra-Straße gehen Sie zu Fuß in den Norden.", see: ["Leventis-Stadtmuseum", "Ledra-Straße", "Laiki Geitonia", "Venezianische Mauern und Famagusta-Tor"], photo: "ledra-street" },
+      ],
+    },
+    {
+      kind: "cards",
+      id: "sights",
+      title: "Highlights, die Sie nicht verpassen sollten",
+      items: [
+        { name: "Königsgräber", where: "Paphos", text: "Unterirdische Gräber aus hellenistischer und römischer Zeit, in den Fels gehauen, manche mit dorischen Säulenhöfen.", photo: "tombs-of-the-kings" },
+        { name: "Mosaike von Paphos", where: "Archäologischer Park Paphos", text: "Einige der schönsten römischen Bodenmosaike des Mittelmeerraums in den Häusern des Dionysos, des Theseus und des Aion.", photo: "paphos-mosaics" },
+        { name: "Burg und Hafen von Paphos", where: "Paphos", text: "Ein kleines Fort am Ende der Hafenmole, umgeben von Fischrestaurants und Bootsausflügen.", photo: "paphos-castle" },
+        { name: "Kourion", where: "Westlich von Limassol", text: "Eine antike Stadt auf einer Klippe mit einem Theater zum Meer und Mosaiken in der Villa des Eustolios.", photo: "kourion" },
+        { name: "Felsen der Aphrodite", where: "Zwischen Paphos und Limassol", text: "Petra tou Romiou, wo die Göttin der Legende nach den Wellen entstieg. Am schönsten bei Sonnenuntergang; parken Sie am Aussichtspunkt an der Straße.", photo: "aphrodite-rock" },
+        { name: "Kloster Kykkos", where: "Westlicher Troodos", text: "Das reichste Kloster der Insel, mit Goldmosaiken geschmückt, mit einem Museum für Ikonen und Kirchenschätze.", photo: "kykkos" },
+        { name: "Bemalte Kirchen des Troodos", where: "Kakopetria, Galata und Umgebung", text: "Schlichte Kirchen mit Holzdach und byzantinischen Fresken im Inneren; Panagia tis Podithou liegt wenige Minuten von Kakopetria.", photo: "podithou-church" },
+        { name: "Hala Sultan Tekke", where: "Salzsee von Larnaka", text: "Eines der wichtigsten islamischen Heiligtümer der Insel, in einem Palmengarten am Seeufer.", photo: "hala-sultan-tekke" },
+        { name: "Kap Greco", where: "Zwischen Ayia Napa und Protaras", text: "Eine geschützte Landspitze mit Meereshöhlen, einer natürlichen Felsbrücke und Wanderwegen über sehr klarem Wasser.", photo: "cape-greco" },
+        { name: "Lefkara", where: "Zwischen Larnaka und Limassol", text: "Ein Steindorf, berühmt für handgemachte Spitze und Silberarbeiten, mit engen Gassen für einen gemütlichen Bummel.", photo: "lefkara" },
+        { name: "Avakas-Schlucht", where: "Halbinsel Akamas", text: "Ein kurzer Weg in einen engen Kalksteincanyon. Festes Schuhwerk tragen und nach starkem Regen meiden.", photo: "avakas-gorge" },
+        { name: "Blaue Lagune", where: "Akamas, bei Latchi", text: "Baden in sehr klarem Wasser an der wilden Akamas-Küste. Fahren Sie mit dem Boot ab Latchi; der Landweg ist eine holprige Piste.", photo: "blue-lagoon" },
+      ],
+    },
+    {
+      kind: "split",
+      id: "beaches",
+      title: "Strände",
+      paragraphs: [
+        "Für weißen Sand und flaches Wasser fahren Sie nach Osten: Nissi Beach und die Konnos-Bucht bei Ayia Napa, Fig Tree Bay in Protaras. In Larnaka liegen Mackenzie und Finikoudes nah an der Stadt. Coral Bay bei Paphos ist bei Familien beliebt, die Lara-Bucht im Akamas ein geschützter Niststrand für Meeresschildkröten.",
+        "An vielen Stränden kann man im Sommer Liegen und Schirme mieten. Strände mit Blauer Flagge haben in der Saison Rettungsschwimmer.",
+      ],
+      photo: "nissi-beach",
+      caption: "Nissi Beach, Ayia Napa.",
+    },
+    {
+      kind: "seasons",
+      id: "when",
+      title: "Beste Reisezeit",
+      items: [
+        { name: "Frühling", months: "März bis Mai", text: "Grüne Hügel, Wildblumen und warme Tage: die beste Zeit für Besichtigungen und Wanderungen im Troodos und auf Akamas." },
+        { name: "Sommer", months: "Juni bis September", text: "Heiß und trocken an der Küste, warmes Meer. Besichtigungen am Morgen planen und zur Abkühlung in die Berge fahren." },
+        { name: "Herbst", months: "Oktober und November", text: "Das Meer bleibt warm, es wird ruhiger. In den Dörfern finden Weinlese und Weinfeste statt." },
+        { name: "Winter", months: "Dezember bis Februar", text: "Mild an der Küste, Schnee auf den höchsten Gipfeln. Museen, Mosaike und Stadtrundgänge sind jetzt am angenehmsten." },
+      ],
+      note: "Griechisch-zyprische Feiertage, auch das orthodoxe Osterfest, ändern die Öffnungszeiten von Museen und des Versicherungsbüros an der Grenze.",
+    },
+    {
+      kind: "split",
+      id: "crossing",
+      title: "Mit Ihrem Atoll-Auto über die Grenze",
+      paragraphs: [
+        "Atoll Rent A Car erlaubt seinen Fahrzeugen nur die Fahrt nach Südzypern. Kaufen Sie die Grenzgenehmigung bei uns (£50). Am Übergang Metehan in Nikosia zeigen Sie die Genehmigung am türkisch-zyprischen Kontrollpunkt und kaufen dann am griechisch-zyprischen Kontrollpunkt Versicherung und Straßensteuer (etwa £21, an der Grenze zu zahlen).",
+        "Das Versicherungsbüro gibt es nur in Metehan; es ist werktags bis 14:00 Uhr geöffnet und an griechisch-zyprischen Feiertagen geschlossen. Im Süden ist das Auto nur über die an der Grenze gekaufte Haftpflichtversicherung versichert, nicht über unsere Versicherung.",
+      ],
+      photo: "cyprus-speed-sign",
+      reverse: true,
+      link: { label: "Alle Schritte und Verkehrsregeln lesen", href: "/driving-in-south-cyprus" },
+    },
+    {
+      kind: "split",
+      id: "food",
+      title: "Essen und Wein",
+      paragraphs: [
+        "Bestellen Sie eine Meze, und die Teller kommen und kommen: Dips, gegrillter Halloumi, Salate, Sheftalia, Souvla und am Meer frischer Fisch. In den Bergen lohnen Forelle und langsam geschmortes Kleftiko.",
+        "Weindörfer im Troodos wie Omodos keltern trockene Weine und Commandaria, einen süßen Dessertwein, der seit Jahrhunderten auf der Insel hergestellt wird. Planen Sie eine Weinprobe, bestimmen Sie einen Fahrer: Zypern hat strenge Promillegrenzen.",
+      ],
+      photo: "omodos",
+      caption: "Omodos, ein Weindorf an den Hängen des Troodos.",
+    },
+  ],
+  faq: {
+    title: "Häufige Fragen",
+    items: [
+      { q: "Darf ich mit meinem Atoll-Auto nach Südzypern fahren?", a: "Ja. Die Grenzgenehmigung kaufen Sie bei uns (£50), Versicherung und Straßensteuer am Übergang Metehan in Nikosia (etwa £21). Atoll-Fahrzeuge dürfen Nordzypern nur für die Fahrt nach Südzypern verlassen." },
+      { q: "Welchen Übergang soll ich nehmen?", a: "Metehan (Agios Dometios) in Nikosia, denn nur dort gibt es das griechisch-zyprische Versicherungsbüro. Es ist werktags bis 14:00 Uhr geöffnet und an griechisch-zyprischen Feiertagen geschlossen." },
+      { q: "Ist das Auto im Süden versichert?", a: "Nur über die an der Grenze gekaufte Haftpflichtversicherung. Sie deckt keine Schäden am Mietwagen; fahren Sie vorsichtig und lesen Sie die Bedingungen der Police." },
+      { q: "Wie lange fährt man von Kyrenia nach Paphos?", a: "Etwa zweieinhalb Stunden von unserem Büro in Alsancak über den Übergang Metehan, plus Wartezeit an der Grenze. Nach Limassol etwa 1 Std. 45 Min., nach Larnaka etwa 1 Std. 20 Min." },
+      { q: "Brauche ich Euro?", a: "Ja, im Süden gilt der Euro. Karten funktionieren fast überall, aber halten Sie etwas Bargeld für kleine Cafés, Parkautomaten und Dorfläden bereit." },
+      { q: "Sind die Straßen im Troodos für einen Kleinwagen geeignet?", a: "Ja. Die Hauptstraßen in den Troodos sind asphaltiert und gut ausgebaut, aber steil und kurvig; planen Sie mehr Zeit ein. Prüfen Sie im Winter vor der Fahrt, ob am Olympos Schnee oder Glätte herrscht." },
+    ],
+  },
+  blog: { title: "Aus unserem Reiseblog", all: "Alle Blogartikel" },
+  cta: { title: "Entdecken Sie beide Seiten der Insel", text: "Unbegrenzte Kilometer, kostenlose Zustellung zum Flughafen Ercan und nach Kyrenia, ab {price} pro Tag.", button: "Verfügbarkeit prüfen" },
+  credits: { title: "Bildnachweise" },
+  touristTypes: ["Strandurlaub", "Kulturtourismus", "Rundreise mit dem Auto", "Weintourismus"],
+};
+
+export default de;

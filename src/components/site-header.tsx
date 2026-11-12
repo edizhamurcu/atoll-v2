@@ -9,8 +9,8 @@ import { MainNav, MainNavView, MobileMenu, MobileMenuView, type NavLabels } from
 /** Header: brand logos, main nav (rental | sales groups, then About · Discover · Contact), language, booking CTA. */
 export async function SiteHeader() {
   const [t, m, s] = await Promise.all([getTranslations("nav"), getTranslations("menu"), getTranslations("sales")]);
-  const navKeys = ["rentCars", "carSales", "aboutUs", "contactUs", "carPrices", "rentalTerms", "specialOffers", "agreement", "guide", "drivingSouth", "blog", "home", "menu", "close"] as const;
-  const menuKeys = ["discover", "rentPitch", "rentCta", "fleet", "fleetDesc", "pricesDesc", "termsDesc", "offersDesc", "agreementDesc", "salePitch", "saleCta", "showroom", "showroomDesc", "stock", "stockDesc", "service", "serviceDesc", "whatsapp", "guideDesc", "southDesc", "blogDesc", "call", "general", "rentGroup", "saleGroup"] as const;
+  const navKeys = ["rentCars", "carSales", "aboutUs", "contactUs", "carPrices", "rentalTerms", "specialOffers", "agreement", "guide", "southGuide", "drivingSouth", "blog", "home", "menu", "close"] as const;
+  const menuKeys = ["discover", "rentPitch", "rentCta", "fleet", "fleetDesc", "pricesDesc", "termsDesc", "offersDesc", "agreementDesc", "salePitch", "saleCta", "showroom", "showroomDesc", "stock", "stockDesc", "service", "serviceDesc", "whatsapp", "guideDesc", "southGuideDesc", "southDesc", "blogDesc", "call", "general", "rentGroup", "saleGroup"] as const;
   const labels = {
     ...Object.fromEntries(navKeys.map((k) => [k, t(k)])),
     ...Object.fromEntries(menuKeys.map((k) => [k, m(k)])),

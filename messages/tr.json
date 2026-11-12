@@ -28,7 +28,8 @@
     "close": "Kapat",
     "blog": "Blog",
     "carSales": "Satılık araçlar",
-    "rentCars": "Kiralık araçlar"
+    "rentCars": "Kiralık araçlar",
+    "southGuide": "Güney Kıbrıs Rehberi"
   },
   "hero": {
     "title": "Atoll Rent-A-Car ile daha ileri gidin!",
@@ -349,8 +350,8 @@
     "Blue": "Mavi"
   },
   "blog": {
-    "title": "Kuzey Kıbrıs Seyahat Blogu",
-    "description": "Kuzey Kıbrıs'ı ziyaret edecekler için seyahat ipuçları, yol rotaları, plajlar, yemekler ve pratik bilgiler; Girne'deki Atoll Rent A Car ekibinden.",
+    "title": "Kıbrıs Seyahat Blogu",
+    "description": "Kuzey ve Güney Kıbrıs gezi rehberleri, yol rotaları, plajlar, yemekler ve pratik bilgiler; Girne'deki Atoll Rent A Car ekibinden.",
     "newHere": "Adaya ilk kez mi geliyorsunuz? Önce şuna göz atın:",
     "guideLink": "Kuzey Kıbrıs rehberi",
     "minRead": "{n} dk okuma",
@@ -421,7 +422,8 @@
     "call": "Ara",
     "general": "Diğer sayfalar",
     "rentGroup": "Kiralık araç menüsü",
-    "saleGroup": "Satılık araç menüsü"
+    "saleGroup": "Satılık araç menüsü",
+    "southGuideDesc": "Güney'de gezilecek yerler"
   },
   "campaign": {
     "tag": "Kampanya",
@@ -466,5 +468,19 @@
     "label": "Ne yapmak istiyorsunuz?",
     "saleTitle": "OSK Auto showroom'u, aynı binada",
     "saleLead": "Yeni ve ikinci el araçları yerinde görün. Satış sonrası bakım, kaporta-boya, oto elektrik ve yıkama kendi atölyemizde."
+  },
+  "travel": {
+    "navLabel": "Seyahat bölümleri",
+    "north": "Kuzey Kıbrıs Seyahat",
+    "south": "Güney Kıbrıs Seyahat",
+    "driving": "Güney Kıbrıs'ta Sürüş",
+    "posts": "Blog yazıları",
+    "hubTitle": "Kıbrıs gezi rehberleri ve blog",
+    "hubLead": "Gezinizi Girne Alsancak'taki ofisimizden planlayın: adanın kuzeyi ve güneyi için kapsamlı rehberler, Atoll aracınızla Güney'e nasıl geçeceğiniz ve en yeni seyahat yazılarımız.",
+    "northDesc": "Kuzey için bölgeler, kaleler, plajlar, mevsimler ve pratik ipuçları.",
+    "southDesc": "Larnaka, Limasol, Baf, Ayia Napa ve Trodos; Girne'den sürüş süreleriyle.",
+    "drivingDesc": "Atoll aracınızla Güney'e geçmek için izin, sınır sigortası, geçiş noktaları ve trafik kuralları.",
+    "read": "Rehberi okuyun",
+    "postsTitle": "Blog yazıları"
   }
 }

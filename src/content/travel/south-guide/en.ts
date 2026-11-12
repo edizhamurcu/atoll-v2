@@ -1,0 +1,130 @@
+import type { TravelPage } from "../types";
+
+const en: TravelPage = {
+  meta: {
+    title: "South Cyprus Travel Guide: places to visit, beaches and day trips from Kyrenia",
+    description: "Plan a trip to the south of Cyprus with your Atoll car: Larnaca, Limassol, Paphos, Ayia Napa and the Troodos, the best sights and beaches, seasons and crossing tips.",
+  },
+  breadcrumb: "South Cyprus Guide",
+  destination: "South Cyprus",
+  heroPhoto: "aphrodite-rock-dusk",
+  hero: {
+    title: "South Cyprus, a short drive from Kyrenia",
+    lead: "Roman mosaics in Paphos, wine villages in the Troodos, the busy seafronts of Limassol and Larnaca and the clear water of Ayia Napa: all within a day's drive of our Alsancak office. Atoll cars may cross to the south with a permit.",
+    primary: { label: "Find a car", href: "/#search" },
+    secondary: { label: "How to drive to the South", href: "/driving-in-south-cyprus" },
+    updated: "Updated:",
+    updatedDate: "12 November 2026",
+  },
+  facts: {
+    title: "South Cyprus at a glance",
+    items: [
+      ["Currency", "Euro (EUR). Cards are accepted almost everywhere; carry some cash for village cafés and kiosks."],
+      ["Traffic", "Drives on the left, like the north. Distances and speed limits in km and km/h."],
+      ["Plugs", "British three-pin (type G), 230 V: the same as in the north."],
+      ["Language", "Greek. English is spoken widely, and road signs are in Greek and English."],
+      ["Time zone", "UTC+2 (UTC+3 in summer), the same as the north."],
+      ["Crossing", "Show your passport or EU ID card at the checkpoint. Visa rules depend on your nationality, so check before you go."],
+      ["With an Atoll car", "Buy the crossing permit from us (£50), then the Greek Cypriot insurance at the Metehan crossing (about £21)."],
+      ["Emergency", "112 or 199 for police, ambulance and fire."],
+    ],
+  },
+  sections: [
+    {
+      kind: "regions",
+      id: "regions",
+      title: "Where to go",
+      lead: "Every drive below starts at our Alsancak office and goes through the Metehan (Agios Dometios) crossing in Nicosia, where the Greek Cypriot insurance is sold. Times are approximate and do not include waiting at the border.",
+      items: [
+        { name: "Larnaca", local: "Larnaka", tag: "About 1 h 20 min", text: "A relaxed seaside town with a palm-lined promenade, Finikoudes beach, and the island's main airport. In winter, flamingos gather on the salt lake on the edge of town.", see: ["Church of Saint Lazarus", "Finikoudes promenade", "Hala Sultan Tekke and the Salt Lake", "Lefkara lace village (40 min)"], photo: "st-lazarus" },
+        { name: "Limassol", local: "Lemesos", tag: "About 1 h 45 min", text: "The south's liveliest city: a 16 km seafront, a smart marina, the medieval castle in the old town and wine villages in the hills behind.", see: ["Limassol Castle and the old port", "Molos seafront park", "Kourion and its theatre", "Kolossi Castle"], photo: "limassol-seafront" },
+        { name: "Paphos", local: "Pafos", tag: "About 2 h 30 min", text: "A UNESCO World Heritage town where Roman villas, mosaics and rock-cut tombs sit a short walk from the harbour. It is the best base for the wild Akamas peninsula.", see: ["Paphos Archaeological Park and mosaics", "Tombs of the Kings", "Paphos Castle and harbour", "Aphrodite's Rock on the way"], photo: "paphos-marina" },
+        { name: "Ayia Napa and Protaras", tag: "About 1 h 45 min", text: "The island's beach corner: white sand, shallow turquoise water and sea caves. Ayia Napa is busy in summer; Protaras is quieter and family friendly.", see: ["Nissi Beach", "Cape Greco and the sea caves", "Fig Tree Bay, Protaras", "Konnos Bay"], photo: "nissi-beach" },
+        { name: "Troodos mountains", tag: "About 1 h 45 min to Kakopetria", text: "Pine forests, stone villages and ten painted Byzantine churches on the UNESCO list. Up to 10 °C cooler than the coast in summer, with snow on Mount Olympos in winter.", see: ["Kakopetria old village", "Kykkos Monastery", "Omodos wine village", "Painted churches such as Podithou and Asinou"], photo: "kakopetria" },
+        { name: "Nicosia (south)", local: "Lefkosia", tag: "About 40 min", text: "The southern half of the divided capital: museums, the shops and cafés of Ledra Street, and Laiki Geitonia's old lanes inside the Venetian walls. You can walk across to the north at Ledra Street.", see: ["Leventis Municipal Museum", "Ledra Street", "Laiki Geitonia", "Venetian walls and Famagusta Gate"], photo: "ledra-street" },
+      ],
+    },
+    {
+      kind: "cards",
+      id: "sights",
+      title: "Highlights you shouldn't miss",
+      items: [
+        { name: "Tombs of the Kings", where: "Paphos", text: "Underground tombs cut into the rock in the Hellenistic and Roman periods, some with Doric-columned courtyards.", photo: "tombs-of-the-kings" },
+        { name: "Paphos mosaics", where: "Paphos Archaeological Park", text: "Some of the finest Roman floor mosaics in the Mediterranean, in the Houses of Dionysos, Theseus and Aion.", photo: "paphos-mosaics" },
+        { name: "Paphos Castle and harbour", where: "Paphos", text: "A small fort at the end of the harbour wall, surrounded by fish restaurants and boat trips.", photo: "paphos-castle" },
+        { name: "Kourion", where: "West of Limassol", text: "An ancient city on a cliff top, with a theatre facing the sea and mosaics in the villa of Eustolios.", photo: "kourion" },
+        { name: "Aphrodite's Rock", where: "Between Paphos and Limassol", text: "Petra tou Romiou, where legend says the goddess rose from the waves. Best at sunset; park at the viewpoint by the road.", photo: "aphrodite-rock" },
+        { name: "Kykkos Monastery", where: "Western Troodos", text: "The island's richest monastery, decorated with gold mosaics, with a museum of icons and church treasures.", photo: "kykkos" },
+        { name: "Painted churches of the Troodos", where: "Kakopetria, Galata and around", text: "Simple barn-roofed churches with Byzantine frescoes inside; Panagia tis Podithou is a few minutes from Kakopetria.", photo: "podithou-church" },
+        { name: "Hala Sultan Tekke", where: "Larnaca Salt Lake", text: "One of the most important Islamic shrines on the island, in a garden of palms on the lakeshore.", photo: "hala-sultan-tekke" },
+        { name: "Cape Greco", where: "Between Ayia Napa and Protaras", text: "A protected headland with sea caves, a natural rock bridge and walking trails above very clear water.", photo: "cape-greco" },
+        { name: "Lefkara", where: "Between Larnaca and Limassol", text: "A stone village famous for its handmade lace and silverwork, with narrow lanes for an easy stroll.", photo: "lefkara" },
+        { name: "Avakas Gorge", where: "Akamas peninsula", text: "A short walk into a narrow limestone canyon. Wear proper shoes and avoid it after heavy rain.", photo: "avakas-gorge" },
+        { name: "Blue Lagoon", where: "Akamas, near Latchi", text: "Swim in very clear water off the wild Akamas coast. Go by boat from Latchi; the track overland is rough.", photo: "blue-lagoon" },
+      ],
+    },
+    {
+      kind: "split",
+      id: "beaches",
+      title: "Beaches",
+      paragraphs: [
+        "For white sand and shallow water head east: Nissi Beach and Konnos Bay at Ayia Napa, and Fig Tree Bay at Protaras. Around Larnaca, Mackenzie and Finikoudes are close to town. Coral Bay near Paphos is popular with families, while Lara Bay in the Akamas is a protected turtle-nesting beach.",
+        "Many beaches have sunbeds and umbrellas for hire in summer. Blue Flag beaches have lifeguards in season.",
+      ],
+      photo: "nissi-beach",
+      caption: "Nissi Beach, Ayia Napa.",
+    },
+    {
+      kind: "seasons",
+      id: "when",
+      title: "When to go",
+      items: [
+        { name: "Spring", months: "March to May", text: "Green hills, wild flowers and warm days: the best time for sightseeing and walks in the Troodos and Akamas." },
+        { name: "Summer", months: "June to September", text: "Hot and dry on the coast, with a warm sea. Plan sightseeing for the morning and head to the mountains to cool off." },
+        { name: "Autumn", months: "October and November", text: "The sea stays warm and the crowds thin out. The grape harvest and wine festivals take place in the villages." },
+        { name: "Winter", months: "December to February", text: "Mild on the coast and snowy on the highest peaks. Museums, mosaics and city walks are at their most pleasant." },
+      ],
+      note: "Greek Cypriot public holidays, including Orthodox Easter, change the opening hours of museums and of the insurance office at the border.",
+    },
+    {
+      kind: "split",
+      id: "crossing",
+      title: "Crossing with your Atoll car",
+      paragraphs: [
+        "Atoll Rent A Car allows its cars to cross only into South Cyprus. Buy the crossing permit from us (£50). At the Metehan crossing in Nicosia, show the permit at the Turkish Cypriot checkpoint, then buy the Greek Cypriot insurance and road tax at the Greek Cypriot checkpoint (about £21, paid at the border).",
+        "The insurance office is only at Metehan, opens on weekdays until 14:00 and closes on Greek Cypriot public holidays. In the south the car is covered only by the third-party insurance you buy at the border, not by our insurance.",
+      ],
+      photo: "cyprus-speed-sign",
+      reverse: true,
+      link: { label: "Read the full crossing steps and driving rules", href: "/driving-in-south-cyprus" },
+    },
+    {
+      kind: "split",
+      id: "food",
+      title: "Food and wine",
+      paragraphs: [
+        "Order a meze and dishes keep arriving: dips, grilled halloumi, salads, sheftalia, souvla and fish by the sea. In the mountains, try trout and slow-cooked kleftiko.",
+        "The Troodos wine villages such as Omodos make dry wines and Commandaria, a sweet dessert wine made on the island for centuries. If you plan a tasting, choose a driver: Cyprus has strict drink-driving limits.",
+      ],
+      photo: "omodos",
+      caption: "Omodos, a wine village on the Troodos slopes.",
+    },
+  ],
+  faq: {
+    title: "Frequently asked questions",
+    items: [
+      { q: "Can I drive my Atoll car to South Cyprus?", a: "Yes. Buy the crossing permit from us (£50) and the Greek Cypriot insurance and road tax at the Metehan crossing in Nicosia (about £21). Atoll cars may leave North Cyprus only to cross into South Cyprus." },
+      { q: "Which crossing should I use?", a: "Use Metehan (Agios Dometios) in Nicosia, because the Greek Cypriot insurance office is only there. It opens on weekdays until 14:00 and is closed on Greek Cypriot public holidays." },
+      { q: "Is the car insured in the south?", a: "Only by the third-party insurance you buy at the border. It does not cover damage to the rental car, so drive carefully and read the policy you buy." },
+      { q: "How long is the drive from Kyrenia to Paphos?", a: "About two and a half hours from our Alsancak office via the Metehan crossing, plus any waiting at the border. Limassol takes about 1 h 45 min and Larnaca about 1 h 20 min." },
+      { q: "Do I need euros?", a: "Yes, the south uses the euro. Cards work almost everywhere, but keep some cash for small cafés, parking machines and village shops." },
+      { q: "Are the Troodos roads fine for a small car?", a: "Yes. The main roads into the Troodos are paved and in good condition, but they are steep and winding, so allow extra time. In winter, check for snow and ice near Mount Olympos before you go." },
+    ],
+  },
+  blog: { title: "From our travel blog", all: "All blog posts" },
+  cta: { title: "Explore both sides of the island", text: "Unlimited mileage, free delivery to Ercan Airport and Kyrenia, from {price} a day.", button: "Check availability" },
+  credits: { title: "Photo credits" },
+  touristTypes: ["Beach holiday", "Cultural tourism", "Road trip", "Wine tourism"],
+};
+
+export default en;

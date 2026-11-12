@@ -28,7 +28,8 @@
     "close": "Close",
     "blog": "Blog",
     "carSales": "Cars for sale",
-    "rentCars": "Rental cars"
+    "rentCars": "Rental cars",
+    "southGuide": "South Cyprus Guide"
   },
   "hero": {
     "title": "Go further with Atoll Rent-A-Car!",
@@ -349,8 +350,8 @@
     "Blue": "Blue"
   },
   "blog": {
-    "title": "North Cyprus Travel Blog",
-    "description": "Travel tips, road trips, beaches, food and practical advice for visiting North Cyprus, from the local team at Atoll Rent A Car in Kyrenia.",
+    "title": "Cyprus Travel Blog",
+    "description": "Travel guides to North and South Cyprus, road trips, beaches, food and practical tips from the Atoll Rent A Car team in Kyrenia.",
     "newHere": "New to the island? Start with our",
     "guideLink": "North Cyprus guide",
     "minRead": "{n} min read",
@@ -421,7 +422,8 @@
     "call": "Call",
     "general": "More pages",
     "rentGroup": "Rental cars menu",
-    "saleGroup": "Cars for sale menu"
+    "saleGroup": "Cars for sale menu",
+    "southGuideDesc": "Places to visit in the south"
   },
   "campaign": {
     "tag": "Offer",
@@ -466,5 +468,19 @@
     "label": "What would you like to do?",
     "saleTitle": "The OSK Auto showroom, in the same building",
     "saleLead": "See new and used cars in person. Servicing, body and paint, auto electrics and car wash in our own workshop after you buy."
+  },
+  "travel": {
+    "navLabel": "Travel sections",
+    "north": "North Cyprus Travel",
+    "south": "South Cyprus Travel",
+    "driving": "Driving in South Cyprus",
+    "posts": "Blog posts",
+    "hubTitle": "Cyprus travel guides and blog",
+    "hubLead": "Plan your trip from our office in Alsancak, Kyrenia: complete guides to the north and the south of the island, how to take your Atoll car across, and our latest travel articles.",
+    "northDesc": "Regions, castles, beaches, seasons and practical tips for the north.",
+    "southDesc": "Larnaca, Limassol, Paphos, Ayia Napa and the Troodos, with drive times from Kyrenia.",
+    "drivingDesc": "Permit, border insurance, crossing points and road rules for taking your Atoll car south.",
+    "read": "Read the guide",
+    "postsTitle": "Blog posts"
   }
 }

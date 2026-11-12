@@ -1,0 +1,130 @@
+import type { TravelPage } from "../types";
+
+const tr: TravelPage = {
+  meta: {
+    title: "Güney Kıbrıs Gezi Rehberi: gezilecek yerler, plajlar ve Girne'den günübirlik rotalar",
+    description: "Atoll aracınızla Güney Kıbrıs gezinizi planlayın: Larnaka, Limasol, Baf, Ayia Napa ve Trodos, en güzel yerler ve plajlar, mevsimler ve sınır geçişi ipuçları.",
+  },
+  breadcrumb: "Güney Kıbrıs Rehberi",
+  destination: "Güney Kıbrıs",
+  heroPhoto: "aphrodite-rock-dusk",
+  hero: {
+    title: "Girne'den kısa bir sürüşle Güney Kıbrıs",
+    lead: "Baf'ın Roma mozaikleri, Trodos'un şarap köyleri, Limasol ve Larnaka'nın hareketli sahilleri ve Ayia Napa'nın berrak denizi: hepsi Alsancak ofisimizden günübirlik sürüş mesafesinde. Atoll araçları izin belgesiyle Güney'e geçebilir.",
+    primary: { label: "Araç bul", href: "/#search" },
+    secondary: { label: "Güney'e nasıl geçilir?", href: "/driving-in-south-cyprus" },
+    updated: "Güncellendi:",
+    updatedDate: "12 Kasım 2026",
+  },
+  facts: {
+    title: "Bir bakışta Güney Kıbrıs",
+    items: [
+      ["Para birimi", "Euro (EUR). Kartlar neredeyse her yerde geçer; köy kahveleri ve büfeler için biraz nakit bulundurun."],
+      ["Trafik", "Kuzey'de olduğu gibi soldan akar. Mesafeler ve hız sınırları km ve km/s cinsindendir."],
+      ["Priz", "İngiliz tipi üç uçlu (G tipi), 230 V; Kuzey ile aynı."],
+      ["Dil", "Yunanca. İngilizce yaygın olarak konuşulur; yol tabelaları Yunanca ve İngilizcedir."],
+      ["Saat dilimi", "UTC+2 (yazın UTC+3); Kuzey ile aynı."],
+      ["Geçiş", "Geçiş noktasında pasaportunuzu veya AB kimlik kartınızı gösterirsiniz. Vize kuralları uyruğa göre değişir; yola çıkmadan kontrol edin."],
+      ["Atoll aracıyla", "Geçiş izin belgesini bizden alın (£50), ardından Metehan geçişinde Rum sigortasını satın alın (yaklaşık £21)."],
+      ["Acil durum", "Polis, ambulans ve itfaiye için 112 veya 199."],
+    ],
+  },
+  sections: [
+    {
+      kind: "regions",
+      id: "regions",
+      title: "Nereye gidilir",
+      lead: "Aşağıdaki tüm sürüşler Alsancak ofisimizden başlar ve Rum sigortasının satıldığı Lefkoşa'daki Metehan (Agios Dometios) geçişinden geçer. Süreler yaklaşıktır ve sınırdaki bekleme dahil değildir.",
+      items: [
+        { name: "Larnaka", local: "Larnaca", tag: "Yaklaşık 1 sa 20 dk", text: "Palmiyelerle çevrili sahil yolu, Finikoudes plajı ve adanın ana havalimanıyla sakin bir sahil kasabası. Kışın kasabanın kenarındaki tuz gölünde flamingolar toplanır.", see: ["Aziz Lazarus Kilisesi", "Finikoudes sahil yolu", "Hala Sultan Tekkesi ve Tuz Gölü", "Dantel köyü Lefkara (40 dk)"], photo: "st-lazarus" },
+        { name: "Limasol", local: "Lemesos", tag: "Yaklaşık 1 sa 45 dk", text: "Güney'in en hareketli şehri: 16 km'lik sahil, şık bir marina, eski şehirdeki ortaçağ kalesi ve arkadaki tepelerde şarap köyleri.", see: ["Limasol Kalesi ve eski liman", "Molos sahil parkı", "Kourion ve tiyatrosu", "Kolossi Kalesi"], photo: "limassol-seafront" },
+        { name: "Baf", local: "Pafos", tag: "Yaklaşık 2 sa 30 dk", text: "Roma villalarının, mozaiklerin ve kayaya oyulmuş mezarların limana birkaç dakika yürüme mesafesinde olduğu, UNESCO Dünya Mirası listesindeki bir kasaba. Vahşi Akamas yarımadası için en iyi üs.", see: ["Baf Arkeoloji Parkı ve mozaikler", "Kral Mezarları", "Baf Kalesi ve limanı", "Yol üstünde Afrodit Kayası"], photo: "paphos-marina" },
+        { name: "Ayia Napa ve Protaras", tag: "Yaklaşık 1 sa 45 dk", text: "Adanın plaj köşesi: beyaz kum, sığ turkuaz deniz ve deniz mağaraları. Ayia Napa yazın kalabalıktır; Protaras daha sakin ve ailelere uygundur.", see: ["Nissi Plajı", "Cape Greco ve deniz mağaraları", "Fig Tree Bay, Protaras", "Konnos Koyu"], photo: "nissi-beach" },
+        { name: "Trodos dağları", tag: "Kakopetria'ya yaklaşık 1 sa 45 dk", text: "Çam ormanları, taş köyler ve UNESCO listesindeki on boyalı Bizans kilisesi. Yazın kıyıdan 10 °C'ye kadar daha serin; kışın Olympos Dağı'nda kar olur.", see: ["Eski Kakopetria köyü", "Kykkos Manastırı", "Şarap köyü Omodos", "Podithou ve Asinou gibi boyalı kiliseler"], photo: "kakopetria" },
+        { name: "Lefkoşa (güney)", local: "Lefkosia", tag: "Yaklaşık 40 dk", text: "Bölünmüş başkentin güney yarısı: müzeler, Ledra Caddesi'nin dükkânları ve kafeleri, Venedik surlarının içinde Laiki Geitonia'nın eski sokakları. Ledra Caddesi'nden Kuzey'e yürüyerek geçebilirsiniz.", see: ["Leventis Belediye Müzesi", "Ledra Caddesi", "Laiki Geitonia", "Venedik surları ve Famagusta Kapısı"], photo: "ledra-street" },
+      ],
+    },
+    {
+      kind: "cards",
+      id: "sights",
+      title: "Kaçırmamanız gereken yerler",
+      items: [
+        { name: "Kral Mezarları", where: "Baf", text: "Helenistik ve Roma dönemlerinde kayaya oyulmuş yeraltı mezarları; bazılarında Dor sütunlu avlular var.", photo: "tombs-of-the-kings" },
+        { name: "Baf mozaikleri", where: "Baf Arkeoloji Parkı", text: "Dionysos, Theseus ve Aion evlerinde Akdeniz'in en güzel Roma taban mozaiklerinden bazıları.", photo: "paphos-mosaics" },
+        { name: "Baf Kalesi ve limanı", where: "Baf", text: "Liman mendireğinin ucunda küçük bir kale; çevresinde balık restoranları ve tekne turları.", photo: "paphos-castle" },
+        { name: "Kourion", where: "Limasol'un batısı", text: "Yar tepesinde antik bir kent; denize bakan tiyatrosu ve Eustolios villasındaki mozaikleriyle.", photo: "kourion" },
+        { name: "Afrodit Kayası", where: "Baf ile Limasol arası", text: "Efsaneye göre tanrıçanın dalgalardan doğduğu Petra tou Romiou. En güzeli gün batımında; yol kenarındaki seyir noktasına park edin.", photo: "aphrodite-rock" },
+        { name: "Kykkos Manastırı", where: "Batı Trodos", text: "Altın mozaiklerle süslü, adanın en zengin manastırı; ikon ve kilise hazineleri müzesiyle.", photo: "kykkos" },
+        { name: "Trodos'un boyalı kiliseleri", where: "Kakopetria, Galata ve çevresi", text: "İçinde Bizans freskleri bulunan, ahşap çatılı sade kiliseler; Panagia tis Podithou, Kakopetria'ya birkaç dakika uzaklıktadır.", photo: "podithou-church" },
+        { name: "Hala Sultan Tekkesi", where: "Larnaka Tuz Gölü", text: "Adadaki en önemli İslami ziyaret yerlerinden biri; göl kıyısında palmiye bahçesi içinde.", photo: "hala-sultan-tekke" },
+        { name: "Cape Greco", where: "Ayia Napa ile Protaras arası", text: "Deniz mağaraları, doğal kaya köprüsü ve çok berrak denize bakan yürüyüş yollarıyla koruma altındaki burun.", photo: "cape-greco" },
+        { name: "Lefkara", where: "Larnaka ile Limasol arası", text: "El yapımı dantelleri ve gümüş işçiliğiyle ünlü taş köy; dar sokaklarında keyifli bir yürüyüş için ideal.", photo: "lefkara" },
+        { name: "Avakas Boğazı", where: "Akamas yarımadası", text: "Dar bir kireçtaşı kanyona kısa bir yürüyüş. Uygun ayakkabı giyin, şiddetli yağmurdan sonra gitmeyin.", photo: "avakas-gorge" },
+        { name: "Mavi Lagün", where: "Akamas, Latchi yakını", text: "Vahşi Akamas kıyısında çok berrak suda yüzme. Latchi'den tekneyle gidin; kara yolu bozuk bir toprak yoldur.", photo: "blue-lagoon" },
+      ],
+    },
+    {
+      kind: "split",
+      id: "beaches",
+      title: "Plajlar",
+      paragraphs: [
+        "Beyaz kum ve sığ deniz için doğuya gidin: Ayia Napa'da Nissi Plajı ve Konnos Koyu, Protaras'ta Fig Tree Bay. Larnaka'da Mackenzie ve Finikoudes şehre yakındır. Baf yakınındaki Coral Bay ailelerin favorisidir; Akamas'taki Lara Koyu ise koruma altındaki bir kaplumbağa yuvalama plajıdır.",
+        "Plajların çoğunda yazın şezlong ve şemsiye kiralanır. Mavi Bayraklı plajlarda sezon boyunca cankurtaran bulunur.",
+      ],
+      photo: "nissi-beach",
+      caption: "Nissi Plajı, Ayia Napa.",
+    },
+    {
+      kind: "seasons",
+      id: "when",
+      title: "Ne zaman gidilir",
+      items: [
+        { name: "İlkbahar", months: "Mart–Mayıs", text: "Yeşil tepeler, kır çiçekleri ve ılık günler: gezi ve Trodos ile Akamas'ta yürüyüş için en iyi dönem." },
+        { name: "Yaz", months: "Haziran–Eylül", text: "Kıyıda sıcak ve kuru, deniz ılık. Gezileri sabaha planlayın, serinlemek için dağlara çıkın." },
+        { name: "Sonbahar", months: "Ekim ve Kasım", text: "Deniz ılık kalır, kalabalık azalır. Köylerde bağ bozumu ve şarap festivalleri yapılır." },
+        { name: "Kış", months: "Aralık–Şubat", text: "Kıyıda ılıman, en yüksek zirvelerde karlı. Müzeler, mozaikler ve şehir yürüyüşleri için en keyifli zaman." },
+      ],
+      note: "Ortodoks Paskalyası dahil Rum resmi tatilleri müzelerin ve sınırdaki sigorta ofisinin çalışma saatlerini değiştirir.",
+    },
+    {
+      kind: "split",
+      id: "crossing",
+      title: "Atoll aracınızla geçiş",
+      paragraphs: [
+        "Atoll Rent A Car, araçlarının yalnızca Güney Kıbrıs'a geçmesine izin verir. Geçiş izin belgesini bizden alın (£50). Lefkoşa'daki Metehan geçişinde izin belgesini Türk sınır kapısında gösterin, ardından Rum sınır kapısında Rum sigortasını ve yol vergisini satın alın (yaklaşık £21, sınırda ödenir).",
+        "Sigorta ofisi yalnızca Metehan'dadır, hafta içi saat 14:00'e kadar açıktır ve Rum resmi tatillerinde kapalıdır. Güney'de araç bizim sigortamızla değil, yalnızca sınırda satın aldığınız 3. şahıs sigortasıyla sigortalıdır.",
+      ],
+      photo: "cyprus-speed-sign",
+      reverse: true,
+      link: { label: "Geçiş adımlarının tamamını ve trafik kurallarını okuyun", href: "/driving-in-south-cyprus" },
+    },
+    {
+      kind: "split",
+      id: "food",
+      title: "Yemek ve şarap",
+      paragraphs: [
+        "Meze sipariş edin, tabaklar gelmeye devam etsin: ezmeler, ızgara hellim, salatalar, şeftali kebabı, suvla ve deniz kenarında balık. Dağlarda alabalık ve fırında ağır pişen kleftiko deneyin.",
+        "Omodos gibi Trodos şarap köyleri sek şarapların yanı sıra adada yüzyıllardır yapılan tatlı bir şarap olan Commandaria'yı üretir. Tadım planlıyorsanız bir sürücü belirleyin: Kıbrıs'ta alkol sınırları sıkıdır.",
+      ],
+      photo: "omodos",
+      caption: "Trodos yamaçlarında bir şarap köyü: Omodos.",
+    },
+  ],
+  faq: {
+    title: "Sık sorulan sorular",
+    items: [
+      { q: "Atoll aracımla Güney Kıbrıs'a gidebilir miyim?", a: "Evet. Geçiş izin belgesini bizden (£50), Rum sigortasını ve yol vergisini Lefkoşa'daki Metehan geçişinde (yaklaşık £21) alırsınız. Atoll araçları KKTC dışına yalnızca Güney Kıbrıs'a geçmek için çıkabilir." },
+      { q: "Hangi geçişi kullanmalıyım?", a: "Lefkoşa'daki Metehan (Agios Dometios) geçişini kullanın; Rum sigorta ofisi yalnızca oradadır. Hafta içi saat 14:00'e kadar açıktır ve Rum resmi tatillerinde kapalıdır." },
+      { q: "Araç Güney'de sigortalı mı?", a: "Yalnızca sınırda satın aldığınız 3. şahıs sigortasıyla. Bu sigorta kiralık araçtaki hasarı kapsamaz; dikkatli sürün ve aldığınız poliçenin şartlarını okuyun." },
+      { q: "Girne'den Baf'a sürüş ne kadar sürer?", a: "Alsancak ofisimizden Metehan geçişi üzerinden yaklaşık iki buçuk saat, artı sınırdaki bekleme. Limasol yaklaşık 1 sa 45 dk, Larnaka yaklaşık 1 sa 20 dk sürer." },
+      { q: "Euro gerekir mi?", a: "Evet, Güney'de para birimi Euro'dur. Kartlar neredeyse her yerde geçer, ama küçük kafeler, park makineleri ve köy dükkânları için biraz nakit bulundurun." },
+      { q: "Trodos yolları küçük bir araç için uygun mu?", a: "Evet. Trodos'a çıkan ana yollar asfalt ve iyi durumdadır, ancak dik ve virajlıdır; fazladan zaman ayırın. Kışın yola çıkmadan Olympos Dağı çevresinde kar ve buzlanma olup olmadığını kontrol edin." },
+    ],
+  },
+  blog: { title: "Seyahat blogumuzdan", all: "Tüm blog yazıları" },
+  cta: { title: "Adanın iki yakasını da keşfedin", text: "Sınırsız kilometre, Ercan Havalimanı ve Girne'ye ücretsiz teslimat, günlük {price}{abl} başlayan fiyatlarla.", button: "Müsaitliği kontrol et" },
+  credits: { title: "Fotoğraf kaynakları" },
+  touristTypes: ["Plaj tatili", "Kültür turizmi", "Araçla gezi", "Şarap turizmi"],
+};
+
+export default tr;

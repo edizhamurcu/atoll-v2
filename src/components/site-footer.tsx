@@ -25,6 +25,7 @@ export async function SiteFooter() {
   ];
   const discover: [string, string][] = [
     ["/north-cyprus-guide", n("guide")],
+    ["/south-cyprus-guide", n("southGuide")],
     ["/driving-in-south-cyprus", n("drivingSouth")],
     ["/blog", n("blog")],
   ];

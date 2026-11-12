@@ -28,7 +28,8 @@
     "close": "Schließen",
     "blog": "Blog",
     "carSales": "Autos zu verkaufen",
-    "rentCars": "Mietwagen"
+    "rentCars": "Mietwagen",
+    "southGuide": "Reiseführer Südzypern"
   },
   "hero": {
     "title": "Weiter kommen mit Atoll Rent-A-Car!",
@@ -349,8 +350,8 @@
     "Blue": "Blau"
   },
   "blog": {
-    "title": "Nordzypern Reiseblog",
-    "description": "Reisetipps, Roadtrips, Strände, Essen und praktische Hinweise für Ihren Besuch in Nordzypern, vom Team von Atoll Rent A Car in Kyrenia.",
+    "title": "Zypern-Reiseblog",
+    "description": "Reiseführer für Nord- und Südzypern, Roadtrips, Strände, Essen und praktische Tipps vom Team von Atoll Rent A Car in Kyrenia.",
     "newHere": "Zum ersten Mal auf der Insel? Starten Sie mit unserem",
     "guideLink": "Nordzypern-Reiseführer",
     "minRead": "{n} Min. Lesezeit",
@@ -421,7 +422,8 @@
     "call": "Anrufen",
     "general": "Weitere Seiten",
     "rentGroup": "Menü Mietwagen",
-    "saleGroup": "Menü Autos zu verkaufen"
+    "saleGroup": "Menü Autos zu verkaufen",
+    "southGuideDesc": "Sehenswertes im Süden"
   },
   "campaign": {
     "tag": "Angebot",
@@ -466,5 +468,19 @@
     "label": "Was möchten Sie tun?",
     "saleTitle": "Der OSK-Auto-Showroom im selben Gebäude",
     "saleLead": "Neu- und Gebrauchtwagen vor Ort ansehen. Wartung, Karosserie und Lack, Autoelektrik und Autowäsche nach dem Kauf in unserer eigenen Werkstatt."
+  },
+  "travel": {
+    "navLabel": "Reisebereiche",
+    "north": "Reisen in Nordzypern",
+    "south": "Reisen in Südzypern",
+    "driving": "Fahren in Südzypern",
+    "posts": "Blogartikel",
+    "hubTitle": "Zypern-Reiseführer und Blog",
+    "hubLead": "Planen Sie Ihre Reise von unserem Büro in Alsancak bei Kyrenia aus: ausführliche Reiseführer für den Norden und den Süden der Insel, wie Sie mit Ihrem Atoll-Auto über die Grenze fahren, und unsere neuesten Reiseartikel.",
+    "northDesc": "Regionen, Burgen, Strände, Reisezeit und praktische Tipps für den Norden.",
+    "southDesc": "Larnaka, Limassol, Paphos, Ayia Napa und der Troodos, mit Fahrzeiten ab Kyrenia.",
+    "drivingDesc": "Genehmigung, Grenzversicherung, Übergänge und Verkehrsregeln für die Fahrt mit dem Atoll-Auto in den Süden.",
+    "read": "Reiseführer lesen",
+    "postsTitle": "Blogartikel"
   }
 }

@@ -12,9 +12,9 @@ import { Link, usePathname } from "@/i18n/navigation";
 
 export type NavLabels = Record<
   | "rentCars" | "carSales" | "aboutUs" | "contactUs" | "carPrices" | "rentalTerms" | "specialOffers" | "agreement"
-  | "guide" | "drivingSouth" | "blog" | "home" | "menu" | "close" | "discover" | "rentPitch" | "rentCta" | "fleet"
+  | "guide" | "southGuide" | "drivingSouth" | "blog" | "home" | "menu" | "close" | "discover" | "rentPitch" | "rentCta" | "fleet"
   | "fleetDesc" | "pricesDesc" | "termsDesc" | "offersDesc" | "agreementDesc" | "salePitch" | "saleCta" | "showroom"
-  | "showroomDesc" | "stock" | "stockDesc" | "service" | "serviceDesc" | "whatsapp" | "guideDesc" | "southDesc"
+  | "showroomDesc" | "stock" | "stockDesc" | "service" | "serviceDesc" | "whatsapp" | "guideDesc" | "southGuideDesc" | "southDesc"
   | "blogDesc" | "call" | "general" | "rentGroup" | "saleGroup" | "phone" | "telHref" | "waHref" | "waSaleHref",
   string
 >;
@@ -25,7 +25,7 @@ type Item = { href: string; title: string; desc?: string; icon: IconName; extern
 const RENT_IMG = "/media/2026/08/image_2026-08-24_143333064-atoll-r2.webp";
 const SALE_IMG = "/media/osk/showroom-mercedes.webp";
 const RENT_PATHS = ["/cars", "/car-prices", "/booking", "/rental-terms", "/special-offers", "/rental-agreement"];
-const DISCOVER_PATHS = ["/north-cyprus-guide", "/driving-in-south-cyprus", "/blog"];
+const DISCOVER_PATHS = ["/north-cyprus-guide", "/south-cyprus-guide", "/driving-in-south-cyprus", "/blog"];
 const under = (path: string, bases: string[]) => bases.some((b) => path === b || path.startsWith(`${b}/`));
 
 function activeGroup(path: string | null): Group | "about" | "contact" | null {
@@ -54,6 +54,7 @@ function items(l: NavLabels) {
   ];
   const discover: Item[] = [
     { href: "/north-cyprus-guide", title: l.guide, desc: l.guideDesc, icon: "map" },
+    { href: "/south-cyprus-guide", title: l.southGuide, desc: l.southGuideDesc, icon: "map" },
     { href: "/driving-in-south-cyprus", title: l.drivingSouth, desc: l.southDesc, icon: "route" },
     { href: "/blog", title: l.blog, desc: l.blogDesc, icon: "pen" },
   ];

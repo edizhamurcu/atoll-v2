@@ -318,3 +318,26 @@ describe("home hero tabs (2026-11-12)", () => {
     expect(readFileSync("src/app/[locale]/page.tsx", "utf8")).toMatch(/id="search"[\s\S]*<HeroTabs/);
   });
 });
+
+describe("travel pages (South Cyprus guide, Driving in South Cyprus)", async () => {
+  const { SOUTH_GUIDES } = await import("./travel/south-guide");
+  const { DRIVING_SOUTH } = await import("./travel/driving-south");
+  const { pagePhotos } = await import("./travel/types");
+  const { PHOTOS } = await import("./photos");
+  for (const [name, pages] of [["south guide", SOUTH_GUIDES], ["driving south", DRIVING_SOUTH]] as const) {
+    it(`${name}: every language has the same sections, item counts and photos`, () => {
+      const shape = (p: (typeof pages)["en"]) => JSON.stringify({ photos: pagePhotos(p), sections: p.sections.map((s) => [s.kind, s.id, "items" in s ? s.items.length : 0]), facts: p.facts.items.length, faq: p.faq.items.length });
+      for (const l of ["tr", "de", "ru"]) expect(shape(pages[l]), l).toBe(shape(pages.en));
+    });
+    it(`${name}: photos exist and keep the company crossing rules`, () => {
+      for (const k of pagePhotos(pages.en)) expect(PHOTOS[k], k).toBeTruthy();
+      for (const l of ["en", "tr", "de", "ru"]) {
+        const text = JSON.stringify(pages[l]);
+        expect(text, l).toContain("£50");
+        expect(text, l).toContain("£21");
+        expect(text, l).toMatch(/Metehan|Метехан/);
+        expect(text, l).not.toMatch(/Pacific/);
+      }
+    });
+  }
+});

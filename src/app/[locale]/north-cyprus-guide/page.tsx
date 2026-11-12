@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { Link } from "@/i18n/navigation";
 import { routing } from "@/i18n/routing";
 import { JsonLd } from "@/components/json-ld";
+import { TravelNav } from "@/components/travel-nav";
 import { CyprusMap, type MapPoint } from "@/components/cyprus-map";
 import { PhotoCredit, PhotoFigure } from "@/components/photo-figure";
 import { PHOTOS, LICENSE_URL, photo, photoAlt, type PhotoKey } from "@/content/photos";
@@ -82,7 +83,8 @@ export default async function GuidePage({ params }: PageProps<"/[locale]/north-c
       </header>
 
       <div className="mx-auto max-w-6xl px-5">
-        <section aria-labelledby="facts" className="-mt-px py-12">
+        <TravelNav active="north" className="pt-6" />
+        <section aria-labelledby="facts" className="py-12">
           <h2 id="facts" className="text-3xl font-extrabold">{g.facts.title}</h2>
           <dl className="mt-6 grid gap-px overflow-hidden rounded-panel bg-stone-deep sm:grid-cols-2 lg:grid-cols-4">
             {g.facts.items.map(([k, v]) => (
@@ -241,7 +243,7 @@ export default async function GuidePage({ params }: PageProps<"/[locale]/north-c
         <section aria-labelledby="blog" className="py-10">
           <div className="flex flex-wrap items-end justify-between gap-3">
             <h2 id="blog" className="text-3xl font-extrabold">{g.blog.title}</h2>
-            <Link href="/blog" className="font-semibold text-aegean underline underline-offset-4">{g.blog.all}</Link>
+            <Link href="/blog#posts" className="font-semibold text-aegean underline underline-offset-4">{g.blog.all}</Link>
           </div>
           <ul className="mt-6 grid gap-6 md:grid-cols-3">
             {latest.map((p) => (
