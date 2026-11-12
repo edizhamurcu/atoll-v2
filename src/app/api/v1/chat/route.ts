@@ -12,7 +12,7 @@ export async function GET() {
 }
 
 const Body = z.object({
-  sessionId: z.string().regex(/^[a-f0-9]{32}$/).optional(),
+  sessionId: z.string().regex(/^[a-f0-9]{32}$/).nullish().transform((v) => v ?? undefined),
   message: z.string().trim().min(1),
   locale: z.enum(["en", "tr", "de", "ru"]).default("en"),
   page: z.string().max(200).regex(/^\/[\w\-/.#?=&%]*$/).optional(),

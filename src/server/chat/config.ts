@@ -22,7 +22,7 @@ export function chatConfig(env: NodeJS.ProcessEnv = process.env) {
     hasKey: Boolean(env.ANTHROPIC_API_KEY?.startsWith("sk-ant-")),
     model: env.ANTHROPIC_MODEL?.trim() || null,
     maxInputChars: num(env.CHAT_MAX_INPUT_LENGTH, 1000, 50, 4000),
-    maxOutputTokens: num(env.CHAT_MAX_OUTPUT_TOKENS, 700, 100, 4000),
+    maxOutputTokens: num(env.CHAT_MAX_OUTPUT_TOKENS, 1000, 100, 4000),
     maxToolRounds: num(env.CHAT_MAX_TOOL_ROUNDS, 4, 1, 8),
     maxHistory: num(env.CHAT_MAX_HISTORY, 16, 2, 40),
     maxSessionMessages: num(env.CHAT_MAX_SESSION_MESSAGES, 40, 4, 200),

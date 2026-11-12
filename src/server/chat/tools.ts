@@ -141,7 +141,7 @@ export const TOOLS: Tool[] = [
   },
   {
     name: "prepare_request",
-    description: "Prepare a request for the staff: HANDOFF (talk to a person), RENTAL_CALLBACK, SALES_INQUIRY, TEST_DRIVE or SERVICE_APPOINTMENT. Only after the customer gave name and phone. This creates a DRAFT only: the customer must press Confirm in the chat window; until then nothing is sent. Never say it was sent or booked.",
+    description: "Prepare a request for the staff: HANDOFF (talk to a person), RENTAL_CALLBACK, SALES_INQUIRY, TEST_DRIVE or SERVICE_APPOINTMENT. Only after the customer gave name and phone. This creates a DRAFT only: the customer must press the confirm button in the chat window; until then nothing is sent. Never say it was sent or booked.",
     input_schema: schema({ kind: s("", { enum: ["HANDOFF", "RENTAL_CALLBACK", "SALES_INQUIRY", "TEST_DRIVE", "SERVICE_APPOINTMENT"] }), name: s("Customer name"), phone: s("Customer phone with country code"), email: s("Optional e-mail"), preferred: s("Preferred day/time as the customer said it"), details: s("Short summary for the staff: car, dates, question") }, ["kind", "name", "phone", "details"]),
   },
   {
@@ -289,7 +289,7 @@ const IMPL: Record<string, (input: unknown, ctx: ToolContext) => Promise<ToolRes
     if (open >= 3) return ERR("TOO_MANY_DRAFTS", "Ask the customer to confirm or dismiss the open request first");
     const r = await db.chatRequest.create({ data: { sessionId: ctx.sessionId, kind: i.kind, name: i.name, phone: i.phone, email: i.email?.toLowerCase(), preferred: i.preferred, details: i.details, locale: ctx.locale } });
     return {
-      content: JSON.stringify({ status: "DRAFT_AWAITING_CUSTOMER_CONFIRMATION", note: "Nothing has been sent. Tell the customer to check the details and press Confirm in the chat window." }),
+      content: JSON.stringify({ status: "DRAFT_AWAITING_CUSTOMER_CONFIRMATION", note: "Nothing has been sent. Tell the customer to check the details and press the confirm button under them." }),
       draft: { id: r.id, kind: r.kind, name: r.name, phone: r.phone, email: r.email, preferred: r.preferred, details: r.details },
     };
   },
