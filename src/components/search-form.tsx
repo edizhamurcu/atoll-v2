@@ -55,7 +55,7 @@ export function SearchForm({ options, target = "/cars", compact = false, stacked
   const grid = stacked ? "grid-cols-1" : compact ? "md:grid-cols-[1.3fr_1fr_1fr_auto]" : "md:grid-cols-2 lg:grid-cols-[1.3fr_1fr_1fr]";
   return (
     <form onSubmit={submit} className={stacked ? "" : "rounded-[var(--radius-panel)] bg-paper p-5 shadow-[0_1px_0_rgba(13,52,64,.06),0_18px_40px_-24px_rgba(13,52,64,.35)] md:p-6"} noValidate>
-      <div className={`grid gap-4 ${grid}`}>
+      <div className={`grid grid-cols-1 gap-4 ${grid}`}>
         <div>
           <label className="label" htmlFor="pickupLocation">{t("pickupLocation")}</label>
           <select id="pickupLocation" className="field" value={s.pickupLocation} onChange={(e) => set("pickupLocation", e.target.value)}>
@@ -74,20 +74,20 @@ export function SearchForm({ options, target = "/cars", compact = false, stacked
             </div>
           )}
         </div>
-        <fieldset>
+        <fieldset className="min-w-0">
           <legend className="label">{t("pickupDate")}</legend>
           <div className="flex gap-2">
-            <input type="date" aria-label={t("pickupDate")} className="field" value={s.pickupDate} onChange={(e) => set("pickupDate", e.target.value)} required />
-            <select aria-label={t("time")} className="field !w-[6.5rem]" value={s.pickupTime} onChange={(e) => set("pickupTime", e.target.value)}>
+            <input type="date" aria-label={t("pickupDate")} className="field min-w-0" value={s.pickupDate} onChange={(e) => set("pickupDate", e.target.value)} required />
+            <select aria-label={t("time")} className="field !w-[6.5rem] shrink-0" value={s.pickupTime} onChange={(e) => set("pickupTime", e.target.value)}>
               {TIMES.map((x) => <option key={x}>{x}</option>)}
             </select>
           </div>
         </fieldset>
-        <fieldset>
+        <fieldset className="min-w-0">
           <legend className="label">{t("returnDate")}</legend>
           <div className="flex gap-2">
-            <input type="date" aria-label={t("returnDate")} className="field" value={s.returnDate} min={s.pickupDate} onChange={(e) => set("returnDate", e.target.value)} required />
-            <select aria-label={t("time")} className="field !w-[6.5rem]" value={s.returnTime} onChange={(e) => set("returnTime", e.target.value)}>
+            <input type="date" aria-label={t("returnDate")} className="field min-w-0" value={s.returnDate} min={s.pickupDate} onChange={(e) => set("returnDate", e.target.value)} required />
+            <select aria-label={t("time")} className="field !w-[6.5rem] shrink-0" value={s.returnTime} onChange={(e) => set("returnTime", e.target.value)}>
               {TIMES.map((x) => <option key={x}>{x}</option>)}
             </select>
           </div>

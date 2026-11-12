@@ -1,6 +1,6 @@
 import { connection } from "next/server";
 import { db } from "@/lib/db";
-import { redis } from "@/lib/redis";
+import { readyRedis } from "@/lib/redis";
 
 export async function GET() {
   await connection();
@@ -9,7 +9,10 @@ export async function GET() {
     await db.$queryRaw`SELECT 1`;
     dbOk = true;
   } catch {}
-  const r = redis();
-  const redisOk = r?.status === "ready";
+  let redisOk = false;
+  try {
+    const r = await readyRedis(1500);
+    redisOk = (await r?.ping()) === "PONG";
+  } catch {}
   return Response.json({ ok: dbOk, db: dbOk, redis: redisOk }, { status: dbOk ? 200 : 503, headers: { "Cache-Control": "no-store" } });
 }
