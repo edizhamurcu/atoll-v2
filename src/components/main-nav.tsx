@@ -116,7 +116,7 @@ export function MainNavView({ labels: l, path }: { labels: NavLabels; path: stri
           if (isOpen && Date.now() - hoverAt.current < 600) return;
           setOpen(isOpen ? null : g);
         }}
-        className={`flex items-center gap-2 whitespace-nowrap rounded-full px-2.5 py-2 text-sm font-semibold transition-colors xl:px-4 xl:text-[0.95rem] ${isOpen || isActive ? on : idle}`}
+        className={`flex items-center gap-2 whitespace-nowrap rounded-full px-2.5 py-2 text-sm font-semibold transition-colors ${isOpen || isActive ? on : idle}`}
       >
         {dot && <span aria-hidden className={`size-2 rounded-full ${isOpen || isActive ? (tone === "gold" ? "bg-ink" : "bg-white") : dot}`} />}
         {label}
@@ -129,7 +129,7 @@ export function MainNavView({ labels: l, path }: { labels: NavLabels; path: stri
     <Link
       href={href}
       aria-current={active === key ? "page" : undefined}
-      className={`relative whitespace-nowrap rounded-full px-2.5 py-2 text-sm font-medium xl:px-3 transition-colors hover:bg-ink/5 hover:text-ink xl:text-[0.95rem] ${active === key ? "text-ink after:absolute after:inset-x-3 after:-bottom-0.5 after:h-0.5 after:rounded-full after:bg-ink" : "text-ink-soft"}`}
+      className={`relative whitespace-nowrap rounded-full px-2.5 py-2 text-sm font-medium transition-colors hover:bg-ink/5 hover:text-ink ${active === key ? "text-ink after:absolute after:inset-x-3 after:-bottom-0.5 after:h-0.5 after:rounded-full after:bg-ink" : "text-ink-soft"}`}
     >
       {label}
     </Link>
@@ -150,7 +150,7 @@ export function MainNavView({ labels: l, path }: { labels: NavLabels; path: stri
         </Panel>
       </div>
 
-      <span aria-hidden className="mx-1.5 hidden h-6 w-px bg-ink/12 xl:block" />
+      <span aria-hidden className="mx-1 h-6 w-px bg-ink/12" />
       {plain("/about-us", l.aboutUs, "about")}
       <div className="relative" onPointerEnter={(e) => enter(e, "discover")} onPointerLeave={leave}>
         {trigger("discover", l.discover)}
