@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { WhatsAppIcon } from "@/components/whatsapp-icon";
 import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { waLink } from "@/lib/site";
@@ -17,7 +18,7 @@ export async function HeroSalePanel() {
             {m("saleCta")}
             <svg aria-hidden viewBox="0 0 16 16" className="btn-arrow size-3.5"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" /></svg>
           </Link>
-          <a href={waLink(s("waText"))} target="_blank" rel="noopener" className="btn-quiet">{s("waCta")}</a>
+          <a href={waLink(s("waText"))} target="_blank" rel="noopener" className="btn-wa"><WhatsAppIcon />{s("waCta")}</a>
         </div>
       </div>
       <div className="car-zoom relative aspect-[4/3] md:aspect-auto">

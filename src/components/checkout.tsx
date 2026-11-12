@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useState, useSyncExternalStore } from "react";
+import { WhatsAppIcon } from "@/components/whatsapp-icon";
 
 const noop = () => () => {};
 import { useLocale, useTranslations } from "next-intl";
@@ -139,7 +140,7 @@ export function Checkout({ refCode, turnstileSiteKey }: { refCode: string; turns
           <p className="mt-4 max-w-prose text-lg text-ink-soft">{done ? t("confirmedLead", { ref: b.ref }) : t("pendingLead", { ref: b.ref })}</p>
           <div className="mt-6 flex flex-wrap gap-3">
             <a href={`tel:${PHONE.replace(/\s/g, "")}`} className="btn-quiet">{th("ctaCall", { phone: PHONE })}</a>
-            <a href={wa} className="btn-quiet" rel="noopener">{t("whatsapp")}</a>
+            <a href={wa} className="btn-wa" target="_blank" rel="noopener"><WhatsAppIcon />{t("whatsapp")}</a>
           </div>
         </div>
         {summary}

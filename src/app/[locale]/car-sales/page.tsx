@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { WhatsAppIcon } from "@/components/whatsapp-icon";
 import { Suspense } from "react";
 import Image from "next/image";
 import { getTranslations } from "next-intl/server";
@@ -47,7 +48,7 @@ export default async function CarSalesPage({ params }: PageProps<"/[locale]/car-
           <p className="mt-4 text-lg text-ink-soft">{s("lead")}</p>
           <div className="mt-7 flex flex-wrap gap-3">
             <a href={telLink(SITE.phone)} className="btn-primary">{s("callCta", { phone: SITE.phone })}</a>
-            <a href={waLink(s("waText"))} className="btn-quiet" rel="noopener">{s("waCta")}</a>
+            <a href={waLink(s("waText"))} className="btn-wa" target="_blank" rel="noopener"><WhatsAppIcon />{s("waCta")}</a>
           </div>
         </div>
         <Image src={`${IMG}/showroom-mercedes.webp`} alt={s("imgAlt.mercedes")} width={1440} height={1080} priority sizes="(min-width: 1024px) 600px, 100vw" className="aspect-[4/3] w-full rounded-2xl object-cover" />
@@ -83,7 +84,7 @@ export default async function CarSalesPage({ params }: PageProps<"/[locale]/car-
           <p className="mt-3 text-ink-soft">{s("stockText")}</p>
           <div className="mt-6 flex flex-wrap gap-3">
             <a href={telLink(SITE.phone)} className="btn-primary">{s("callCta", { phone: SITE.phone })}</a>
-            <a href={waLink(s("waText"))} className="btn-quiet" rel="noopener">{s("waCta")}</a>
+            <a href={waLink(s("waText"))} className="btn-wa" target="_blank" rel="noopener"><WhatsAppIcon />{s("waCta")}</a>
             <Link href="/contact" className="btn-quiet">{s("contactCta")}</Link>
           </div>
           <p className="mt-4 text-sm text-ink-soft">{SITE.phone} · {SITE.phone2}</p>

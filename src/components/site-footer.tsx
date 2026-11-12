@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { WhatsAppIcon } from "@/components/whatsapp-icon";
 import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { SITE, SOCIAL, telLink, waLink, PHONES } from "@/lib/site";
@@ -123,7 +124,7 @@ export async function SiteFooter() {
             {PHONES.map((p) => (
               <li key={p} className="flex flex-wrap items-center gap-x-3 gap-y-1">
                 <a href={telLink(p)} className="font-semibold text-ink hover:text-bougain">{p}</a>
-                <a href={waLink(undefined, p)} rel="noopener" target="_blank" aria-label={`WhatsApp ${p}`} className="rounded-full border border-ink/12 px-2.5 py-0.5 text-xs font-semibold text-ink-soft hover:border-ink/40 hover:text-ink">WhatsApp</a>
+                <a href={waLink(undefined, p)} rel="noopener" target="_blank" aria-label={`WhatsApp ${p}`} className="inline-flex items-center gap-1.5 rounded-full border border-[#1f8f4e]/30 bg-[#e8f5ed] px-2.5 py-1 text-xs font-semibold text-[#14653a] hover:border-[#1f8f4e]/60"><WhatsAppIcon className="size-4" />WhatsApp</a>
               </li>
             ))}
             <li><a href={`mailto:${SITE.email}`} className="hover:text-ink">{SITE.email}</a></li>

@@ -1,5 +1,6 @@
 "use client";
 import Image from "next/image";
+import { WhatsAppIcon } from "@/components/whatsapp-icon";
 import { useEffect, useId, useRef, useState, type KeyboardEvent, type PointerEvent as RPointerEvent, type ReactNode } from "react";
 import { Link, usePathname } from "@/i18n/navigation";
 
@@ -345,8 +346,8 @@ export function MobileMenuView({ labels: l, path }: { labels: NavLabels; path: s
           <a href={l.telHref} className="btn-primary !py-3 text-sm">
             <Icon name="phone" /> {l.call}
           </a>
-          <a href={l.waHref} target="_blank" rel="noopener" className="flex items-center justify-center gap-2 rounded-full border border-ink/15 bg-paper py-3 text-sm font-bold text-ink">
-            <Icon name="chat" /> WhatsApp
+          <a href={l.waHref} target="_blank" rel="noopener" className="btn-wa !py-3 text-sm font-bold">
+            <WhatsAppIcon /> WhatsApp
           </a>
         </div>
       </div>

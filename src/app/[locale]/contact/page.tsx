@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { WhatsAppIcon } from "@/components/whatsapp-icon";
 import { getTranslations } from "next-intl/server";
 import { ContactForm } from "@/components/contact-form";
 import { Breadcrumbs } from "@/components/breadcrumbs";
@@ -32,8 +33,9 @@ export default async function ContactPage({ params }: PageProps<"/[locale]/conta
           </address>
           <div className="flex flex-wrap gap-3">
             <a className="btn-primary" href={telLink(SITE.phone)}>{SITE.phone}</a>
-            <a className="btn-quiet" href={waLink()} rel="noopener">{b("whatsapp")}</a>
+            <a className="btn-wa" href={waLink()} target="_blank" rel="noopener" aria-label={`WhatsApp ${SITE.phone}`}><WhatsAppIcon />{b("whatsapp")}</a>
             <a className="btn-quiet" href={telLink(SITE.phone2)}>{SITE.phone2}</a>
+            <a className="btn-wa" href={waLink(undefined, SITE.phone2)} target="_blank" rel="noopener" aria-label={`WhatsApp ${SITE.phone2}`}><WhatsAppIcon />WhatsApp</a>
             <a className="btn-quiet" href={`mailto:${SITE.email}`}>{SITE.email}</a>
           </div>
           <figure className="overflow-hidden rounded-2xl border border-ink/10 bg-paper">

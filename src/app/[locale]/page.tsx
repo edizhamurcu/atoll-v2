@@ -1,4 +1,5 @@
 import { Suspense } from "react";
+import { WhatsAppIcon } from "@/components/whatsapp-icon";
 import { getTranslations } from "next-intl/server";
 import { CyprusMap, MAP_POINTS } from "@/components/cyprus-map";
 import { SearchSection, SearchSkeleton } from "@/components/search-section";
@@ -117,7 +118,7 @@ export default async function Home({ params }: PageProps<"/[locale]">) {
           </div>
           <div className="flex flex-wrap gap-3">
             <a href={`tel:${PHONE.replace(/\s/g, "")}`} className="btn-primary">{h("ctaCall", { phone: PHONE })}</a>
-            <a href={`https://wa.me/${WHATSAPP.replace(/\D/g, "")}`} className="inline-flex items-center rounded-full border border-white/30 px-5 py-3 font-medium hover:border-white" rel="noopener">{h("ctaWhatsapp")}</a>
+            <a href={`https://wa.me/${WHATSAPP.replace(/\D/g, "")}`} className="btn-wa" target="_blank" rel="noopener"><WhatsAppIcon />{h("ctaWhatsapp")}</a>
           </div>
         </div>
       </section>

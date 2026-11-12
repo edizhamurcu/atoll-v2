@@ -1,6 +1,7 @@
 "use client";
 import { Suspense, useEffect, useRef, useState } from "react";
 import { Link, usePathname } from "@/i18n/navigation";
+import { WhatsAppIcon } from "@/components/whatsapp-icon";
 
 type Labels = { find: string; whatsapp: string; waHref: string; waSaleHref: string };
 
@@ -37,7 +38,7 @@ function Bar({ l, path }: { l: Labels; path: string }) {
         <div className="mx-auto flex max-w-xl items-center gap-3">
           <Link href="/#search" tabIndex={show ? 0 : -1} className="btn-primary flex-1 justify-center !py-3">{l.find}</Link>
           <a href={sale ? l.waSaleHref : l.waHref} rel="noopener" tabIndex={show ? 0 : -1} className="inline-flex flex-1 items-center justify-center gap-2 rounded-full border border-[#1f8f4e]/30 bg-[#e8f5ed] px-4 py-3 font-semibold text-[#14653a]">
-            <svg aria-hidden viewBox="0 0 24 24" className="size-5" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-3.3-.8-2.8-1.1-4.5-3.9-4.7-4.1-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 1.9c.1.2.1.4 0 .5l-.4.6-.3.4c-.1.1-.3.3-.1.6.1.3.6 1 1.3 1.6.9.8 1.6 1 1.9 1.2.2.1.4.1.5-.1l.7-.9c.2-.2.4-.2.6-.1l1.8.9c.3.1.4.2.5.3 0 .2 0 .8-.2 1.4Z" /></svg>
+            <WhatsAppIcon />
             {l.whatsapp}
           </a>
         </div>
