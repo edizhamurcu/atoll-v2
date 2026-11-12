@@ -62,6 +62,12 @@ enum BookingStatus {
   NO_SHOW
 }
 
+enum ReviewStatus {
+  PENDING // waiting for admin approval
+  APPROVED
+  REJECTED
+}
+
 enum PaymentStatus {
   NONE
   REQUIRES_PAYMENT
@@ -71,26 +77,26 @@ enum PaymentStatus {
 }
 
 model Location {
-  id          String   @id @default(cuid())
-  slug        String   @unique
-  name        Json // { en, tr, de, ru }
-  address     String
-  lat         Decimal? @db.Decimal(9, 6)
-  lng         Decimal? @db.Decimal(9, 6)
-  phone       String?
-  hours       Json? // { mon: ["09:00","21:00"], ... }
-  isAirport   Boolean  @default(false)
-  pickupFee   Decimal  @default(0) @db.Decimal(10, 2)
-  returnFee   Decimal  @default(0) @db.Decimal(10, 2)
-  active      Boolean  @default(true)
-  sortOrder   Int      @default(0)
-  legacyWpId  Int?     @unique
-  createdAt   DateTime @default(now()) @db.Timestamptz(6)
-  updatedAt   DateTime @updatedAt @db.Timestamptz(6)
+  id         String   @id @default(cuid())
+  slug       String   @unique
+  name       Json // { en, tr, de, ru }
+  address    String
+  lat        Decimal? @db.Decimal(9, 6)
+  lng        Decimal? @db.Decimal(9, 6)
+  phone      String?
+  hours      Json? // { mon: ["09:00","21:00"], ... }
+  isAirport  Boolean  @default(false)
+  pickupFee  Decimal  @default(0) @db.Decimal(10, 2)
+  returnFee  Decimal  @default(0) @db.Decimal(10, 2)
+  active     Boolean  @default(true)
+  sortOrder  Int      @default(0)
+  legacyWpId Int?     @unique
+  createdAt  DateTime @default(now()) @db.Timestamptz(6)
+  updatedAt  DateTime @updatedAt @db.Timestamptz(6)
 
-  vehicles        Vehicle[] @relation("HomeLocation")
-  pickupBookings  Booking[] @relation("PickupLocation")
-  returnBookings  Booking[] @relation("ReturnLocation")
+  vehicles       Vehicle[] @relation("HomeLocation")
+  pickupBookings Booking[] @relation("PickupLocation")
+  returnBookings Booking[] @relation("ReturnLocation")
 }
 
 model VehicleModel {
@@ -115,9 +121,10 @@ model VehicleModel {
   createdAt    DateTime     @default(now()) @db.Timestamptz(6)
   updatedAt    DateTime     @updatedAt @db.Timestamptz(6)
 
-  vehicles     Vehicle[]
-  seasonRates  SeasonRate[]
-  bookings     Booking[]
+  vehicles    Vehicle[]
+  seasonRates SeasonRate[]
+  bookings    Booking[]
+  reviews     Review[]
 
   @@index([active, class])
 }
@@ -196,13 +203,13 @@ model Extra {
 
 /// Hotel/villa delivery. tiers: [{ "minDays": 1, "fee": "20.00" }, ...] — highest minDays <= days wins.
 model DeliveryZone {
-  id        String  @id @default(cuid())
-  slug      String  @unique
+  id        String   @id @default(cuid())
+  slug      String   @unique
   name      String
   areas     String[]
   tiers     Json
-  active    Boolean @default(true)
-  sortOrder Int     @default(0)
+  active    Boolean  @default(true)
+  sortOrder Int      @default(0)
 
   bookings Booking[]
 }
@@ -269,6 +276,7 @@ model Booking {
   returnLocation Location       @relation("ReturnLocation", fields: [returnLocationId], references: [id])
   deliveryZone   DeliveryZone?  @relation(fields: [deliveryZoneId], references: [id])
   extras         BookingExtra[]
+  review         Review?
 
   @@index([vehicleId, pickupAt, blockedUntil])
   @@index([status, holdExpiresAt])
@@ -296,16 +304,16 @@ model Setting {
 }
 
 model AdminUser {
-  id           String   @id @default(cuid())
-  email        String   @unique
+  id           String    @id @default(cuid())
+  email        String    @unique
   name         String
   passwordHash String
-  role         String   @default("staff") // owner | staff
-  active       Boolean  @default(true)
-  failedLogins Int      @default(0)
+  role         String    @default("staff") // owner | staff
+  active       Boolean   @default(true)
+  failedLogins Int       @default(0)
   lockedUntil  DateTime? @db.Timestamptz(6)
   lastLoginAt  DateTime? @db.Timestamptz(6)
-  createdAt    DateTime @default(now()) @db.Timestamptz(6)
+  createdAt    DateTime  @default(now()) @db.Timestamptz(6)
 
   sessions AdminSession[]
 }
@@ -366,15 +374,36 @@ model Page {
 }
 
 model ContactMessage {
-  id        String   @id @default(cuid())
+  id        String    @id @default(cuid())
   name      String
   email     String
   subject   String?
   message   String?
-  locale    String   @default("en")
+  locale    String    @default("en")
   ip        String?
   emailedAt DateTime? @db.Timestamptz(6)
-  createdAt DateTime @default(now()) @db.Timestamptz(6)
+  createdAt DateTime  @default(now()) @db.Timestamptz(6)
 
   @@index([createdAt])
+}
+
+/// Customer review collected after a rental (link from the admin booking page); shown only once approved.
+model Review {
+  id        String       @id @default(cuid())
+  bookingId String       @unique
+  modelId   String
+  rating    Int
+  text      String
+  name      String
+  country   String?
+  locale    String       @default("en")
+  status    ReviewStatus @default(PENDING)
+  createdAt DateTime     @default(now()) @db.Timestamptz(6)
+  decidedAt DateTime?    @db.Timestamptz(6)
+
+  booking Booking      @relation(fields: [bookingId], references: [id], onDelete: Cascade)
+  model   VehicleModel @relation(fields: [modelId], references: [id])
+
+  @@index([status, createdAt])
+  @@index([modelId, status])
 }

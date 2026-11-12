@@ -5,6 +5,9 @@ import { getBookingAdmin, TRANSITIONS } from "@/server/admin/ops";
 import { ActionForm } from "../../../action-form";
 import { reassignAction, statusAction } from "../../../actions";
 import { dt, gbp, StatusBadge, STATUS_TR } from "../../../format";
+import { getTranslations } from "next-intl/server";
+import { bookingReview, reviewToken } from "@/server/reviews";
+import { SITE } from "@/lib/site";
 
 export default function BookingDetail({ params }: PageProps<"/admin/bookings/[ref]">) {
   return (
@@ -90,6 +93,7 @@ async function Inner({ params }: { params: PageProps<"/admin/bookings/[ref]">["p
               )}
             </section>
           )}
+          {["CONFIRMED", "COMPLETED"].includes(b.status) && <ReviewLink id={b.id} refCode={b.ref} locale={b.locale} phone={b.customer?.phone} />}
           <section className="rounded-2xl bg-paper p-5 text-sm">
             <h2 className="text-lg font-bold">Geçmiş</h2>
             <ul className="mt-2 space-y-1 text-ink-soft">
@@ -100,5 +104,26 @@ async function Inner({ params }: { params: PageProps<"/admin/bookings/[ref]">["p
         </div>
       </div>
     </div>
+  );
+}
+
+/** Signed review link for this booking, with a ready WhatsApp message in the customer's language. */
+async function ReviewLink({ id, refCode, locale, phone }: { id: string; refCode: string; locale: string; phone?: string }) {
+  const [r, t] = await Promise.all([bookingReview(id), getTranslations({ locale: ["en", "tr", "de", "ru"].includes(locale) ? locale : "en", namespace: "review" })]);
+  const url = `${SITE.url}/${locale}/review/${reviewToken(refCode)}`;
+  const wa = phone ? `https://wa.me/${phone.replace(/\D/g, "")}?text=${encodeURIComponent(t("waText", { url }))}` : null;
+  return (
+    <section className="rounded-2xl bg-paper p-5 text-sm">
+      <h2 className="text-lg font-bold">Müşteri yorumu</h2>
+      {r ? (
+        <p className="mt-2">Yorum alındı: {"★".repeat(r.rating)} · durum: <Link href="/admin/reviews" className="text-aegean">{r.status === "PENDING" ? "onay bekliyor" : r.status === "APPROVED" ? "yayında" : "reddedildi"}</Link></p>
+      ) : (
+        <>
+          <p className="mt-2 text-ink-soft">Kiralama başladıktan sonra müşteriye gönderin. Yorum onayınızdan sonra sitede görünür.</p>
+          <input readOnly value={url} aria-label="Yorum bağlantısı" className="field mt-3 !text-xs" />
+          {wa && <a href={wa} rel="noopener" className="btn-ink mt-3 !py-2 text-sm">WhatsApp ile gönder</a>}
+        </>
+      )}
+    </section>
   );
 }

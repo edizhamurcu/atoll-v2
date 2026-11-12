@@ -488,5 +488,38 @@
     "exploreLead": "Guides to the north and the south of the island, how to take your Atoll car across, and fresh travel tips from our team in Kyrenia.",
     "allTravel": "All travel guides",
     "latestPosts": "Latest from the blog"
+  },
+  "review": {
+    "metaTitle": "Rate your rental",
+    "title": "How was your rental?",
+    "lead": "Thank you for renting the {car} with Atoll Rent A Car. Your honest review helps other travellers and helps us improve.",
+    "rating": "Your rating",
+    "star": "{n} out of 5",
+    "text": "Your review",
+    "textHint": "At least 20 characters. Tell others about the car, the hand-over and our service.",
+    "name": "Name shown with your review",
+    "nameHint": "For example: Sarah K.",
+    "country": "Country (optional)",
+    "submit": "Send review",
+    "sending": "Sending…",
+    "thanks": "Thank you for your review!",
+    "thanksText": "We read every review. Once approved it appears on our website.",
+    "done": "You have already reviewed this rental. Thank you!",
+    "early": "You can review the car once your rental has started.",
+    "invalid": "This review link is not valid.",
+    "error": "Your review could not be sent. Please check the fields and try again.",
+    "home": "Back to the home page",
+    "sectionTitle": "What our customers say",
+    "basedOn": "{average} out of 5, from {count, plural, one {# review} other {# reviews}}",
+    "verified": "Verified rental",
+    "modelTitle": "Reviews of this car",
+    "waText": "Thank you for renting with Atoll Rent A Car! We would love to hear how it went. It takes a minute: {url}"
+  },
+  "trust": {
+    "fleet": "{vehicles} cars in {models} models",
+    "office": "Office in Alsancak, Kyrenia",
+    "hours": "Open Mon–Sat",
+    "whatsapp": "Two WhatsApp lines",
+    "km": "Unlimited mileage"
   }
 }

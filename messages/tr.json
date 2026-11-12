@@ -488,5 +488,38 @@
     "exploreLead": "Adanın kuzeyi ve güneyi için rehberler, Atoll aracınızla Güney'e nasıl geçeceğiniz ve Girne'deki ekibimizden güncel seyahat ipuçları.",
     "allTravel": "Tüm gezi rehberleri",
     "latestPosts": "Blogdan son yazılar"
+  },
+  "review": {
+    "metaTitle": "Kiralamanızı değerlendirin",
+    "title": "Kiralamanız nasıldı?",
+    "lead": "{car} aracını Atoll Rent A Car'dan kiraladığınız için teşekkür ederiz. Dürüst yorumunuz diğer gezginlere yardımcı olur, bizim de kendimizi geliştirmemizi sağlar.",
+    "rating": "Puanınız",
+    "star": "5 üzerinden {n}",
+    "text": "Yorumunuz",
+    "textHint": "En az 20 karakter. Araç, teslim ve hizmetimiz hakkında yazın.",
+    "name": "Yorumunuzda görünecek ad",
+    "nameHint": "Örneğin: Ayşe K.",
+    "country": "Ülke (isteğe bağlı)",
+    "submit": "Yorumu gönder",
+    "sending": "Gönderiliyor…",
+    "thanks": "Yorumunuz için teşekkürler!",
+    "thanksText": "Her yorumu okuyoruz. Onaylandıktan sonra sitemizde yayınlanır.",
+    "done": "Bu kiralama için zaten yorum yaptınız. Teşekkürler!",
+    "early": "Kiralamanız başladıktan sonra yorum yapabilirsiniz.",
+    "invalid": "Bu yorum bağlantısı geçerli değil.",
+    "error": "Yorumunuz gönderilemedi. Lütfen alanları kontrol edip tekrar deneyin.",
+    "home": "Ana sayfaya dön",
+    "sectionTitle": "Müşterilerimiz ne diyor",
+    "basedOn": "{count} yoruma göre 5 üzerinden {average}",
+    "verified": "Doğrulanmış kiralama",
+    "modelTitle": "Bu araç için yorumlar",
+    "waText": "Atoll Rent A Car'ı tercih ettiğiniz için teşekkürler! Kiralamanız nasıl geçti, duymak isteriz. Bir dakikanızı alır: {url}"
+  },
+  "trust": {
+    "fleet": "{models} modelde {vehicles} araç",
+    "office": "Alsancak, Girne'de ofis",
+    "hours": "Pzt–Cmt açık",
+    "whatsapp": "İki WhatsApp hattı",
+    "km": "Sınırsız kilometre"
   }
 }

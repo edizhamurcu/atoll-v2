@@ -2,6 +2,7 @@ import { Suspense } from "react";
 import { notFound } from "next/navigation";
 import { getTranslations } from "next-intl/server";
 import { getExtras, getModel } from "@/server/queries";
+import { ReviewsSection } from "@/components/reviews-section";
 import type { Locale } from "@/server/catalog";
 import { CarGallery } from "@/components/car-gallery";
 import { BookingPanel } from "@/components/booking-panel";
@@ -112,6 +113,9 @@ async function CarDetail({ params }: { params: PageProps<"/[locale]/cars/[slug]"
           </section>
         )}
         <p className="mt-6 max-w-prose text-sm text-ink-soft">{t("orSimilar", { name: m.name })}</p>
+        <Suspense fallback={null}>
+          <ReviewsSection locale={locale} modelSlug={slug} className="mt-12 lg:[&_ul]:grid-cols-2" />
+        </Suspense>
       </div>
       <aside id="book" className="min-w-0 scroll-mt-24 lg:sticky lg:top-24 lg:self-start">
         <div className="rounded-[var(--radius-panel)] bg-paper p-5 shadow-[0_18px_40px_-24px_rgba(13,52,64,.35)]">

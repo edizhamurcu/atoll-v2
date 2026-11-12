@@ -488,5 +488,38 @@
     "exploreLead": "Reiseführer für den Norden und den Süden der Insel, wie Sie mit Ihrem Atoll-Auto über die Grenze fahren, und aktuelle Reisetipps von unserem Team in Kyrenia.",
     "allTravel": "Alle Reiseführer",
     "latestPosts": "Neu im Blog"
+  },
+  "review": {
+    "metaTitle": "Bewerten Sie Ihre Miete",
+    "title": "Wie war Ihre Miete?",
+    "lead": "Danke, dass Sie den {car} bei Atoll Rent A Car gemietet haben. Ihre ehrliche Bewertung hilft anderen Reisenden und uns, besser zu werden.",
+    "rating": "Ihre Bewertung",
+    "star": "{n} von 5",
+    "text": "Ihr Kommentar",
+    "textHint": "Mindestens 20 Zeichen. Erzählen Sie von Auto, Übergabe und Service.",
+    "name": "Name, der bei Ihrer Bewertung erscheint",
+    "nameHint": "Zum Beispiel: Anna K.",
+    "country": "Land (optional)",
+    "submit": "Bewertung senden",
+    "sending": "Wird gesendet…",
+    "thanks": "Danke für Ihre Bewertung!",
+    "thanksText": "Wir lesen jede Bewertung. Nach der Freigabe erscheint sie auf unserer Website.",
+    "done": "Sie haben diese Miete bereits bewertet. Danke!",
+    "early": "Sie können das Auto bewerten, sobald Ihre Miete begonnen hat.",
+    "invalid": "Dieser Bewertungslink ist ungültig.",
+    "error": "Ihre Bewertung konnte nicht gesendet werden. Bitte prüfen Sie die Felder und versuchen Sie es erneut.",
+    "home": "Zur Startseite",
+    "sectionTitle": "Das sagen unsere Kunden",
+    "basedOn": "{average} von 5, aus {count, plural, one {# Bewertung} other {# Bewertungen}}",
+    "verified": "Bestätigte Miete",
+    "modelTitle": "Bewertungen zu diesem Auto",
+    "waText": "Danke, dass Sie bei Atoll Rent A Car gemietet haben! Wie war es? Ihre Bewertung dauert nur eine Minute: {url}"
+  },
+  "trust": {
+    "fleet": "{vehicles} Autos in {models} Modellen",
+    "office": "Büro in Alsancak, Kyrenia",
+    "hours": "Mo–Sa geöffnet",
+    "whatsapp": "Zwei WhatsApp-Nummern",
+    "km": "Unbegrenzte Kilometer"
   }
 }

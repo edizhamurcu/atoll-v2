@@ -130,3 +130,13 @@ export async function manualBookingAction(_: ActionState, f: FormData): Promise<
   }
   redirect(`/admin/bookings/${ref}`);
 }
+
+export async function reviewDecisionAction(f: FormData) {
+  const a = await requireAdmin();
+  const id = z.string().min(5).max(40).parse(f.get("id"));
+  const status = z.enum(["APPROVED", "REJECTED", "PENDING"]).parse(f.get("status"));
+  const { decideReview } = await import("@/server/reviews");
+  const r = await decideReview(id, status);
+  await audit(a.id, `review:${status}`, "Review", r.id);
+  refresh();
+}

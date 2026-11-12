@@ -8,6 +8,8 @@ import { HeroVideo } from "@/components/hero-video";
 import { HeroSalePanel } from "@/components/hero-sale-panel";
 import { OskSection } from "@/components/osk-section";
 import { ExploreSection } from "@/components/explore-section";
+import { ReviewsSection } from "@/components/reviews-section";
+import { TrustStrip, TrustStripSkeleton } from "@/components/trust-strip";
 import type { Locale } from "@/server/catalog";
 import { LocalBusinessJsonLd } from "@/components/local-business-jsonld";
 import { WHATSAPP, PHONE } from "@/lib/contact";
@@ -59,6 +61,12 @@ export default async function Home({ params }: PageProps<"/[locale]">) {
         </div>
       </section>
 
+      <div className="mx-auto mt-8 max-w-6xl px-5 md:mt-6">
+        <Suspense fallback={<TrustStripSkeleton />}>
+          <TrustStrip locale={locale} />
+        </Suspense>
+      </div>
+
       <section data-reveal className="mx-auto mt-20 max-w-6xl px-5" aria-labelledby="steps">
         <h2 id="steps" className="text-3xl font-extrabold md:text-4xl">{h("stepsTitle")}</h2>
         <ol className="mt-8 grid gap-8 md:grid-cols-3">
@@ -82,6 +90,10 @@ export default async function Home({ params }: PageProps<"/[locale]">) {
           </Suspense>
         </div>
       </section>
+
+      <Suspense fallback={null}>
+        <ReviewsSection locale={locale} className="mx-auto mt-24 max-w-6xl px-5" />
+      </Suspense>
 
       <section data-reveal className="mx-auto mt-24 max-w-6xl px-5" aria-labelledby="facts">
         <h2 id="facts" className="max-w-md text-3xl font-extrabold md:text-4xl">{h("factsTitle")}</h2>
