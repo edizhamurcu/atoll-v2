@@ -47,10 +47,31 @@ function Bar({ l, path }: { l: Labels; path: string }) {
   );
 }
 
+/** Round WhatsApp button, bottom-right on every page; on phones it sits above the bottom bars. */
+function Floating({ l, path }: { l: Labels; path: string }) {
+  const sale = path.startsWith("/car-sales");
+  return (
+    <a
+      href={sale ? l.waSaleHref : l.waHref}
+      target="_blank"
+      rel="noopener"
+      aria-label={l.whatsapp}
+      title={l.whatsapp}
+      className="fixed bottom-24 right-4 z-20 grid size-14 place-items-center rounded-full bg-[#25d366] text-white shadow-[0_10px_30px_-8px_rgba(13,52,64,.55)] transition-transform hover:scale-105 motion-reduce:transition-none lg:bottom-6 lg:right-6"
+    >
+      <WhatsAppIcon className="size-8" />
+    </a>
+  );
+}
+
 function Gate({ l }: { l: Labels }) {
   const path = usePathname();
-  if (HIDE.some((r) => r.test(path))) return null;
-  return <Bar l={l} path={path} />;
+  return (
+    <>
+      <Floating l={l} path={path} />
+      {!HIDE.some((r) => r.test(path)) && <Bar l={l} path={path} />}
+    </>
+  );
 }
 
 export function MobileActionBar({ labels }: { labels: Labels }) {
