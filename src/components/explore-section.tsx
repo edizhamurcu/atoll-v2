@@ -36,7 +36,7 @@ export async function ExploreSection({ locale }: { locale: string }) {
   const tv = await getTranslations({ locale, namespace: "travel" });
   const latest = posts(locale).slice(0, 3);
   return (
-    <section className="mx-auto mt-24 max-w-6xl px-5" aria-labelledby="explore">
+    <section data-reveal className="mx-auto mt-24 max-w-6xl px-5" aria-labelledby="explore">
       <div className="flex flex-wrap items-end justify-between gap-4">
         <div className="max-w-2xl">
           <h2 id="explore" className="text-3xl font-extrabold md:text-4xl">{tv("exploreTitle")}</h2>

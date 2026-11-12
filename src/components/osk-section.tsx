@@ -19,7 +19,7 @@ export async function OskSection() {
     ["oskWash", "oskWashText"],
   ] as const;
   return (
-    <section className="mx-auto mt-24 max-w-6xl px-5" aria-labelledby="osk">
+    <section data-reveal className="mx-auto mt-24 max-w-6xl px-5" aria-labelledby="osk">
       <div className="grid gap-10 rounded-[2rem] border border-gold/30 bg-paper p-6 md:p-10 lg:grid-cols-[1.05fr_1fr] lg:items-start">
         <div>
           <Link href="/car-sales" className="group relative block overflow-hidden rounded-2xl">

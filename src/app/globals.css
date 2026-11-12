@@ -143,3 +143,19 @@
 
 /* In-page anchors (#insurance, #steps, …) must not hide under the sticky 76px header. */
 article [id] { scroll-margin-top: 6.5rem; }
+
+/* Animated Cyprus map: routes flow out of the office, pick-up points pulse. */
+@media (prefers-reduced-motion: no-preference) {
+  .map-route { stroke-dasharray: 2 9; animation: map-flow 1.4s linear infinite; }
+  .map-pulse { transform-box: fill-box; transform-origin: center; animation: map-pulse 2.6s ease-out infinite; }
+}
+.map-route { stroke-dasharray: 2 9; }
+.map-pulse { opacity: 0; }
+@keyframes map-flow { to { stroke-dashoffset: -22; } }
+@keyframes map-pulse { 0% { transform: scale(1); opacity: 0.5; } 80%, 100% { transform: scale(2.8); opacity: 0; } }
+
+/* Scroll reveal: only once the observer script has marked <html class="reveal-on">, so content never stays hidden without JS. */
+@media (prefers-reduced-motion: no-preference) {
+  .reveal-on [data-reveal] { opacity: 0; transform: translateY(18px); transition: opacity 0.55s ease, transform 0.55s ease; transition-delay: var(--reveal-delay, 0ms); }
+  .reveal-on [data-reveal].is-in { opacity: 1; transform: none; }
+}

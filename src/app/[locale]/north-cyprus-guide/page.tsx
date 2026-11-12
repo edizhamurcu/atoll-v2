@@ -103,7 +103,7 @@ export default async function GuidePage({ params }: PageProps<"/[locale]/north-c
               <p className="mt-3 max-w-xl text-lg text-ink-soft">{g.regions.lead}</p>
             </div>
             <div className="rounded-panel bg-paper p-4">
-              <CyprusMap points={map} title={g.regions.mapTitle} />
+              <CyprusMap points={map} title={g.regions.mapTitle} animated />
             </div>
           </div>
           <div className="mt-10 space-y-14">

@@ -211,7 +211,9 @@
       "expired": "Rezervasyon süreniz doldu. Lütfen yeniden arama yapın.",
       "captcha": "Lütfen güvenlik doğrulamasını tamamlayın."
     },
-    "hp": "Bu alanı boş bırakın"
+    "hp": "Bu alanı boş bırakın",
+    "noSurprise": "Her ek ayrı satırda gösterilir, sonradan gizli ücret eklenmez. Hasar muafiyeti ve yakıt kuralları için:",
+    "termsLink": "kiralama şartları."
   },
   "home": {
     "fleetTitle": "Filomuz",

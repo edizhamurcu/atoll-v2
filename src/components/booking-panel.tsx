@@ -4,6 +4,8 @@ import { useLocale, useTranslations } from "next-intl";
 import { useSearchParams } from "next/navigation";
 import { useRouter } from "@/i18n/navigation";
 import { money, queryToState } from "@/lib/search-params";
+import { Link } from "@/i18n/navigation";
+import { AnimatedMoney } from "@/components/animated-money";
 
 type Extra = { code: string; name: string; pricing: "PER_DAY" | "PER_RENTAL"; price: string; maxQty: number };
 type Quote = { days: number; rentalTotal: string; discountTotal: string; campaignFreeDays?: number; extrasTotal: string; feesTotal: string; grandTotal: string; depositAmount: string; payOnPickup: string; lines: { kind: string; code: string; total: string }[] };
@@ -129,12 +131,21 @@ export function BookingPanel({ slug, extras }: { slug: string; extras: Extra[] }
           <h3 id="sum" className="text-lg font-bold">{t("summary")}</h3>
           <dl className="mt-3 space-y-1.5 text-sm">
             <Row label={t("rental", { days: quote.days })} value={money(quote.rentalTotal, locale)} />
-            {Number(quote.discountTotal) > 0 && <Row label={(quote.campaignFreeDays ?? 0) > 0 ? tcamp("applied", { days: quote.campaignFreeDays! }) : t("discount")} value={`−${money(quote.discountTotal, locale)}`} />}
-            {Number(quote.extrasTotal) > 0 && <Row label={t("extras")} value={money(quote.extrasTotal, locale)} />}
-            {Number(quote.feesTotal) > 0 && <Row label={t("fees")} value={money(quote.feesTotal, locale)} />}
+            {Number(quote.discountTotal) > 0 && (
+              <div className="flex items-center justify-between gap-4">
+                <dt><span className="inline-flex items-center rounded-full bg-[#e8f5ed] px-2.5 py-0.5 text-xs font-bold text-[#14653a]">{(quote.campaignFreeDays ?? 0) > 0 ? tcamp("applied", { days: quote.campaignFreeDays! }) : t("discount")}</span></dt>
+                <dd className="font-semibold text-[#14653a]">−{money(quote.discountTotal, locale)}</dd>
+              </div>
+            )}
+            {quote.lines.filter((l) => l.kind === "extra").map((l) => {
+              const x = extras.find((e) => e.code === l.code);
+              const n = selected.find((s) => s.code === l.code)?.quantity ?? 1;
+              return <Row key={l.code} label={`${x?.name ?? l.code}${n > 1 ? ` × ${n}` : ""}`} value={money(l.total, locale)} />;
+            })}
+            {quote.lines.filter((l) => l.kind === "fee").length > 0 && <Row label={t("fees")} value={money(quote.feesTotal, locale)} />}
             <div className="flex justify-between border-t border-ink/10 pt-2 text-base font-bold">
               <dt>{t("total")}</dt>
-              <dd>{money(quote.grandTotal, locale)}</dd>
+              <dd aria-live="polite"><AnimatedMoney value={quote.grandTotal} locale={locale} /></dd>
             </div>
             {depositOn ? (
               <>
@@ -145,6 +156,9 @@ export function BookingPanel({ slug, extras }: { slug: string; extras: Extra[] }
               <Row label={t("onPickup")} value={money(quote.grandTotal, locale)} />
             )}
           </dl>
+          <p className="mt-3 text-xs leading-relaxed text-ink-soft">
+            {t("noSurprise")} <Link href="/rental-terms" className="underline underline-offset-2">{t("termsLink")}</Link>
+          </p>
         </section>
       )}
       {error && <p role="alert" className="text-sm font-medium text-alert">{error}</p>}

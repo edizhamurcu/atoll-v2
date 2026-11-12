@@ -156,7 +156,7 @@ function Section({ s, locale }: { s: TravelSection; locale: string }) {
           {lead(s.lead)}
           <div className="mt-10 space-y-14">
             {s.items.map((r, i) => (
-              <section key={r.name} aria-labelledby={`${s.id}-${i}`} className="grid gap-6 md:grid-cols-2 md:items-center">
+              <section key={r.name} data-reveal aria-labelledby={`${s.id}-${i}`} className="grid gap-6 md:grid-cols-2 md:items-center">
                 <PhotoFigure k={r.photo} sizes="(min-width: 768px) 560px, 100vw" className={i % 2 ? "md:order-2" : ""} imgClassName="aspect-[4/3] rounded-panel object-cover" />
                 <div>
                   <h3 id={`${s.id}-${i}`} className="text-2xl font-extrabold">
@@ -181,8 +181,8 @@ function Section({ s, locale }: { s: TravelSection; locale: string }) {
           <h2 id={s.id} className={h2}>{s.title}</h2>
           {lead(s.lead)}
           <ul className="mt-8 grid gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
-            {s.items.map((c) => (
-              <li key={c.name}>
+            {s.items.map((c, i) => (
+              <li key={c.name} data-reveal style={{ "--reveal-delay": `${(i % 3) * 80}ms` } as React.CSSProperties}>
                 <Image src={PHOTOS[c.photo].src} alt={photoAlt(c.photo, locale)} width={PHOTOS[c.photo].w} height={PHOTOS[c.photo].h} sizes="(min-width: 1024px) 360px, (min-width: 640px) 45vw, 100vw" className="aspect-[3/2] w-full rounded-panel bg-stone-deep object-cover" />
                 <h3 className="mt-3 text-lg font-bold">{c.name}</h3>
                 <p className="text-sm font-medium text-aegean">{c.where}</p>

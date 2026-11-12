@@ -8,6 +8,9 @@ import { getTranslations } from "next-intl/server";
 import { routing } from "@/i18n/routing";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
+import { MobileActionBar } from "@/components/mobile-action-bar";
+import { RevealObserver } from "@/components/reveal-observer";
+import { SITE, waLink } from "@/lib/site";
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
@@ -49,6 +52,15 @@ export default async function LocaleLayout({ children, params }: LayoutProps<"/[
           <SiteHeader />
           <main id="main">{children}</main>
           <SiteFooter />
+          <RevealObserver />
+          <MobileActionBar
+            labels={{
+              find: (await getTranslations({ locale, namespace: "nav" }))("book"),
+              whatsapp: "WhatsApp",
+              waHref: waLink(),
+              waSaleHref: waLink((await getTranslations({ locale, namespace: "sales" }))("waText"), SITE.whatsapp),
+            }}
+          />
         </NextIntlClientProvider>
       </body>
     </html>

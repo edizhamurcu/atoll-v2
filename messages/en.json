@@ -211,7 +211,9 @@
       "expired": "Your reservation hold expired. Please search again.",
       "captcha": "Please complete the security check."
     },
-    "hp": "Leave this field empty"
+    "hp": "Leave this field empty",
+    "noSurprise": "Every extra is listed on its own line and nothing is added later. Damage excess and fuel rules are in the",
+    "termsLink": "rental terms."
   },
   "home": {
     "fleetTitle": "Our fleet",

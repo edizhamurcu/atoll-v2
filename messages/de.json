@@ -211,7 +211,9 @@
       "expired": "Ihre Reservierung ist abgelaufen. Bitte suchen Sie erneut.",
       "captcha": "Bitte schließen Sie die Sicherheitsprüfung ab."
     },
-    "hp": "Dieses Feld leer lassen"
+    "hp": "Dieses Feld leer lassen",
+    "noSurprise": "Jedes Extra steht in einer eigenen Zeile, später kommt nichts hinzu. Selbstbeteiligung und Tankregeln finden Sie in den",
+    "termsLink": "Mietbedingungen."
   },
   "home": {
     "fleetTitle": "Unsere Flotte",

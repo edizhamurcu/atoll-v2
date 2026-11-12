@@ -20,15 +20,29 @@ function labelPos(p: MapPoint) {
   return { x: 12, y: 5, textAnchor: "start" as const };
 }
 
-export function CyprusMap({ points, title }: { points: MapPoint[]; title: string }) {
+/** Gentle curve from a to b (control point pushed sideways), for the animated routes. */
+function curve(a: MapPoint, b: MapPoint) {
+  const mx = (a.x + b.x) / 2, my = (a.y + b.y) / 2;
+  const dx = b.x - a.x, dy = b.y - a.y, len = Math.hypot(dx, dy) || 1;
+  const k = Math.min(40, len * 0.18);
+  return `M${a.x} ${a.y} Q${(mx - (dy / len) * k).toFixed(1)} ${(my + (dx / len) * k).toFixed(1)} ${b.x} ${b.y}`;
+}
+
+/** `animated`: dashed routes flow from the primary point to the others and the points pulse (CSS; off with reduced motion). */
+export function CyprusMap({ points, title, animated = false }: { points: MapPoint[]; title: string; animated?: boolean }) {
+  const hub = points.find((p) => p.primary);
   return (
     <svg viewBox="0 0 600 310" role="img" aria-label={title} className="h-auto w-full">
       <title>{title}</title>
       <path d={OUTLINE} fill="var(--color-aegean-wash)" stroke="var(--color-ink)" strokeWidth="2" strokeLinejoin="round" />
       {/* Green Line, schematic */}
       <path d="M115 146 C 180 150, 230 140, 278 147 S 360 165, 405 172" fill="none" stroke="var(--color-ink-soft)" strokeWidth="1.2" strokeDasharray="4 5" opacity="0.6" />
-      {points.map((p) => (
+      {animated && hub && points.filter((p) => p !== hub).map((p) => (
+        <path key={`r-${p.slug}`} d={curve(hub, p)} fill="none" stroke="var(--color-bougain)" strokeWidth="2" strokeLinecap="round" className="map-route" opacity="0.7" />
+      ))}
+      {points.map((p, i) => (
         <g key={p.slug} transform={`translate(${p.x} ${p.y})`}>
+          {animated && <circle r={p.primary ? 9 : 6.5} fill={p.primary ? "var(--color-bougain)" : "var(--color-ink)"} className="map-pulse" style={{ animationDelay: `${i * 0.45}s` }} />}
           <circle r={p.primary ? 9 : 6.5} fill={p.primary ? "var(--color-bougain)" : "var(--color-ink)"} stroke="var(--color-paper)" strokeWidth="2.5" />
           <text
             {...labelPos(p)}

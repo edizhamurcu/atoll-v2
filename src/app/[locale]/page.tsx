@@ -25,7 +25,7 @@ export default async function Home({ params }: PageProps<"/[locale]">) {
   const [t, h, n, ht] = await Promise.all([getTranslations("hero"), getTranslations("home"), getTranslations("nav"), getTranslations("heroTabs")]);
   const facts = [1, 2, 3, 4, 5, 6] as const;
   const steps = [1, 2, 3] as const;
-  const map = <CyprusMap title={t("mapLabel")} points={MAP_POINTS.map((p) => ({ ...p, label: MAP_NAMES[locale]?.[p.slug] ?? p.slug }))} />;
+  const map = <CyprusMap animated title={t("mapLabel")} points={MAP_POINTS.map((p) => ({ ...p, label: MAP_NAMES[locale]?.[p.slug] ?? p.slug }))} />;
   return (
     <>
       <LocalBusinessJsonLd />
@@ -59,7 +59,7 @@ export default async function Home({ params }: PageProps<"/[locale]">) {
         </div>
       </section>
 
-      <section className="mx-auto mt-20 max-w-6xl px-5" aria-labelledby="steps">
+      <section data-reveal className="mx-auto mt-20 max-w-6xl px-5" aria-labelledby="steps">
         <h2 id="steps" className="text-3xl font-extrabold md:text-4xl">{h("stepsTitle")}</h2>
         <ol className="mt-8 grid gap-8 md:grid-cols-3">
           {steps.map((n) => (
@@ -72,7 +72,7 @@ export default async function Home({ params }: PageProps<"/[locale]">) {
         </ol>
       </section>
 
-      <section className="mx-auto mt-24 max-w-6xl px-5" aria-labelledby="fleet">
+      <section data-reveal className="mx-auto mt-24 max-w-6xl px-5" aria-labelledby="fleet">
         <p className="mb-3 inline-flex items-center gap-2 rounded-full bg-bougain/10 px-3 py-1 text-sm font-semibold text-bougain-deep"><span aria-hidden className="size-2 rounded-full bg-bougain" />{n("rentCars")}</p>
         <h2 id="fleet" className="text-3xl font-extrabold md:text-4xl">{h("fleetTitle")}</h2>
         <p className="mt-2 max-w-xl text-ink-soft">{h("fleetLead")}</p>
@@ -83,7 +83,7 @@ export default async function Home({ params }: PageProps<"/[locale]">) {
         </div>
       </section>
 
-      <section className="mx-auto mt-24 max-w-6xl px-5" aria-labelledby="facts">
+      <section data-reveal className="mx-auto mt-24 max-w-6xl px-5" aria-labelledby="facts">
         <h2 id="facts" className="max-w-md text-3xl font-extrabold md:text-4xl">{h("factsTitle")}</h2>
         <dl className="mt-10 grid gap-x-12 gap-y-8 border-t border-ink/10 pt-8 md:grid-cols-2 lg:grid-cols-3">
           {facts.map((n) => (
@@ -97,7 +97,7 @@ export default async function Home({ params }: PageProps<"/[locale]">) {
       <OskSection />
       <ExploreSection locale={locale} />
 
-      <section className="mx-auto mt-24 max-w-6xl px-5" aria-labelledby="cta">
+      <section data-reveal className="mx-auto mt-24 max-w-6xl px-5" aria-labelledby="cta">
         <div className="flex flex-col gap-6 rounded-[var(--radius-panel)] bg-ink px-6 py-10 text-white md:flex-row md:items-center md:justify-between md:px-10">
           <div className="max-w-xl">
             <h2 id="cta" className="text-3xl font-extrabold">{h("ctaTitle")}</h2>
