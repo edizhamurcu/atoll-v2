@@ -76,7 +76,7 @@ export async function SpecialOffers({ locale }: { locale: string }) {
           const offer = rate.mul(paid);
           return (
             <li key={m.slug} className="flex flex-col overflow-hidden rounded-[1.5rem] bg-paper text-ink">
-              <div className="relative aspect-[4/3]">
+              <div className="car-zoom relative aspect-[4/3] overflow-hidden">
                 <CarImage src={m.images[0]} alt={`${m.make} ${m.model}`} sizes="(min-width:1024px) 340px, (min-width:640px) 50vw, 100vw" />
                 <span className="absolute left-3 top-3 rounded-full bg-ink px-3 py-1 text-xs font-bold text-white">{tc(m.class)}</span>
               </div>

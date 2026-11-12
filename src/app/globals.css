@@ -72,10 +72,10 @@
     @apply mb-1.5 block text-sm font-medium text-ink-soft;
   }
   .btn-primary {
-    @apply inline-flex items-center justify-center gap-2 rounded-full bg-bougain px-6 py-3 font-semibold text-white transition-colors hover:bg-bougain-deep disabled:cursor-not-allowed disabled:opacity-60;
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-bougain px-6 py-3 font-semibold text-white transition-[background-color,box-shadow,transform] duration-200 hover:bg-bougain-deep hover:shadow-[0_10px_24px_-12px_rgba(195,38,47,.7)] active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-60 disabled:shadow-none motion-reduce:transition-none motion-reduce:active:scale-100;
   }
   .btn-ink {
-    @apply inline-flex items-center justify-center gap-2 rounded-full bg-ink px-6 py-3 font-semibold text-white transition-colors hover:bg-aegean;
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-ink px-6 py-3 font-semibold text-white transition-[background-color,box-shadow,transform] duration-200 hover:bg-aegean hover:shadow-[0_10px_24px_-12px_rgba(13,52,64,.7)] active:scale-[0.98] motion-reduce:transition-none motion-reduce:active:scale-100;
   }
   .btn-quiet {
     @apply inline-flex items-center justify-center gap-2 rounded-full border border-ink/15 px-5 py-2.5 font-medium text-ink transition-colors hover:border-ink/40;
@@ -114,4 +114,13 @@
 .nav-pop { animation: nav-pop 0.18s ease-out; transform-origin: top center; }
 @media (prefers-reduced-motion: reduce) {
   .nav-pop { animation: none; }
+}
+
+/* Micro-interactions (2026-11-12): car photos lift slightly on hover, arrows in buttons nudge.
+   Pointer devices only; nothing moves when the visitor prefers reduced motion. */
+.car-zoom img { transition: transform 0.35s ease; }
+.btn-arrow { transition: transform 0.2s ease; }
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .group:hover .car-zoom img, a:hover > .car-zoom img, .car-zoom:hover img { transform: scale(1.045); }
+  a:hover .btn-arrow, button:hover .btn-arrow { transform: translateX(3px); }
 }

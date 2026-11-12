@@ -459,5 +459,12 @@
     "empty": "Kein Auto passt zu diesem Filter.",
     "prev": "{cls}: vorherige Autos",
     "next": "{cls}: weitere Autos"
+  },
+  "heroTabs": {
+    "rent": "Auto mieten",
+    "sale": "Auto kaufen",
+    "label": "Was möchten Sie tun?",
+    "saleTitle": "Der OSK-Auto-Showroom im selben Gebäude",
+    "saleLead": "Neu- und Gebrauchtwagen vor Ort ansehen. Wartung, Karosserie und Lack, Autoelektrik und Autowäsche nach dem Kauf in unserer eigenen Werkstatt."
   }
 }

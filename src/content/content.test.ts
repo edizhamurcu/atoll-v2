@@ -308,3 +308,13 @@ describe("fleet cards (2026-11-12)", () => {
     expect(readFileSync("src/components/fleet-section.tsx", "utf8")).toMatch(/Number\(b\.campaign\) - Number\(a\.campaign\)/);
   });
 });
+
+describe("home hero tabs (2026-11-12)", () => {
+  it("rent tab (search form) stays default and the sale tab copy exists in every language", () => {
+    const tabs = readFileSync("src/components/hero-tabs.tsx", "utf8");
+    expect(tabs).toMatch(/useState<"rent" \| "sale">\("rent"\)/);
+    const en = JSON.parse(readFileSync("messages/en.json", "utf8")).heroTabs;
+    for (const l of ["tr", "de", "ru"]) expect(Object.keys(JSON.parse(readFileSync(`messages/${l}.json`, "utf8")).heroTabs).sort(), l).toEqual(Object.keys(en).sort());
+    expect(readFileSync("src/app/[locale]/page.tsx", "utf8")).toMatch(/id="search"[\s\S]*<HeroTabs/);
+  });
+});

@@ -112,7 +112,7 @@ export function Results() {
             const ok = r.availability.available && r.quote;
             return (
               <li key={r.slug} className={ok ? "" : "opacity-60"}>
-                <div className="relative aspect-[4/3] overflow-hidden rounded-2xl">
+                <div className="car-zoom relative aspect-[4/3] overflow-hidden rounded-2xl">
                   <CarImage src={r.images[0]} alt={r.name} sizes="(min-width:1024px) 33vw, (min-width:640px) 50vw, 100vw" />
                   {r.campaign && <span className="absolute left-3 top-3 rounded-full bg-bougain px-3 py-1 text-xs font-bold text-white shadow">{tcamp("weekShort")}</span>}
                 </div>

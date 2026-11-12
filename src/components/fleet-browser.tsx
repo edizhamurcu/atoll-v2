@@ -122,7 +122,7 @@ export function FleetBrowser({ groups, labels: l, locale }: { groups: FleetGroup
                 return (
                   <li key={m.slug} className="w-64 shrink-0 snap-start">
                     <Link href={`/cars/${m.slug}${carQs}`} className="group block">
-                      <div className="relative aspect-[4/3] overflow-hidden rounded-2xl">
+                      <div className="car-zoom relative aspect-[4/3] overflow-hidden rounded-2xl">
                         <CarImage src={m.image} alt={m.name} sizes="256px" />
                         <div className="absolute left-2.5 top-2.5 flex flex-col items-start gap-1.5">
                           {m.campaign && <span className="rounded-full bg-bougain px-2.5 py-1 text-[0.7rem] font-bold text-white shadow">{l.campaign}</span>}

@@ -459,5 +459,12 @@
     "empty": "No cars match this filter.",
     "prev": "{cls}: previous cars",
     "next": "{cls}: next cars"
+  },
+  "heroTabs": {
+    "rent": "Rent a car",
+    "sale": "Buy a car",
+    "label": "What would you like to do?",
+    "saleTitle": "The OSK Auto showroom, in the same building",
+    "saleLead": "See new and used cars in person. Servicing, body and paint, auto electrics and car wash in our own workshop after you buy."
   }
 }

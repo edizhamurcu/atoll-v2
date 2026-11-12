@@ -3,6 +3,8 @@ import { getTranslations } from "next-intl/server";
 import { CyprusMap, MAP_POINTS } from "@/components/cyprus-map";
 import { SearchSection, SearchSkeleton } from "@/components/search-section";
 import { FleetSection, FleetSkeleton } from "@/components/fleet-section";
+import { HeroTabs } from "@/components/hero-tabs";
+import { HeroSalePanel } from "@/components/hero-sale-panel";
 import { OskSection } from "@/components/osk-section";
 import type { Locale } from "@/server/catalog";
 import { LocalBusinessJsonLd } from "@/components/local-business-jsonld";
@@ -18,7 +20,7 @@ const MAP_NAMES: Record<string, Record<string, string>> = {
 
 export default async function Home({ params }: PageProps<"/[locale]">) {
   const { locale } = (await params) as { locale: Locale };
-  const [t, h, n] = await Promise.all([getTranslations("hero"), getTranslations("home"), getTranslations("nav")]);
+  const [t, h, n, ht] = await Promise.all([getTranslations("hero"), getTranslations("home"), getTranslations("nav"), getTranslations("heroTabs")]);
   const facts = [1, 2, 3, 4, 5, 6] as const;
   const steps = [1, 2, 3] as const;
   const map = <CyprusMap title={t("mapLabel")} points={MAP_POINTS.map((p) => ({ ...p, label: MAP_NAMES[locale]?.[p.slug] ?? p.slug }))} />;
@@ -35,9 +37,17 @@ export default async function Home({ params }: PageProps<"/[locale]">) {
         </div>
         {/* Mobile: search first (conversion), map after it */}
         <div id="search" className="mt-8 scroll-mt-24 md:mt-4">
-          <Suspense fallback={<SearchSkeleton />}>
-            <SearchSection locale={locale} />
-          </Suspense>
+          <HeroTabs
+            rentLabel={ht("rent")}
+            saleLabel={ht("sale")}
+            groupLabel={ht("label")}
+            rent={
+              <Suspense fallback={<SearchSkeleton />}>
+                <SearchSection locale={locale} />
+              </Suspense>
+            }
+            sale={<HeroSalePanel />}
+          />
         </div>
         <div className="mt-8 md:hidden">{map}</div>
       </section>

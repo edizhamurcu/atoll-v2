@@ -459,5 +459,12 @@
     "empty": "Bu filtreye uyan araç yok.",
     "prev": "{cls}: önceki araçlar",
     "next": "{cls}: sonraki araçlar"
+  },
+  "heroTabs": {
+    "rent": "Araç Kirala",
+    "sale": "Araç Satın Al",
+    "label": "Ne yapmak istiyorsunuz?",
+    "saleTitle": "OSK Auto showroom'u, aynı binada",
+    "saleLead": "Yeni ve ikinci el araçları yerinde görün. Satış sonrası bakım, kaporta-boya, oto elektrik ve yıkama kendi atölyemizde."
   }
 }
