@@ -102,7 +102,7 @@ export function CarGallery({ images, alt }: { images: string[]; alt: string }) {
       <dialog
         ref={dialog}
         onClose={() => { setOpen(false); goTo(i); }}
-        className="m-0 h-dvh max-h-none w-screen max-w-none bg-ink/95 p-0 text-white backdrop:bg-ink/80"
+        className="m-0 h-dvh max-h-none w-screen max-w-none bg-ink p-0 text-white backdrop:bg-ink"
         aria-label={alt}
       >
         {open && <Viewer images={images} alt={alt} start={i} onIndex={setI} onClose={() => dialog.current?.close()} />}
