@@ -140,3 +140,6 @@
     }
   }
 }
+
+/* In-page anchors (#insurance, #steps, …) must not hide under the sticky 76px header. */
+article [id] { scroll-margin-top: 6.5rem; }
