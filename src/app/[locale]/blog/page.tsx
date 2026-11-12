@@ -10,13 +10,7 @@ import { PHOTOS, photoAlt } from "@/content/photos";
 import { BLOG_LOCALES, fmtDate, posts, readingMinutes } from "@/content/blog";
 import { SITE } from "@/lib/site";
 import { TravelNav } from "@/components/travel-nav";
-import type { PhotoKey } from "@/content/photos";
-
-const GUIDES: { key: "north" | "south" | "driving"; href: string; photo: PhotoKey }[] = [
-  { key: "north", href: "/north-cyprus-guide", photo: "kyrenia-harbour" },
-  { key: "south", href: "/south-cyprus-guide", photo: "aphrodite-rock-dusk" },
-  { key: "driving", href: "/driving-in-south-cyprus", photo: "cyprus-road-sign" },
-];
+import { GuideCards } from "@/components/explore-section";
 
 export async function generateMetadata({ params }: PageProps<"/[locale]/blog">): Promise<Metadata> {
   const { locale } = await params;
@@ -50,19 +44,7 @@ export default async function BlogIndex({ params }: PageProps<"/[locale]/blog">)
       </header>
       <TravelNav active="posts" className="mt-6" />
 
-      <ul className="mt-10 grid gap-6 md:grid-cols-3">
-        {GUIDES.map((g, i) => (
-          <li key={g.key}>
-            <Link href={g.href} className="group relative isolate flex min-h-[22rem] flex-col justify-end overflow-hidden rounded-panel bg-ink p-6 text-white">
-              <Image src={PHOTOS[g.photo].src} alt={photoAlt(g.photo, locale)} fill priority={i === 0} sizes="(min-width: 768px) 360px, 100vw" className="car-zoom -z-10 object-cover opacity-80" />
-              <span aria-hidden className="absolute inset-0 -z-10 bg-gradient-to-t from-ink via-ink/55 to-ink/5" />
-              <h2 className="text-2xl font-extrabold leading-tight">{tv(g.key)}</h2>
-              <p className="mt-2 text-white/85">{tv(`${g.key}Desc`)}</p>
-              <span className="btn-arrow mt-4 inline-flex items-center gap-1.5 font-semibold text-white underline underline-offset-4">{tv("read")}</span>
-            </Link>
-          </li>
-        ))}
-      </ul>
+      <div className="mt-10"><GuideCards locale={locale} priority /></div>
 
       <h2 id="posts" className="mt-16 scroll-mt-28 text-3xl font-extrabold">{tv("postsTitle")}</h2>
       {first && (

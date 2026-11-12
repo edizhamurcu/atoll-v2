@@ -7,6 +7,7 @@ import { HeroTabs } from "@/components/hero-tabs";
 import { HeroVideo } from "@/components/hero-video";
 import { HeroSalePanel } from "@/components/hero-sale-panel";
 import { OskSection } from "@/components/osk-section";
+import { ExploreSection } from "@/components/explore-section";
 import type { Locale } from "@/server/catalog";
 import { LocalBusinessJsonLd } from "@/components/local-business-jsonld";
 import { WHATSAPP, PHONE } from "@/lib/contact";
@@ -94,6 +95,7 @@ export default async function Home({ params }: PageProps<"/[locale]">) {
         </dl>
       </section>
       <OskSection />
+      <ExploreSection locale={locale} />
 
       <section className="mx-auto mt-24 max-w-6xl px-5" aria-labelledby="cta">
         <div className="flex flex-col gap-6 rounded-[var(--radius-panel)] bg-ink px-6 py-10 text-white md:flex-row md:items-center md:justify-between md:px-10">
