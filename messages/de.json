@@ -101,7 +101,9 @@
     "metaTitle": "{name} mieten in Nordzypern ab {price}/Tag",
     "metaDesc": "Mieten Sie einen {name} ({gear}, {fuel}, {seats} Sitze) bei Atoll Rent A Car in Kyrenia, Ercan, Larnaka oder Paphos. Live-Verfügbarkeit, ab {price} pro Tag.",
     "prevPhoto": "Vorheriges Foto",
-    "nextPhoto": "Nächstes Foto"
+    "nextPhoto": "Nächstes Foto",
+    "carouselPrev": "{cls}: vorherige Autos",
+    "carouselNext": "{cls}: weitere Autos"
   },
   "classes": {
     "ECONOMY": "Kleinwagen",

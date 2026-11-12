@@ -101,7 +101,9 @@
     "metaTitle": "Аренда {name} на Северном Кипре от {price}/день",
     "metaDesc": "Арендуйте {name} ({gear}, {fuel}, мест: {seats}) в Atoll Rent A Car в Кирении, Эрджане, Ларнаке или Пафосе. Наличие онлайн, от {price} в день.",
     "prevPhoto": "Предыдущее фото",
-    "nextPhoto": "Следующее фото"
+    "nextPhoto": "Следующее фото",
+    "carouselPrev": "{cls}: предыдущие авто",
+    "carouselNext": "{cls}: следующие авто"
   },
   "classes": {
     "ECONOMY": "Эконом",

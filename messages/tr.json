@@ -101,7 +101,9 @@
     "metaTitle": "Kuzey Kıbrıs'ta kiralık {name}, günlük {price}{abl} başlayan fiyatlarla",
     "metaDesc": "Atoll Rent A Car ile Girne, Ercan, Larnaka veya Baf'ta {name} kiralayın ({gear}, {fuel}, {seats} koltuk). Canlı müsaitlik, günlük {price}{abl} başlayan fiyatlar.",
     "prevPhoto": "Önceki fotoğraf",
-    "nextPhoto": "Sonraki fotoğraf"
+    "nextPhoto": "Sonraki fotoğraf",
+    "carouselPrev": "{cls}: önceki araçlar",
+    "carouselNext": "{cls}: sonraki araçlar"
   },
   "classes": {
     "ECONOMY": "Ekonomik",
