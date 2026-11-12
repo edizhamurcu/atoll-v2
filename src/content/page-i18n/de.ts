@@ -170,7 +170,7 @@ const pages: PageTranslations = {
 </ol>
 <p><strong><u>MIETVERTRAG</u></strong></p>
 <p><strong>1. Parteien</strong></p>
-<p>Atoll Rent A Car Ltd. wird im Folgenden Eigentümer genannt. Die natürliche oder juristische Person, deren Name, Anschrift und Unterschrift auf der ersten Seite dieses Vertrags stehen, wird im Folgenden Mieter genannt.</p>
+<p>Atoll Rent A Car Ltd. ist Eigentümerin der Fahrzeuge. Die natürliche oder juristische Person, deren Name, Anschrift und Unterschrift auf der ersten Seite dieses Vertrags stehen, ist im Folgenden der Mieter.</p>
 <p><strong>2. Mietbedingungen</strong></p>
 <p>(a) Der Mieter nimmt das Fahrzeug, dessen Kennzeichen, Mietdauer, Mietpreis und Preise für zusätzliche Leistungen auf Seite 1 angegeben sind, zu den allgemeinen und stillschweigenden Bedingungen auf den Seiten 1 und 2 dieses Vertrags an und verpflichtet sich, es zu mieten.</p>
 <p>(b) Der Ausdruck „das Fahrzeug“ bzw. „Fahrzeug“ umfasst alle Reifen, Zubehörteile, Werkzeuge und sonstige Ausrüstung, die als untrennbare Bestandteile des Fahrzeugs gelten. Mit der Übernahme des Fahrzeugs bestätigt der Mieter, dass er das Fahrzeug (einschließlich aller genannten Bestandteile) geprüft und in vollständig funktionsfähigem Zustand übernommen hat.</p>

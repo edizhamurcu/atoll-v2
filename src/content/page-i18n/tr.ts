@@ -170,7 +170,7 @@ const pages: PageTranslations = {
 </ol>
 <p><strong><u>KİRALAMA SÖZLEŞMESİ</u></strong></p>
 <p><strong>1. Taraflar</strong></p>
-<p>Atoll Rent A Car Ltd. bundan böyle Mal Sahibi olarak anılacaktır. Bu sözleşmenin ilk sayfasında adı, adresi ve imzası bulunan gerçek veya tüzel kişi bundan böyle Kiracı olarak anılacaktır.</p>
+<p>Atoll Rent A Car Ltd. araçların sahibidir. Bu sözleşmenin ilk sayfasında adı, adresi ve imzası bulunan gerçek veya tüzel kişi bundan böyle Kiracıdır.</p>
 <p><strong>2. Kiralama Koşulları</strong></p>
 <p>(a) Kiracı, plaka numarası, kiralama süresi, kira bedeli ve ek kiralama hizmetlerinin ücretleri 1. sayfada belirtilen aracı, bu sözleşmenin 1. ve 2. sayfalarında belirtilen genel şartlar ve zımni koşullar çerçevesinde kiralamayı kabul ve taahhüt eder.</p>
 <p>(b) ‘Araç’ ifadesi, aracın ayrılmaz parçaları sayılan tüm lastikleri, aksesuarları, aletleri ve diğer donanımları kapsar. Kiracı, aracı teslim almakla aracı (yukarıdaki tüm parçalar dahil) incelediğini ve eksiksiz çalışır durumda bulup teslim aldığını kabul eder.</p>

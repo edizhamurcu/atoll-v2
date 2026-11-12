@@ -34,6 +34,9 @@ const LINKS: [RegExp, string][] = [
   [/Exclusive Offer to Pacific Rent-A-Car Clients/g, "Exclusive Offer to Atoll Rent A Car Clients"],
   [/<li>Vehicle not to be taken out of the TRNC<\/li>/g, "<li>The vehicle may not be taken out of the TRNC, except into South Cyprus</li>"],
   [/\(g\) The renter shall not take the vehicle outside the Turkish Republic of Northern Cyprus,/g, "(g) The renter shall not take the vehicle outside the Turkish Republic of Northern Cyprus, except into South Cyprus,"],
+  // Owner, 2026-11-12: wording of "1. Parties" in the rental agreement
+  [/Atoll Rent A Car Ltd\. is hereinafter called the Owner\. The real or incorporated person whose names, address, and signatures appear on the first page of this contract are hereinafter called the Renter\./g,
+    "Atoll Rent A Car Ltd. is the owner of the vehicles. The real or incorporated person whose name, address and signature appear on the first page of this contract is hereinafter the Renter."],
 ];
 
 export function cleanHtml(html: string) {
