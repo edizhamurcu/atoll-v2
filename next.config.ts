@@ -6,6 +6,27 @@ const securityHeaders = [
   { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
   { key: "X-Frame-Options", value: "SAMEORIGIN" },
   { key: "Permissions-Policy", value: "camera=(), microphone=(), geolocation=()" },
+  // HTTPS only (Cloudflare + origin). No includeSubDomains: other atollrentacar.com hosts are not ours to force.
+  { key: "Strict-Transport-Security", value: "max-age=31536000" },
+  // Scripts stay 'unsafe-inline' (Next.js inline bootstrap without nonces under cacheComponents); the policy still
+  // blocks plugins, <base> hijacking, foreign form posts, framing and loading scripts/frames from other origins.
+  {
+    key: "Content-Security-Policy",
+    value: [
+      "default-src 'self'",
+      "script-src 'self' 'unsafe-inline' https://challenges.cloudflare.com https://static.cloudflareinsights.com",
+      "style-src 'self' 'unsafe-inline'",
+      "img-src 'self' data: blob: https:",
+      "font-src 'self' data:",
+      "connect-src 'self' https://challenges.cloudflare.com https://cloudflareinsights.com",
+      "frame-src https://www.google.com https://challenges.cloudflare.com",
+      "object-src 'none'",
+      "base-uri 'self'",
+      "form-action 'self'",
+      "frame-ancestors 'self'",
+      "upgrade-insecure-requests",
+    ].join("; "),
+  },
 ];
 
 const nextConfig: NextConfig = {

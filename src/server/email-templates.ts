@@ -182,3 +182,49 @@ export function assistantRequestEmail(r: AssistantRequestMail) {
   ].join("\n");
   return { subject, text, replyTo: r.email ?? undefined };
 }
+
+/* ---------------- customer booking confirmation (customer's language) ---------------- */
+
+type CL = "en" | "tr" | "de" | "ru";
+const CT: Record<CL, Record<string, string>> = {
+  en: { subject: "Your booking {ref} is confirmed – {car}", hello: "Hello {name},", lead: "Thank you for booking with Atoll Rent A Car. Your car is reserved.", ref: "Booking reference", car: "Car", pickup: "Pick-up", ret: "Return", days: "Rental days", total: "Total", toPay: "To pay at pick-up", deposit: "Deposit paid online", bring: "Please bring: passport or ID card and your driving licence. Minimum driver age is 25.", manage: "View your booking", questions: "Questions or changes? Call or message us on WhatsApp:", orSimilar: "or similar", sign: "Atoll Rent A Car" },
+  tr: { subject: "{ref} numaralı rezervasyonunuz onaylandı – {car}", hello: "Merhaba {name},", lead: "Atoll Rent A Car'ı tercih ettiğiniz için teşekkürler. Aracınız sizin için ayrıldı.", ref: "Rezervasyon numarası", car: "Araç", pickup: "Alış", ret: "İade", days: "Kiralama günü", total: "Toplam", toPay: "Teslimde ödenecek", deposit: "Online ödenen depozito", bring: "Lütfen yanınızda getirin: pasaport veya kimlik kartı ve ehliyet. Sürücü en az 25 yaşında olmalıdır.", manage: "Rezervasyonunuzu görüntüleyin", questions: "Soru veya değişiklik için arayın ya da WhatsApp'tan yazın:", orSimilar: "veya benzeri", sign: "Atoll Rent A Car" },
+  de: { subject: "Ihre Buchung {ref} ist bestätigt – {car}", hello: "Hallo {name},", lead: "Vielen Dank für Ihre Buchung bei Atoll Rent A Car. Ihr Auto ist reserviert.", ref: "Buchungsnummer", car: "Auto", pickup: "Abholung", ret: "Rückgabe", days: "Miettage", total: "Gesamt", toPay: "Bei Abholung zu zahlen", deposit: "Online gezahlte Anzahlung", bring: "Bitte mitbringen: Reisepass oder Personalausweis und Führerschein. Mindestalter des Fahrers: 25 Jahre.", manage: "Buchung ansehen", questions: "Fragen oder Änderungen? Rufen Sie uns an oder schreiben Sie per WhatsApp:", orSimilar: "oder ähnlich", sign: "Atoll Rent A Car" },
+  ru: { subject: "Ваше бронирование {ref} подтверждено – {car}", hello: "Здравствуйте, {name}!", lead: "Спасибо, что выбрали Atoll Rent A Car. Автомобиль забронирован для вас.", ref: "Номер бронирования", car: "Автомобиль", pickup: "Получение", ret: "Возврат", days: "Дней аренды", total: "Итого", toPay: "Оплата при получении", deposit: "Депозит оплачен онлайн", bring: "Возьмите с собой паспорт или удостоверение личности и водительские права. Минимальный возраст водителя — 25 лет.", manage: "Посмотреть бронирование", questions: "Вопросы или изменения? Позвоните или напишите в WhatsApp:", orSimilar: "или аналог", sign: "Atoll Rent A Car" },
+};
+const fill = (s: string, v: Record<string, string>) => s.replace(/\{(\w+)\}/g, (_, k) => v[k] ?? "");
+const DATE_LOCALE: Record<CL, string> = { en: "en-GB", tr: "tr-TR", de: "de-DE", ru: "ru-RU" };
+
+export function customerBookingEmail(b: BookingMail, o: { link: string | null; phones: string[]; address: string }) {
+  const l: CL = (["en", "tr", "de", "ru"] as const).includes(b.locale as CL) ? (b.locale as CL) : "en";
+  const T = CT[l];
+  const car = `${b.model.make} ${b.model.model}`;
+  const when = (d: Date) => new Intl.DateTimeFormat(DATE_LOCALE[l], { timeZone: TZ, weekday: "short", day: "2-digit", month: "long", year: "numeric", hour: "2-digit", minute: "2-digit" }).format(d);
+  const paid = b.paymentStatus === "PAID";
+  const toPay = paid ? Number(b.totals.grand) - Number(b.totals.deposit) : Number(b.totals.grand);
+  const text = [
+    fill(T.hello, { name: b.customer?.firstName ?? "" }),
+    "",
+    T.lead,
+    "",
+    rows([
+      [T.ref, b.ref],
+      [T.car, `${car} (${T.orSimilar})`],
+      [T.pickup, `${when(b.pickupAt)}\n${b.pickupLocation.name} – ${b.pickupLocation.address}`],
+      [T.ret, `${when(b.returnAt)}\n${b.returnLocation.name} – ${b.returnLocation.address}`],
+      [T.days, b.days],
+      [T.total, gbp(b.totals.grand)],
+      [T.deposit, paid && Number(b.totals.deposit) ? gbp(b.totals.deposit) : null],
+      [T.toPay, gbp(toPay)],
+    ]),
+    "",
+    T.bring,
+    ...(o.link ? ["", `${T.manage}: ${o.link}`] : []),
+    "",
+    `${T.questions} ${o.phones.join(" / ")}`,
+    o.address,
+    "",
+    T.sign,
+  ].join("\n");
+  return { subject: fill(T.subject, { ref: b.ref, car }), text };
+}

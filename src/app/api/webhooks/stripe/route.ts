@@ -1,7 +1,7 @@
 import { db } from "@/lib/db";
 import { stripe, stripeEnabled } from "@/server/payments";
 import { markDepositPaid } from "@/server/booking";
-import { notifyBooking } from "@/server/notify";
+import { notifyBooking, notifyCustomer } from "@/server/notify";
 
 /** Stripe → deposit confirmation. Signature-verified, idempotent. */
 export async function POST(req: Request) {
@@ -21,7 +21,10 @@ export async function POST(req: Request) {
       try {
         const r = await markDepositPaid(bookingId, s.id);
         if (r.count === 0) console.warn("[stripe] deposit for non-pending booking", bookingId);
-        else await notifyBooking(bookingId, "DEPOSIT_PAID");
+        else {
+          await notifyBooking(bookingId, "DEPOSIT_PAID");
+          await notifyCustomer(bookingId, null);
+        }
       } catch (e) {
         // Paid after the hold expired and the car was taken: flag for staff (refund or reassign).
         console.error("[stripe] could not confirm paid booking", bookingId, e instanceof Error ? e.message : e);

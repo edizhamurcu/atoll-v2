@@ -4,7 +4,8 @@ import { createHold } from "@/server/booking";
 
 /** Creates a HOLD on a concrete vehicle (auto-assigned). Returns ref + bearer token for the next steps. */
 export async function POST(req: Request) {
-  const limited = await limit(req, "hold", 20, 600);
+  // A hold blocks a real car for holdMinutes; cap per IP so a few clients cannot hold the whole fleet.
+  const limited = await limit(req, "hold", 6, 900);
   if (limited) return limited;
   try {
     const body = parse(quoteSchema, await readJson(req));

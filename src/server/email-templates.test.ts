@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { assistantRequestEmail, bookingEmail, contactEmail, type BookingMail } from "./email-templates";
+import { assistantRequestEmail, bookingEmail, contactEmail, customerBookingEmail, type BookingMail } from "./email-templates";
 
 const b: BookingMail = {
   ref: "ATL-ABC123", status: "CONFIRMED", paymentMode: "pay_on_pickup", paymentStatus: "NONE", source: "web", locale: "tr",
@@ -36,5 +36,16 @@ describe("staff e-mails (English, full details)", () => {
     expect(r.subject).toBe("[Website assistant] OSK Auto – test drive request – Y – +90 533 111 22 33");
     expect(r.text).toContain("https://wa.me/905331112233");
     expect(r.text).toContain("Customer: test drive");
+  });
+  it("customer confirmation in the customer's language, with link and amount to pay", () => {
+    const m = customerBookingEmail(b, { link: "https://x/tr/booking/ATL-ABC123?t=tok", phones: ["+90 539"], address: "Alsancak" });
+    expect(m.subject).toBe("ATL-ABC123 numaralı rezervasyonunuz onaylandı – Mazda Carol");
+    expect(m.text).toContain("Merhaba Ali,");
+    expect(m.text).toContain("Teslimde ödenecek");
+    expect(m.text).toContain("£189.00");
+    expect(m.text).toContain("https://x/tr/booking/ATL-ABC123?t=tok");
+    const en = customerBookingEmail({ ...b, locale: "xx" }, { link: null, phones: [], address: "" });
+    expect(en.subject.startsWith("Your booking")).toBe(true);
+    expect(en.text).not.toContain("View your booking");
   });
 });

@@ -1,9 +1,10 @@
 import "server-only";
 import { db } from "@/lib/db";
 import { t } from "@/server/catalog";
-import { notifyStaff } from "@/server/mail";
+import { notifyStaff, sendMail } from "@/server/mail";
+import { SITE } from "@/lib/site";
 import type { Quote } from "@/server/pricing";
-import { bookingEmail, type BookingMail } from "@/server/email-templates";
+import { bookingEmail, customerBookingEmail, type BookingMail } from "@/server/email-templates";
 
 /** Collects everything about a booking for the staff e-mail. */
 export async function bookingMailData(bookingId: string): Promise<BookingMail | null> {
@@ -37,6 +38,24 @@ export async function notifyBooking(bookingId: string, event: "NEW" | "DEPOSIT_P
     return d ? await notifyStaff(bookingEmail(d, event)) : false;
   } catch (e) {
     console.error("[notify] booking", bookingId, e instanceof Error ? e.message : e);
+    return false;
+  }
+}
+
+/**
+ * Confirmation to the customer, in their language. `token` (the booking's bearer token, only known during the
+ * customer's own request) adds a link back to the booking page. Never throws.
+ */
+export async function notifyCustomer(bookingId: string, token: string | null) {
+  try {
+    const d = await bookingMailData(bookingId);
+    if (!d?.customer || d.status !== "CONFIRMED") return false;
+    const base = SITE.url.replace(/\/$/, "");
+    const link = token ? `${base}/${d.locale}/booking/${d.ref}?t=${encodeURIComponent(token)}` : null;
+    const m = customerBookingEmail(d, { link, phones: [SITE.phone, SITE.phone2], address: `${SITE.address.street}, ${SITE.address.locality}, ${SITE.address.region}` });
+    return await sendMail({ to: d.customer.email, subject: m.subject, text: m.text, replyTo: SITE.email });
+  } catch (e) {
+    console.error("[notify] customer", bookingId, e instanceof Error ? e.message : e);
     return false;
   }
 }
