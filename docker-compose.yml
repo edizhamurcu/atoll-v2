@@ -31,6 +31,8 @@ services:
       DATABASE_URL: postgresql://atoll:${POSTGRES_PASSWORD}@db:5432/atoll
       REDIS_URL: redis://redis:6379
       STOCK_DIR: /app/stock
+      # Outbound TLS (SMTP, APIs) passes the FortiGate SSL inspection: trust its CA in addition to the system store.
+      NODE_EXTRA_CA_CERTS: /run/corp-ca.crt
     depends_on:
       db: { condition: service_healthy }
       redis: { condition: service_started }
@@ -40,6 +42,7 @@ services:
       - nextcache:/app/.next/cache
       # OSK sale-car photos uploaded in /admin/sales (outside the release dir so deploys keep them; owned by uid 1001)
       - ${STOCK_HOST_DIR:-/srv/atoll/stock}:/app/stock
+      - ${CORP_CA_FILE:-/dev/null}:/run/corp-ca.crt:ro
     networks: [internal]
 
   # Second replica of the same image: nginx balances across both and retries on the other one,
@@ -52,6 +55,8 @@ services:
       DATABASE_URL: postgresql://atoll:${POSTGRES_PASSWORD}@db:5432/atoll
       REDIS_URL: redis://redis:6379
       STOCK_DIR: /app/stock
+      # Outbound TLS (SMTP, APIs) passes the FortiGate SSL inspection: trust its CA in addition to the system store.
+      NODE_EXTRA_CA_CERTS: /run/corp-ca.crt
     depends_on:
       db: { condition: service_healthy }
       redis: { condition: service_started }
@@ -61,6 +66,7 @@ services:
       - ${MEDIA_DIR:-./media}:/app/public/media:ro
       - nextcache2:/app/.next/cache
       - ${STOCK_HOST_DIR:-/srv/atoll/stock}:/app/stock
+      - ${CORP_CA_FILE:-/dev/null}:/run/corp-ca.crt:ro
 
   tools:
     build: { context: ., target: build, secrets: [corp_ca] }

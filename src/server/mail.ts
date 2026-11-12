@@ -7,7 +7,6 @@ let transport: ReturnType<typeof nodemailer.createTransport> | null = null;
 /**
  * SMTP via env: SMTP_HOST, SMTP_PORT, SMTP_USER, SMTP_PASS, SMTP_FROM.
  * Port 25/587 use STARTTLS when offered (SMTP_REQUIRE_TLS=true makes it mandatory before AUTH).
- * SMTP_TLS_INSECURE=true accepts a self-signed server certificate (the mail host's own Exchange certificate).
  * Returns false when not configured or on failure; callers never fail a customer action because of mail.
  */
 export async function sendMail(m: { to: string | string[]; subject: string; text: string; replyTo?: string }) {
@@ -20,7 +19,6 @@ export async function sendMail(m: { to: string | string[]; subject: string; text
     secure: port === 465,
     requireTLS: process.env.SMTP_REQUIRE_TLS === "true",
     auth: SMTP_USER ? { user: SMTP_USER, pass: SMTP_PASS } : undefined,
-    tls: process.env.SMTP_TLS_INSECURE === "true" ? { rejectUnauthorized: false } : undefined,
     connectionTimeout: 10_000,
     greetingTimeout: 10_000,
     socketTimeout: 20_000,
