@@ -32,7 +32,9 @@ export default async function CarPrices({ params }: PageProps<"/[locale]/car-pri
 }
 
 async function Table({ locale }: { locale: Locale }) {
-  const [fleet, t, tc, tx] = await Promise.all([getFleet(locale), getTranslations("contact"), getTranslations("classes"), getTranslations("transmission")]);
+  const [all, t, tc, tx] = await Promise.all([getFleet(locale), getTranslations("contact"), getTranslations("classes"), getTranslations("transmission")]);
+  // Owner, 2026-11-12: cheapest first; same price -> by name
+  const fleet = [...all].sort((x, y) => Number(x.dailyRate) - Number(y.dailyRate) || x.name.localeCompare(y.name, locale));
   return (
     <>
       <div className="mt-8 overflow-x-auto rounded-2xl bg-paper">
