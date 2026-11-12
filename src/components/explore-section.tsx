@@ -18,7 +18,7 @@ export async function GuideCards({ locale, priority = false, heading = "h2" }: {
     <ul className="grid gap-6 md:grid-cols-3">
       {GUIDES.map((g, i) => (
         <li key={g.key}>
-          <Link href={g.href} className="group relative isolate flex min-h-[22rem] flex-col justify-end overflow-hidden rounded-panel bg-ink p-6 text-white">
+          <Link href={g.href} className="group relative isolate flex min-h-[15rem] flex-col md:min-h-[22rem] justify-end overflow-hidden rounded-panel bg-ink p-6 text-white">
             <Image src={PHOTOS[g.photo].src} alt={photoAlt(g.photo, locale)} fill priority={priority && i === 0} sizes="(min-width: 768px) 360px, 100vw" className="car-zoom -z-10 object-cover opacity-80" />
             <span aria-hidden className="absolute inset-0 -z-10 bg-gradient-to-t from-ink via-ink/55 to-ink/5" />
             <H className="text-2xl font-extrabold leading-tight">{tv(g.key)}</H>
