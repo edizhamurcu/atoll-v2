@@ -24,12 +24,12 @@ export async function SiteHeader() {
       <div className="mx-auto flex h-[4.75rem] max-w-6xl items-center gap-3 px-4 sm:gap-4 sm:px-5 lg:gap-3">
         <div className="flex shrink-0 items-center gap-2 sm:gap-3 md:gap-4 lg:gap-3">
           <Link href="/" className="shrink-0" aria-label="Atoll Rent A Car, home">
-            <Image src="/brand/atoll-logo.png" alt="Atoll Rent A Car" width={318} height={141} priority className="h-10 w-auto min-[375px]:h-11 min-[400px]:h-12 sm:h-14 md:h-16 lg:h-11 xl:h-12" />
+            <Image src="/brand/atoll-logo.png" alt="Atoll Rent A Car" width={318} height={141} priority className="h-8 w-auto min-[360px]:h-10 min-[375px]:h-11 min-[400px]:h-12 sm:h-14 md:h-16 lg:h-11 xl:h-12" />
           </Link>
           {/* Sister company in the same building: its logo leads to the sales side */}
-          <span aria-hidden="true" className="h-8 w-px bg-ink/15 min-[400px]:h-10 sm:h-11 md:h-12 lg:h-9 xl:h-10" />
+          <span aria-hidden="true" className="h-7 w-px bg-ink/15 min-[360px]:h-8 min-[400px]:h-10 sm:h-11 md:h-12 lg:h-9 xl:h-10" />
           <Link href="/car-sales" className="shrink-0 opacity-90 transition-opacity hover:opacity-100" aria-label="OSK Auto by Karaçay">
-            <Image src="/brand/osk-auto.svg" alt="OSK Auto by Karaçay" width={353} height={206} unoptimized priority className="h-10 w-auto min-[375px]:h-11 min-[400px]:h-12 sm:h-14 md:h-16 lg:h-11 xl:h-12" />
+            <Image src="/brand/osk-auto.svg" alt="OSK Auto by Karaçay" width={353} height={206} unoptimized priority className="h-8 w-auto min-[360px]:h-10 min-[375px]:h-11 min-[400px]:h-12 sm:h-14 md:h-16 lg:h-11 xl:h-12" />
           </Link>
         </div>
 

@@ -37,7 +37,7 @@ export async function SiteFooter() {
   const list = (items: [string, string][]) => (
     <ul className="space-y-2.5">
       {items.map(([href, label]) => (
-        <li key={href}><Link href={href} className="transition-colors hover:text-ink">{label}</Link></li>
+        <li key={href}><Link href={href} className="hyphens-auto break-words transition-colors hover:text-ink">{label}</Link></li>
       ))}
     </ul>
   );
