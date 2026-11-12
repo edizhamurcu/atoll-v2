@@ -1,5 +1,6 @@
 "use client";
 import { useCallback, useEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import Image from "next/image";
 import { useLocale, useTranslations } from "next-intl";
 import { usePathname } from "@/i18n/navigation";
@@ -201,15 +202,15 @@ export function AssistantLauncher({ phone, waHref }: { phone: string; waHref: st
         <span className="max-[359px]:sr-only">{t("label")}</span>
       </button>
 
-      {open && (
+      {open && createPortal(
         <div
           id="assistant-panel"
           role="dialog"
           aria-modal="false"
           aria-labelledby="assistant-title"
-          className="fixed inset-x-0 bottom-0 top-[max(env(safe-area-inset-top),3.5rem)] z-50 flex flex-col overflow-hidden rounded-t-2xl border border-ink/10 bg-paper shadow-[0_24px_60px_-20px_rgba(13,52,64,.6)] sm:inset-auto sm:bottom-24 sm:right-6 sm:h-[min(40rem,calc(100dvh-8rem))] sm:w-[24rem] sm:rounded-2xl"
+          className="fixed inset-0 z-50 flex flex-col overflow-hidden bg-paper sm:border sm:border-ink/10 shadow-[0_24px_60px_-20px_rgba(13,52,64,.6)] sm:inset-auto sm:bottom-36 sm:right-6 sm:h-[min(40rem,calc(100dvh-11rem))] sm:w-[24rem] sm:rounded-2xl"
         >
-          <header className="flex items-start gap-3 border-b border-ink/10 bg-aegean px-4 py-3 text-white">
+          <header className="flex items-start gap-3 border-b border-ink/10 bg-aegean px-4 pb-3 pt-[max(0.75rem,env(safe-area-inset-top))] text-white sm:pt-3">
             <Spark className="mt-0.5 size-5 shrink-0" />
             <div className="min-w-0 flex-1">
               <h2 id="assistant-title" className="font-semibold leading-tight">{t("title")}</h2>
@@ -293,7 +294,8 @@ export function AssistantLauncher({ phone, waHref }: { phone: string; waHref: st
               </button>
             </div>
           </form>
-        </div>
+        </div>,
+        document.body,
       )}
     </>
   );
