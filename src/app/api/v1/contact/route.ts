@@ -2,7 +2,7 @@ import { z } from "zod";
 import { db } from "@/lib/db";
 import { clientIp, handleError, json, limit, parse, readJson } from "@/server/http";
 import { notifyStaff } from "@/server/mail";
-import { SITE } from "@/lib/site";
+import { contactEmail } from "@/server/email-templates";
 import { CONTACT_TOPICS, CONTACT_TOPIC_LABELS } from "@/content/contact-topics";
 
 const schema = z.object({
@@ -21,14 +21,11 @@ export async function POST(req: Request) {
   if (limited) return limited;
   try {
     const v = parse(schema, await readJson(req));
+    const rawSubject = v.subject;
     // Staff read the English topic label, whatever language the visitor used.
     v.subject = [v.topic ? CONTACT_TOPIC_LABELS[v.topic] : "", v.subject].filter(Boolean).join(" — ") || undefined;
     const msg = await db.contactMessage.create({ data: { name: v.name, email: v.email.toLowerCase(), subject: v.subject, message: v.message, locale: v.locale, ip: clientIp(req) } });
-    const sent = await notifyStaff({
-      replyTo: v.email,
-      subject: `${SITE.name} "${v.subject || "Contact form"}"`,
-      text: `From: ${v.name} <${v.email}>\nSubject: ${v.subject ?? ""}\n\n${v.message ?? ""}\n\n--\nSent from the contact form (${v.locale})`,
-    });
+    const sent = await notifyStaff(contactEmail({ name: v.name, email: v.email, topic: v.topic ? CONTACT_TOPIC_LABELS[v.topic] : null, subject: rawSubject ?? null, message: v.message ?? null, locale: v.locale, createdAt: msg.createdAt }));
     if (sent) await db.contactMessage.update({ where: { id: msg.id }, data: { emailedAt: new Date() } });
     return json({ ok: true }, 201);
   } catch (e) {

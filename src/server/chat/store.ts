@@ -2,8 +2,8 @@ import "server-only";
 import { createHash, randomBytes } from "node:crypto";
 import { db } from "@/lib/db";
 import { readyRedis } from "@/lib/redis";
-import { SITE } from "@/lib/site";
 import { notifyStaff } from "@/server/mail";
+import { assistantRequestEmail } from "@/server/email-templates";
 import { adminSwitch, chatConfig, configProblem, type ChatConfig } from "./config";
 
 export const SESSION_RE = /^[a-f0-9]{32}$/;
@@ -44,8 +44,6 @@ export async function lockSession(id: string, ttlSec = 90): Promise<(() => Promi
   };
 }
 
-const KIND_EN: Record<string, string> = { HANDOFF: "Talk to staff", RENTAL_CALLBACK: "Rental callback", SALES_INQUIRY: "OSK sales inquiry", TEST_DRIVE: "OSK test drive", SERVICE_APPOINTMENT: "OSK service appointment" };
-
 /**
  * The visitor pressed Confirm. Idempotent: confirming twice returns the same result and mails once.
  * Only the owner session can confirm its own draft (anything else is 404).
@@ -57,11 +55,15 @@ export async function confirmRequest(id: string, sessionId: string): Promise<"OK
   if (r.status !== "DRAFT") return "OK";
   const { count } = await db.chatRequest.updateMany({ where: { id, sessionId, status: "DRAFT" }, data: { status: "SUBMITTED", confirmedAt: new Date() } });
   if (count === 0) return "OK"; // a parallel click won the race
-  const sent = await notifyStaff({
-    replyTo: r.email ?? undefined,
-    subject: `${SITE.name} assistant: ${KIND_EN[r.kind] ?? r.kind} – ${r.name}`,
-    text: `${KIND_EN[r.kind] ?? r.kind}\nName: ${r.name}\nPhone: ${r.phone}\nE-mail: ${r.email ?? "-"}\nPreferred time: ${r.preferred ?? "-"}\nLanguage: ${r.locale}\n\n${r.details}\n\n--\nConfirmed by the visitor in the website assistant. Admin: /admin/assistant`,
-  });
+  const [session, log] = await Promise.all([
+    db.chatSession.findUnique({ where: { id: sessionId }, select: { page: true } }),
+    db.chatMessage.findMany({ where: { sessionId }, orderBy: { createdAt: "desc" }, take: 30, select: { role: true, text: true, createdAt: true } }),
+  ]);
+  const sent = await notifyStaff(assistantRequestEmail({
+    id: r.id, kind: r.kind, name: r.name, phone: r.phone, email: r.email, preferred: r.preferred, details: r.details, locale: r.locale,
+    confirmedAt: new Date(), page: session?.page ?? null, sessionId,
+    transcript: log.reverse().filter((m) => !/^\[[A-Z]+\]$/.test(m.text)).map((m) => ({ role: m.role, text: m.text, at: m.createdAt })),
+  }));
   if (sent) await db.chatRequest.update({ where: { id }, data: { emailedAt: new Date() } });
   return "OK";
 }
