@@ -17,7 +17,7 @@ const TEMPLATE: Record<L, (excess: string, fuel: string) => string> = {
 <p>Yakıt politikamız ön ödemelidir: kiralık araç içinde ${f} değerinde yakıtla teslim edilir. Yakıt bedeli peşin ve nakit olarak ödenir; ödendikten sonra araç boş depoyla iade edilebilir. ${f} yakıt bedeli, nihai onay belgenizdeki toplam tutara yansıtılır.</p>
 <p>Kalan yakıt için iade yapılmaz.</p>
 <h3>Kilometre: Sınırsız</h3>
-<p>Kiralama ücretinize sınırsız ücretsiz kilometre dahildir.</p>`,
+<p>Kiralama ücretinize sınırsız kilometre kullanımı dahildir.</p>`,
   de: (x, f) => `<h3>Voraussetzungen für Fahrer und Führerschein</h3>
 <p>Bei der Abholung des Fahrzeugs benötigen Sie:</p>
 <ul><li>Reisepass oder Personalausweis</li><li>Führerschein</li></ul>
