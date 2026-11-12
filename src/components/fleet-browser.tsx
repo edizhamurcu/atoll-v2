@@ -117,10 +117,10 @@ export function FleetBrowser({ groups, labels: l, locale }: { groups: FleetGroup
               prevLabel={fill(l.prev, { cls: g.label })}
               nextLabel={fill(l.next, { cls: g.label })}
             >
-              {g.items.map((m, i) => {
+              {g.items.map((m) => {
                 const q = quotes?.[m.slug];
                 return (
-                  <li key={m.slug} data-reveal style={{ "--reveal-delay": `${Math.min(i, 5) * 70}ms` } as React.CSSProperties} className="w-64 shrink-0 snap-start">
+                  <li key={m.slug} className="w-64 shrink-0 snap-start">
                     <Link href={`/cars/${m.slug}${carQs}`} className="group block">
                       <div className="car-zoom relative aspect-[4/3] overflow-hidden rounded-2xl">
                         <CarImage src={m.image} alt={m.name} sizes="256px" />
