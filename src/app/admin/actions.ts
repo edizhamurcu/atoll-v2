@@ -214,3 +214,32 @@ export async function saleCarDeleteAction(f: FormData) {
   await audit(a.id, "sale_delete", "SaleCar", id, { make: car.make, model: car.model });
   refresh();
 }
+
+/* ---------- AI assistant ---------- */
+
+export async function assistantSwitchAction(f: FormData) {
+  const a = await requireAdmin("owner");
+  const on = z.enum(["on", "off"]).parse(f.get("state")) === "on";
+  const { setAdminSwitch } = await import("@/server/chat/config");
+  await setAdminSwitch(on);
+  await audit(a.id, `assistant:${on ? "on" : "off"}`, "Setting", "chat.enabled");
+  refresh();
+}
+
+export async function assistantRequestAction(f: FormData) {
+  const a = await requireAdmin();
+  const id = z.string().min(5).max(40).parse(f.get("id"));
+  const status = z.enum(["HANDLED", "CANCELLED", "SUBMITTED"]).parse(f.get("status"));
+  // Drafts belong to the visitor until they confirm; staff only act on submitted requests.
+  await db.chatRequest.updateMany({ where: { id, status: { not: "DRAFT" } }, data: { status, decidedAt: status === "SUBMITTED" ? null : new Date() } });
+  await audit(a.id, `assistant-request:${status}`, "ChatRequest", id);
+  refresh();
+}
+
+export async function assistantPurgeAction() {
+  const a = await requireAdmin("owner");
+  const { purgeOld } = await import("@/server/chat/store");
+  const n = await purgeOld(undefined, true);
+  await audit(a.id, "assistant:purge", "ChatSession", null, { deleted: n });
+  refresh();
+}

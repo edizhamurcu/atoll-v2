@@ -439,3 +439,92 @@ model SaleCar {
 
   @@index([status, sortOrder])
 }
+
+enum ChatRequestKind {
+  HANDOFF
+  RENTAL_CALLBACK
+  SALES_INQUIRY
+  TEST_DRIVE
+  SERVICE_APPOINTMENT
+}
+
+enum ChatRequestStatus {
+  DRAFT
+  SUBMITTED
+  HANDLED
+  CANCELLED
+}
+
+/// AI assistant conversation. The id is a random 128-bit value held by the visitor's browser (bearer for continuing the chat).
+model ChatSession {
+  id           String   @id
+  locale       String   @default("en")
+  /// Page the chat was opened on (path only), for context in the admin panel
+  page         String?
+  ipHash       String?
+  messages     Int      @default(0)
+  inputTokens  Int      @default(0)
+  outputTokens Int      @default(0)
+  costUsd      Decimal  @default(0) @db.Decimal(12, 6)
+  createdAt    DateTime @default(now()) @db.Timestamptz(6)
+  lastAt       DateTime @default(now()) @db.Timestamptz(6)
+
+  log      ChatMessage[]
+  requests ChatRequest[]
+
+  @@index([lastAt])
+}
+
+/// One visible message (user or assistant text). Tool calls are summarised in `tools`, never stored raw.
+model ChatMessage {
+  id         String   @id @default(cuid())
+  sessionId  String
+  role       String
+  text       String
+  /// Names of the tools used for this answer
+  tools      String[]
+  /// Set when the assistant could not answer (tool `note_unanswered`, API failure or budget stop)
+  unanswered Boolean  @default(false)
+  createdAt  DateTime @default(now()) @db.Timestamptz(6)
+
+  session ChatSession @relation(fields: [sessionId], references: [id], onDelete: Cascade)
+
+  @@index([sessionId, createdAt])
+  @@index([unanswered, createdAt])
+}
+
+/// Daily token and cost totals (UTC day), used for the budget checks.
+model ChatUsage {
+  day          DateTime @id @db.Date
+  requests     Int      @default(0)
+  errors       Int      @default(0)
+  inputTokens  Int      @default(0)
+  outputTokens Int      @default(0)
+  cacheRead    Int      @default(0)
+  cacheWrite   Int      @default(0)
+  costUsd      Decimal  @default(0) @db.Decimal(12, 6)
+}
+
+/// Callback / sales / test-drive / service request prepared by the assistant. Created as DRAFT by the tool;
+/// only the visitor's click on "Confirm" in the widget (separate endpoint) turns it into SUBMITTED.
+model ChatRequest {
+  id          String            @id @default(cuid())
+  sessionId   String
+  kind        ChatRequestKind
+  status      ChatRequestStatus @default(DRAFT)
+  name        String
+  phone       String
+  email       String?
+  preferred   String?
+  details     String
+  locale      String            @default("en")
+  emailedAt   DateTime?         @db.Timestamptz(6)
+  createdAt   DateTime          @default(now()) @db.Timestamptz(6)
+  confirmedAt DateTime?         @db.Timestamptz(6)
+  decidedAt   DateTime?         @db.Timestamptz(6)
+
+  session ChatSession @relation(fields: [sessionId], references: [id], onDelete: Cascade)
+
+  @@index([status, createdAt])
+  @@index([sessionId])
+}

@@ -43,6 +43,11 @@ export type PublicSaleCar = {
 /** Cars shown on the sales page: available first, then reserved; sold and hidden ones never. */
 export async function listSaleCars(): Promise<PublicSaleCar[]> {
   await connection();
+  return querySaleCars();
+}
+
+/** Same as listSaleCars without the dynamic-rendering marker (route handlers, the assistant). */
+export async function querySaleCars(): Promise<PublicSaleCar[]> {
   const rows = await db.saleCar.findMany({ where: { status: { in: ["AVAILABLE", "RESERVED"] } }, orderBy: [{ status: "asc" }, { sortOrder: "asc" }, { createdAt: "desc" }] });
   return rows.map((r) => ({ ...r, price: r.price ? r.price.toFixed(0) : null, photos: r.photos.map(stockPhotoUrl) }));
 }

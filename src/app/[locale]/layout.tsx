@@ -58,6 +58,7 @@ export default async function LocaleLayout({ children, params }: LayoutProps<"/[
               find: (await getTranslations({ locale, namespace: "nav" }))("book"),
               whatsapp: "WhatsApp",
               waHref: waLink(),
+              phone: SITE.phone,
               waSaleHref: waLink((await getTranslations({ locale, namespace: "sales" }))("waText"), SITE.whatsapp),
             }}
           />
