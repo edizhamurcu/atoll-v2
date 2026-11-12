@@ -1,6 +1,6 @@
 /**
  * Sends one SAMPLE of every staff e-mail (booking, deposit paid, contact form, assistant request) to NOTIFY_EMAILS.
- * Usage (server): docker compose --profile tools run --rm tools npx tsx scripts/send-sample-emails.ts
+ * Usage (server): docker compose --profile tools run --rm tools npx tsx scripts/send-sample-emails.ts [--only=deposit,contact,assistant]
  * Uses the same templates and SMTP settings as the app. All data below is made up and marked SAMPLE.
  */
 import "dotenv/config";
@@ -28,7 +28,7 @@ const booking: BookingMail = {
 };
 const deposit: BookingMail = { ...booking, ref: "ATL-SAMPLE02", status: "CONFIRMED", paymentMode: "deposit", paymentStatus: "PAID", totals: { ...booking.totals, deposit: "30.00" } };
 
-const mails = [
+const all = [
   bookingEmail(booking, "NEW"),
   bookingEmail(deposit, "DEPOSIT_PAID"),
   contactEmail({ name: "Sample Visitor", email: "sample.visitor@example.com", topic: "Long-term rental", subject: "SAMPLE – monthly rental in winter", message: "SAMPLE – not a real message.\n\nHello, we need an SUV from 1 to 31 January. What would the price be?", locale: "en", createdAt: now }),
@@ -42,14 +42,29 @@ const mails = [
   }),
 ];
 
+const KEYS = ["booking", "deposit", "contact", "assistant"];
+const only = process.argv.find((a) => a.startsWith("--only="))?.slice(7).split(",");
+const mails = all.filter((_, i) => !only || only.includes(KEYS[i]));
+
 async function main() {
   const { SMTP_HOST, SMTP_PORT, SMTP_USER, SMTP_PASS, SMTP_FROM, NOTIFY_EMAILS } = process.env;
   if (!SMTP_HOST || !SMTP_FROM || !NOTIFY_EMAILS) throw new Error("SMTP_HOST, SMTP_FROM and NOTIFY_EMAILS are required");
   const port = Number(SMTP_PORT ?? 587);
-  const tx = nodemailer.createTransport({ host: SMTP_HOST, port, secure: port === 465, requireTLS: process.env.SMTP_REQUIRE_TLS === "true", auth: SMTP_USER ? { user: SMTP_USER, pass: SMTP_PASS } : undefined });
+  const hosts = [...(process.env.SMTP_CONNECT_HOSTS ?? "").split(",").map((h) => h.trim()).filter(Boolean), SMTP_HOST];
   for (const m of mails) {
-    const r = await tx.sendMail({ from: { name: "Atoll Rent A Car", address: SMTP_FROM }, to: NOTIFY_EMAILS, subject: `[SAMPLE] ${m.subject}`, text: m.text, replyTo: m.replyTo });
-    console.log("sent:", m.subject.slice(0, 70), "->", r.accepted.length, "accepted");
+    let ok = false;
+    for (const host of hosts) {
+      const tx = nodemailer.createTransport({ host, port, secure: port === 465, requireTLS: process.env.SMTP_REQUIRE_TLS === "true", auth: SMTP_USER ? { user: SMTP_USER, pass: SMTP_PASS } : undefined, tls: { servername: SMTP_HOST } });
+      try {
+        const r = await tx.sendMail({ from: { name: "Atoll Rent A Car", address: SMTP_FROM }, to: NOTIFY_EMAILS, subject: `[SAMPLE] ${m.subject}`, text: m.text, replyTo: m.replyTo });
+        console.log("sent via", host, ":", m.subject.slice(0, 60), "->", r.accepted.length, "accepted");
+        ok = true;
+        break;
+      } catch (e) {
+        console.log("retry, failed via", host, ":", e instanceof Error ? e.message : e);
+      }
+    }
+    if (!ok) throw new Error(`could not send: ${m.subject}`);
   }
 }
 main().catch((e) => {
