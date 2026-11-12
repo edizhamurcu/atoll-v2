@@ -124,3 +124,19 @@
   .group:hover .car-zoom img, a:hover > .car-zoom img, .car-zoom:hover img { transform: scale(1.045); }
   a:hover .btn-arrow, button:hover .btn-arrow { transform: translateX(3px); }
 }
+
+/* Home hero on desktop: glass panels over the background footage (2026-11-12).
+   Falls back to the solid paper panel where backdrop-filter is unsupported. */
+@media (min-width: 768px) {
+  @supports ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+    .hero-glass form,
+    .hero-glass [role="tablist"],
+    .hero-glass [role="tabpanel"] > div {
+      background-color: rgb(255 255 255 / 0.8);
+      -webkit-backdrop-filter: blur(18px) saturate(1.25);
+      backdrop-filter: blur(18px) saturate(1.25);
+      border: 1px solid rgb(255 255 255 / 0.55);
+      box-shadow: 0 24px 60px -28px rgb(4 20 26 / 0.65);
+    }
+  }
+}

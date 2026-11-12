@@ -4,6 +4,7 @@ import { CyprusMap, MAP_POINTS } from "@/components/cyprus-map";
 import { SearchSection, SearchSkeleton } from "@/components/search-section";
 import { FleetSection, FleetSkeleton } from "@/components/fleet-section";
 import { HeroTabs } from "@/components/hero-tabs";
+import { HeroVideo } from "@/components/hero-video";
 import { HeroSalePanel } from "@/components/hero-sale-panel";
 import { OskSection } from "@/components/osk-section";
 import type { Locale } from "@/server/catalog";
@@ -27,29 +28,34 @@ export default async function Home({ params }: PageProps<"/[locale]">) {
   return (
     <>
       <LocalBusinessJsonLd />
-      <section className="mx-auto max-w-6xl px-5 pt-10 md:pt-16">
-        <div className="grid items-center gap-8 md:grid-cols-[1.15fr_1fr]">
-          <div>
-            <h1 className="text-display font-extrabold">{t("title")}</h1>
-            <p className="mt-5 max-w-xl text-lg text-ink-soft">{t("lead")}</p>
+      {/* Desktop: full-bleed hero over our own footage (poster + muted loop), glass search panel.
+          Phones keep the light layout: no video download, map after the search form. */}
+      <section className="relative md:overflow-hidden md:pb-14">
+        <div aria-hidden className="absolute inset-0 hidden bg-ink bg-cover bg-center md:block" style={{ backgroundImage: "url(/media/video/hero-poster.webp)" }}>
+          <HeroVideo src="/media/video/hero-loop-720.mp4" />
+          <div className="absolute inset-0 bg-gradient-to-r from-ink/90 via-ink/65 to-ink/25" />
+          <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-ink/50 to-transparent" />
+        </div>
+        <div className="relative mx-auto max-w-6xl px-5 pt-10 md:pt-24">
+          <div className="max-w-2xl">
+            <h1 className="text-display font-extrabold md:text-white">{t("title")}</h1>
+            <p className="mt-5 max-w-xl text-lg text-ink-soft md:text-white/85">{t("lead")}</p>
           </div>
-          <div className="hidden md:block">{map}</div>
+          <div id="search" className="hero-glass mt-8 scroll-mt-24 md:mt-10">
+            <HeroTabs
+              rentLabel={ht("rent")}
+              saleLabel={ht("sale")}
+              groupLabel={ht("label")}
+              rent={
+                <Suspense fallback={<SearchSkeleton />}>
+                  <SearchSection locale={locale} />
+                </Suspense>
+              }
+              sale={<HeroSalePanel />}
+            />
+          </div>
+          <div className="mt-8 md:hidden">{map}</div>
         </div>
-        {/* Mobile: search first (conversion), map after it */}
-        <div id="search" className="mt-8 scroll-mt-24 md:mt-4">
-          <HeroTabs
-            rentLabel={ht("rent")}
-            saleLabel={ht("sale")}
-            groupLabel={ht("label")}
-            rent={
-              <Suspense fallback={<SearchSkeleton />}>
-                <SearchSection locale={locale} />
-              </Suspense>
-            }
-            sale={<HeroSalePanel />}
-          />
-        </div>
-        <div className="mt-8 md:hidden">{map}</div>
       </section>
 
       <section className="mx-auto mt-20 max-w-6xl px-5" aria-labelledby="steps">
