@@ -37,8 +37,6 @@ export function chatConfig(env: NodeJS.ProcessEnv = process.env) {
       cacheRead: money(env.CHAT_PRICE_CACHE_READ_PER_MTOK),
     },
     retentionDays: num(env.CHAT_RETENTION_DAYS, 90, 1, 3650),
-    /** Staff mailbox for submitted requests (falls back to the site e-mail). */
-    notifyEmail: env.CHAT_NOTIFY_EMAIL?.trim() || null,
   };
 }
 

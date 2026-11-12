@@ -3,7 +3,7 @@ import { createHash, randomBytes } from "node:crypto";
 import { db } from "@/lib/db";
 import { readyRedis } from "@/lib/redis";
 import { SITE } from "@/lib/site";
-import { sendMail } from "@/server/mail";
+import { notifyStaff } from "@/server/mail";
 import { adminSwitch, chatConfig, configProblem, type ChatConfig } from "./config";
 
 export const SESSION_RE = /^[a-f0-9]{32}$/;
@@ -57,9 +57,7 @@ export async function confirmRequest(id: string, sessionId: string): Promise<"OK
   if (r.status !== "DRAFT") return "OK";
   const { count } = await db.chatRequest.updateMany({ where: { id, sessionId, status: "DRAFT" }, data: { status: "SUBMITTED", confirmedAt: new Date() } });
   if (count === 0) return "OK"; // a parallel click won the race
-  const cfg = chatConfig();
-  const sent = await sendMail({
-    to: cfg.notifyEmail ?? SITE.email,
+  const sent = await notifyStaff({
     replyTo: r.email ?? undefined,
     subject: `${SITE.name} assistant: ${KIND_EN[r.kind] ?? r.kind} – ${r.name}`,
     text: `${KIND_EN[r.kind] ?? r.kind}\nName: ${r.name}\nPhone: ${r.phone}\nE-mail: ${r.email ?? "-"}\nPreferred time: ${r.preferred ?? "-"}\nLanguage: ${r.locale}\n\n${r.details}\n\n--\nConfirmed by the visitor in the website assistant. Admin: /admin/assistant`,

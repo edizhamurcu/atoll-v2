@@ -1,7 +1,7 @@
 import { z } from "zod";
 import { db } from "@/lib/db";
 import { clientIp, handleError, json, limit, parse, readJson } from "@/server/http";
-import { sendMail } from "@/server/mail";
+import { notifyStaff } from "@/server/mail";
 import { SITE } from "@/lib/site";
 import { CONTACT_TOPICS, CONTACT_TOPIC_LABELS } from "@/content/contact-topics";
 
@@ -24,8 +24,7 @@ export async function POST(req: Request) {
     // Staff read the English topic label, whatever language the visitor used.
     v.subject = [v.topic ? CONTACT_TOPIC_LABELS[v.topic] : "", v.subject].filter(Boolean).join(" — ") || undefined;
     const msg = await db.contactMessage.create({ data: { name: v.name, email: v.email.toLowerCase(), subject: v.subject, message: v.message, locale: v.locale, ip: clientIp(req) } });
-    const sent = await sendMail({
-      to: SITE.email,
+    const sent = await notifyStaff({
       replyTo: v.email,
       subject: `${SITE.name} "${v.subject || "Contact form"}"`,
       text: `From: ${v.name} <${v.email}>\nSubject: ${v.subject ?? ""}\n\n${v.message ?? ""}\n\n--\nSent from the contact form (${v.locale})`,
