@@ -15,13 +15,13 @@ async function load() {
   return cache;
 }
 
-const STATIC = new Set(["cars", "car-prices", "car-sales", "contact", "booking", "blog", "north-cyprus-guide"]);
+export const STATIC_ROUTES = new Set(["cars", "car-prices", "car-sales", "contact", "booking", "blog", "north-cyprus-guide", "south-cyprus-guide", "driving-in-south-cyprus"]);
 
 /** true = known route, false = definitely missing, null = not a DB-backed path (let Next decide). */
 export async function dbRouteExists(segments: string[]): Promise<boolean | null> {
   try {
     if (segments.length === 1) {
-      if (STATIC.has(segments[0])) return null;
+      if (STATIC_ROUTES.has(segments[0])) return null;
       return (await load()).pages.has(segments[0]);
     }
     if (segments.length === 2 && segments[0] === "blog") return postSlugs().has(segments[1]);
