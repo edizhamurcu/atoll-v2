@@ -5,6 +5,7 @@ import { getExtras, getModel } from "@/server/queries";
 import type { Locale } from "@/server/catalog";
 import { CarGallery } from "@/components/car-gallery";
 import { BookingPanel } from "@/components/booking-panel";
+import { StickyBookBar } from "@/components/sticky-book-bar";
 import { CampaignBanner } from "@/components/campaign";
 import { SearchSection, SearchSkeleton } from "@/components/search-section";
 import { money } from "@/lib/search-params";
@@ -112,7 +113,7 @@ async function CarDetail({ params }: { params: PageProps<"/[locale]/cars/[slug]"
         )}
         <p className="mt-6 max-w-prose text-sm text-ink-soft">{t("orSimilar", { name: m.name })}</p>
       </div>
-      <aside className="min-w-0 lg:sticky lg:top-24 lg:self-start">
+      <aside id="book" className="min-w-0 scroll-mt-24 lg:sticky lg:top-24 lg:self-start">
         <div className="rounded-[var(--radius-panel)] bg-paper p-5 shadow-[0_18px_40px_-24px_rgba(13,52,64,.35)]">
           <h2 className="text-2xl font-bold">{t("bookPanel")}</h2>
           <p className="mt-1 text-ink-soft">{t("from", { price: money(m.dailyRate, locale), abl: trAblative(m.dailyRate) })}</p>
@@ -129,6 +130,7 @@ async function CarDetail({ params }: { params: PageProps<"/[locale]/cars/[slug]"
           </div>
         </div>
       </aside>
+      <StickyBookBar price={money(m.dailyRate, locale)} label={t("perDayShort")} cta={t("bookNow")} />
     </div>
   );
 }

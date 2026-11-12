@@ -103,7 +103,12 @@
     "prevPhoto": "Previous photo",
     "nextPhoto": "Next photo",
     "carouselPrev": "{cls}: previous cars",
-    "carouselNext": "{cls}: next cars"
+    "carouselNext": "{cls}: next cars",
+    "fullscreen": "Open full screen",
+    "closeGallery": "Close gallery",
+    "zoomHint": "Tap the photo to zoom",
+    "perDayShort": "per day",
+    "bookNow": "Book now"
   },
   "classes": {
     "ECONOMY": "Economy",

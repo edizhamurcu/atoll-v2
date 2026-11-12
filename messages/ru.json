@@ -103,7 +103,12 @@
     "prevPhoto": "Предыдущее фото",
     "nextPhoto": "Следующее фото",
     "carouselPrev": "{cls}: предыдущие авто",
-    "carouselNext": "{cls}: следующие авто"
+    "carouselNext": "{cls}: следующие авто",
+    "fullscreen": "Открыть на весь экран",
+    "closeGallery": "Закрыть галерею",
+    "zoomHint": "Нажмите на фото, чтобы увеличить",
+    "perDayShort": "в день",
+    "bookNow": "Забронировать"
   },
   "classes": {
     "ECONOMY": "Эконом",

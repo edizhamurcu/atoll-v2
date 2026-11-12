@@ -103,7 +103,12 @@
     "prevPhoto": "Önceki fotoğraf",
     "nextPhoto": "Sonraki fotoğraf",
     "carouselPrev": "{cls}: önceki araçlar",
-    "carouselNext": "{cls}: sonraki araçlar"
+    "carouselNext": "{cls}: sonraki araçlar",
+    "fullscreen": "Tam ekran aç",
+    "closeGallery": "Galeriyi kapat",
+    "zoomHint": "Yakınlaştırmak için fotoğrafa dokunun",
+    "perDayShort": "günlük",
+    "bookNow": "Rezervasyon yap"
   },
   "classes": {
     "ECONOMY": "Ekonomik",

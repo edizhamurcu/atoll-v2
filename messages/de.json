@@ -103,7 +103,12 @@
     "prevPhoto": "Vorheriges Foto",
     "nextPhoto": "Nächstes Foto",
     "carouselPrev": "{cls}: vorherige Autos",
-    "carouselNext": "{cls}: weitere Autos"
+    "carouselNext": "{cls}: weitere Autos",
+    "fullscreen": "Vollbild öffnen",
+    "closeGallery": "Galerie schließen",
+    "zoomHint": "Zum Zoomen auf das Foto tippen",
+    "perDayShort": "pro Tag",
+    "bookNow": "Jetzt buchen"
   },
   "classes": {
     "ECONOMY": "Kleinwagen",
