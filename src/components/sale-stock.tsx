@@ -65,7 +65,7 @@ export function SaleStock({ cars, l, locale, waBase, waNumber }: { cars: PublicS
           {list.map((c, i) => (
             <li key={c.id} data-reveal style={{ "--reveal-delay": `${(i % 3) * 70}ms` } as React.CSSProperties} className="flex flex-col overflow-hidden rounded-panel bg-paper">
               <button type="button" onClick={() => c.photos.length && show(c)} className="car-zoom relative block overflow-hidden bg-stone-deep" aria-label={c.photos.length > 1 ? `${title(c)}: ${fill(l.photos, { n: c.photos.length })}` : title(c)}>
-                {c.photos[0] ? <Image src={c.photos[0]} alt={title(c)} width={800} height={600} sizes="(min-width: 1024px) 360px, (min-width: 640px) 45vw, 100vw" className="aspect-[4/3] w-full object-cover" /> : <span className="block aspect-[4/3]" />}
+                {c.photos[0] ? <Image unoptimized src={c.photos[0]} alt={title(c)} width={800} height={600} sizes="(min-width: 1024px) 360px, (min-width: 640px) 45vw, 100vw" className="aspect-[4/3] w-full object-cover" /> : <span className="block aspect-[4/3]" />}
                 {c.status === "RESERVED" && <span className="absolute left-3 top-3 rounded-full bg-gold px-3 py-1 text-xs font-bold text-ink">{l.reserved}</span>}
                 {c.photos.length > 1 && <span className="absolute bottom-3 right-3 rounded-full bg-ink/75 px-2.5 py-1 text-xs font-semibold text-white">{fill(l.photos, { n: c.photos.length })}</span>}
               </button>
@@ -93,7 +93,7 @@ export function SaleStock({ cars, l, locale, waBase, waNumber }: { cars: PublicS
             <ul className="flex snap-x snap-mandatory overflow-x-auto [scrollbar-width:thin]">
               {open.photos.map((p, i) => (
                 <li key={p} className="w-full shrink-0 snap-center">
-                  <Image src={p} alt={`${title(open)} ${i + 1}/${open.photos.length}`} width={1600} height={1200} sizes="(min-width: 1024px) 1024px, 100vw" className="max-h-[75dvh] w-full object-contain" />
+                  <Image unoptimized src={p} alt={`${title(open)} ${i + 1}/${open.photos.length}`} width={1600} height={1200} sizes="(min-width: 1024px) 1024px, 100vw" className="max-h-[75dvh] w-full object-contain" />
                 </li>
               ))}
             </ul>

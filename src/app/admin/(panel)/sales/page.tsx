@@ -62,7 +62,7 @@ async function Inner() {
             <div className="mt-4 flex flex-wrap gap-3">
               {c.photos.map((p, i) => (
                 <div key={p} className="w-36">
-                  <Image src={stockPhotoUrl(p)} alt="" width={288} height={216} className="aspect-[4/3] w-36 rounded-lg object-cover" />
+                  <Image unoptimized src={stockPhotoUrl(p)} alt="" width={288} height={216} className="aspect-[4/3] w-36 rounded-lg object-cover" />
                   <div className="mt-1 flex gap-1 text-xs">
                     {i > 0 && <form action={saleCarPhotoFirstAction}><input type="hidden" name="id" value={c.id} /><input type="hidden" name="file" value={p} /><button className="text-aegean">Kapak yap</button></form>}
                     <form action={saleCarPhotoDeleteAction} className="ml-auto"><input type="hidden" name="id" value={c.id} /><input type="hidden" name="file" value={p} /><button className="text-alert">Sil</button></form>
