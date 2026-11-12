@@ -1,12 +1,13 @@
 /**
- * Damage excess (CDW) by vehicle class — owner decision 2026-11-09. Single source for the home page,
+ * Damage excess (CDW) by vehicle class — owner decision 2026-11-09, economy/mid-size corrected 2026-11-12
+ * (economy £450, mid-size £500). Single source for the home page,
  * rental terms, every car page and llms.txt. `from` = the amount is a minimum ("from £2,500").
  */
 export type VehicleClassKey = "ECONOMY" | "MIDDLE" | "LUXURY" | "SUV" | "PEOPLE_CARRIER" | "SPORT" | "PREMIUM";
 
 export const DAMAGE_EXCESS: Record<VehicleClassKey, { amount: number; from?: boolean }> = {
-  ECONOMY: { amount: 500 },
-  MIDDLE: { amount: 450 },
+  ECONOMY: { amount: 450 },
+  MIDDLE: { amount: 500 },
   SUV: { amount: 1200 },
   PEOPLE_CARRIER: { amount: 1200 }, // 7+ seaters, same as SUV (owner decision)
   LUXURY: { amount: 2500, from: true },

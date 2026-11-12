@@ -5,14 +5,14 @@ import { pageTranslation } from "./page-i18n";
 
 describe("damage excess by class (owner decision 2026-11-09)", () => {
   it("has the agreed amounts", () => {
-    expect(DAMAGE_EXCESS.ECONOMY.amount).toBe(500);
-    expect(DAMAGE_EXCESS.MIDDLE.amount).toBe(450);
+    expect(DAMAGE_EXCESS.ECONOMY.amount).toBe(450);
+    expect(DAMAGE_EXCESS.MIDDLE.amount).toBe(500);
     expect(DAMAGE_EXCESS.SUV.amount).toBe(1200);
     expect(DAMAGE_EXCESS.PEOPLE_CARRIER.amount).toBe(1200);
     expect(DAMAGE_EXCESS.LUXURY).toEqual({ amount: 2500, from: true });
   });
   it("formats per locale, luxury as a minimum", () => {
-    expect(excessLabel("ECONOMY", "en")).toBe("£500");
+    expect(excessLabel("ECONOMY", "en")).toBe("£450");
     expect(excessLabel("SUV", "en")).toBe("£1,200");
     expect(excessLabel("LUXURY", "en")).toBe("from £2,500");
     expect(excessLabel("LUXURY", "tr")).toMatch(/2\.500.*'den başlayan$/);
@@ -20,7 +20,7 @@ describe("damage excess by class (owner decision 2026-11-09)", () => {
     expect(excessLabel("LUXURY", "ru")).toMatch(/^от /);
   });
   it("summary and list mention every row", () => {
-    expect(excessSummary("en")).toBe("Economy £500, Mid-size £450, SUV and 7+ seaters £1,200, Luxury from £2,500");
+    expect(excessSummary("en")).toBe("Economy £450, Mid-size £500, SUV and 7+ seaters £1,200, Luxury from £2,500");
     expect(excessListHtml("tr")).toContain("Orta sınıf");
     expect(withExcessList(`<p>x</p>${EXCESS_MARKER}`, "en")).not.toContain(EXCESS_MARKER);
   });
