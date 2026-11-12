@@ -11,6 +11,7 @@ export default defineConfig({
     environment: "node",
     env: { DATABASE_URL: testDb },
     fileParallelism: false,
+    exclude: ["**/node_modules/**", ".next/**", "stock/**"],
     testTimeout: 30_000,
   },
   resolve: {
