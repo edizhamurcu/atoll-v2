@@ -59,7 +59,7 @@ async function Content({ params }: { params: PageProps<"/[locale]/[slug]">["para
     const mp = await getPage(m);
     if (!mp) continue;
     const mt = pageTranslation(m, locale);
-    body = `${dropAgreementTeaser(body)}\n<h2 id="agreement" class="scroll-mt-28">${nav("agreement")}</h2>\n${mt?.html ?? mp.html}`;
+    body = `${dropAgreementTeaser(body)}\n<h2 id="agreement">${nav("agreement")}</h2>\n${mt?.html ?? mp.html}`;
   }
   const html = rewriteMergedLinks(withExcessList(body, locale));
   const lang = tr ? locale : "en";

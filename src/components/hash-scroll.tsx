@@ -5,7 +5,11 @@ import { useEffect } from "react";
 export function HashScroll() {
   useEffect(() => {
     const id = decodeURIComponent(window.location.hash.slice(1));
-    if (id) document.getElementById(id)?.scrollIntoView({ block: "start" });
+    if (!id) return;
+    // After fonts and late content settle, so the heading lands just under the sticky header.
+    const go = () => document.getElementById(id)?.scrollIntoView({ block: "start" });
+    const t = setTimeout(go, 250);
+    return () => clearTimeout(t);
   }, []);
   return null;
 }

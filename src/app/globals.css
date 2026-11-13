@@ -167,3 +167,8 @@ article [id] { scroll-margin-top: 6.5rem; }
   padding: 0.65rem 1.25rem; font-weight: 600; transition: background-color 0.15s ease, border-color 0.15s ease;
 }
 .btn-wa:hover { background: #d4eedd; border-color: rgb(31 143 78 / 0.55); }
+
+/* Anchored headings inside page content land below the sticky header. */
+.prose-atoll [id] {
+  scroll-margin-top: 7rem;
+}
