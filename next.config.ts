@@ -52,8 +52,11 @@ const nextConfig: NextConfig = {
   },
   async redirects() {
     // Every legacy WordPress URL keeps working (301) so rankings and bookmarks survive the move.
-    const same = "about-north-cyprus|north-cyprus-guide|special-offers|rental-terms|rental-agreement|delivery-charges|fuel-options|extra-insurance|driving-in-south-cyprus|larnaca-airport-transfer-to-girne-kyrenia-north-cyprus";
+    const same = "about-north-cyprus|north-cyprus-guide|special-offers|rental-terms|delivery-charges|fuel-options|extra-insurance|driving-in-south-cyprus|larnaca-airport-transfer-to-girne-kyrenia-north-cyprus";
     return [
+      // Rental agreement merged into rental terms (one page, agreement at #agreement).
+      { source: "/:locale(en|tr|de|ru)/rental-agreement", destination: "/:locale/rental-terms#agreement", permanent: true },
+      { source: "/rental-agreement", destination: "/en/rental-terms#agreement", permanent: true },
       { source: `/:slug(${same})`, destination: "/en/:slug", permanent: true },
       { source: "/about-us-2", destination: "/en/about-us", permanent: true },
       { source: "/privacy-policy-2", destination: "/en/privacy-policy", permanent: true },

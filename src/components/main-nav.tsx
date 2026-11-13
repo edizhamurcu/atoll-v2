@@ -45,7 +45,6 @@ function items(l: NavLabels) {
     { href: "/car-prices", title: l.carPrices, desc: l.pricesDesc, icon: "tag" },
     { href: "/rental-terms", title: l.rentalTerms, desc: l.termsDesc, icon: "shield" },
     { href: "/special-offers", title: l.specialOffers, desc: l.offersDesc, icon: "spark" },
-    { href: "/rental-agreement", title: l.agreement, desc: l.agreementDesc, icon: "doc" },
   ];
   const sale: Item[] = [
     { href: "/car-sales#gallery", title: l.showroom, desc: l.showroomDesc, icon: "store" },

@@ -5,6 +5,7 @@ import { routing } from "@/i18n/routing";
 import { SITE } from "@/lib/site";
 import { posts } from "@/content/blog";
 import { translatedLocales } from "@/content/page-i18n";
+import { MERGED_INTO } from "@/content/page-merge";
 
 /** Last edit of code-defined page content (home, contact). Bump when those texts change. */
 const SITE_CONTENT_UPDATED = new Date("2026-11-12T00:00:00Z");
@@ -42,7 +43,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...localized("/driving-in-south-cyprus", new Date("2026-11-12"), 0.7, "monthly"),
     ...localized("/blog", blogUpdated, 0.7, "weekly"),
     ...posts().flatMap((p) => localized(`/blog/${p.slug}`, new Date(p.updated ?? p.published), 0.7, "monthly")),
-    ...pages.filter((p) => !CODE_ROUTES.has(p.slug)).flatMap((p) => {
+    ...pages.filter((p) => !CODE_ROUTES.has(p.slug) && !MERGED_INTO[p.slug]).flatMap((p) => {
       const langs = ["en", ...translatedLocales(p.slug)];
       const languages = { ...Object.fromEntries(langs.map((l) => [l, `${SITE.url}/${l}/${p.slug}`])), "x-default": `${SITE.url}/en/${p.slug}` };
       return langs.map((l) => ({ url: `${SITE.url}/${l}/${p.slug}`, lastModified: p.updatedAt, changeFrequency: "monthly" as const, priority: 0.6, alternates: { languages } }));

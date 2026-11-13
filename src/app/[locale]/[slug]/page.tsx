@@ -9,6 +9,7 @@ import { JsonLd } from "@/components/json-ld";
 import { SITE } from "@/lib/site";
 import { routing } from "@/i18n/routing";
 import { pageTranslation, translatedLocales } from "@/content/page-i18n";
+import { HOSTS, dropAgreementTeaser, rewriteMergedLinks } from "@/content/page-merge";
 import { withExcessList } from "@/content/damage-excess";
 import { AboutVideo } from "@/components/about-video";
 import { SpecialOffers } from "@/components/campaign";
@@ -18,7 +19,7 @@ export async function generateMetadata({ params }: PageProps<"/[locale]/[slug]">
   const p = await getPage(slug);
   if (!p) return {};
   const tr = pageTranslation(slug, locale);
-  const title = tr?.title ?? p.metaTitle ?? p.title;
+  const title = HOSTS[slug] ? (await getTranslations({ locale, namespace: "nav" }))("rentalTerms") : tr?.title ?? p.metaTitle ?? p.title;
   const description = tr?.metaDescription ?? (tr ? plainText(tr.html) : p.metaDescription || plainText(p.html));
   const desc = slug === "special-offers" ? (await getTranslations({ locale, namespace: "campaign" }))("metaDescription") : description;
   const langs = ["en", ...translatedLocales(slug)];
@@ -48,8 +49,18 @@ async function Content({ params }: { params: PageProps<"/[locale]/[slug]">["para
   const p = await getPage(slug);
   if (!p) notFound();
   const tr = pageTranslation(slug, locale);
-  const title = tr?.title ?? p.title;
-  const html = withExcessList(tr?.html ?? p.html, locale);
+  const nav = await getTranslations({ locale, namespace: "nav" });
+  const merged = HOSTS[slug] ?? [];
+  const title = merged.length ? nav("rentalTerms") : tr?.title ?? p.title;
+  let body = tr?.html ?? p.html;
+  // Pages merged into this one (rental agreement under rental terms), each under its own anchored heading.
+  for (const m of merged) {
+    const mp = await getPage(m);
+    if (!mp) continue;
+    const mt = pageTranslation(m, locale);
+    body = `${dropAgreementTeaser(body)}\n<h2 id="agreement" class="scroll-mt-28">${nav("agreement")}</h2>\n${mt?.html ?? mp.html}`;
+  }
+  const html = rewriteMergedLinks(withExcessList(body, locale));
   const lang = tr ? locale : "en";
   const faq = faqFromHtml(html);
   return (

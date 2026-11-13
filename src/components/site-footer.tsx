@@ -17,7 +17,6 @@ export async function SiteFooter() {
     ["/car-prices", n("carPrices")],
     ["/rental-terms", n("rentalTerms")],
     ["/special-offers", n("specialOffers")],
-    ["/rental-agreement", n("agreement")],
   ];
   const sale: [string, string][] = [
     ["/car-sales#gallery", m("showroom")],

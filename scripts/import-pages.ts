@@ -26,7 +26,7 @@ const LINKS: [RegExp, string][] = [
   [/href="https:\/\/www\.pacific-rentals\.com\/contact\.asp"/g, 'href="/en/contact"'],
   [/href="https:\/\/www\.pacific-rentals\.com\/fuel-options\.asp"/g, 'href="/en/fuel-options"'],
   // "rental agreement" link pointed back at the rental terms page.
-  [/<a href="\/en\/rental-terms">rental agreement<\/a>/g, '<a href="/en/rental-agreement">rental agreement</a>'],
+  [/<a href="\/en\/rental-terms">rental agreement<\/a>/g, '<a href="/en/rental-terms#agreement">rental agreement</a>'],
   // Damage excess depends on the car class (owner decision 2026-11-09): rendered from src/content/damage-excess.ts.
   [/<p>Damaged Excess is fixed at 500 Euros<\/p>/g, "<p>Damage excess depends on the car class:</p>\n<!--excess-->"],
   [/this will cost 25 Euros \(subject to change\)/g, "this will cost about £21 (paid at the border, subject to change)"],
