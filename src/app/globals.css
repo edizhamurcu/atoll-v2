@@ -172,3 +172,9 @@ article [id] { scroll-margin-top: 6.5rem; }
 .prose-atoll [id] {
   scroll-margin-top: 7rem;
 }
+
+/* Rental terms & agreement: key phrases stand out in black bold. */
+.prose-terms strong {
+  color: #000;
+  font-weight: 700;
+}

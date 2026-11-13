@@ -3,7 +3,7 @@ import type { PageTranslations } from "./index";
 const pages: PageTranslations = {
   "extra-insurance": {
     title: "Ek Sigorta",
-    html: `<p>Ek sigorta <strong>ön cam ve lastik hasarlarını</strong> kapsar. Aynı anda birden fazla lastiğin hasar görmesi durumunda sorumluluk kiracıya aittir ve onarım ya da değişim bedelini kiracı öder.</p>
+    html: `<p>Ek sigorta <strong>ön cam ve lastik hasarlarını</strong> kapsar. Aynı anda birden fazla lastiğin hasar görmesi durumunda sorumluluk kiralayan kişiye aittir ve onarım ya da değişim bedelini kiralayan kişi öder.</p>
 <p>Aynı anda birden fazla lastik hasar görürse, ek sigorta yalnızca bir lastiği karşılar.</p>
 <p>Bu ek sigorta <strong>Güney Kıbrıs'ta GEÇERLİ DEĞİLDİR</strong>.</p>`,
   },
@@ -62,39 +62,39 @@ const pages: PageTranslations = {
 <p><em><strong>Atoll araçlarını Güney Kıbrıs'a götürebilirsiniz. <a href="/tr/driving-in-south-cyprus">Lütfen şartları okuyun</a></strong></em></p>
 <p>Larnaka Havalimanı'na iniyor ve Kuzey Kıbrıs'ta Girne'de (Kyrenia) konaklıyorsanız havalimanı transferinizi ayarlayabiliriz. Lütfen <a href="/tr/larnaca-airport-transfer-to-girne-kyrenia-north-cyprus">Larnaka Havalimanı transfer ayrıntılarını</a> okuyun.</p>
 <h2>Ek Sigorta</h2>
-<p>Ek sigorta ön cam ve lastik hasarlarını kapsar. <a href="/tr/extra-insurance">Ayrıntılar</a></p>
+<p>Ek sigorta <strong>ön cam ve lastik hasarlarını</strong> kapsar. <a href="/tr/extra-insurance">Ayrıntılar</a></p>
 <h2>Hasar Muafiyeti</h2>
 <p>Hasar muafiyeti araç sınıfına göre belirlenir:</p>
 <!--excess-->
 <h2>Araç kiralama ücretlerimize neler dahil?</h2>
 <p>Araç kiralama ücretlerimize şunlar dahildir:</p>
 <p>- Tam 24 saatlik gün.<br />
-- Sınırsız kilometre.<br />
+- <strong>Sınırsız kilometre.</strong><br />
 - Yağ ve gresleme<br />
 - Tüm araçlarda emniyet kemeri.<br />
-- Mekanik arıza durumunda araç değişimi.</p>
+- <strong>Mekanik arıza durumunda araç değişimi.</strong></p>
 <h2>Ödemeyi nasıl yaparım?</h2>
-<p>Aracı teslim alırken nakit ödeyebilirsiniz. Kartla ödemek isterseniz, ödemeyi web sitemizdeki güvenli online sistem üzerinden yapmalısınız.</p>
+<p>Aracı teslim alırken <strong>nakit ödeyebilirsiniz</strong>. Kartla ödemek isterseniz, ödemeyi web sitemizdeki <strong>güvenli online sistem üzerinden</strong> yapmalısınız.</p>
 <h2>Kuzey Kıbrıs'ta Ehliyet ve Yaş</h2>
-<p>Tüm uluslararası ve ulusal ehliyetler kabul edilir. Kuzey Kıbrıs'ta araç kiralamak için kiracının geçerli bir ehliyete sahip olması gerekir. <strong>Kuzey Kıbrıs'ta</strong> araç kiralama için en düşük yaş 25'tir.</p>
+<p>Tüm uluslararası ve ulusal ehliyetler kabul edilir. Kuzey Kıbrıs'ta araç kiralamak için kiralayan kişinin geçerli bir ehliyete sahip olması gerekir. <strong>Kuzey Kıbrıs'ta</strong> araç kiralama için <strong>en düşük yaş 25'tir</strong>.</p>
 <h2>Kaza ve İade</h2>
-<p>Kiracının karıştığı bir kaza aracı kullanılamaz hale getirirse, yedek araç sağlamaya ya da kullanılmayan günlerin ücretini iade etmeye çalışırız. Kazaya kiracının sebep olduğu tespit edilirse <strong>yedek araç VERİLMEZ</strong> ve <strong>iade yapılmaz</strong>.</p>
+<p>Kiralayan kişinin karıştığı bir kaza aracı kullanılamaz hale getirirse, yedek araç sağlamaya ya da kullanılmayan günlerin ücretini iade etmeye çalışırız. Kazaya kiralayan kişinin sebep olduğu tespit edilirse <strong>yedek araç VERİLMEZ</strong> ve <strong>iade yapılmaz</strong>.</p>
 <h2>İptal Ücreti</h2>
-<p>Atoll Rent A Car, <strong>kararlaştırılan teslim alma saatinden 48 saatten daha az bir süre önce</strong> iptal edilen rezervasyonlar için %10 iptal ücreti uygular.</p>
+<p>Atoll Rent A Car, <strong>kararlaştırılan teslim alma saatinden 48 saatten daha az bir süre önce</strong> iptal edilen rezervasyonlar için <strong>%10 iptal ücreti</strong> uygular.</p>
 <h2>Ek Sürücü</h2>
-<p>Ücretsizdir. Ek sürücüler için sizden ekstra ücret almayız</p>
+<p><strong>Ücretsizdir.</strong> Ek sürücüler için sizden ekstra ücret almayız</p>
 <h2>Bebek Koltuğu</h2>
-<p>Her bebek/yükseltici koltuğun günlük ücreti £2'dir. Lütfen bebek koltuğu sayımızın sınırlı olduğunu unutmayın. Bebek koltuğunuzu aracınızla aynı anda rezerve edin.</p>
+<p>Her bebek/yükseltici koltuğun <strong>günlük ücreti £2'dir</strong>. Lütfen bebek koltuğu sayımızın sınırlı olduğunu unutmayın. Bebek koltuğunuzu aracınızla aynı anda rezerve edin.</p>
 <h2>Teslimat Ücreti</h2>
 <p>Konuma ve kiralama süresine bağlı olarak teslimat/teslim alma ücreti ödemeniz gerekebileceğini lütfen unutmayın. Rezervasyon yapmadan önce lütfen <a href="/tr/delivery-charges">Teslimat Ücretleri</a> sayfasını inceleyin. Ücret rezervasyon tutarına eklenir ve rezervasyon onayınızda ayrıntılı olarak gösterilir.</p>
 <h2>Araç Kiralama (En Kısa Kiralama Süresi)</h2>
-<p>Kuzey Kıbrıs'ta en kısa kiralama süresi 3 gündür.</p>
+<p><strong>Kuzey Kıbrıs'ta en kısa kiralama süresi 3 gündür.</strong></p>
 <h2>Yakıt</h2>
-<p>Araçlarımız yakıtla teslim edilmez. Ancak müşteriler araçlarının en az £20 değerinde yakıtla teslim edilmesini talep edebilir; bu tutarın peşin ve nakit ödenmesi gerekir, araç daha sonra boş depoyla iade edilebilir. Yakıt bedeli iade edilmez. <a href="/tr/fuel-options">Lütfen seçeneklere bakın</a>.</p>
+<p>Araçlarımız yakıtla teslim edilmez. Ancak müşteriler araçlarının <strong>en az £20 değerinde yakıtla</strong> teslim edilmesini talep edebilir; bu tutarın peşin ve nakit ödenmesi gerekir, araç daha sonra boş depoyla iade edilebilir. <strong>Yakıt bedeli iade edilmez.</strong> <a href="/tr/fuel-options">Lütfen seçeneklere bakın</a>.</p>
 <h2>Trafik Cezaları</h2>
-<p>Kiralama süresi boyunca alınan tüm trafik cezalarından kiracı sorumludur.</p>
+<p>Kiralama süresi boyunca alınan <strong>tüm trafik cezalarından kiralayan kişi sorumludur</strong>.</p>
 <h2>Kiralamanın Uzatılması</h2>
-<p>Kiralamanızı kararlaştırılan bitiş tarihinden sonraya uzatmak isterseniz, sigorta kapsamının da uzatılabilmesi için Atoll Rent A Car ofisine hemen haber vermeniz önemlidir.</p>
+<p>Kiralamanızı kararlaştırılan bitiş tarihinden sonraya uzatmak isterseniz, sigorta kapsamının da uzatılabilmesi için <strong>Atoll Rent A Car ofisine hemen haber vermeniz</strong> önemlidir.</p>
 <h2>Araç Kiralama Sözleşmesi</h2>
 <p>Araç kiralamadan önce lütfen <a href="/tr/rental-agreement">kiralama sözleşmesini</a> inceleyin.</p>`,
   },
@@ -158,71 +158,71 @@ const pages: PageTranslations = {
   },
   "rental-agreement": {
     title: "Kiralama Sözleşmesi",
-    html: `<p>Bu, aracı teslim ettiğimizde imzalamanız istenecek sözleşmedir. Bu sözleşmenin önceden haber verilmeksizin değiştirilebileceğini lütfen unutmayın.</p>
+    html: `<p>Bu, aracı teslim ettiğimizde imzalamanız istenecek sözleşmedir. Bu sözleşmenin <strong>önceden haber verilmeksizin değiştirilebileceğini</strong> lütfen unutmayın.</p>
 <hr />
 <p>Şartlar ve Koşullar:</p>
 <ol>
-<li>Araç KKTC dışına çıkarılamaz; yalnızca Güney Kıbrıs'a geçiş yapılabilir.</li>
-<li>Atoll Rent A Car aracının sürücüsünün kusurlu bulunması halinde, karşı tarafın mal varlığının en fazla 10.000 İngiliz sterlini teminata kadar karşılandığını biliyorum/biliyoruz. Aşan kısım kiracının sorumluluğundadır.</li>
-<li>Kiracı, şirketin önceden onayı olmadan ve bu onay bu sözleşmede belirtilmeden söz konusu aracı başka hiçbir kişinin kullanmasına izin vermeyeceğini kabul eder.</li>
+<li>Araç KKTC dışına çıkarılamaz; <strong>yalnızca Güney Kıbrıs'a geçiş yapılabilir</strong>.</li>
+<li>Atoll Rent A Car aracının sürücüsünün kusurlu bulunması halinde, karşı tarafın mal varlığının <strong>en fazla 10.000 İngiliz sterlini teminata kadar</strong> karşılandığını biliyorum/biliyoruz. <strong>Aşan kısım kiralayan kişinin sorumluluğundadır.</strong></li>
+<li>Kiralayan kişi, şirketin önceden onayı olmadan ve bu onay bu sözleşmede belirtilmeden söz konusu aracı <strong>başka hiçbir kişinin kullanmasına izin vermeyeceğini</strong> kabul eder.</li>
 <li>Arka sayfadaki şartları ve koşulları okuduğumu/okuduğumuzu, kabul ettiğimi/ettiğimizi ve tüm bilgilerin doğru olduğunu beyan ederim/ederiz.</li>
-<li>Sigorta şu hasarları kapsamaz: lastikler, ön cam, aracın iç kısmı, aracın alt kısmı, anahtarların kaybı veya tahribi.</li>
+<li><strong>Sigorta şu hasarları kapsamaz:</strong> <strong>lastikler, ön cam, aracın iç kısmı, aracın alt kısmı, anahtarların kaybı veya tahribi</strong>.</li>
 </ol>
 <p><strong><u>KİRALAMA SÖZLEŞMESİ</u></strong></p>
 <p><strong>1. Taraflar</strong></p>
-<p>Atoll Rent A Car Ltd. araçların sahibidir. Bu sözleşmenin ilk sayfasında adı, adresi ve imzası bulunan gerçek veya tüzel kişi bundan böyle Kiracıdır.</p>
+<p>Atoll Rent A Car Ltd. araçların sahibidir. Bu sözleşmenin ilk sayfasında adı, adresi ve imzası bulunan gerçek veya tüzel kişi bundan böyle Kiralayan kişidir.</p>
 <p><strong>2. Kiralama Koşulları</strong></p>
-<p>(a) Kiracı, plaka numarası, kiralama süresi, kira bedeli ve ek kiralama hizmetlerinin ücretleri 1. sayfada belirtilen aracı, bu sözleşmenin 1. ve 2. sayfalarında belirtilen genel şartlar ve zımni koşullar çerçevesinde kiralamayı kabul ve taahhüt eder.</p>
-<p>(b) ‘Araç’ ifadesi, aracın ayrılmaz parçaları sayılan tüm lastikleri, aksesuarları, aletleri ve diğer donanımları kapsar. Kiracı, aracı teslim almakla aracı (yukarıdaki tüm parçalar dahil) incelediğini ve eksiksiz çalışır durumda bulup teslim aldığını kabul eder.</p>
-<p>(c) Kiracı, teslim almadan önce yağ ve su seviyelerini, lastik basıncını ve benzeri parçaları kontrol etmek ve kiralama süresi boyunca bunları gerekli seviyelerde tutmakla yükümlüdür. Kiracı, kiralanan araçla sürücü dahil yolcu sayısını sınırlayan trafik kurallarına uymayı kabul ve taahhüt eder. Kiracı, kiralama süresi boyunca kişisel eşyalar (bagaj) dışında hiçbir yük taşımamayı kabul eder.</p>
-<p>(d) Kiralama süresi boyunca aracı yalnızca sözleşmenin ilk sayfasında belirtilen kişi(ler) kullanabilir ve bunu ancak geçerli bir sürücü belgesine sahip olmaları halinde yapabilirler.</p>
-<p>(e) En kısa kiralama süresi üç gündür ve bir gün ardışık 24 saat olarak tanımlanır. Araç 24 saat dolmadan mal sahibine iade edilse bile tam günlük kira bedeli alınır.</p>
-<p>(f) Kiracı veya aracın yetkili sürücü(ler)i hiçbir koşulda mal sahibinin temsilcisi, hizmetlisi veya çalışanı sayılamaz.</p>
-<p>(g) Kiracı, (dini, resmi, banka… tatilleri) ve özel tatiller için aracı mal sahibinin belirlediği tarih, saat ve yerde teslim almayı ve iade etmeyi kabul eder.</p>
-<p><strong>3. Kiracı(lar)ın Sorumlulukları</strong></p>
-<p><strong>(a) Bu kiralama sözleşmesini imzalayarak</strong> kiracı ve ek sürücü(ler), bu sözleşmenin 1. ve 2. sayfalarında belirtilen tüm şartları ve koşulları okuduklarını, kabul ettiklerini ve bunlara uymayı taahhüt ettiklerini beyan eder.</p>
-<p>(b) Kiracı, bu sözleşmede veya mal sahibinin sigorta poliçesinde açıkça belirtilmeyen her türlü hasar, kayıp ve/veya yaralanmadan (yolcuların ve/veya üçüncü kişilerin uğradığı bedensel yaralanmalar dahil) sorumludur.</p>
-<p>(c) Hırsızlık, yangın, kaza veya aracın kaybı ya da herhangi bir hasarı durumunda kiracı derhal mal sahibine ve polise bilgi vermelidir.</p>
-<p>(d) Kiracı, aracı mal sahibinden teslim almakla aracın iyi durumda olduğunu kabul eder ve aracı aletleri, parçaları ve donanımıyla birlikte aynı durumda iade eder; olağan aşınma kabul edilir, ancak kötü kullanımdan kaynaklanan aşırı aşınma bunun dışındadır.</p>
-<p>(e) Mal sahibi hiçbir koşulda kiracı tarafından ibraz edilen onarım faturaları dahil hiçbir faturayı kabul etmez. Tüm park ve trafik cezalarından kiracılar sorumludur.</p>
-<p>(f) Kiracı, (kendi zilyetliğindeyken) araçta meydana gelen her türlü kayıp ve/veya hasarı ya da arızayı derhal mal sahibine bildirir ve aracı yola çıkmaya elverişsiz durumdayken ya da herhangi bir kişiye veya mala zarar verebilecek durumdayken kullanmaz.</p>
-<p>(g) Kiracı aracı, Güney Kıbrıs'a geçiş dışında Kuzey Kıbrıs Türk Cumhuriyeti dışına çıkarmaz, aracı her zaman kendi zilyetliğinde ve muhafazasında tutar, mal sahibinin önceden yazılı onayı olmadan aracı başkasına kiralamaz veya başkasının müdahale etmesine izin vermez.</p>
+<p>(a) Kiralayan kişi, plaka numarası, kiralama süresi, kira bedeli ve ek kiralama hizmetlerinin ücretleri 1. sayfada belirtilen aracı, bu sözleşmenin 1. ve 2. sayfalarında belirtilen genel şartlar ve zımni koşullar çerçevesinde kiralamayı kabul ve taahhüt eder.</p>
+<p>(b) ‘Araç’ ifadesi, aracın ayrılmaz parçaları sayılan tüm lastikleri, aksesuarları, aletleri ve diğer donanımları kapsar. Kiralayan kişi, aracı teslim almakla aracı (yukarıdaki tüm parçalar dahil) incelediğini ve eksiksiz çalışır durumda bulup teslim aldığını kabul eder.</p>
+<p>(c) Kiralayan kişi, teslim almadan önce yağ ve su seviyelerini, lastik basıncını ve benzeri parçaları kontrol etmek ve kiralama süresi boyunca bunları gerekli seviyelerde tutmakla yükümlüdür. Kiralayan kişi, kiralanan araçla sürücü dahil yolcu sayısını sınırlayan trafik kurallarına uymayı kabul ve taahhüt eder. Kiralayan kişi, kiralama süresi boyunca <strong>kişisel eşyalar (bagaj) dışında hiçbir yük taşımamayı</strong> kabul eder.</p>
+<p>(d) Kiralama süresi boyunca aracı yalnızca sözleşmenin ilk sayfasında belirtilen kişi(ler) kullanabilir ve bunu ancak <strong>geçerli bir sürücü belgesine sahip olmaları halinde</strong> yapabilirler.</p>
+<p>(e) <strong>En kısa kiralama süresi üç gündür</strong> ve bir gün <strong>ardışık 24 saat</strong> olarak tanımlanır. Araç 24 saat dolmadan mal sahibine iade edilse bile tam günlük kira bedeli alınır.</p>
+<p>(f) Kiralayan kişi veya aracın yetkili sürücü(ler)i hiçbir koşulda mal sahibinin temsilcisi, hizmetlisi veya çalışanı sayılamaz.</p>
+<p>(g) Kiralayan kişi, (dini, resmi, banka… tatilleri) ve özel tatiller için aracı mal sahibinin belirlediği tarih, saat ve yerde teslim almayı ve iade etmeyi kabul eder.</p>
+<p><strong>3. Kiralayan kişi(ler)in Sorumlulukları</strong></p>
+<p><strong>(a) Bu kiralama sözleşmesini imzalayarak</strong> kiralayan kişi ve ek sürücü(ler), bu sözleşmenin 1. ve 2. sayfalarında belirtilen tüm şartları ve koşulları okuduklarını, kabul ettiklerini ve bunlara uymayı taahhüt ettiklerini beyan eder.</p>
+<p>(b) Kiralayan kişi, bu sözleşmede veya mal sahibinin sigorta poliçesinde açıkça belirtilmeyen her türlü hasar, kayıp ve/veya yaralanmadan (yolcuların ve/veya üçüncü kişilerin uğradığı bedensel yaralanmalar dahil) sorumludur.</p>
+<p>(c) Hırsızlık, yangın, kaza veya aracın kaybı ya da herhangi bir hasarı durumunda kiralayan kişi <strong>derhal mal sahibine ve polise bilgi vermelidir</strong>.</p>
+<p>(d) Kiralayan kişi, aracı mal sahibinden teslim almakla aracın iyi durumda olduğunu kabul eder ve aracı aletleri, parçaları ve donanımıyla birlikte aynı durumda iade eder; olağan aşınma kabul edilir, ancak kötü kullanımdan kaynaklanan aşırı aşınma bunun dışındadır.</p>
+<p>(e) Mal sahibi hiçbir koşulda kiralayan kişi tarafından ibraz edilen onarım faturaları dahil hiçbir faturayı kabul etmez. <strong>Tüm park ve trafik cezalarından kiralayan kişiler sorumludur.</strong></p>
+<p>(f) Kiralayan kişi, (kendi zilyetliğindeyken) araçta meydana gelen her türlü kayıp ve/veya hasarı ya da arızayı derhal mal sahibine bildirir ve aracı yola çıkmaya elverişsiz durumdayken ya da herhangi bir kişiye veya mala zarar verebilecek durumdayken kullanmaz.</p>
+<p>(g) Kiralayan kişi aracı, <strong>Güney Kıbrıs'a geçiş dışında Kuzey Kıbrıs Türk Cumhuriyeti dışına çıkarmaz</strong>, aracı her zaman kendi zilyetliğinde ve muhafazasında tutar, mal sahibinin önceden yazılı onayı olmadan aracı başkasına kiralamaz veya başkasının müdahale etmesine izin vermez.</p>
 <p>(h) Sürücüler aracı gereken özen, dikkat ve beceriyle, tüm yasal gerekliliklere ve mal sahibinin standart sigorta poliçesinin (üçüncü şahıs sigortası) şartlarına uygun şekilde kullanmalıdır.</p>
-<p>(i) Kiracı, talep halinde mal sahibine bir depozito ve tahmini kira bedelini ödemeyi taahhüt eder. Nihai ücret düzeltmeleri ve ödeme, kiralama süresi sona erdiğinde ve mal sahibi aracı teslim aldıktan sonra yapılır. Kiracı, talep halinde kiralama uzatmasının tahmini bedelini peşin ödemeyi kabul eder. Tüm kira ve ek hizmet ücretleri sözleşmenin ilk sayfasında gösterilir ve kiracı bunların tamamını ödemeyi kabul eder.</p>
+<p>(i) Kiralayan kişi, talep halinde mal sahibine <strong>bir depozito ve tahmini kira bedelini</strong> ödemeyi taahhüt eder. Nihai ücret düzeltmeleri ve ödeme, kiralama süresi sona erdiğinde ve mal sahibi aracı teslim aldıktan sonra yapılır. Kiralayan kişi, talep halinde kiralama uzatmasının tahmini bedelini peşin ödemeyi kabul eder. Tüm kira ve ek hizmet ücretleri sözleşmenin ilk sayfasında gösterilir ve kiralayan kişi bunların tamamını ödemeyi kabul eder.</p>
 <p>(j) C.D.W. bölümünde belirtilen tüm ek hizmetler günlük ücret üzerinden verilir.</p>
 <p><strong>4. Mal Sahibinin Sorumluluğu</strong></p>
-<p>(a) Mal sahibi, kiracının doğrudan veya dolaylı olarak karıştığı herhangi bir kaza sonucunda ya da herhangi bir koşulda kişilerin veya mallarının uğradığı kayıp, yaralanma veya hasarlarla ilgili olarak kiracıya, sürücü(ler)e ve/veya herhangi bir üçüncü kişiye hiçbir koşulda herhangi bir ödeme veya tazminat yapmakla yükümlü değildir.</p>
+<p>(a) Mal sahibi, kiralayan kişinin doğrudan veya dolaylı olarak karıştığı herhangi bir kaza sonucunda ya da herhangi bir koşulda kişilerin veya mallarının uğradığı kayıp, yaralanma veya hasarlarla ilgili olarak kiralayan kişiye, sürücü(ler)e ve/veya herhangi bir üçüncü kişiye hiçbir koşulda herhangi bir ödeme veya tazminat yapmakla yükümlü değildir.</p>
 <p>(b) Mal sahibi, araçtaki bir kusur veya arıza ya da başka herhangi bir nedenden kaynaklansa bile gecikmelerden hiçbir sorumluluk kabul etmez.</p>
 <p>(c) Mal sahibinin bu sözleşmenin herhangi bir şartını veya koşulunu uygulamakta gösterdiği hiçbir gevşeklik, hoşgörü veya müsamaha, mal sahibinin bu sözleşmeden doğan hak ve yetkilerini zedelemez veya etkilemez; herhangi bir ihlalden feragat edilmesi de sonraki veya devam eden bir ihlalden feragat anlamına gelmez.</p>
 <p><strong>5. Sözleşmenin Değiştirilmesi, İptali ve Uzatılması</strong></p>
-<p>(a) Söz konusu araç mal sahibinin mutlak mülkiyetindedir; mal sahibi bu sözleşmeyi herhangi bir zamanda bildirimde bulunmaksızın ve tazminat ödemeksizin feshedebilir ve araca el koyabilir. Mal sahibi, aracı herhangi bir zamanda önceden bildirimde bulunmaksızın başka bir araçla değiştirme hakkını saklı tutar.</p>
-<p>(b) Kiralama süresi 3 saatten fazla aşılırsa bir tam gün daha ücretlendirilir. 3 saate kadar olan gecikmelerde her ek saat için günlük kira bedelinin 1/5'i alınır.</p>
-<p>(c) Kiralama süresi sona erdikten sonra (madde 2e'de belirtildiği gibi) meydana gelen tüm hasarlar ve/veya kayıplar, araçta geçerli bir çarpışma hasarı muafiyeti olsa bile tamamen kiracının sorumluluğundadır.</p>
-<p>(d) Kiralama süresini uzatmak için mal sahibine en az 24 saat önceden bildirimde bulunulmalı ve kiracı uzatma için gereken tutarı ödemelidir.</p>
-<p>Aksi takdirde araç izinsiz kullanılmış sayılır ve kiracı, hırsızlık, yangın, tahribat ve kaza nedeniyle araca gelen her türlü kayıp ve/veya hasarın ve/veya yolcuların ve üçüncü kişilerin yaralanmalarının tamamından sorumlu olur.</p>
-<p>(e) Uzatma süresi dahil araçta hasar meydana gelmesi halinde kiracı, (tamamlanma günü dahil) o güne kadar kararlaştırılan günlük kira bedellerini ve aracın onarım bedelinin tamamını mal sahibine ödemeyi kabul eder ve bu sorumluluğu üstlenir.</p>
-<p>(f) Araç, kararlaştırılan kiralama süresi dolmadan mal sahibine iade edilirse kiracı, aracın erken iade edildiği her tam gün için günlük kira bedelinin %50'sinin önceden kararlaştırılan/hesaplanan/ödenen kira bedelinden düşülmesini talep edebilir. Mal sahibi aracı teslim aldıktan sonra, aracın erken iadesi nedeniyle ödenmesi gereken talep edilen tutarı, idari giderleri iade tutarından düşerek iade edebilir. Bu durumda ek hizmetler (C.D.W., benzin vb.) kiracıya iade edilmez. Ek hizmetlerin ödenmemiş olması halinde kiracı, kiralama süresinin tamamı için tüm ek hizmet bedellerini ödemeyi kabul eder.</p>
+<p>(a) Söz konusu araç mal sahibinin mutlak mülkiyetindedir; mal sahibi bu sözleşmeyi herhangi bir zamanda <strong>bildirimde bulunmaksızın ve tazminat ödemeksizin feshedebilir</strong> ve araca el koyabilir. Mal sahibi, aracı herhangi bir zamanda önceden bildirimde bulunmaksızın başka bir araçla değiştirme hakkını saklı tutar.</p>
+<p>(b) Kiralama süresi <strong>3 saatten fazla aşılırsa bir tam gün daha ücretlendirilir</strong>. 3 saate kadar olan gecikmelerde her ek saat için <strong>günlük kira bedelinin 1/5'i</strong> alınır.</p>
+<p>(c) Kiralama süresi sona erdikten sonra (madde 2e'de belirtildiği gibi) meydana gelen tüm hasarlar ve/veya kayıplar, araçta geçerli bir çarpışma hasarı muafiyeti olsa bile tamamen kiralayan kişinin sorumluluğundadır.</p>
+<p>(d) Kiralama süresini uzatmak için mal sahibine <strong>en az 24 saat önceden bildirimde bulunulmalı</strong> ve kiralayan kişi uzatma için gereken tutarı ödemelidir.</p>
+<p>Aksi takdirde araç izinsiz kullanılmış sayılır ve kiralayan kişi, hırsızlık, yangın, tahribat ve kaza nedeniyle araca gelen her türlü kayıp ve/veya hasarın ve/veya yolcuların ve üçüncü kişilerin yaralanmalarının tamamından sorumlu olur.</p>
+<p>(e) Uzatma süresi dahil araçta hasar meydana gelmesi halinde kiralayan kişi, (tamamlanma günü dahil) o güne kadar kararlaştırılan günlük kira bedellerini ve <strong>aracın onarım bedelinin tamamını</strong> mal sahibine ödemeyi kabul eder ve bu sorumluluğu üstlenir.</p>
+<p>(f) Araç, kararlaştırılan kiralama süresi dolmadan mal sahibine iade edilirse kiralayan kişi, aracın erken iade edildiği her tam gün için <strong>günlük kira bedelinin %50'sinin</strong> önceden kararlaştırılan/hesaplanan/ödenen kira bedelinden düşülmesini talep edebilir. Mal sahibi aracı teslim aldıktan sonra, aracın erken iadesi nedeniyle ödenmesi gereken talep edilen tutarı, idari giderleri iade tutarından düşerek iade edebilir. Bu durumda ek hizmetler (C.D.W., benzin vb.) kiralayan kişiye iade edilmez. Ek hizmetlerin ödenmemiş olması halinde kiralayan kişi, kiralama süresinin tamamı için tüm ek hizmet bedellerini ödemeyi kabul eder.</p>
 <p><strong>6. Benzin</strong></p>
 <p><strong>Bu sözleşmede aksi belirtilmedikçe</strong>, araçtaki benzin için aşağıdaki şartlar geçerlidir:</p>
-<p>(a) Kiralama süresi boyunca tüm yakıt giderlerini kiracı karşılar. Mal sahibi aracı kiralama süresinin başında kiracıya benzin deposu boş olarak teslim eder, kiracı da kiralama süresinin sonunda aracı benzin deposu boş olarak iade eder.</p>
-<p>(b) Kiracı, yakıt seçeneğini seçmişse benzin bedelini kira bedelini öderken ödemeyi kabul eder.</p>
-<p>(c) Kiralama süresinin sonunda araç mal sahibine iade edildiğinde depoda kalan benzin için iade yapılmaz.</p>
+<p>(a) Kiralama süresi boyunca tüm yakıt giderlerini kiralayan kişi karşılar. Mal sahibi aracı kiralama süresinin başında kiralayan kişiye <strong>benzin deposu boş olarak teslim eder</strong>, kiralayan kişi da kiralama süresinin sonunda aracı <strong>benzin deposu boş olarak iade eder</strong>.</p>
+<p>(b) Kiralayan kişi, yakıt seçeneğini seçmişse benzin bedelini kira bedelini öderken ödemeyi kabul eder.</p>
+<p>(c) Kiralama süresinin sonunda araç mal sahibine iade edildiğinde <strong>depoda kalan benzin için iade yapılmaz</strong>.</p>
 <p>(d) Başka her türlü düzenleme, bu sözleşmenin 1. sayfasında belirtilen şartlara ve koşullara uygun olmalıdır.</p>
 <ol>
 <li>Uyuşmazlık</li>
 </ol>
-<p>(a) Kiracının bu sözleşmede belirtilen koşullardan herhangi birini ihlal etmesi, bu sözleşmenin feshine yol açar ve mal sahibine aracı geri alma ve depozitoyu, ek hizmet ve kira bedellerini kiracıya iade etmeme hakkı verir. İhlal halinde mal sahibi, kiralık araç kendisi tarafından teslim alınmış olsa bile bu sözleşmenin 1. sayfasında belirtilen ödenmemiş ek hizmet ve kira bedellerini talep etme hakkına sahiptir.</p>
-<p>(b) Taraflar bu sözleşmede belirtilen şartlar ve koşullarla bağlıdır. Herhangi bir mahkemede dava açılması halinde, bundan doğan tüm masrafları kiracı öder. Bu tür konularda yalnızca Kuzey Kıbrıs Türk Cumhuriyeti mahkemeleri yetkilidir. Kiracı, adı geçen mahkemelerin kararlarına uymayı kabul eder. Kiracı ayrıca taraflar arasında bir karar veya uzlaşmaya varılmadan Kuzey Kıbrıs Türk Cumhuriyeti'nden ayrılmamayı şart koşar ve kabul eder.</p>
+<p>(a) Kiralayan kişinin bu sözleşmede belirtilen koşullardan herhangi birini ihlal etmesi, bu sözleşmenin feshine yol açar ve mal sahibine aracı geri alma ve depozitoyu, ek hizmet ve kira bedellerini kiralayan kişiye iade etmeme hakkı verir. İhlal halinde mal sahibi, kiralık araç kendisi tarafından teslim alınmış olsa bile bu sözleşmenin 1. sayfasında belirtilen ödenmemiş ek hizmet ve kira bedellerini talep etme hakkına sahiptir.</p>
+<p>(b) Taraflar bu sözleşmede belirtilen şartlar ve koşullarla bağlıdır. Herhangi bir mahkemede dava açılması halinde, bundan doğan tüm masrafları kiralayan kişi öder. Bu tür konularda <strong>yalnızca Kuzey Kıbrıs Türk Cumhuriyeti mahkemeleri yetkilidir</strong>. Kiralayan kişi, adı geçen mahkemelerin kararlarına uymayı kabul eder. Kiralayan kişi ayrıca taraflar arasında bir karar veya uzlaşmaya varılmadan Kuzey Kıbrıs Türk Cumhuriyeti'nden ayrılmamayı şart koşar ve kabul eder.</p>
 <p><strong>EK HİZMETLERİN SATIN ALINMASINA İLİŞKİN ŞARTLAR VE KOŞULLAR</strong></p>
 <p>ÇARPIŞMA HASARI MUAFİYETİ (C.D.W.)</p>
-<p>I. Kiracı, çarpışma hasarı muafiyeti satın alırsa kaza sonucu araçta meydana gelen her türlü hasardan muaf tutulabilir; ancak bu muafiyet veya başka hiçbir düzenleme, kaza sonucu hasar gören veya kaybolan şu araç parçaları ve bileşenleri için kiracının sorumluluğunu ortadan kaldırmaz: lastikler, yan ve iç aynalar, iç aksesuarlar (müzik sistemi, pusula, GPS), mekanik ve elektrik bileşenleri, açılır tavan ve diğer tavan ayar mekanizmaları, camlar ve farlar, stepne ve karter.</p>
-<p>II. Muafiyet hırsızlık ve yangın hasarı durumunda geçerli değildir.</p>
-<p>III. Muafiyet yalnızca araç yasal hız sınırları içinde kullanılıyorsa ve sürücü hiçbir zaman sarhoş ve/veya alkollü değilse geçerlidir. Kazaya ilişkin polis kayıtları ile sarhoşluk ve alkol testleri, araç başka bir yere götürülmeden önce olay yerinde yapılır. Aksi takdirde C.D.W. hükümsüz sayılır.</p>
-<p>IV. C.D.W., aracın kötü kullanımından kaynaklanan hasarları kapsamaz.</p>
-<p>V. Sürücü(ler)den herhangi biri 25 yaş sınırının altındaysa araç üçüncü şahıs sigortasıyla sigortalıdır ve araçtaki tüm hasarlardan kiracı sorumludur.</p>
-<p>VI. Bu muafiyet poliçesi yalnızca kiracı ve bu sözleşmenin 1. sayfasında belirtilen sürücü(ler) tüm genel şartlara ve koşullara uyar ve kiralama süresi boyunca gereken tüm özen, dikkat ve itinayı gösterirse geçerlidir.</p>
-<p>VII. Kiracı, C.D.W.'nin kiralama sözleşmesine bağlı ek bir sözleşme olduğunu ve mal sahibinin her kiralama sözleşmesinde C.D.W.'yi kabul etmeme hakkını saklı tuttuğunu kabul eder.</p>
-<p>VIII. Bu sigorta poliçeleri, bu sözleşmenin 1. sayfasında kiracının imzasının yanında açıkça belirtilmedikçe geçersiz sayılır.</p>
+<p>I. Kiralayan kişi, çarpışma hasarı muafiyeti satın alırsa kaza sonucu araçta meydana gelen her türlü hasardan muaf tutulabilir; ancak bu muafiyet veya başka hiçbir düzenleme, kaza sonucu hasar gören veya kaybolan şu araç parçaları ve bileşenleri için kiralayan kişinin sorumluluğunu ortadan kaldırmaz: lastikler, yan ve iç aynalar, iç aksesuarlar (müzik sistemi, pusula, GPS), mekanik ve elektrik bileşenleri, açılır tavan ve diğer tavan ayar mekanizmaları, camlar ve farlar, stepne ve karter.</p>
+<p>II. <strong>Muafiyet hırsızlık ve yangın hasarı durumunda geçerli değildir.</strong></p>
+<p>III. Muafiyet yalnızca araç <strong>yasal hız sınırları içinde</strong> kullanılıyorsa ve sürücü hiçbir zaman <strong>sarhoş ve/veya alkollü değilse</strong> geçerlidir. Kazaya ilişkin polis kayıtları ile sarhoşluk ve alkol testleri, araç başka bir yere götürülmeden önce olay yerinde yapılır. Aksi takdirde C.D.W. hükümsüz sayılır.</p>
+<p>IV. C.D.W., <strong>aracın kötü kullanımından kaynaklanan hasarları kapsamaz.</strong></p>
+<p>V. Sürücü(ler)den herhangi biri <strong>25 yaş sınırının altındaysa</strong> araç <strong>üçüncü şahıs sigortasıyla sigortalıdır</strong> ve araçtaki tüm hasarlardan kiralayan kişi sorumludur.</p>
+<p>VI. Bu muafiyet poliçesi yalnızca kiralayan kişi ve bu sözleşmenin 1. sayfasında belirtilen sürücü(ler) tüm genel şartlara ve koşullara uyar ve kiralama süresi boyunca gereken tüm özen, dikkat ve itinayı gösterirse geçerlidir.</p>
+<p>VII. Kiralayan kişi, C.D.W.'nin kiralama sözleşmesine bağlı ek bir sözleşme olduğunu ve mal sahibinin her kiralama sözleşmesinde C.D.W.'yi kabul etmeme hakkını saklı tuttuğunu kabul eder.</p>
+<p>VIII. Bu sigorta poliçeleri, bu sözleşmenin 1. sayfasında kiralayan kişinin imzasının yanında açıkça belirtilmedikçe geçersiz sayılır.</p>
 <p><em>Bu çeviri bilgi amaçlıdır; anlaşmazlık halinde İngilizce metin esas alınır.</em></p>`,
   },
 };

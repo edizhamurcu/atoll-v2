@@ -289,7 +289,7 @@ describe("content fixes (owner, 2026-11-11)", () => {
 describe("rental agreement, 1. Parties (owner, 2026-11-12)", () => {
   it("uses the owner's wording in Turkish and the matching translations", async () => {
     const { pageTranslation } = await import("./page-i18n");
-    expect(pageTranslation("rental-agreement", "tr")!.html).toContain("<p>Atoll Rent A Car Ltd. araçların sahibidir. Bu sözleşmenin ilk sayfasında adı, adresi ve imzası bulunan gerçek veya tüzel kişi bundan böyle Kiracıdır.</p>");
+    expect(pageTranslation("rental-agreement", "tr")!.html).toContain("<p>Atoll Rent A Car Ltd. araçların sahibidir. Bu sözleşmenin ilk sayfasında adı, adresi ve imzası bulunan gerçek veya tüzel kişi bundan böyle Kiralayan kişidir.</p>");
     expect(pageTranslation("rental-agreement", "de")!.html).toContain("ist Eigentümerin der Fahrzeuge");
     expect(pageTranslation("rental-agreement", "ru")!.html).toContain("является владельцем автомобилей");
     expect(readFileSync("scripts/import-pages.ts", "utf8")).toContain("Atoll Rent A Car Ltd. is the owner of the vehicles.");
