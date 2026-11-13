@@ -13,6 +13,7 @@ import { HOSTS, dropAgreementTeaser, rewriteMergedLinks } from "@/content/page-m
 import { withExcessList } from "@/content/damage-excess";
 import { AboutVideo } from "@/components/about-video";
 import { SpecialOffers } from "@/components/campaign";
+import { HashScroll } from "@/components/hash-scroll";
 
 export async function generateMetadata({ params }: PageProps<"/[locale]/[slug]">): Promise<Metadata> {
   const { locale, slug } = await params;
@@ -70,6 +71,7 @@ async function Content({ params }: { params: PageProps<"/[locale]/[slug]">["para
       {slug === "about-us" && <AboutVideo />}
       {/* Special offers: the old WordPress body (stock photo + "no offers at the moment") is replaced by the live campaigns. */}
       {slug === "special-offers" ? <SpecialOffers locale={locale} /> : <div className="prose-atoll mt-8" dangerouslySetInnerHTML={{ __html: html }} />}
+      {merged.length > 0 && <HashScroll />}
       <JsonLd
         data={[
           { "@context": "https://schema.org", "@type": "WebPage", name: title, url: `${SITE.url}/${lang}/${slug}`, inLanguage: lang, dateModified: p.updatedAt.toISOString(), isPartOf: { "@type": "WebSite", name: SITE.name, url: SITE.url } },
