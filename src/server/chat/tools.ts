@@ -106,7 +106,7 @@ export const TOOLS: Tool[] = [
   },
   {
     name: "get_rental_quote",
-    description: "Exact price breakdown for one car model and dates, optionally with extras (child seat etc.) and delivery. Also says whether the model is free for those dates.",
+    description: "Exact price breakdown for one car model and dates, optionally with extras (child seat etc.) and delivery. Also says whether the model is available for those dates.",
     input_schema: schema({ modelSlug: s("Model slug from search results or list_fleet"), ...dateProps, extras: { type: "array", items: { type: "object", properties: { code: { type: "string" }, quantity: { type: "integer", minimum: 1, maximum: 10 } }, required: ["code", "quantity"], additionalProperties: false } } }, ["modelSlug", "pickupDate", "returnDate"]),
   },
   {
