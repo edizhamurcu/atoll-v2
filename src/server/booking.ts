@@ -77,7 +77,7 @@ export async function buildQuote(req: QuoteRequest, s?: BusinessSettings) {
       pickupFee: pickup.pickupFee.toString(),
       returnFee: ret.returnFee.toString(),
       deliveryTiers: zone ? (zone.tiers as { minDays: number; fee: string }[]) : null,
-      campaigns: campaignsFor(model.slug),
+      campaigns: campaignsFor(model.slug, req.pickupAt),
       rules: settings,
     });
     return { quote, model, pickup, ret, zone, extras: byCode, settings };

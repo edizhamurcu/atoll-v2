@@ -5,7 +5,7 @@ import { Link } from "@/i18n/navigation";
 import { db } from "@/lib/db";
 import { money } from "@/lib/search-params";
 import { SITE, waLink } from "@/lib/site";
-import { CAMPAIGNS, campaignFor } from "@/content/campaigns";
+import { activeCampaigns, campaignFor } from "@/content/campaigns";
 import { CarImage } from "./car-image";
 
 /** Offer banner on a campaign car's page. */
@@ -34,7 +34,7 @@ export async function SpecialOffers({ locale }: { locale: string }) {
     getTranslations("transmission"),
     getTranslations("fuel"),
   ]);
-  const camp = CAMPAIGNS[0];
+  const camp = activeCampaigns(new Date())[0];
   const slugs = camp && camp.models !== "all" ? [...camp.models] : [];
   const rows = slugs.length ? await db.vehicleModel.findMany({ where: { slug: { in: slugs }, active: true } }) : [];
   const cars = slugs.map((s) => rows.find((m) => m.slug === s)).filter((m) => m !== undefined);

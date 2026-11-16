@@ -255,8 +255,15 @@ describe("weekly offer: one car per class (owner, 2026-11-11)", () => {
     const { CAMPAIGNS, campaignsFor, campaignFor } = await import("./campaigns");
     expect(CAMPAIGNS).toHaveLength(1);
     expect(CAMPAIGNS[0]).toMatchObject({ code: "week_1_day_free", minDays: 7, freeDays: 1 });
-    for (const slug of ["nissan-note", "nissan-juke", "suzuki-vitara", "toyota-sienta-1-5", "mercedes-c200", "hyundai-ix35", "ford-focus"]) expect(campaignFor(slug)).not.toBeNull();
-    for (const slug of ["bmw-520d", "hyundai-i30", "toyota-vitz", "mazda-carol"]) expect(campaignsFor(slug)).toEqual([]);
+    for (const slug of ["nissan-note", "nissan-juke", "suzuki-vitara", "toyota-sienta-1-5", "mercedes-c200", "hyundai-ix35", "ford-focus"]) expect(campaignFor(slug, new Date("2026-11-18T08:00:00Z"))).not.toBeNull();
+    for (const slug of ["bmw-520d", "hyundai-i30", "toyota-vitz", "mazda-carol"]) expect(campaignsFor(slug, new Date("2026-11-18T08:00:00Z"))).toEqual([]);
+  });
+  it("all campaigns end after rentals starting on 31 March 2027 (Cyprus time); normal prices afterwards (owner, 2026-11-16)", async () => {
+    const { campaignsFor, campaignFor, activeCampaigns } = await import("./campaigns");
+    expect(campaignsFor("ford-focus", new Date("2027-03-31T20:00:00Z"))).toHaveLength(1); // 23:00 in Cyprus (EEST)
+    expect(campaignsFor("ford-focus", new Date("2027-03-31T21:00:00Z"))).toEqual([]); // 1 April 00:00 in Cyprus
+    expect(campaignFor("hyundai-ix35", new Date("2027-04-02T08:00:00Z"))).toBeNull();
+    expect(activeCampaigns(new Date("2027-06-01T08:00:00Z"))).toEqual([]);
   });
   it("results show the normal daily rate (not the discounted average) and no stock counter", () => {
     const results = readFileSync("src/components/results.tsx", "utf8");

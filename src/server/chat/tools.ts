@@ -10,7 +10,7 @@ import { buildQuote, BookingError } from "@/server/booking";
 import { availabilityByModel } from "@/server/availability";
 import { getSettings } from "@/server/settings";
 import { querySaleCars } from "@/server/sales";
-import { CAMPAIGNS } from "@/content/campaigns";
+import { activeCampaigns } from "@/content/campaigns";
 import { DAMAGE_EXCESS, excessSummary } from "@/content/damage-excess";
 import { localizedRentalInfo } from "@/content/rental-info";
 import { guide } from "@/content/guide";
@@ -250,7 +250,7 @@ const IMPL: Record<string, (input: unknown, ctx: ToolContext) => Promise<ToolRes
       fuel: { policy: "Prepaid fuel: the car is handed over with a set amount of fuel, paid in advance in cash; it can be returned empty; no refund for remaining fuel. Amount per model: get_vehicle_details." },
       cancellation_payment: { cancellation: T.cancellation, payment: T.payment },
       included: { includes: T.includes },
-      campaigns: { campaigns: CAMPAIGNS.map((c) => ({ models: c.models, minDays: c.minDays, freeDays: c.freeDays })), note: "Applied automatically by the booking engine; not combined with long-rental discounts." },
+      campaigns: { campaigns: activeCampaigns().map((c) => ({ models: c.models, minDays: c.minDays, freeDays: c.freeDays, validForRentalsStartingUntil: c.validUntil })), note: "Applied automatically by the booking engine; not combined with long-rental discounts." },
       hours_contact: { hours: SITE.hours, phone: SITE.phone, phone2: SITE.phone2, whatsapp: SITE.whatsapp, email: SITE.email, address: `${SITE.address.street}, ${SITE.address.locality}, ${SITE.address.region}, ${SITE.address.country}`, contactPage: path(ctx.locale, "/contact") },
       osk_contact: {
         company: "OSK Auto by Karaçay",

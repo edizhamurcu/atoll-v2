@@ -82,7 +82,7 @@ export async function search(params: { pickupAt: Date; returnAt: Date; pickupLoc
         pickupFee: pickup.pickupFee.toString(),
         returnFee: ret.returnFee.toString(),
         deliveryTiers: zone ? (zone.tiers as { minDays: number; fee: string }[]) : null,
-        campaigns: campaignsFor(m.slug),
+        campaigns: campaignsFor(m.slug, params.pickupAt),
         rules: settings,
       });
     } catch (e) {
