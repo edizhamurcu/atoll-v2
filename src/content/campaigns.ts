@@ -12,8 +12,9 @@ export type Campaign = { code: string; models: readonly string[] | "all"; minDay
 export const CAMPAIGNS: readonly Campaign[] = [
   {
     code: "week_1_day_free",
-    // Economy, Mid-size, SUV, 7+ seats, Luxury: the most widely available model of each class
-    models: ["nissan-note", "nissan-juke", "suzuki-vitara", "toyota-sienta-1-5", "mercedes-c200"],
+    // Economy, Mid-size, SUV, 7+ seats, Luxury: the most widely available model of each class;
+    // Hyundai ix35 added by the owner on 2026-11-16
+    models: ["nissan-note", "nissan-juke", "suzuki-vitara", "toyota-sienta-1-5", "mercedes-c200", "hyundai-ix35"],
     minDays: 7,
     freeDays: 1,
   },

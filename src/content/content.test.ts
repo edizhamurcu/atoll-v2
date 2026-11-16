@@ -255,7 +255,7 @@ describe("weekly offer: one car per class (owner, 2026-11-11)", () => {
     const { CAMPAIGNS, campaignsFor, campaignFor } = await import("./campaigns");
     expect(CAMPAIGNS).toHaveLength(1);
     expect(CAMPAIGNS[0]).toMatchObject({ code: "week_1_day_free", minDays: 7, freeDays: 1 });
-    for (const slug of ["nissan-note", "nissan-juke", "suzuki-vitara", "toyota-sienta-1-5", "mercedes-c200"]) expect(campaignFor(slug)).not.toBeNull();
+    for (const slug of ["nissan-note", "nissan-juke", "suzuki-vitara", "toyota-sienta-1-5", "mercedes-c200", "hyundai-ix35"]) expect(campaignFor(slug)).not.toBeNull();
     for (const slug of ["bmw-520d", "hyundai-i30", "toyota-vitz", "mazda-carol"]) expect(campaignsFor(slug)).toEqual([]);
   });
   it("results show the normal daily rate (not the discounted average) and no stock counter", () => {
