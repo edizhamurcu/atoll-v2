@@ -32,7 +32,7 @@ async function Guard({ children }: { children: React.ReactNode }) {
         <div className="flex items-center justify-between p-4 md:block">
           <Link href="/admin"><Image src="/brand/atoll-logo.png" alt="Atoll" width={318} height={141} className="h-10 w-auto" /></Link>
           <nav aria-label="Yönetim" className="flex gap-1 overflow-x-auto md:mt-8 md:flex-col">
-            {NAV.map(([href, label]) => (
+            {NAV.filter(([href]) => admin.role === "owner" || href !== "/admin/assistant").map(([href, label]) => (
               <Link key={href} href={href} className="whitespace-nowrap rounded-lg px-3 py-2 text-sm font-medium text-ink-soft hover:bg-stone hover:text-ink">{label}</Link>
             ))}
           </nav>

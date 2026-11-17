@@ -704,6 +704,22 @@
     "pointWhere": "Alsancak, Girne, im selben Gebäude wie Atoll Rent A Car.",
     "whyTitle": "So funktioniert es",
     "otherServices": "Weitere Leistungen",
-    "viewService": "Mehr erfahren"
+    "viewService": "Mehr erfahren",
+    "hubEyebrow": "OSK Auto by Karaçay · Alsancak, Girne",
+    "chipAny": "Alle Marken und Modelle",
+    "chipQueue": "Verfolgung mit Wartenummer",
+    "chipBuilding": "Im selben Gebäude wie Atoll Rent A Car",
+    "servicesTitle": "Unsere Leistungen",
+    "processTitle": "So läuft es ab",
+    "step1T": "Anfrageformular",
+    "step1D": "Schildern Sie online Ihr Fahrzeug und Ihr Anliegen.",
+    "step2T": "Wartenummer",
+    "step2D": "Ihre Anfrage wird gespeichert, Sie erhalten eine Wartenummer.",
+    "step3T": "Termin und Arbeiten",
+    "step3D": "Unser Team ruft Sie an und plant die Arbeiten ein.",
+    "step4T": "Übergabe",
+    "step4D": "Verfolgen Sie den Status mit Ihrer Nummer, bis das Auto fertig ist.",
+    "ctaTitle": "Servicetermin anfragen",
+    "ctaText": "Formular ausfüllen, Wartenummer erhalten und die Anfrage jederzeit verfolgen."
   }
 }

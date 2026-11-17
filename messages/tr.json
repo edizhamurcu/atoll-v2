@@ -704,6 +704,22 @@
     "pointWhere": "Girne Alsancak'ta, Atoll Rent A Car ile aynı binada.",
     "whyTitle": "Nasıl çalışır",
     "otherServices": "Diğer hizmetler",
-    "viewService": "Detaylar"
+    "viewService": "Detaylar",
+    "hubEyebrow": "OSK Auto by Karaçay · Alsancak, Girne",
+    "chipAny": "Tüm marka ve modeller",
+    "chipQueue": "Sıra numarası ile takip",
+    "chipBuilding": "Atoll Rent A Car ile aynı binada",
+    "servicesTitle": "Hizmetlerimiz",
+    "processTitle": "Süreç nasıl işler?",
+    "step1T": "Talep formu",
+    "step1D": "Aracınızı ve ihtiyacınızı online bildirin.",
+    "step2T": "Sıra numarası",
+    "step2D": "Talebiniz kaydedilir, size bir sıra numarası verilir.",
+    "step3T": "Randevu ve işlem",
+    "step3D": "Ekibimiz sizi arar, işlem takvime alınır.",
+    "step4T": "Teslim",
+    "step4D": "Aracınız hazır olunca durumu numaranızla görürsünüz.",
+    "ctaTitle": "Servis randevusu oluşturun",
+    "ctaText": "Formu doldurun, sıra numaranızı alın ve talebinizi dilediğiniz zaman takip edin."
   }
 }

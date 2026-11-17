@@ -1,3 +1,4 @@
+import { notFound } from "next/navigation";
 import { Suspense } from "react";
 import Link from "next/link";
 import { requireAdmin } from "@/server/admin/auth";
@@ -26,6 +27,7 @@ export default function AssistantAdmin() {
 
 async function Inner() {
   const admin = await requireAdmin();
+  if (admin.role !== "owner") notFound();
   const o = await assistantOverview();
   const c = o.status.cfg;
   const owner = admin.role === "owner";

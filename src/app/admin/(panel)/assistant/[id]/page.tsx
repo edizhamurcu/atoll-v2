@@ -14,7 +14,8 @@ export default function TranscriptPage(props: { params: Promise<{ id: string }> 
 }
 
 async function Inner({ params }: { params: Promise<{ id: string }> }) {
-  await requireAdmin();
+  const admin = await requireAdmin();
+  if (admin.role !== "owner") notFound();
   const s = await transcript((await params).id);
   if (!s) notFound();
   return (

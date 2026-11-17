@@ -1,12 +1,11 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getTranslations } from "next-intl/server";
-import { Link } from "@/i18n/navigation";
 import { routing } from "@/i18n/routing";
 import { seo } from "@/lib/seo";
 import { Breadcrumbs } from "@/components/breadcrumbs";
 import { JsonLd } from "@/components/json-ld";
-import { ServiceIcon } from "@/components/service-icons";
+import { ServiceIcon, ServiceMenu } from "@/components/service-icons";
 import { ServiceCta } from "@/components/service-cta";
 import { SERVICE_COPY, SERVICE_PAGES, servicePage } from "@/content/car-service";
 import { SITE } from "@/lib/site";
@@ -35,12 +34,12 @@ export default async function CarServicePage({ params }: PageProps<"/[locale]/ca
   const [t, n] = await Promise.all([getTranslations({ locale, namespace: "service" }), getTranslations({ locale, namespace: "nav" })]);
   const l = locale as "en" | "tr" | "de" | "ru";
   const c = SERVICE_COPY[p.kind][l];
-  const others = SERVICE_PAGES.filter((o) => o.slug !== p.slug);
   return (
     <article className="mx-auto max-w-6xl px-5 pt-8" lang={locale}>
       <Breadcrumbs locale={locale} items={[{ name: "Atoll Rent A Car", href: "/" }, { name: n("carSales"), href: "/car-sales" }, { name: t("hubTitle"), href: "/car-service" }, { name: c.h1, href: `/car-service/${p.slug}` }]} />
-      <header className="mt-6 flex items-start gap-4">
-        <span className="grid size-14 shrink-0 place-items-center rounded-full bg-gold/25"><ServiceIcon kind={p.kind} className="size-8" /></span>
+      <ServiceMenu current={p.slug} className="mt-6" />
+      <header className="mt-8 flex items-start gap-4">
+        <span className="grid size-16 shrink-0 place-items-center rounded-2xl bg-ink text-gold"><ServiceIcon kind={p.kind} className="size-9" /></span>
         <div>
           <h1 className="text-4xl font-extrabold md:text-5xl">{c.h1}</h1>
           <p className="mt-4 max-w-prose text-xl text-ink-soft">{c.lead}</p>
@@ -55,18 +54,6 @@ export default async function CarServicePage({ params }: PageProps<"/[locale]/ca
           <li className="border-l-2 border-gold/70 pl-4">{t("pointWhere")}</li>
         </ul>
         <ServiceCta className="mt-6" />
-      </section>
-      <section className="mt-12" aria-labelledby="others">
-        <h2 id="others" className="text-2xl font-bold">{t("otherServices")}</h2>
-        <ul className="mt-4 flex flex-wrap gap-3">
-          {others.map((o) => (
-            <li key={o.slug}>
-              <Link href={`/car-service/${o.slug}`} className="inline-flex items-center gap-2 rounded-full border border-gold/40 bg-white px-4 py-2 font-semibold hover:border-gold">
-                <ServiceIcon kind={o.kind} className="size-5" />{t(`kinds.${o.kind}`)}
-              </Link>
-            </li>
-          ))}
-        </ul>
       </section>
       <JsonLd data={{
         "@context": "https://schema.org", "@type": "Service", name: c.h1, description: c.desc, url: `${SITE.url}/${locale}/car-service/${p.slug}`, areaServed: { "@type": "City", name: "Girne (Kyrenia)" }, serviceType: SERVICE_COPYTYPE(p.kind),
