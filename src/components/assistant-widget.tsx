@@ -196,10 +196,10 @@ export function AssistantLauncher({ phone, waHref }: { phone: string; waHref: st
         onClick={() => setOpen((o) => !o)}
         aria-expanded={open}
         aria-controls="assistant-panel"
-        className="inline-flex h-12 items-center gap-2 rounded-full bg-aegean pl-3.5 pr-4 text-sm font-semibold text-white shadow-[0_10px_30px_-8px_rgba(13,52,64,.55)] transition-transform hover:scale-[1.03] focus-visible:outline-offset-4 motion-reduce:transition-none max-[359px]:size-12 max-[359px]:justify-center max-[359px]:p-0"
+        className="inline-flex h-12 items-center gap-2 rounded-full bg-aegean pl-3.5 pr-4 text-sm font-semibold text-white shadow-[0_10px_30px_-8px_rgba(13,52,64,.55)] transition-transform hover:scale-[1.03] focus-visible:outline-offset-4 motion-reduce:transition-none max-lg:size-11 max-lg:justify-center max-lg:p-0"
       >
         <Spark />
-        <span className="max-[359px]:sr-only">{t("label")}</span>
+        <span className="max-lg:sr-only">{t("label")}</span>
       </button>
 
       {open && createPortal(

@@ -56,7 +56,7 @@ function Floating({ l, path }: { l: Labels; path: string }) {
   const sale = path.startsWith("/car-sales");
   const wa = sale ? l.waSaleHref : l.waHref;
   return (
-    <div className="fixed bottom-24 right-4 z-20 flex flex-col items-end gap-3 lg:bottom-6 lg:right-6">
+    <div className="fixed bottom-24 right-4 z-20 flex flex-col items-end gap-2 lg:gap-3 lg:bottom-6 lg:right-6">
       <AssistantLauncher phone={l.phone} waHref={wa} />
       <a
         href={wa}
@@ -64,9 +64,9 @@ function Floating({ l, path }: { l: Labels; path: string }) {
         rel="noopener"
         aria-label={l.whatsapp}
         title={l.whatsapp}
-        className="grid size-14 place-items-center rounded-full bg-[#25d366] text-white shadow-[0_10px_30px_-8px_rgba(13,52,64,.55)] transition-transform hover:scale-105 motion-reduce:transition-none"
+        className="grid size-11 place-items-center lg:size-14 rounded-full bg-[#25d366] text-white shadow-[0_10px_30px_-8px_rgba(13,52,64,.55)] transition-transform hover:scale-105 motion-reduce:transition-none"
       >
-        <WhatsAppIcon className="size-8" />
+        <WhatsAppIcon className="size-6 lg:size-8" />
       </a>
     </div>
   );

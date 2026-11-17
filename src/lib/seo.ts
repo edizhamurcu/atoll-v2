@@ -8,8 +8,15 @@ export const DESC_MAX = 160;
 export const DEFAULT_OG = { url: "/brand/og.png", width: 1200, height: 630, alt: "Atoll Rent A Car — car rental in North Cyprus" };
 
 /** Keeps the brand suffix only when the whole title still fits in a search result (~65 chars). */
+export const TITLE_ABS_MAX = 70;
 export function seoTitle(t: string): Metadata["title"] {
-  return t.length + SUFFIX.length <= TITLE_MAX || t.includes(BRAND) ? t : { absolute: t };
+  if (t.length + SUFFIX.length <= TITLE_MAX || t.includes(BRAND)) return t;
+  if (t.length <= TITLE_ABS_MAX) return { absolute: t };
+  // Editorial headline too long for a <title>: keep the part before the colon (the h1 keeps the full text).
+  const head = t.split(/\s*[:–—]\s/)[0].trim();
+  if (head.length >= 20 && head.length <= TITLE_ABS_MAX) return { absolute: head };
+  const cut = t.slice(0, TITLE_ABS_MAX + 1);
+  return { absolute: cut.slice(0, cut.lastIndexOf(" ")).replace(/[\s,.;:–-]+$/, "") };
 }
 
 /** Meta description of at most DESC_MAX characters, cut at a word boundary. */
