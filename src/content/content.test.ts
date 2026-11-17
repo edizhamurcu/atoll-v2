@@ -354,3 +354,34 @@ describe("travel pages (South Cyprus guide, Driving in South Cyprus)", async () 
     });
   }
 });
+
+describe("OSK after-sales service requests (owner, 2026-11-17)", () => {
+  it("queue numbers are shown as S-<n> and parsed from S-1001, s1001 or 1001", async () => {
+    const { formatQueueNo, parseQueueNo } = await import("./service");
+    expect(formatQueueNo(1001)).toBe("S-1001");
+    for (const x of ["S-1001", "s1001", " 1001 ", "S- 1001"]) expect(parseQueueNo(x), x).toBe(1001);
+    for (const x of ["", "S-", "12", "abc", "S-10x1", "1001; drop"]) expect(parseQueueNo(x), x).toBeNull();
+  });
+  it("covers mechanical, body, paint, electrical and wash; mails go to manager@ and info@", async () => {
+    const { SERVICE_KINDS, SERVICE_NOTIFY_DEFAULT } = await import("./service");
+    expect([...SERVICE_KINDS]).toEqual(["MECHANICAL", "BODY", "PAINT", "ELECTRICAL", "WASH"]);
+    expect(SERVICE_NOTIFY_DEFAULT).toEqual(["manager@atollrentacar.com", "info@atollrentacar.com"]);
+  });
+  it("service copy exists in every language with the same keys, and the form sits in the after-sales section", () => {
+    const keys = (o: unknown, p = ""): string[] => Object.entries(o as Record<string, unknown>).flatMap(([k, v]) => (v && typeof v === "object" ? keys(v, `${p}${k}.`) : [`${p}${k}`])).sort();
+    const en = keys(JSON.parse(readFileSync("messages/en.json", "utf8")).service);
+    for (const l of ["tr", "de", "ru"]) expect(keys(JSON.parse(readFileSync(`messages/${l}.json`, "utf8")).service), l).toEqual(en);
+    const page = readFileSync("src/app/[locale]/car-sales/page.tsx", "utf8");
+    expect(page.indexOf('id="after"')).toBeLessThan(page.indexOf("<ServiceRequestForm"));
+    expect(readFileSync("src/server/route-exists.ts", "utf8")).toContain('"service"');
+  });
+  it("staff e-mail carries the queue number, customer, vehicle and services", async () => {
+    const { serviceRequestEmail, customerServiceEmail } = await import("../server/email-templates");
+    const m = serviceRequestEmail({ queueNo: "S-1001", name: "Ali Veli", phone: "+90 533 000 00 00", email: "a@b.co", vehicleMake: "Audi A3", vehiclePlate: "ABC123", vehicleYear: 2018, boughtFromOsk: true, services: ["Paint", "Car wash"], details: "Scratch on the door", preferredDate: "2026-12-01", locale: "tr", createdAt: new Date("2026-11-17T08:00:00Z") });
+    expect(m.subject).toContain("S-1001");
+    for (const x of ["Ali Veli", "+90 533 000 00 00", "ABC123", "Audi A3", "Paint; Car wash", "Scratch on the door", "Bought from OSK Auto : Yes"]) expect(m.text).toContain(x);
+    const c = customerServiceEmail({ queueNo: "S-1001", name: "Ali", locale: "ru" }, "https://x/ru/service/1001");
+    expect(c.text).toContain("S-1001");
+    expect(c.text).toContain("https://x/ru/service/1001");
+  });
+});

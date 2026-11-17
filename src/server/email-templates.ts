@@ -228,3 +228,40 @@ export function customerBookingEmail(b: BookingMail, o: { link: string | null; p
   ].join("\n");
   return { subject: fill(T.subject, { ref: b.ref, car }), text };
 }
+
+/* ---------------- OSK service requests ---------------- */
+
+export type ServiceRequestMail = {
+  queueNo: string; name: string; phone: string; email: string | null; vehicleMake: string; vehiclePlate: string; vehicleYear: number | null;
+  boughtFromOsk: boolean; services: string[]; details: string | null; preferredDate: string | null; locale: string; createdAt: Date;
+};
+
+/** Staff e-mail (to manager@ and info@) with the whole form and the customer's details. */
+export function serviceRequestEmail(r: ServiceRequestMail) {
+  const subject = `[OSK service] ${r.queueNo} – ${r.services.join(", ")} – ${r.vehiclePlate} – ${r.name}`;
+  const text = [
+    `New service request from the OSK Auto after-sales form`,
+    `Queue number: ${r.queueNo}`,
+    "",
+    section("Customer", rows([["Name", r.name], ["Phone", r.phone], ["E-mail", r.email], ["Language", LANG[r.locale] ?? r.locale], ["Received", fmtDate(r.createdAt)]])),
+    "",
+    section("Vehicle", rows([["Make / model", r.vehicleMake], ["Plate", r.vehiclePlate], ["Year", r.vehicleYear], ["Bought from OSK Auto", r.boughtFromOsk ? "Yes" : "No"]])),
+    "",
+    section("Service", rows([["Services", r.services.join("; ")], ["Preferred date", r.preferredDate]]) + (r.details?.trim() ? `\n\n${r.details.trim()}` : "")),
+    footer([`Update the status (the customer sees it on the tracking page): ${SITE_URL}/admin/service`, ...(r.email ? [`Reply to this e-mail to answer ${r.name} (${r.email}).`] : [`Call ${r.name}: ${r.phone}`])]),
+  ].join("\n");
+  return { subject, text, replyTo: r.email ?? undefined };
+}
+
+const CUSTOMER_COPY: Record<string, { subject: (no: string) => string; hello: (n: string) => string; body: (no: string) => string; track: string; sign: string }> = {
+  en: { subject: (no) => `Your OSK Auto service request ${no}`, hello: (n) => `Hello ${n},`, body: (no) => `We received your service request. Your queue number is ${no}. Please keep it: you can follow the progress with this number.`, track: "Follow your request:", sign: "OSK Auto by Karaçay" },
+  tr: { subject: (no) => `OSK Auto servis talebiniz ${no}`, hello: (n) => `Merhaba ${n},`, body: (no) => `Servis talebinizi aldık. Sıra numaranız ${no}. Lütfen saklayın: bu numara ile talebinizin durumunu takip edebilirsiniz.`, track: "Talebinizi takip edin:", sign: "OSK Auto by Karaçay" },
+  de: { subject: (no) => `Ihre OSK-Auto-Serviceanfrage ${no}`, hello: (n) => `Guten Tag ${n},`, body: (no) => `Wir haben Ihre Serviceanfrage erhalten. Ihre Wartenummer lautet ${no}. Bitte bewahren Sie sie auf: Mit dieser Nummer können Sie den Stand Ihrer Anfrage verfolgen.`, track: "Anfrage verfolgen:", sign: "OSK Auto by Karaçay" },
+  ru: { subject: (no) => `Ваша заявка на сервис OSK Auto ${no}`, hello: (n) => `Здравствуйте, ${n}!`, body: (no) => `Мы получили вашу заявку на обслуживание. Ваш номер очереди — ${no}. Сохраните его: по этому номеру можно следить за ходом работ.`, track: "Следить за заявкой:", sign: "OSK Auto by Karaçay" },
+};
+
+/** Confirmation to the customer in their language (only when they left an e-mail address). */
+export function customerServiceEmail(r: { queueNo: string; name: string; locale: string }, link: string) {
+  const c = CUSTOMER_COPY[r.locale] ?? CUSTOMER_COPY.en;
+  return { subject: c.subject(r.queueNo), text: [c.hello(r.name), "", c.body(r.queueNo), "", `${c.track} ${link}`, "", c.sign].join("\n") };
+}

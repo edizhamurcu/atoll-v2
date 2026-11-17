@@ -7,6 +7,7 @@ import { getTranslations } from "next-intl/server";
 import { Breadcrumbs } from "@/components/breadcrumbs";
 import { JsonLd } from "@/components/json-ld";
 import { Link } from "@/i18n/navigation";
+import { ServiceRequestForm, ServiceTrackForm } from "@/components/service-request-form";
 import { SaleStockSection } from "@/components/sale-stock-section";
 import { SITE, telLink, waLink } from "@/lib/site";
 import { routing } from "@/i18n/routing";
@@ -38,7 +39,7 @@ export async function generateMetadata({ params }: PageProps<"/[locale]/car-sale
 
 export default async function CarSalesPage({ params }: PageProps<"/[locale]/car-sales">) {
   const { locale } = await params;
-  const [s, h] = await Promise.all([getTranslations("sales"), getTranslations("home")]);
+  const [s, h, sv] = await Promise.all([getTranslations("sales"), getTranslations("home"), getTranslations("service")]);
   return (
     <div className="mx-auto max-w-6xl px-5 pt-8">
       <Breadcrumbs locale={locale} items={[{ name: "Atoll Rent A Car", href: "/" }, { name: s("title"), href: "/car-sales" }]} />
@@ -103,6 +104,15 @@ export default async function CarSalesPage({ params }: PageProps<"/[locale]/car-
             </li>
           ))}
         </ul>
+
+        <div id="service-request" className="mt-12 scroll-mt-28">
+          <h3 className="text-2xl font-extrabold">{sv("title")}</h3>
+          <p className="mt-2 max-w-prose text-lg text-ink-soft">{sv("lead")}</p>
+          <div className="mt-6 grid items-start gap-6 lg:grid-cols-[3fr_2fr]">
+            <ServiceRequestForm />
+            <ServiceTrackForm />
+          </div>
+        </div>
       </section>
 
       <JsonLd

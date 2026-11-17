@@ -11,6 +11,7 @@ const NAV = [
   ["/admin/calendar", "Takvim"],
   ["/admin/fleet", "Filo"],
   ["/admin/reviews", "Yorumlar"],
+  ["/admin/service", "Servis"],
   ["/admin/sales", "Satılık araçlar"],
   ["/admin/assistant", "Asistan"],
 ] as const;

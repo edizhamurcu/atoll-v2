@@ -528,3 +528,47 @@ model ChatRequest {
   @@index([status, createdAt])
   @@index([sessionId])
 }
+
+enum ServiceKind {
+  MECHANICAL
+  BODY
+  PAINT
+  ELECTRICAL
+  WASH
+}
+
+enum ServiceStatus {
+  RECEIVED
+  SCHEDULED
+  IN_PROGRESS
+  READY
+  DELIVERED
+  CANCELLED
+}
+
+/// OSK after-sales: service request from the Car Sales page (any vehicle, ours or not). `queueNo` is the public queue/tracking number.
+model ServiceRequest {
+  id             String        @id @default(cuid())
+  /// Public queue number (starts at 1001), shown to the customer and used on /service/<no>
+  queueNo        Int           @unique @default(autoincrement())
+  name           String
+  phone          String
+  email          String?
+  vehicleMake    String
+  vehiclePlate   String
+  vehicleYear    Int?
+  boughtFromOsk  Boolean       @default(false)
+  services       ServiceKind[]
+  details        String?
+  preferredDate  DateTime?     @db.Date
+  locale         String        @default("en")
+  ip             String?
+  status         ServiceStatus @default(RECEIVED)
+  /// Message to the customer, visible on the tracking page (staff writes it, any language)
+  publicNote     String?
+  emailedAt      DateTime?     @db.Timestamptz(6)
+  createdAt      DateTime      @default(now()) @db.Timestamptz(6)
+  updatedAt      DateTime      @updatedAt @db.Timestamptz(6)
+
+  @@index([status, createdAt])
+}

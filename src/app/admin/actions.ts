@@ -141,6 +141,18 @@ export async function reviewDecisionAction(f: FormData) {
   refresh();
 }
 
+/* ---------- OSK service requests ---------- */
+
+export async function serviceUpdateAction(f: FormData) {
+  const a = await requireAdmin();
+  const id = z.string().min(5).max(40).parse(f.get("id"));
+  const status = z.enum(["RECEIVED", "SCHEDULED", "IN_PROGRESS", "READY", "DELIVERED", "CANCELLED"]).parse(f.get("status"));
+  const note = z.string().trim().max(1000).parse(f.get("publicNote") ?? "");
+  const r = await db.serviceRequest.update({ where: { id }, data: { status, publicNote: note || null } });
+  await audit(a.id, `service:${status}`, "ServiceRequest", r.id);
+  refresh();
+}
+
 /* ---------- OSK sales stock ---------- */
 
 const saleData = (f: FormData) => {
