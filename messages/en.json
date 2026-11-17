@@ -422,8 +422,8 @@
     "showroomDesc": "New and used cars",
     "stock": "Ask for stock and prices",
     "stockDesc": "We'll tell you what's available today",
-    "service": "After-sales service",
-    "serviceDesc": "Mechanical, body and paint, auto electrics, car wash",
+    "service": "Service reservation",
+    "serviceDesc": "Mechanical, body and paint, auto electrics, car wash: book online",
     "whatsapp": "Message us on WhatsApp",
     "guideDesc": "Places to go and tips",
     "southDesc": "What to know before crossing south",
@@ -616,9 +616,9 @@
     }
   },
   "service": {
-    "title": "Service request",
+    "title": "Service reservation",
     "lead": "Mechanical service, body work, paint, auto electrics or a car wash: for cars bought from OSK Auto and for any other car. Fill in the form, get a queue number and follow your request with it.",
-    "formTitle": "Request service online",
+    "formTitle": "Book your service online",
     "name": "Your name",
     "phone": "Phone (WhatsApp if possible)",
     "email": "E-mail (optional)",
@@ -640,7 +640,7 @@
     "details": "Describe the problem or what you need",
     "detailsPh": "E.g. strange noise from the front, dent on the rear door, full interior clean…",
     "preferred": "Preferred date (optional)",
-    "send": "Get my queue number",
+    "send": "Reserve and get my queue number",
     "sending": "Sending…",
     "error": "We could not send your request. Please try again or call us.",
     "noLinks": "Please remove links from the text.",
@@ -682,6 +682,10 @@
       "DELIVERED": "Your vehicle has been handed over. Thank you!",
       "CANCELLED": "This request was cancelled."
     },
-    "metaTitle": "Service request – OSK Auto"
+    "metaTitle": "Service request – OSK Auto",
+    "reserveCta": "Book a service",
+    "trackCta": "Track my request",
+    "homeTitle": "Service, body, paint, electrics and car wash",
+    "homeLead": "Book online for any vehicle, ours or not. You get a queue number and can follow your request with it."
   }
 }

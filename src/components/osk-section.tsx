@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
+import { ServiceIconLinks } from "@/components/service-icons";
 
 const IMG = "/media/osk";
 const THUMBS = [
@@ -11,7 +12,7 @@ const THUMBS = [
 
 /** Home page: OSK Auto (sister company in the same building) — sales, workshop, body shop, car wash. */
 export async function OskSection() {
-  const [h, s, n] = await Promise.all([getTranslations("home"), getTranslations("sales"), getTranslations("nav")]);
+  const [h, s, n, sv] = await Promise.all([getTranslations("home"), getTranslations("sales"), getTranslations("nav"), getTranslations("service")]);
   const services = [
     ["oskSales", "oskSalesText"],
     ["oskWorkshop", "oskWorkshopText"],
@@ -51,7 +52,16 @@ export async function OskSection() {
               </div>
             ))}
           </dl>
-          <div className="mt-8 flex flex-wrap gap-3">
+          <div className="mt-8 rounded-2xl bg-gold/10 p-4 sm:p-5">
+            <h3 className="text-lg font-extrabold">{sv("homeTitle")}</h3>
+            <p className="mt-1 text-sm text-ink-soft">{sv("homeLead")}</p>
+            <ServiceIconLinks className="mt-4" />
+            <div className="mt-4 flex flex-wrap gap-3">
+              <Link href="/car-sales#service-request" className="btn-ink">{sv("reserveCta")}</Link>
+              <Link href="/car-sales#service-track" className="btn-quiet">{sv("trackCta")}</Link>
+            </div>
+          </div>
+          <div className="mt-6 flex flex-wrap gap-3">
             <Link href="/car-sales" className="btn-primary">{h("oskCta")}</Link>
             <Link href="/about-us" className="btn-quiet">{h("oskAbout")}</Link>
           </div>

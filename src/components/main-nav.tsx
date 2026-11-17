@@ -49,7 +49,7 @@ function items(l: NavLabels) {
   const sale: Item[] = [
     { href: "/car-sales#gallery", title: l.showroom, desc: l.showroomDesc, icon: "store" },
     { href: "/car-sales#stock", title: l.stock, desc: l.stockDesc, icon: "search" },
-    { href: "/car-sales#after", title: l.service, desc: l.serviceDesc, icon: "wrench" },
+    { href: "/car-sales#service-request", title: l.service, desc: l.serviceDesc, icon: "wrench" },
     { href: l.waSaleHref, title: l.whatsapp, desc: l.phone, icon: "chat", external: true },
   ];
   const discover: Item[] = [

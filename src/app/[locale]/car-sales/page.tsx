@@ -7,6 +7,7 @@ import { getTranslations } from "next-intl/server";
 import { Breadcrumbs } from "@/components/breadcrumbs";
 import { JsonLd } from "@/components/json-ld";
 import { Link } from "@/i18n/navigation";
+import { ServiceIconLinks } from "@/components/service-icons";
 import { ServiceRequestForm, ServiceTrackForm } from "@/components/service-request-form";
 import { SaleStockSection } from "@/components/sale-stock-section";
 import { SITE, telLink, waLink } from "@/lib/site";
@@ -51,6 +52,7 @@ export default async function CarSalesPage({ params }: PageProps<"/[locale]/car-
           <div className="mt-7 flex flex-wrap gap-3">
             <a href={telLink(SITE.phone)} className="btn-primary">{s("callCta", { phone: SITE.phone })}</a>
             <a href={waLink(s("waText"))} className="btn-wa" target="_blank" rel="noopener"><WhatsAppIcon />{s("waCta")}</a>
+            <a href="#service-request" className="btn-ink">{sv("reserveCta")}</a>
           </div>
         </div>
         <Image src={`${IMG}/showroom-mercedes.webp`} alt={s("imgAlt.mercedes")} width={1440} height={1080} priority sizes="(min-width: 1024px) 600px, 100vw" className="aspect-[4/3] w-full rounded-2xl object-cover" />
@@ -108,9 +110,10 @@ export default async function CarSalesPage({ params }: PageProps<"/[locale]/car-
         <div id="service-request" className="mt-12 scroll-mt-28">
           <h3 className="text-2xl font-extrabold">{sv("title")}</h3>
           <p className="mt-2 max-w-prose text-lg text-ink-soft">{sv("lead")}</p>
+          <ServiceIconLinks className="mt-5" />
           <div className="mt-6 grid items-start gap-6 lg:grid-cols-[3fr_2fr]">
             <ServiceRequestForm />
-            <ServiceTrackForm />
+            <div id="service-track" className="scroll-mt-28"><ServiceTrackForm /></div>
           </div>
         </div>
       </section>

@@ -422,8 +422,8 @@
     "showroomDesc": "Neu- und Gebrauchtwagen",
     "stock": "Bestand und Preise erfragen",
     "stockDesc": "Wir sagen Ihnen, was heute verfügbar ist",
-    "service": "Service nach dem Kauf",
-    "serviceDesc": "Mechanik, Karosserie und Lack, Autoelektrik, Autowäsche",
+    "service": "Service-Reservierung",
+    "serviceDesc": "Mechanik, Karosserie und Lack, Autoelektrik, Autowäsche: online reservieren",
     "whatsapp": "Per WhatsApp schreiben",
     "guideDesc": "Ausflugsziele und Tipps",
     "southDesc": "Was Sie vor der Fahrt in den Süden wissen sollten",
@@ -616,9 +616,9 @@
     }
   },
   "service": {
-    "title": "Serviceanfrage",
+    "title": "Service-Reservierung",
     "lead": "Mechanischer Service, Karosserie, Lack, Autoelektrik oder Autowäsche: für bei OSK Auto gekaufte Fahrzeuge und für jedes andere Auto. Formular ausfüllen, Wartenummer erhalten und die Anfrage damit verfolgen.",
-    "formTitle": "Service online anfragen",
+    "formTitle": "Service online reservieren",
     "name": "Ihr Name",
     "phone": "Telefon (möglichst WhatsApp)",
     "email": "E-Mail (optional)",
@@ -640,7 +640,7 @@
     "details": "Beschreiben Sie das Problem oder Ihren Bedarf",
     "detailsPh": "Z. B. Geräusch vorne, Delle an der hinteren Tür, Innenreinigung …",
     "preferred": "Wunschtermin (optional)",
-    "send": "Wartenummer erhalten",
+    "send": "Reservieren und Wartenummer erhalten",
     "sending": "Wird gesendet …",
     "error": "Ihre Anfrage konnte nicht gesendet werden. Bitte versuchen Sie es erneut oder rufen Sie uns an.",
     "noLinks": "Bitte entfernen Sie Links aus dem Text.",
@@ -682,6 +682,10 @@
       "DELIVERED": "Ihr Fahrzeug wurde übergeben. Vielen Dank!",
       "CANCELLED": "Diese Anfrage wurde storniert."
     },
-    "metaTitle": "Serviceanfrage – OSK Auto"
+    "metaTitle": "Serviceanfrage – OSK Auto",
+    "reserveCta": "Service reservieren",
+    "trackCta": "Meine Anfrage verfolgen",
+    "homeTitle": "Service, Karosserie, Lack, Elektrik und Autowäsche",
+    "homeLead": "Reservieren Sie online für jedes Fahrzeug, ob von uns oder nicht. Sie erhalten eine Wartenummer und können Ihre Anfrage damit verfolgen."
   }
 }

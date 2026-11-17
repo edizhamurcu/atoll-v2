@@ -375,6 +375,12 @@ describe("OSK after-sales service requests (owner, 2026-11-17)", () => {
     expect(page.indexOf('id="after"')).toBeLessThan(page.indexOf("<ServiceRequestForm"));
     expect(readFileSync("src/server/route-exists.ts", "utf8")).toContain('"service"');
   });
+  it("service reservation is linked with icons from the home page, the Car Sales page, the menu and the footer", () => {
+    expect(readFileSync("src/components/osk-section.tsx", "utf8")).toContain("<ServiceIconLinks");
+    expect(readFileSync("src/app/[locale]/car-sales/page.tsx", "utf8")).toContain("<ServiceIconLinks");
+    expect(readFileSync("src/components/main-nav.tsx", "utf8")).toContain("/car-sales#service-request");
+    expect(readFileSync("src/components/site-footer.tsx", "utf8")).toContain("/car-sales#service-request");
+  });
   it("staff e-mail carries the queue number, customer, vehicle and services", async () => {
     const { serviceRequestEmail, customerServiceEmail } = await import("../server/email-templates");
     const m = serviceRequestEmail({ queueNo: "S-1001", name: "Ali Veli", phone: "+90 533 000 00 00", email: "a@b.co", vehicleMake: "Audi A3", vehiclePlate: "ABC123", vehicleYear: 2018, boughtFromOsk: true, services: ["Paint", "Car wash"], details: "Scratch on the door", preferredDate: "2026-12-01", locale: "tr", createdAt: new Date("2026-11-17T08:00:00Z") });

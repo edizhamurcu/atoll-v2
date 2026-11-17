@@ -22,7 +22,7 @@ export async function SiteFooter() {
   const sale: [string, string][] = [
     ["/car-sales#gallery", m("showroom")],
     ["/car-sales#stock", m("stock")],
-    ["/car-sales#after", m("service")],
+    ["/car-sales#service-request", m("service")],
   ];
   const discover: [string, string][] = [
     ["/north-cyprus-guide", n("guide")],

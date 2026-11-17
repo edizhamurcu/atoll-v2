@@ -422,8 +422,8 @@
     "showroomDesc": "Yeni ve ikinci el araçlar",
     "stock": "Stok ve fiyat sorun",
     "stockDesc": "Bugün mevcut olanları söyleyelim",
-    "service": "Satış sonrası servis",
-    "serviceDesc": "Mekanik, kaporta-boya, oto elektrik, yıkama",
+    "service": "Servis rezervasyonu",
+    "serviceDesc": "Mekanik, kaporta-boya, oto elektrik, yıkama: online rezervasyon",
     "whatsapp": "WhatsApp'tan yazın",
     "guideDesc": "Gezilecek yerler ve ipuçları",
     "southDesc": "Güney'e geçerken bilmeniz gerekenler",
@@ -616,9 +616,9 @@
     }
   },
   "service": {
-    "title": "Servis talebi",
+    "title": "Servis rezervasyonu",
     "lead": "Mekanik servis, kaporta, boya, oto elektrik veya araç yıkama: OSK Auto'dan aldığınız araçlar ve diğer tüm araçlar için. Formu doldurun, sıra numaranızı alın ve bu numara ile talebinizi takip edin.",
-    "formTitle": "Online servis talebi",
+    "formTitle": "Servis rezervasyonunuzu online yapın",
     "name": "Adınız soyadınız",
     "phone": "Telefon (mümkünse WhatsApp)",
     "email": "E-posta (isteğe bağlı)",
@@ -640,7 +640,7 @@
     "details": "Sorunu veya ihtiyacınızı anlatın",
     "detailsPh": "Örn. ön taraftan ses geliyor, arka kapıda göçük var, iç temizlik…",
     "preferred": "Tercih ettiğiniz tarih (isteğe bağlı)",
-    "send": "Sıra numaramı al",
+    "send": "Rezervasyon yap ve sıra numaramı al",
     "sending": "Gönderiliyor…",
     "error": "Talebiniz gönderilemedi. Lütfen tekrar deneyin veya bizi arayın.",
     "noLinks": "Lütfen metinden bağlantıları çıkarın.",
@@ -682,6 +682,10 @@
       "DELIVERED": "Aracınız teslim edildi. Teşekkürler!",
       "CANCELLED": "Bu talep iptal edildi."
     },
-    "metaTitle": "Servis talebi – OSK Auto"
+    "metaTitle": "Servis talebi – OSK Auto",
+    "reserveCta": "Servis rezervasyonu yap",
+    "trackCta": "Talebimi takip et",
+    "homeTitle": "Servis, kaporta, boya, elektrik ve yıkama",
+    "homeLead": "Bizden aldığınız ya da başka her araç için online rezervasyon yapın. Sıra numaranızı alın ve bununla talebinizi takip edin."
   }
 }
