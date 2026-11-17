@@ -183,9 +183,9 @@ describe("contact details (owner corrections 2026-11-09)", () => {
     expect(SITE.address.street).toBe("157 Karaoğlanoğlu Caddesi");
     for (const l of ["en", "tr", "de", "ru"]) expect(JSON.parse(readFileSync(`messages/${l}.json`, "utf8")).footer.address).toMatch(/^157 Karaoğlanoğlu/);
   });
-  it("language lines sit under the contact details: RU/TR 0539 102 57 57, EN 0539 103 61 61 (owner, 2026-11-17)", async () => {
+  it("language lines sit under the contact details: RU/TR 0539 102 57 57, EN 0539 103 61 66 (owner, 2026-11-17)", async () => {
     const { LANGUAGE_LINES } = await import("@/lib/site");
-    expect(LANGUAGE_LINES.map((l) => l.phone)).toEqual(["+90 539 102 57 57", "+90 539 103 61 61"]);
+    expect(LANGUAGE_LINES.map((l) => l.phone)).toEqual(["+90 539 102 57 57", "+90 539 103 61 66"]);
     expect(readFileSync("src/components/site-footer.tsx", "utf8")).toContain("<LanguageLines");
     expect(readFileSync("src/app/[locale]/contact/page.tsx", "utf8")).toContain("<LanguageLines");
   });
