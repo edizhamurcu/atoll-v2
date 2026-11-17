@@ -17,7 +17,7 @@ export const SITE = {
   /** Social profiles linked from the WordPress footer (2026-11-10). YouTube: no channel known yet; the icon appears once a URL is set. */
   social: {
     instagram: "https://www.instagram.com/osk_auto_atoll_rent_car/",
-    facebook: "https://www.facebook.com/atollrentacar",
+    facebook: "https://www.facebook.com/ali.karacay.146",
     youtube: "",
   },
   /** Rental terms (from /rental-terms, /driving-in-south-cyprus, /extra-insurance, /fuel-options, /delivery-charges). */
