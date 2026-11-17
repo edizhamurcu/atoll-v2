@@ -4,7 +4,7 @@ import { Link, usePathname } from "@/i18n/navigation";
 import { WhatsAppIcon } from "@/components/whatsapp-icon";
 import { AssistantLauncher } from "@/components/assistant-widget";
 
-type Labels = { find: string; whatsapp: string; waHref: string; waSaleHref: string; phone: string };
+type Labels = { find: string; whatsapp: string; waHref: string; waSaleHref: string; phone: string; service: string };
 
 /** Pages with their own bottom bar or a form that needs the whole screen. */
 const HIDE = [/^\/cars\/[^/]+$/, /^\/booking(\/|$)/];
@@ -37,10 +37,10 @@ function Bar({ l, path }: { l: Labels; path: string }) {
         className={`fixed inset-x-0 bottom-0 z-20 border-t border-ink/10 bg-paper/95 px-4 pb-[max(0.75rem,env(safe-area-inset-bottom))] pt-3 shadow-[0_-12px_30px_-20px_rgba(13,52,64,.5)] backdrop-blur transition-transform duration-200 motion-reduce:transition-none lg:hidden ${show ? "translate-y-0" : "pointer-events-none translate-y-full"}`}
       >
         <div className="mx-auto flex max-w-xl items-center gap-3">
-          <Link href="/#search" tabIndex={show ? 0 : -1} className="btn-primary flex-1 justify-center !py-3">{l.find}</Link>
-          <a href={sale ? l.waSaleHref : l.waHref} rel="noopener" tabIndex={show ? 0 : -1} className="inline-flex flex-1 items-center justify-center gap-2 rounded-full border border-[#1f8f4e]/30 bg-[#e8f5ed] px-4 py-3 font-semibold text-[#14653a]">
+          <Link href="/#search" tabIndex={show ? 0 : -1} className="btn-primary min-w-0 flex-1 justify-center !px-3 !py-3">{l.find}</Link>
+          <Link href="/car-sales#service-request" tabIndex={show ? 0 : -1} className="btn-ink min-w-0 flex-1 justify-center !px-3 !py-3">{l.service}</Link>
+          <a href={sale ? l.waSaleHref : l.waHref} rel="noopener" tabIndex={show ? 0 : -1} aria-label={l.whatsapp} className="inline-flex shrink-0 items-center justify-center rounded-full border border-[#1f8f4e]/30 bg-[#e8f5ed] px-4 py-3 font-semibold text-[#14653a]">
             <WhatsAppIcon />
-            {l.whatsapp}
           </a>
         </div>
       </div>

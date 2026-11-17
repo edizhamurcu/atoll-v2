@@ -5,6 +5,7 @@ import { routing } from "@/i18n/routing";
 import { SITE } from "@/lib/site";
 import { posts } from "@/content/blog";
 import { translatedLocales } from "@/content/page-i18n";
+import { SERVICE_PAGES } from "@/content/car-service";
 import { MERGED_INTO } from "@/content/page-merge";
 
 /** Last edit of code-defined page content (home, contact). Bump when those texts change. */
@@ -36,6 +37,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...localized("/cars", fleetUpdated, 0.9, "daily"),
     ...localized("/car-prices", fleetUpdated, 0.8, "weekly"),
     ...localized("/car-sales", latest(lastSale?.updatedAt), 0.7, "weekly"),
+    ...localized("/car-service", new Date("2026-11-17"), 0.7, "monthly"),
+    ...SERVICE_PAGES.flatMap((p) => localized(`/car-service/${p.slug}`, new Date("2026-11-17"), 0.6, "monthly")),
     ...localized("/contact", SITE_CONTENT_UPDATED, 0.6, "monthly"),
     ...models.flatMap((m) => localized(`/cars/${m.slug}`, m.updatedAt, 0.8, "weekly")),
     ...localized("/north-cyprus-guide", new Date("2026-11-08"), 0.8, "monthly"),

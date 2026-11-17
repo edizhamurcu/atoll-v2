@@ -432,7 +432,10 @@
     "general": "More pages",
     "rentGroup": "Rental cars menu",
     "saleGroup": "Cars for sale menu",
-    "southGuideDesc": "Places to visit in the south"
+    "southGuideDesc": "Places to visit in the south",
+    "serviceNew": "New",
+    "serviceShort": "Service",
+    "serviceHub": "Services: body, paint, electrics, wash"
   },
   "campaign": {
     "tag": "Offer",
@@ -686,6 +689,21 @@
     "reserveCta": "Book a service",
     "trackCta": "Track my request",
     "homeTitle": "Service, body, paint, electrics and car wash",
-    "homeLead": "Book online for any vehicle, ours or not. You get a queue number and can follow your request with it."
+    "homeLead": "Book online for any vehicle, ours or not. You get a queue number and can follow your request with it.",
+    "hubTitle": "OSK Auto service in Girne",
+    "hubLead": "Mechanical service, body repair, paint, auto electrics and car wash in Alsancak, for the cars we sell and for any other car.",
+    "hubMeta": "OSK Auto service in Alsancak, Girne: mechanical repair, body work, paint, auto electrics and car wash. Reserve online and follow with a queue number.",
+    "hubMetaTitle": "Car service in Girne – OSK Auto",
+    "waCta": "Ask about service on WhatsApp",
+    "waText": "Hello, I would like to ask about service for my car.",
+    "bannerTitle": "Service for your car, in the same building",
+    "bannerText": "Mechanical service, body work, paint, auto electrics and car wash at OSK Auto. Reserve online and get a queue number.",
+    "bannerCta": "Service reservation",
+    "pointAny": "For cars bought from OSK Auto and for any other make and model.",
+    "pointBook": "Reserve online, get a queue number and follow your request.",
+    "pointWhere": "Alsancak, Girne, in the same building as Atoll Rent A Car.",
+    "whyTitle": "How it works",
+    "otherServices": "Other services",
+    "viewService": "Read more"
   }
 }

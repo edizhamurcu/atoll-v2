@@ -111,6 +111,7 @@ export default async function CarSalesPage({ params }: PageProps<"/[locale]/car-
           <h3 className="text-2xl font-extrabold">{sv("title")}</h3>
           <p className="mt-2 max-w-prose text-lg text-ink-soft">{sv("lead")}</p>
           <ServiceIconLinks className="mt-5" />
+          <p className="mt-4"><a href={waLink(sv("waText"))} className="btn-wa" target="_blank" rel="noopener"><WhatsAppIcon />{sv("waCta")}</a> <Link href="/car-service" className="ml-2 font-semibold text-bougain underline-offset-2 hover:underline">{sv("viewService")}</Link></p>
           <div className="mt-6 grid items-start gap-6 lg:grid-cols-[3fr_2fr]">
             <ServiceRequestForm />
             <div id="service-track" className="scroll-mt-28"><ServiceTrackForm /></div>

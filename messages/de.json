@@ -432,7 +432,10 @@
     "general": "Weitere Seiten",
     "rentGroup": "Menü Mietwagen",
     "saleGroup": "Menü Autos zu verkaufen",
-    "southGuideDesc": "Sehenswertes im Süden"
+    "southGuideDesc": "Sehenswertes im Süden",
+    "serviceNew": "Neu",
+    "serviceShort": "Service",
+    "serviceHub": "Leistungen: Karosserie, Lack, Elektrik, Wäsche"
   },
   "campaign": {
     "tag": "Angebot",
@@ -686,6 +689,21 @@
     "reserveCta": "Service reservieren",
     "trackCta": "Meine Anfrage verfolgen",
     "homeTitle": "Service, Karosserie, Lack, Elektrik und Autowäsche",
-    "homeLead": "Reservieren Sie online für jedes Fahrzeug, ob von uns oder nicht. Sie erhalten eine Wartenummer und können Ihre Anfrage damit verfolgen."
+    "homeLead": "Reservieren Sie online für jedes Fahrzeug, ob von uns oder nicht. Sie erhalten eine Wartenummer und können Ihre Anfrage damit verfolgen.",
+    "hubTitle": "OSK-Auto-Service in Girne",
+    "hubLead": "Mechanischer Service, Karosserie, Lack, Autoelektrik und Autowäsche in Alsancak, für unsere verkauften Autos und jedes andere Auto.",
+    "hubMeta": "OSK-Auto-Service in Alsancak, Girne: mechanische Reparatur, Karosserie, Lack, Autoelektrik und Autowäsche. Online reservieren und mit Wartenummer verfolgen.",
+    "hubMetaTitle": "Autoservice in Girne – OSK Auto",
+    "waCta": "Service per WhatsApp anfragen",
+    "waText": "Guten Tag, ich möchte mich zum Service für mein Auto erkundigen.",
+    "bannerTitle": "Service für Ihr Auto, im selben Gebäude",
+    "bannerText": "Mechanischer Service, Karosserie, Lack, Autoelektrik und Autowäsche bei OSK Auto. Online reservieren und Wartenummer erhalten.",
+    "bannerCta": "Service reservieren",
+    "pointAny": "Für bei OSK Auto gekaufte Autos und für jede andere Marke und jedes andere Modell.",
+    "pointBook": "Online reservieren, Wartenummer erhalten und die Anfrage verfolgen.",
+    "pointWhere": "Alsancak, Girne, im selben Gebäude wie Atoll Rent A Car.",
+    "whyTitle": "So funktioniert es",
+    "otherServices": "Weitere Leistungen",
+    "viewService": "Mehr erfahren"
   }
 }

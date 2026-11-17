@@ -8,6 +8,7 @@ import { CarGallery } from "@/components/car-gallery";
 import { BookingPanel } from "@/components/booking-panel";
 import { StickyBookBar } from "@/components/sticky-book-bar";
 import { CampaignBanner } from "@/components/campaign";
+import { ServiceBanner } from "@/components/service-cta";
 import { SearchSection, SearchSkeleton } from "@/components/search-section";
 import { money } from "@/lib/search-params";
 import type { Metadata } from "next";
@@ -125,6 +126,7 @@ async function CarDetail({ params }: { params: PageProps<"/[locale]/cars/[slug]"
           <h2 className="text-2xl font-bold">{t("bookPanel")}</h2>
           <p className="mt-1 text-ink-soft">{t("from", { price: money(m.dailyRate, locale), abl: trAblative(m.dailyRate) })}</p>
           <div className="mt-4"><CampaignBanner slug={slug} /></div>
+          <div className="mt-4"><ServiceBanner /></div>
           <div className="mt-4">
             <Suspense fallback={<SearchSkeleton />}>
               <SearchSection locale={locale} target={`/cars/${slug}`} stacked />

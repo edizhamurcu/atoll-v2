@@ -381,6 +381,20 @@ describe("OSK after-sales service requests (owner, 2026-11-17)", () => {
     expect(readFileSync("src/components/main-nav.tsx", "utf8")).toContain("/car-sales#service-request");
     expect(readFileSync("src/components/site-footer.tsx", "utf8")).toContain("/car-sales#service-request");
   });
+  it("service pages: 5 slugs x 4 languages with copy, in the sitemap and the route list; mobile bar and rental pages link to the reservation", async () => {
+    const { SERVICE_PAGES, SERVICE_COPY } = await import("./car-service");
+    expect(SERVICE_PAGES.map((p) => p.slug)).toEqual(["mechanical-repair", "body-repair", "paint", "auto-electrics", "car-wash"]);
+    for (const p of SERVICE_PAGES) for (const l of ["en", "tr", "de", "ru"] as const) {
+      const c = SERVICE_COPY[p.kind][l];
+      for (const v of [c.h1, c.title, c.desc, c.lead, c.what]) expect(v.length, `${p.slug} ${l}`).toBeGreaterThan(10);
+      expect(c.desc.length, `${p.slug} ${l} desc`).toBeLessThanOrEqual(160);
+    }
+    expect(readFileSync("src/server/route-exists.ts", "utf8")).toContain('"car-service"');
+    expect(readFileSync("src/app/sitemap.ts", "utf8")).toContain("/car-service");
+    expect(readFileSync("src/components/mobile-action-bar.tsx", "utf8")).toContain("/car-sales#service-request");
+    expect(readFileSync("src/app/[locale]/cars/[slug]/page.tsx", "utf8")).toContain("<ServiceBanner");
+    expect(readFileSync("src/app/[locale]/cars/page.tsx", "utf8")).toContain("<ServiceBanner");
+  });
   it("staff e-mail carries the queue number, customer, vehicle and services", async () => {
     const { serviceRequestEmail, customerServiceEmail } = await import("../server/email-templates");
     const m = serviceRequestEmail({ queueNo: "S-1001", name: "Ali Veli", phone: "+90 533 000 00 00", email: "a@b.co", vehicleMake: "Audi A3", vehiclePlate: "ABC123", vehicleYear: 2018, boughtFromOsk: true, services: ["Paint", "Car wash"], details: "Scratch on the door", preferredDate: "2026-12-01", locale: "tr", createdAt: new Date("2026-11-17T08:00:00Z") });

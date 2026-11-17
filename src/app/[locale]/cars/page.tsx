@@ -9,6 +9,7 @@ import type { Locale } from "@/server/catalog";
 import { getFleet } from "@/server/queries";
 import { JsonLd } from "@/components/json-ld";
 import { SITE } from "@/lib/site";
+import { ServiceBanner } from "@/components/service-cta";
 
 export async function generateMetadata({ params }: PageProps<"/[locale]/cars">): Promise<Metadata> {
   const { locale } = await params;
@@ -35,6 +36,7 @@ export default async function CarsPage({ params, searchParams }: PageProps<"/[lo
           <FleetJsonLd locale={locale} />
         </Suspense>
       </div>
+      <div className="mt-12"><ServiceBanner /></div>
     </div>
   );
 }

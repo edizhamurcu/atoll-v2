@@ -15,13 +15,13 @@ export type NavLabels = Record<
   | "rentCars" | "carSales" | "aboutUs" | "contactUs" | "carPrices" | "rentalTerms" | "specialOffers" | "agreement"
   | "guide" | "southGuide" | "drivingSouth" | "blog" | "home" | "menu" | "close" | "discover" | "rentPitch" | "rentCta" | "fleet"
   | "fleetDesc" | "pricesDesc" | "termsDesc" | "offersDesc" | "agreementDesc" | "salePitch" | "saleCta" | "showroom"
-  | "showroomDesc" | "stock" | "stockDesc" | "service" | "serviceDesc" | "whatsapp" | "guideDesc" | "southGuideDesc" | "southDesc"
+  | "showroomDesc" | "stock" | "stockDesc" | "service" | "serviceDesc" | "serviceNew" | "serviceHub" | "serviceShort" | "whatsapp" | "guideDesc" | "southGuideDesc" | "southDesc"
   | "blogDesc" | "call" | "general" | "rentGroup" | "saleGroup" | "phone" | "telHref" | "waHref" | "waSaleHref",
   string
 >;
 
 type Group = "rent" | "sale" | "discover";
-type Item = { href: string; title: string; desc?: string; icon: IconName; external?: boolean };
+type Item = { href: string; title: string; desc?: string; icon: IconName; external?: boolean; badge?: string };
 
 const RENT_IMG = "/media/2026/08/image_2026-08-24_143333064-atoll-r2.webp";
 const SALE_IMG = "/media/osk/showroom-mercedes.webp";
@@ -49,7 +49,8 @@ function items(l: NavLabels) {
   const sale: Item[] = [
     { href: "/car-sales#gallery", title: l.showroom, desc: l.showroomDesc, icon: "store" },
     { href: "/car-sales#stock", title: l.stock, desc: l.stockDesc, icon: "search" },
-    { href: "/car-sales#service-request", title: l.service, desc: l.serviceDesc, icon: "wrench" },
+    { href: "/car-sales#service-request", title: l.service, desc: l.serviceDesc, icon: "wrench", badge: l.serviceNew },
+    { href: "/car-service", title: l.serviceHub, icon: "wrench" },
     { href: l.waSaleHref, title: l.whatsapp, desc: l.phone, icon: "chat", external: true },
   ];
   const discover: Item[] = [
@@ -222,7 +223,7 @@ function ItemList({ items, tone, onPick }: { items: Item[]; tone: Group; onPick:
           <>
             <span className={`grid size-10 shrink-0 place-items-center rounded-xl transition-transform motion-safe:group-hover:-rotate-6 ${tile}`}><Icon name={it.icon} /></span>
             <span className="min-w-0">
-              <span className="block font-semibold text-ink">{it.title}</span>
+              <span className="block font-semibold text-ink">{it.title}{it.badge && <span className="ml-2 rounded-full bg-bougain px-2 py-0.5 align-middle text-[0.65rem] font-bold uppercase tracking-wide text-white">{it.badge}</span>}</span>
               {it.desc && <span className="block text-sm leading-snug text-ink-soft">{it.desc}</span>}
             </span>
           </>

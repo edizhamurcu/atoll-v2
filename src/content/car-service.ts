@@ -1,0 +1,47 @@
+import type { ServiceKindKey } from "./service";
+
+/** OSK Auto service pages (/car-service and /car-service/<slug>). Copy states only what OSK offers: the five service types, any vehicle, online reservation. */
+export const SERVICE_PAGES: { slug: string; kind: ServiceKindKey }[] = [
+  { slug: "mechanical-repair", kind: "MECHANICAL" },
+  { slug: "body-repair", kind: "BODY" },
+  { slug: "paint", kind: "PAINT" },
+  { slug: "auto-electrics", kind: "ELECTRICAL" },
+  { slug: "car-wash", kind: "WASH" },
+];
+export const servicePage = (slug: string) => SERVICE_PAGES.find((p) => p.slug === slug);
+
+type Copy = { h1: string; title: string; desc: string; lead: string; what: string };
+type Locale = "en" | "tr" | "de" | "ru";
+
+export const SERVICE_COPY: Record<ServiceKindKey, Record<Locale, Copy>> = {
+  MECHANICAL: {
+    en: { h1: "Mechanical service and repair in Girne", title: "Mechanical service and repair in Girne", desc: "Mechanical service and repair for any car at OSK Auto in Alsancak, Girne. Reserve online and follow your request with a queue number.", lead: "OSK Auto's workshop in Alsancak, Girne takes care of mechanical service and repair for the cars we sell and for any other make.", what: "Describe the problem in the form. Our team looks at the car and contacts you to agree the work." },
+    tr: { h1: "Girne'de mekanik servis ve onarım", title: "Girne'de mekanik servis ve onarım", desc: "Girne Alsancak'taki OSK Auto'da her araç için mekanik servis ve onarım. Online rezervasyon yapın, sıra numaranızla takip edin.", lead: "OSK Auto'nun Girne Alsancak'taki atölyesi, sattığımız araçlar ve diğer tüm markalar için mekanik servis ve onarım yapar.", what: "Sorunu formda anlatın. Ekibimiz aracı inceler ve yapılacak işi konuşmak için sizinle iletişime geçer." },
+    de: { h1: "Mechanischer Service und Reparatur in Girne", title: "Mechanischer Service und Reparatur in Girne", desc: "Mechanischer Service und Reparatur für jedes Auto bei OSK Auto in Alsancak, Girne. Online reservieren und mit Wartenummer verfolgen.", lead: "Die Werkstatt von OSK Auto in Alsancak, Girne übernimmt mechanischen Service und Reparaturen für die von uns verkauften Autos und für jede andere Marke.", what: "Beschreiben Sie das Problem im Formular. Unser Team sieht sich das Auto an und meldet sich, um die Arbeiten abzustimmen." },
+    ru: { h1: "Механический сервис и ремонт в Гирне", title: "Механический сервис и ремонт в Гирне", desc: "Механический сервис и ремонт любых автомобилей в OSK Auto, Алсанджак, Гирне. Запишитесь онлайн и следите по номеру очереди.", lead: "Мастерская OSK Auto в Алсанджаке (Гирне) выполняет механический сервис и ремонт автомобилей, проданных нами, и любых других марок.", what: "Опишите проблему в форме. Наша команда осмотрит автомобиль и свяжется с вами, чтобы согласовать работы." },
+  },
+  BODY: {
+    en: { h1: "Body repair (kaporta) in Girne", title: "Body repair (kaporta) in Girne", desc: "Body repair for any car at OSK Auto in Alsancak, Girne. Reserve online and follow your request with a queue number.", lead: "OSK Auto repairs car bodies in Alsancak, Girne, for the cars we sell and for any other make.", what: "Tell us what happened and when you can bring the car. Our team contacts you to agree the work." },
+    tr: { h1: "Girne'de kaporta onarımı", title: "Girne'de kaporta onarımı", desc: "Girne Alsancak'taki OSK Auto'da her araç için kaporta onarımı. Online rezervasyon yapın, sıra numaranızla takip edin.", lead: "OSK Auto, Girne Alsancak'ta sattığımız araçların ve diğer tüm markaların kaporta onarımını yapar.", what: "Ne olduğunu ve aracı ne zaman getirebileceğinizi yazın. Ekibimiz yapılacak işi konuşmak için sizinle iletişime geçer." },
+    de: { h1: "Karosseriereparatur in Girne", title: "Karosseriereparatur in Girne", desc: "Karosseriereparatur für jedes Auto bei OSK Auto in Alsancak, Girne. Online reservieren und mit Wartenummer verfolgen.", lead: "OSK Auto repariert in Alsancak, Girne Karosserien der von uns verkauften Autos und jeder anderen Marke.", what: "Schreiben Sie uns, was passiert ist und wann Sie das Auto bringen können. Unser Team meldet sich, um die Arbeiten abzustimmen." },
+    ru: { h1: "Кузовной ремонт в Гирне", title: "Кузовной ремонт в Гирне", desc: "Кузовной ремонт любых автомобилей в OSK Auto, Алсанджак, Гирне. Запишитесь онлайн и следите по номеру очереди.", lead: "OSK Auto выполняет кузовной ремонт в Алсанджаке (Гирне) для проданных нами автомобилей и любых других марок.", what: "Напишите, что случилось и когда вы сможете привезти автомобиль. Наша команда свяжется с вами, чтобы согласовать работы." },
+  },
+  PAINT: {
+    en: { h1: "Car paint in Girne", title: "Car paint in Girne", desc: "Car painting for any car at OSK Auto in Alsancak, Girne. Reserve online and follow your request with a queue number.", lead: "OSK Auto paints cars in Alsancak, Girne, whether you bought yours from us or not.", what: "Describe the area and the colour in the form. Our team contacts you to agree the work." },
+    tr: { h1: "Girne'de araç boyası", title: "Girne'de araç boyası", desc: "Girne Alsancak'taki OSK Auto'da her araç için boya. Online rezervasyon yapın, sıra numaranızla takip edin.", lead: "OSK Auto, Girne Alsancak'ta aracı bizden alsanız da almasanız da boya yapar.", what: "Formda boyanacak bölgeyi ve rengi yazın. Ekibimiz yapılacak işi konuşmak için sizinle iletişime geçer." },
+    de: { h1: "Autolackierung in Girne", title: "Autolackierung in Girne", desc: "Lackierung für jedes Auto bei OSK Auto in Alsancak, Girne. Online reservieren und mit Wartenummer verfolgen.", lead: "OSK Auto lackiert Autos in Alsancak, Girne, egal ob Sie Ihres bei uns gekauft haben oder nicht.", what: "Beschreiben Sie im Formular den Bereich und die Farbe. Unser Team meldet sich, um die Arbeiten abzustimmen." },
+    ru: { h1: "Покраска автомобиля в Гирне", title: "Покраска автомобиля в Гирне", desc: "Покраска любых автомобилей в OSK Auto, Алсанджак, Гирне. Запишитесь онлайн и следите по номеру очереди.", lead: "OSK Auto красит автомобили в Алсанджаке (Гирне), независимо от того, купили вы его у нас или нет.", what: "Укажите в форме участок и цвет. Наша команда свяжется с вами, чтобы согласовать работы." },
+  },
+  ELECTRICAL: {
+    en: { h1: "Auto electrics in Girne", title: "Auto electrics in Girne", desc: "Auto electrical repair for any car at OSK Auto in Alsancak, Girne. Reserve online and follow your request with a queue number.", lead: "OSK Auto handles auto electrics in Alsancak, Girne, for the cars we sell and for any other make.", what: "Describe the fault in the form. Our team looks at the car and contacts you to agree the work." },
+    tr: { h1: "Girne'de oto elektrik", title: "Girne'de oto elektrik", desc: "Girne Alsancak'taki OSK Auto'da her araç için oto elektrik onarımı. Online rezervasyon yapın, sıra numaranızla takip edin.", lead: "OSK Auto, Girne Alsancak'ta sattığımız araçların ve diğer tüm markaların oto elektrik işlerini yapar.", what: "Arızayı formda anlatın. Ekibimiz aracı inceler ve yapılacak işi konuşmak için sizinle iletişime geçer." },
+    de: { h1: "Autoelektrik in Girne", title: "Autoelektrik in Girne", desc: "Autoelektrik-Reparatur für jedes Auto bei OSK Auto in Alsancak, Girne. Online reservieren und mit Wartenummer verfolgen.", lead: "OSK Auto übernimmt in Alsancak, Girne die Autoelektrik für die von uns verkauften Autos und jede andere Marke.", what: "Beschreiben Sie den Fehler im Formular. Unser Team sieht sich das Auto an und meldet sich, um die Arbeiten abzustimmen." },
+    ru: { h1: "Автоэлектрика в Гирне", title: "Автоэлектрика в Гирне", desc: "Ремонт автоэлектрики любых автомобилей в OSK Auto, Алсанджак, Гирне. Запишитесь онлайн и следите по номеру очереди.", lead: "OSK Auto занимается автоэлектрикой в Алсанджаке (Гирне) для проданных нами автомобилей и любых других марок.", what: "Опишите неисправность в форме. Наша команда осмотрит автомобиль и свяжется с вами, чтобы согласовать работы." },
+  },
+  WASH: {
+    en: { h1: "Car wash in Girne", title: "Car wash in Girne", desc: "Car wash for any car at OSK Auto in Alsancak, Girne. Reserve online and follow your request with a queue number.", lead: "OSK Auto washes cars in Alsancak, Girne, in the same building as Atoll Rent A Car.", what: "Choose car wash in the form and tell us when you plan to come." },
+    tr: { h1: "Girne'de araç yıkama", title: "Girne'de araç yıkama", desc: "Girne Alsancak'taki OSK Auto'da her araç için yıkama. Online rezervasyon yapın, sıra numaranızla takip edin.", lead: "OSK Auto, Atoll Rent A Car ile aynı binada, Girne Alsancak'ta araç yıkama hizmeti verir.", what: "Formda araç yıkamayı seçin ve ne zaman geleceğinizi yazın." },
+    de: { h1: "Autowäsche in Girne", title: "Autowäsche in Girne", desc: "Autowäsche für jedes Auto bei OSK Auto in Alsancak, Girne. Online reservieren und mit Wartenummer verfolgen.", lead: "OSK Auto wäscht Autos in Alsancak, Girne, im selben Gebäude wie Atoll Rent A Car.", what: "Wählen Sie im Formular Autowäsche und teilen Sie uns mit, wann Sie kommen möchten." },
+    ru: { h1: "Мойка автомобиля в Гирне", title: "Мойка автомобиля в Гирне", desc: "Мойка любых автомобилей в OSK Auto, Алсанджак, Гирне. Запишитесь онлайн и следите по номеру очереди.", lead: "OSK Auto моет автомобили в Алсанджаке (Гирне), в том же здании, что и Atoll Rent A Car.", what: "Выберите в форме мойку и напишите, когда планируете приехать." },
+  },
+};

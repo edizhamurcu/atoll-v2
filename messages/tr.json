@@ -432,7 +432,10 @@
     "general": "Diğer sayfalar",
     "rentGroup": "Kiralık araç menüsü",
     "saleGroup": "Satılık araç menüsü",
-    "southGuideDesc": "Güney'de gezilecek yerler"
+    "southGuideDesc": "Güney'de gezilecek yerler",
+    "serviceNew": "Yeni",
+    "serviceShort": "Servis",
+    "serviceHub": "Hizmetler: kaporta, boya, elektrik, yıkama"
   },
   "campaign": {
     "tag": "Kampanya",
@@ -686,6 +689,21 @@
     "reserveCta": "Servis rezervasyonu yap",
     "trackCta": "Talebimi takip et",
     "homeTitle": "Servis, kaporta, boya, elektrik ve yıkama",
-    "homeLead": "Bizden aldığınız ya da başka her araç için online rezervasyon yapın. Sıra numaranızı alın ve bununla talebinizi takip edin."
+    "homeLead": "Bizden aldığınız ya da başka her araç için online rezervasyon yapın. Sıra numaranızı alın ve bununla talebinizi takip edin.",
+    "hubTitle": "Girne'de OSK Auto servis",
+    "hubLead": "Alsancak'ta mekanik servis, kaporta, boya, oto elektrik ve araç yıkama: sattığımız araçlar ve diğer tüm araçlar için.",
+    "hubMeta": "Girne Alsancak'ta OSK Auto servis: mekanik onarım, kaporta, boya, oto elektrik ve araç yıkama. Online rezervasyon yapın, sıra numarasıyla takip edin.",
+    "hubMetaTitle": "Girne'de araç servisi – OSK Auto",
+    "waCta": "WhatsApp'tan servis sorun",
+    "waText": "Merhaba, aracım için servis hakkında bilgi almak istiyorum.",
+    "bannerTitle": "Aracınız için servis, aynı binada",
+    "bannerText": "OSK Auto'da mekanik servis, kaporta, boya, oto elektrik ve araç yıkama. Online rezervasyon yapın, sıra numaranızı alın.",
+    "bannerCta": "Servis rezervasyonu",
+    "pointAny": "OSK Auto'dan aldığınız araçlar ve diğer tüm marka ve modeller için.",
+    "pointBook": "Online rezervasyon yapın, sıra numaranızı alın ve talebinizi takip edin.",
+    "pointWhere": "Girne Alsancak'ta, Atoll Rent A Car ile aynı binada.",
+    "whyTitle": "Nasıl çalışır",
+    "otherServices": "Diğer hizmetler",
+    "viewService": "Detaylar"
   }
 }

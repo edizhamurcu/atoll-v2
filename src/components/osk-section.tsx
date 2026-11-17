@@ -2,6 +2,7 @@ import Image from "next/image";
 import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { ServiceIconLinks } from "@/components/service-icons";
+import { ServiceCta } from "@/components/service-cta";
 
 const IMG = "/media/osk";
 const THUMBS = [
@@ -56,10 +57,7 @@ export async function OskSection() {
             <h3 className="text-lg font-extrabold">{sv("homeTitle")}</h3>
             <p className="mt-1 text-sm text-ink-soft">{sv("homeLead")}</p>
             <ServiceIconLinks className="mt-4" />
-            <div className="mt-4 flex flex-wrap gap-3">
-              <Link href="/car-sales#service-request" className="btn-ink">{sv("reserveCta")}</Link>
-              <Link href="/car-sales#service-track" className="btn-quiet">{sv("trackCta")}</Link>
-            </div>
+            <ServiceCta className="mt-4" />
           </div>
           <div className="mt-6 flex flex-wrap gap-3">
             <Link href="/car-sales" className="btn-primary">{h("oskCta")}</Link>

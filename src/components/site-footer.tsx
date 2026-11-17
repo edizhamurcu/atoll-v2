@@ -23,6 +23,7 @@ export async function SiteFooter() {
     ["/car-sales#gallery", m("showroom")],
     ["/car-sales#stock", m("stock")],
     ["/car-sales#service-request", m("service")],
+    ["/car-service", m("serviceHub")],
   ];
   const discover: [string, string][] = [
     ["/north-cyprus-guide", n("guide")],
