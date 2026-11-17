@@ -16,7 +16,7 @@ export const SITE = {
   developerUrl: "https://arekanteknoloji.com",
   /** Social profiles linked from the WordPress footer (2026-11-10). YouTube: no channel known yet; the icon appears once a URL is set. */
   social: {
-    instagram: "https://www.instagram.com/atoll_rent_a_car/",
+    instagram: "https://www.instagram.com/osk_auto_atoll_rent_car/",
     facebook: "https://www.facebook.com/atollrentacar",
     youtube: "",
   },
