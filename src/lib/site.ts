@@ -12,8 +12,8 @@ export const SITE = {
   phone2: "+90 533 823 65 55",
   address: { street: "157 Karaoğlanoğlu Caddesi", locality: "Alsancak", region: "Girne (Kyrenia)", country: "North Cyprus", lat: 35.347262, lng: 33.202797, plusCode: "86W3+W43" },
   hours: "Mon - Fri: 09:00AM - 09:00PM; Saturday: 09:00AM - 07:00PM; Sunday: Closed",
-  copyright: "Atoll. Designed and Developed by Arekan Bilgi Teknolojileri Ltd.",
-  developerUrl: "https://arekanteknoloji.com",
+  copyright: "Atoll. Designed and Developed by Arekan",
+  developerUrl: "https://arekansoftware.com",
   /** Social profiles linked from the WordPress footer (2026-11-10). YouTube: no channel known yet; the icon appears once a URL is set. */
   social: {
     instagram: "https://www.instagram.com/osk_auto_atoll_rent_car/",
