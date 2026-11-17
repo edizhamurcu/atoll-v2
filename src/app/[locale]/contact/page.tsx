@@ -4,6 +4,7 @@ import { WhatsAppIcon } from "@/components/whatsapp-icon";
 import { getTranslations } from "next-intl/server";
 import { ContactForm } from "@/components/contact-form";
 import { Breadcrumbs } from "@/components/breadcrumbs";
+import { LanguageLines } from "@/components/language-lines";
 import { SITE, mapEmbedUrl, mapOpenUrl, mapDirectionsUrl, telLink, waLink } from "@/lib/site";
 
 export async function generateMetadata({ params }: PageProps<"/[locale]/contact">): Promise<Metadata> {
@@ -38,6 +39,7 @@ export default async function ContactPage({ params }: PageProps<"/[locale]/conta
             <a className="btn-wa" href={waLink(undefined, SITE.phone2)} target="_blank" rel="noopener" aria-label={`WhatsApp ${SITE.phone2}`}><WhatsAppIcon />WhatsApp</a>
             <a className="btn-quiet" href={`mailto:${SITE.email}`}>{SITE.email}</a>
           </div>
+          <LanguageLines />
           <figure className="overflow-hidden rounded-2xl border border-ink/10 bg-paper">
             <iframe
               title={t("mapTitle")}

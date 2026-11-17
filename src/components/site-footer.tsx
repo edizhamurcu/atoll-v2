@@ -2,6 +2,7 @@ import Image from "next/image";
 import { WhatsAppIcon } from "@/components/whatsapp-icon";
 import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
+import { LanguageLines } from "@/components/language-lines";
 import { SITE, SOCIAL, telLink, waLink, PHONES } from "@/lib/site";
 import { Year } from "./year";
 
@@ -128,6 +129,7 @@ export async function SiteFooter() {
             ))}
             <li><a href={`mailto:${SITE.email}`} className="hover:text-ink">{SITE.email}</a></li>
           </ul>
+          <LanguageLines className="mt-4 border-t border-ink/10 pt-3" />
         </address>
       </div>
 

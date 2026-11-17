@@ -33,6 +33,11 @@ export const SITE = {
 export const waLink = (text?: string, number: string = SITE.whatsapp) => `https://wa.me/${number.replace(/\D/g, "")}${text ? `?text=${encodeURIComponent(text)}` : ""}`;
 /** Primary first. */
 export const PHONES = [SITE.phone, SITE.phone2] as const;
+/** Language-specific phone lines (owner, 2026-11-17), listed under the contact details. Labels are native language names, so they need no translation. */
+export const LANGUAGE_LINES = [
+  { label: "Русский · Türkçe", phone: "+90 539 102 57 57" },
+  { label: "English", phone: "+90 539 103 61 61" },
+] as const;
 export const telLink = (n: string) => `tel:${n.replace(/\s/g, "")}`;
 /** Google Maps for the office, by business name + plus code 86W3+W43 (8G7M86W3+W43 = 35.347262, 33.202797). */
 const MAP_QUERY = encodeURIComponent("Atoll Rent A Car, 86W3+W43, Alsancak");
