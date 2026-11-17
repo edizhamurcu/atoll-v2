@@ -1,5 +1,6 @@
 import { db } from "@/lib/db";
 import { postSlugs } from "@/content/blog";
+import { SERVICE_PAGES } from "@/content/car-service";
 
 /** Slugs of DB-backed routes, cached briefly so the proxy can answer 404 before streaming starts. */
 let cache: { at: number; pages: Set<string>; models: Set<string> } | null = null;
@@ -25,6 +26,7 @@ export async function dbRouteExists(segments: string[]): Promise<boolean | null>
       return (await load()).pages.has(segments[0]);
     }
     if (segments.length === 2 && segments[0] === "blog") return postSlugs().has(segments[1]);
+    if (segments.length === 2 && segments[0] === "car-service") return SERVICE_PAGES.some((p) => p.slug === segments[1]);
     if (segments.length === 2 && segments[0] === "cars") return (await load()).models.has(segments[1]);
     return null;
   } catch {

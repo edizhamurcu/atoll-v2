@@ -390,6 +390,7 @@ describe("OSK after-sales service requests (owner, 2026-11-17)", () => {
       expect(c.desc.length, `${p.slug} ${l} desc`).toBeLessThanOrEqual(160);
     }
     expect(readFileSync("src/server/route-exists.ts", "utf8")).toContain('"car-service"');
+    expect(readFileSync("src/server/route-exists.ts", "utf8")).toContain('segments[0] === "car-service"');
     expect(readFileSync("src/app/sitemap.ts", "utf8")).toContain("/car-service");
     expect(readFileSync("src/components/mobile-action-bar.tsx", "utf8")).toContain("/car-sales#service-request");
     expect(readFileSync("src/app/[locale]/cars/[slug]/page.tsx", "utf8")).toContain("<ServiceBanner");
